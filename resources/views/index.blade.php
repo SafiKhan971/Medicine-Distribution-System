@@ -648,7 +648,7 @@
 		<!--/Ens clients -->
 		
 		<!-- Start Appointment -->
-		<section class="appointment">
+		<section class="appointment" id="appointment">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">

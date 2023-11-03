@@ -7,7 +7,7 @@
                     <div class="col-lg-3 col-md-3 col-12">
                         <!-- Start Logo -->
                         <div class="logo">
-                            <a href="index.html"><img src="img/logo.png" alt="#"></a>
+                            <a href="{{ url('/') }}"><img src="img/logo.png" alt="#"></a>
                         </div>
                         <!-- End Logo -->
                         <!-- Mobile Nav -->
@@ -29,8 +29,8 @@
                                     <li><a href="#">Security </a></li>
                                     <li><a href="#">About </a></li>
                                     <li><a href="#">Blogs </a></li>
-                                    <li class="mr-5"><a href="contact.html">Contact </a></li>
-                                    <li><a href="#">Schedule a Demo</a></li>
+                                    <li class="mr-5"><a href="{{ url('/contact') }}">Contact </a></li>
+                                    <li><a href="#appointment">Schedule a Demo</a></li>
                                     <li><a href="#">Login </a></li>
 
                                     {{-- <li><a href="#">Pages <i class="icofont-rounded-down"></i></a>
