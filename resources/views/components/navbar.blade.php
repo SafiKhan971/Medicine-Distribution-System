@@ -31,8 +31,11 @@
                                     <li><a href="#">Blogs </a></li>
                                     <li class="mr-5"><a href="{{ url('/contact') }}">Contact </a></li>
                                     <li><a href="#appointment">Schedule a Demo</a></li>
-                                    <li><a href="#">Login </a></li>
-
+                                    @if(auth()->check())
+                                    <li><a href="{{route('profile.edit')}}">Profile </a></li>
+                                    @else
+                                    <li><a href="{{route('login')}}">Login </a></li>
+                                    @endif
                                     {{-- <li><a href="#">Pages <i class="icofont-rounded-down"></i></a>
                                         <ul class="dropdown">
                                             <li><a href="404.html">404 Error</a></li>
