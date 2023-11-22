@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 20, 2023 at 06:57 PM
+-- Generation Time: Nov 22, 2023 at 03:46 AM
 -- Server version: 8.0.31
 -- PHP Version: 8.2.0
 
@@ -20,6 +20,53 @@ SET time_zone = "+00:00";
 --
 -- Database: `fyp`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admins`
+--
+
+DROP TABLE IF EXISTS `admins`;
+CREATE TABLE IF NOT EXISTS `admins` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `admins`
+--
+
+INSERT INTO `admins` (`id`, `name`, `email`, `password`) VALUES
+(1, 'Admin', 'admin@admin.com', '$2y$12$wsStQJpNX.3LbgR4NUYrg.JvONOna22GlAZRDIY0e9u78kUwhMar2');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `doctors`
+--
+
+DROP TABLE IF EXISTS `doctors`;
+CREATE TABLE IF NOT EXISTS `doctors` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `doctors`
+--
+
+INSERT INTO `doctors` (`id`, `name`, `email`, `password`, `created_at`, `updated_at`) VALUES
+(1, 'Regina Logan', 'nypolenak@mailinator.com', '$2y$12$N.K/8da/JouxnLGSPGRA3e9aXWqFsaLvK2D9xAtICR6p.KBYOpm4O', '2023-11-21 22:22:49', '2023-11-21 22:22:49'),
+(2, 'MacKensie Rowland', 'xejoxi@mailinator.com', '$2y$12$eXwzeQ9cGrcZ8taM4DKM5e25CxFqrrP/aXBXAuIVWqvSWdGGF7uwi', '2023-11-21 22:31:47', '2023-11-21 22:31:47');
 
 -- --------------------------------------------------------
 
@@ -112,7 +159,6 @@ CREATE TABLE IF NOT EXISTS `users` (
   `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(191) NOT NULL,
   `email` varchar(191) NOT NULL,
-  `type` int NOT NULL DEFAULT '1',
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(191) NOT NULL,
   `remember_token` varchar(100) DEFAULT NULL,
@@ -120,15 +166,17 @@ CREATE TABLE IF NOT EXISTS `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `type`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Safi Khan', 'safi@gmail.com', 1, NULL, '$2y$12$lrMbuNFNGHMzBCDVmiC3pun2CVV660.n7epXhZBugLG.nzqYIODXi', NULL, '2023-11-20 13:21:34', '2023-11-20 13:21:34'),
-(2, 'Ursula Kim', 'lexefinubu@mailinator.com', 2, NULL, '$2y$12$xsEOAIWjEz8I2hGpRKcOSuSUzaLrPHNiS7hsgYRy6fUO0i8EOw902', NULL, '2023-11-20 13:54:48', '2023-11-20 13:54:48');
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Safi Khan', 'safi@gmail.com', NULL, '$2y$12$lrMbuNFNGHMzBCDVmiC3pun2CVV660.n7epXhZBugLG.nzqYIODXi', NULL, '2023-11-20 13:21:34', '2023-11-20 13:21:34'),
+(3, 'Admin', 'admin@admin.com', NULL, '$2y$12$oaD2tuCu6E7lyeasuzGZ/exEbL2KbRWg/WaCaNQ4gjq42OVQxWGz.', NULL, '2023-11-21 16:35:46', '2023-11-21 16:35:46'),
+(4, 'Ciara Maxwell', 'leqyrigi@mailinator.com', NULL, '$2y$12$tZO9pkjzZhp1x8oEyUqjp.HJPOxXNhLg7Ms8Gpq928vG.YKqxuG.O', NULL, '2023-11-21 18:14:58', '2023-11-21 18:14:58'),
+(5, 'Lillith Nicholson', 'qixu@mailinator.com', NULL, '$2y$12$n7NfDauUw7dLfI5Nyc1ni.qEFeAdBQJiYAubAlBjB0JVUEPYf5M.y', NULL, '2023-11-21 22:34:16', '2023-11-21 22:34:16');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

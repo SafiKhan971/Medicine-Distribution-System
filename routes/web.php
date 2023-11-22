@@ -1,7 +1,10 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\ProfileController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +32,23 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+Route::get('admin/login', [AdminController::class, 'login']);
+Route::post('admin/login', [AdminController::class, 'store']);
+
+Route::get('doctor/login', [DoctorController::class, 'login']);
+Route::post('doctor/login', [DoctorController::class, 'store']);
+
+Route::get('doctor/register', [DoctorController::class, 'create']);
+Route::post('doctor/register', [DoctorController::class, 'register']);
+
+Route::get('admin/logout', [AdminController::class, 'destroy']);
+
+
+Route::group(['prefix' => 'admin', 'middleware' => 'checkUser'], function(){
+    Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+});
+
+Route::group(['prefix' => 'doctor', 'middleware' => 'checkDoctor'], function(){
+    Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+});

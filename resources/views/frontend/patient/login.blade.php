@@ -1,4 +1,5 @@
 <x-guest-layout>
+    <h2>Patient Log In</h2>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
