@@ -18,11 +18,22 @@
   <script src="{{ asset('BackEndAssets/vendor/libs/formvalidation/dist/js/plugins/Bootstrap5.min.js') }}"></script>
   <script src="{{ asset('BackEndAssets/vendor/libs/formvalidation/dist/js/plugins/AutoFocus.min.js') }}"></script>
 
+  <!-- Vendors JS -->
+  <script src="{{ asset('BackEndAssets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
+  <script src="{{ asset('BackEndAssets/vendor/libs/swiper/swiper.js') }}"></script>
+  <script src="{{ asset('BackEndAssets/vendor/libs/datatables/jquery.dataTables.js') }}"></script>
+  <script src="{{ asset('BackEndAssets/vendor/libs/datatables-bs5/datatables-bootstrap5.js') }}"></script>
+  <script src="{{ asset('BackEndAssets/vendor/libs/datatables-responsive/datatables.responsive.js') }}"></script>
+  <script src="{{ asset('BackEndAssets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.js') }}"></script>
+  <script src="{{ asset('BackEndAssets/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.js') }}"></script>
+
   <!-- Main JS -->
   <script src="{{ asset('BackEndAssets/js/main.js') }}"></script>
 
   <!-- Page JS -->
   <script src="{{ asset('BackEndAssets/js/pages-auth.js') }}"></script>
+
+  <script src="{{ asset('BackEndAssets/js/dashboards-analytics.js') }}"></script>
   </body>
 
   </html>

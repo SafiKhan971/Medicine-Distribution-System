@@ -38,11 +38,20 @@
     <link rel="stylesheet" href="{{ asset('BackEndAssets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
     <link rel="stylesheet" href="{{ asset('BackEndAssets/vendor/libs/node-waves/node-waves.css') }}" />
     <link rel="stylesheet" href="{{ asset('BackEndAssets/vendor/libs/typeahead-js/typeahead.css') }}" />
+    <link rel="stylesheet" href="{{ asset('BackEndAssets/vendor/libs/apex-charts/apex-charts.css') }}" />
+    <link rel="stylesheet" href="{{ asset('BackEndAssets/vendor/libs/swiper/swiper.css') }}" />
+    <link rel="stylesheet" href="{{ asset('BackEndAssets/vendor/libs/datatables-bs5/datatables.bootstrap5.css') }}" />
+    <link rel="stylesheet"
+        href="{{ asset('BackEndAssets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css') }}" />
+    <link rel="stylesheet"
+        href="{{ asset('BackEndAssets/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css') }}" />
+
     <!-- Vendor -->
     <link rel="stylesheet"
         href="{{ asset('BackEndAssets/vendor/libs/formvalidation/dist/css/formValidation.min.css') }}" />
 
     <!-- Page CSS -->
+    <link rel="stylesheet" href="{{ asset('BackEndAssets/vendor/css/pages/cards-advance.css') }}" />
     <!-- Page -->
     <link rel="stylesheet" href="{{ asset('BackEndAssets/vendor/css/pages/page-auth.css') }}" />
     <!-- Helpers -->
@@ -54,4 +63,4 @@
 </head>
 
 <body>
-@yield('content')
+    @yield('content')

@@ -27,10 +27,10 @@ class AdminController extends Controller
         if($admin && Hash::check($request->password, $admin->password))
         {
             request()->session()->put('admin_id', $admin->id);
-            flash('Logged In Successfully!')->success();
+            // flash('Logged In Successfully!')->success();
             return redirect()->intended(RouteServiceProvider::ADMIN_HOME);
         } else {
-            
+
         }
     }
     public function destroy(){
