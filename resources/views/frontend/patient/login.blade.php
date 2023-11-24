@@ -8,7 +8,7 @@
     <title> Mediplus | Patient Login </title>
 
     <!-- Favicon -->
-    <link rel="icon" href="img/favicon.png">
+    <link rel="icon" href="{{ asset('img/favicon.png') }}">
 
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('FrontEndAssets/css/style.css') }}">
