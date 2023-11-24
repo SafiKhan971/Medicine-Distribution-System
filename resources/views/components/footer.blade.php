@@ -132,5 +132,8 @@
 		<script src="js/bootstrap.min.js"></script>
 		<!-- Main JS -->
 		<script src="js/main.js"></script>
+		<script>
+		$('div.alert').not('.alert-important').delay(3000).fadeOut(350);
+		</script>
     </body>
 </html>

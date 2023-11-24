@@ -29,7 +29,7 @@ class GoogleAuthController extends Controller
         $authUser = $this->findOrCreateUser($user);
 
         Auth::login($authUser, true);
-
+        flash('Logged In Successfully!')->success();
         return redirect('/');
     }
 

@@ -1,5 +1,6 @@
         @include('components/header');
 		@include('components/navbar');
+		@include('flash::message');
 
 		<!-- Slider Area -->
 		<section class="slider">

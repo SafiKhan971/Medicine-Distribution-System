@@ -15,16 +15,13 @@ class DoctorController extends Controller {
         return view( 'frontend.doctor.index' );
     }
 
-    public function login() {
-        return view( 'frontend.doctor.login' );
-    }
-
     public function store( Request $request ) {
 
         $doctor = Doctor::where( 'email', $request->email )->first();
 
         if ( $doctor && Hash::check( $request->password, $doctor->password ) ) {
             request()->session()->put( 'doctor_id', $doctor->id );
+            flash( 'Logged In Successfully!' )->success();
             return redirect( 'doctor.dashboard' );
         } else {
             return redirect( 'doctor/login' )->withErrors( [ 'error' => 'Invalid Email or Password' ] );
@@ -55,13 +52,16 @@ class DoctorController extends Controller {
             $doctor->save();
 
             request()->session()->put( 'doctor_id', $doctor->id );
+            flash( 'Account Created Successfully!' )->success();
             return redirect( 'doctor/dashboard' );
         }
+
     }
 
     public function destroy() {
         session()->forget( 'doctor_id' );
-        echo 'Doctor Logged out Successfully';
+        flash( 'Logged Out Successfully!' )->success();
+        return redirect( '/' );
     }
 
 }
