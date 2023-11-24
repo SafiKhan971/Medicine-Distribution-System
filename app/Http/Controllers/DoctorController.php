@@ -25,6 +25,7 @@ class DoctorController extends Controller
         if($doctor && Hash::check($request->password, $doctor->password))
         {
             request()->session()->put('doctor_id', $doctor->id);
+            flash('Logged In Successfully!')->success();
             return redirect('doctor.dashboard');
         }
     }
@@ -41,6 +42,7 @@ class DoctorController extends Controller
         $doctor->save();
 
         request()->session()->put('doctor_id', $doctor->id);
+        flash('Account Created Successfully!')->success();
         return redirect('doctor/dashboard');
     }
 
@@ -48,7 +50,8 @@ class DoctorController extends Controller
 
     public function destroy(){
         session()->forget('doctor_id');
-        echo "Doctor Logged out Successfully";
+        flash('Logged Out Successfully!')->success();
+        return redirect('/');
     }
 
 }
