@@ -70,7 +70,7 @@
             </div>
 
             <div class="media-options">
-                <a href="#" class="field google">
+                <a href="{{ url('login/google') }}" class="field google">
                     <img src="{{ asset('FrontEndAssets/images/google.png') }}" alt="" class="google-img">
                     <span>Login with Google</span>
                 </a>
