@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Laravel\Socialite\Facades\Socialite;
 
 class GoogleAuthController extends Controller
@@ -18,12 +19,12 @@ class GoogleAuthController extends Controller
 
     public function handleGoogleCallback()
     {
-        $user = Socialite::driver('google')->user();
-
-        // You can now use $user->id, $user->name, $user->email, etc. to store user data or log in the user.
-
-        // For example, you can create a user in your database if they don't exist
-        // and log them in using Laravel's Auth facade.
+        try {
+            $user = Socialite::driver('google')->user();
+        } catch (\Exception $e) {
+            // Handle any exceptions that might occur during the socialite process
+            return redirect('/')->with('error', 'Unable to fetch user data from Google.');
+        }
 
         $authUser = $this->findOrCreateUser($user);
 
@@ -32,25 +33,20 @@ class GoogleAuthController extends Controller
         return redirect('/');
     }
 
-    private function findOrCreateUser($googleUser)
+    public function findOrCreateUser($socialiteUser)
     {
-        // Find or create a user in your database based on the Google user information.
-        // You can customize this logic based on your application's requirements.
+        $user = User::where('email', $socialiteUser->email)->first();
 
-        // Example:
-        $user = User::where('google_id', $googleUser->id)->first();
-        if (!$user) {
-            $user = User::create([
-                'name' => $googleUser->name,
-                'email' => $googleUser->email,
-                'google_id' => $googleUser->id,
-                // Add other required fields as needed
-            ]);
+        if ($user) {
+            return $user;
         }
 
-        // return $user;
-
-        // You may want to customize this logic based on your application's requirements.
-        // The goal is to find or create a user in your application's database.
+        // If the user doesn't exist, create a new user
+        return User::create([
+            'name' => $socialiteUser->name,
+            'email' => $socialiteUser->email,
+            'google_id' => $socialiteUser->id,
+            'password' => Hash::make('password'),
+        ]);
     }
 }

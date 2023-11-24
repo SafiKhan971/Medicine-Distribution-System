@@ -54,5 +54,5 @@ Route::group(['prefix' => 'admin', 'middleware' => 'checkUser'], function(){
 });
 
 Route::group(['prefix' => 'doctor', 'middleware' => 'checkDoctor'], function(){
-    Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::get('dashboard', [DoctorController::class, 'index'])->name('doctor.dashboard');
 });
