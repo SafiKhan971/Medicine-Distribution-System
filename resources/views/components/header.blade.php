@@ -43,6 +43,8 @@
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="css/responsive.css">
+
+		<link rel="stylesheet" type="text/css" href="{{url('jquery.datetimepicker.css')}}"/>
 		
     </head>
     <body>

@@ -85,9 +85,9 @@
 			<!--/ End Copyright -->
 		</footer>
 		<!--/ End Footer Area -->
-		
+		<script src="jquery.datetimepicker.full.js"></script>
 		<!-- jquery Min JS -->
-        <script src="js/jquery.min.js"></script>
+        <script src="{{asset('js/jquery.min.js')}}"></script>
 		<!-- jquery Migrate JS -->
 		<script src="js/jquery-migrate-3.0.0.js"></script>
 		<!-- jquery Ui JS -->
