@@ -21,6 +21,7 @@
     <section class="container forms">
         <div class="form login">
             <div class="form-content">
+                <a href="{{ url('/') }}" id="logo"><img src="{{ asset('img/dhc_logo.png')}}" alt="logo" /></a>
                 <header>Patient Registration</header>
                 <form method="POST" action="{{ route('register') }}">
                     @csrf

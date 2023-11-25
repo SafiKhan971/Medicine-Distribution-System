@@ -15,6 +15,10 @@ class DoctorController extends Controller {
         return view( 'frontend.doctor.index' );
     }
 
+    public function login() {
+        return view( 'frontend.doctor.login' );
+    }
+
     public function store( Request $request ) {
 
         $doctor = Doctor::where( 'email', $request->email )->first();
