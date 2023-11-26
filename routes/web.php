@@ -45,11 +45,11 @@ Route::get('auth/google/callback', [GoogleAuthController::class, 'handleGoogleCa
 Route::get('admin/login', [AdminController::class, 'login']);
 Route::post('admin/login', [AdminController::class, 'store']);
 
-Route::get('doctor/login', [DoctorController::class, 'login']);
+Route::get('doctor/login', [DoctorController::class, 'login'])->name('doctor.login');
 Route::post('doctor/login', [DoctorController::class, 'store']);
 
 Route::get('doctor/register', [DoctorController::class, 'create']);
-Route::post('doctor/register', [DoctorController::class, 'register']);
+Route::post('doctor/register', [DoctorController::class, 'register'])->name('doctor.register');
 
 Route::get('admin/logout', [AdminController::class, 'destroy']);
 

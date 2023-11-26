@@ -1,6 +1,6 @@
         @include('components/header');
 		@include('components/navbar');
-		@include('flash::message');
+		{{-- @include('flash::message'); --}}
 
 		<!-- Slider Area -->
 		<section class="slider">
@@ -62,7 +62,7 @@
 			</div>
 		</section>
 		<!--/ End Slider Area -->
-		
+
 		<!-- Start Schedule Area -->
 		<section class="schedule">
 			<div class="container">
@@ -176,7 +176,7 @@
 			</div>
 		</section>
 		<!--/ End Feautes -->
-		
+
 		<!-- Start Fun-facts -->
 		<div id="fun-facts" class="fun-facts section overlay">
 			<div class="container">
@@ -229,7 +229,7 @@
 			</div>
 		</div>
 		<!--/ End Fun-facts -->
-		
+
 		<!-- Start Why choose -->
 		<section class="why-choose section" >
 			<div class="container">
@@ -290,7 +290,7 @@
 			</div>
 		</section>
 		<!--/ End Why choose -->
-		
+
 		<!-- Start Call to action -->
 		<section class="call-action overlay" data-stellar-background-ratio="0.5">
 			<div class="container">
@@ -309,7 +309,7 @@
 			</div>
 		</section>
 		<!--/ End Call to action -->
-		
+
 		<!-- Start portfolio -->
 		<section class="portfolio section" >
 			<div class="container">
@@ -365,7 +365,7 @@
 			</div>
 		</section>
 		<!--/ End portfolio -->
-		
+
 		<!-- Start service -->
 		<section class="services section">
 			<div class="container">
@@ -384,7 +384,7 @@
 						<div class="single-service">
 							<i class="icofont icofont-prescription"></i>
 							<h4><a href="service-details.html">General Treatment</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>
 						</div>
 						<!-- End Single Service -->
 					</div>
@@ -393,7 +393,7 @@
 						<div class="single-service">
 							<i class="icofont icofont-tooth"></i>
 							<h4><a href="service-details.html">Teeth Whitening</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>
 						</div>
 						<!-- End Single Service -->
 					</div>
@@ -402,7 +402,7 @@
 						<div class="single-service">
 							<i class="icofont icofont-heart-alt"></i>
 							<h4><a href="service-details.html">Heart Surgery</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>
 						</div>
 						<!-- End Single Service -->
 					</div>
@@ -411,7 +411,7 @@
 						<div class="single-service">
 							<i class="icofont icofont-listening"></i>
 							<h4><a href="service-details.html">Ear Treatment</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>
 						</div>
 						<!-- End Single Service -->
 					</div>
@@ -420,7 +420,7 @@
 						<div class="single-service">
 							<i class="icofont icofont-eye-alt"></i>
 							<h4><a href="service-details.html">Vision Problems</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>
 						</div>
 						<!-- End Single Service -->
 					</div>
@@ -429,7 +429,7 @@
 						<div class="single-service">
 							<i class="icofont icofont-blood"></i>
 							<h4><a href="service-details.html">Blood Transfusion</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>
 						</div>
 						<!-- End Single Service -->
 					</div>
@@ -437,7 +437,7 @@
 			</div>
 		</section>
 		<!--/ End service -->
-		
+
 		<!-- Pricing Table -->
 		<section class="pricing-table section">
 			<div class="container">
@@ -462,7 +462,7 @@
 								<h4 class="title">Plastic Suggery</h4>
 								<div class="price">
 									<p class="amount">$199<span>/ Per Visit</span></p>
-								</div>	
+								</div>
 							</div>
 							<!-- Table List -->
 							<ul class="table-list">
@@ -490,7 +490,7 @@
 								<h4 class="title">Teeth Whitening</h4>
 								<div class="price">
 									<p class="amount">$299<span>/ Per Visit</span></p>
-								</div>	
+								</div>
 							</div>
 							<!-- Table List -->
 							<ul class="table-list">
@@ -518,7 +518,7 @@
 								<h4 class="title">Heart Suggery</h4>
 								<div class="price">
 									<p class="amount">$399<span>/ Per Visit</span></p>
-								</div>	
+								</div>
 							</div>
 							<!-- Table List -->
 							<ul class="table-list">
@@ -535,13 +535,13 @@
 						</div>
 					</div>
 					<!-- End Single Table-->
-				</div>	
-			</div>	
-		</section>	
+				</div>
+			</div>
+		</section>
 		<!--/ End Pricing Table -->
-		
-		
-		
+
+
+
 		<!-- Start Blog Area -->
 		<section class="blog section" id="blog">
 			<div class="container">
@@ -607,7 +607,7 @@
 			</div>
 		</section>
 		<!-- End Blog Area -->
-		
+
 		<!-- Start clients -->
 		<div class="clients overlay">
 			<div class="container">
@@ -647,7 +647,7 @@
 			</div>
 		</div>
 		<!--/Ens clients -->
-		
+
 		<!-- Start Appointment -->
 		<section class="appointment" id="appointment">
 			<div class="container">
@@ -738,7 +738,7 @@
 			</div>
 		</section>
 		<!-- End Appointment -->
-		
+
 		<!-- Start Newsletter Area -->
 		<section class="newsletter section">
 			<div class="container">

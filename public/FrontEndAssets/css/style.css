@@ -167,5 +167,12 @@ a.google span{
     .form{
         padding: 20px 10px;
     }
-    
+
+}
+
+#logo {
+    display: inline-block;
+}
+.form-content {
+        text-align: center;
 }

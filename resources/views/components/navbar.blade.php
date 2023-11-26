@@ -1,4 +1,4 @@
-<header class="header" >
+<header class="header">
     <!-- Header Inner -->
     <div class="header-inner">
         <div class="container">
@@ -7,7 +7,8 @@
                     <div class="col-lg-3 col-md-3 col-12">
                         <!-- Start Logo -->
                         <div class="logo">
-                            <a href="{{ url('/') }}"><img src="img/logo.png" alt="#"></a>
+                            <a href="{{ url('/') }}"><img src="{{ asset('img/dhc_logo.png')}}" alt="#"></a>
+                            {{-- <a href="{{ url('/') }}"><img src="{{ asset('img/logo.png')}}" alt="#"></a> --}}
                         </div>
                         <!-- End Logo -->
                         <!-- Mobile Nav -->
@@ -31,25 +32,34 @@
                                     <li><a href="#">Blogs </a></li>
                                     <li class="mr-5"><a href="{{ url('/contact') }}">Contact </a></li>
                                     <li><a href="#appointment">Schedule a Demo</a></li>
-                                    @if(auth()->check())
-                                    <li><a href="#"> {{auth()->user()->name}} <i class="icofont-rounded-down"></i></a>
-                                        <ul class="dropdown">
-                                            <li><a href="{{route('profile.edit')}}">Profile</a></li>
-                                            <form method="POST" action="{{ route('logout') }}">
-                                            @csrf
-                                            <li><a href="#" onclick="event.preventDefault();
-                                        this.closest('form').submit();">Log Out</a></li>
-                                            </form>
-                                        </ul>
-                                    </li>
+                                    @if (auth()->check())
+                                        <li><a href="#"> {{ auth()->user()->name }} <i
+                                                    class="icofont-rounded-down"></i></a>
+                                            <ul class="dropdown">
+                                                <li><a href="{{ route('profile.edit') }}">Profile</a></li>
+                                                <form method="POST" action="{{ route('logout') }}">
+                                                    @csrf
+                                                    <li><a href="#"
+                                                            onclick="event.preventDefault();
+                                        this.closest('form').submit();">Log
+                                                            Out</a></li>
+                                                </form>
+                                            </ul>
+                                        </li>
                                     @else
-                                    <li><a href="{{route('login')}}">Login </a></li>
-                                    <li><a href="#"> Register <i class="icofont-rounded-down"></i></a>
-                                        <ul class="dropdown">
-                                            <li><a href="{{route('register')}}">Register As Patient</a></li>
-                                            <li><a href="{{('doctor/register')}}">Register As Doctor</a></li>
-                                        </ul>
-                                    </li>
+                                        {{-- <li><a href="{{ route('login') }}">Login </a></li> --}}
+                                        <li><a href="#"> Login <i class="icofont-rounded-down"></i></a>
+                                            <ul class="dropdown">
+                                                <li><a href="{{ route('login') }}">Login As Patient</a></li>
+                                                <li><a href="{{ route('doctor.login') }}">Login As Doctor</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#"> Register <i class="icofont-rounded-down"></i></a>
+                                            <ul class="dropdown">
+                                                <li><a href="{{ route('register') }}">Register As Patient</a></li>
+                                                <li><a href="{{ route('doctor.register') }}">Register As Doctor</a></li>
+                                            </ul>
+                                        </li>
                                     @endif
                                     {{-- <li><a href="#">Pages <i class="icofont-rounded-down"></i></a>
                                         <ul class="dropdown">
@@ -70,14 +80,14 @@
                     {{-- <div class="col-6">
                         <div class="get-quote">
                             <a href="appointment.html" class="btn">
-                                Schedule a Demo  
+                                Schedule a Demo
                                  </a>
                         </div>
                     </div>
                     <div class="col-lg-2 col-6">
                         <div class="get-quote">
                             <a href="appointment.html" class="btn">
-                                
+
                                 Login </a>
                         </div>
                     </div> --}}

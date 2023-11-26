@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Mediplus | Doctor Login </title>
+    <title> Digital Clinic | Doctor Login </title>
 
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('img/favicon.png') }}">
@@ -22,6 +22,7 @@
     <section class="container forms">
         <div class="form login">
             <div class="form-content">
+                <a href="{{ url('/') }}" id="logo"><img src="{{ asset('img/dhc_logo.png')}}" alt="logo" /></a>
                 <header>Doctor Login</header>
                 <form method="POST" action="{{ url('doctor/login') }}">
                     @csrf
