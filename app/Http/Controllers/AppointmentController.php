@@ -26,14 +26,21 @@ class AppointmentController extends Controller
         $userId = auth()->user()->id;
         $appointmentStartTime = Carbon::parse($request->app_date_time);
         $appointmentEndTime = $appointmentStartTime->copy()->addMinutes(30);
+        $startDt = $request->app_date_time;
 
-        $data = Appointment::where('doctor_id', $request->doctor_id)
-        ->whereBetween('app_dt_start', [$appointmentStartTime, $appointmentEndTime])
+        // dd($appointmentStartTime);
+        // dd($appointmentEndTime);
+
+        $existingAppointment = Appointment::where('doctor_id', $request->doctor_id)
+        ->where(function ($query) use ($startDt) {
+            $query->where('app_dt_start', '<=', $startDt)
+                ->where('app_dt_end', '>=', $startDt);
+        })
         ->first();
-        dd($data);
+        // dd($existingAppointment);
         // dd($query->toSql());
 
-        if(!empty($appointment))
+        if(!empty($existingAppointment))
         {
             flash('Appointment Not Available!')->error();
             return redirect('/');
