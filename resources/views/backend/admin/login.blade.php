@@ -1,4 +1,4 @@
-@extends('backend/admin/components/admin_layout')
+@extends('backend/admin/components/admin_login_layout')
 @section('title', 'Digital Clinic | Admin Login')
 @section('content')
     <!-- Main content -->
