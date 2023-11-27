@@ -36,7 +36,7 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 
-Route::get('appointment', [AppointmentController::class, 'create'])->name('create.appointment');
+Route::get('appointment', [AppointmentController::class, 'create'])->name('create.appointment')->middleware('checkLogin');
 Route::post('appointment', [AppointmentController::class, 'store'])->name('create.appointment');
 
 Route::get('login/google', [GoogleAuthController::class, 'redirectToGoogle']);

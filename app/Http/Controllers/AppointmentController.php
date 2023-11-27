@@ -22,14 +22,10 @@ class AppointmentController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request->all());
         $userId = auth()->user()->id;
         $appointmentStartTime = Carbon::parse($request->app_date_time);
         $appointmentEndTime = $appointmentStartTime->copy()->addMinutes(30);
         $startDt = $request->app_date_time;
-
-        // dd($appointmentStartTime);
-        // dd($appointmentEndTime);
 
         $existingAppointment = Appointment::where('doctor_id', $request->doctor_id)
         ->where(function ($query) use ($startDt) {
@@ -37,9 +33,6 @@ class AppointmentController extends Controller
                 ->where('app_dt_end', '>=', $startDt);
         })
         ->first();
-        // dd($existingAppointment);
-        // dd($query->toSql());
-
         if(!empty($existingAppointment))
         {
             flash('Appointment Not Available!')->error();
