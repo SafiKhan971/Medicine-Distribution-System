@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Appointment;
+use Carbon\Carbon;
 use App\Models\Doctor;
+use App\Models\Appointment;
 use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
@@ -21,10 +22,33 @@ class AppointmentController extends Controller
 
     public function store(Request $request)
     {
-        $appointment = new Appointment;
-        $appointment->user_id = auth()->user()->id;
-        $appointment->doctor_id = $request->doctor_id;
-        $appointment->app_date_time = $request->app_date_time;
-        $appointment->save(); 
+        // dd($request->all());
+        $userId = auth()->user()->id;
+        $appointmentStartTime = Carbon::parse($request->app_date_time);
+        $appointmentEndTime = $appointmentStartTime->copy()->addMinutes(30);
+
+        $data = Appointment::where('doctor_id', $request->doctor_id)
+        ->whereBetween('app_dt_start', [$appointmentStartTime, $appointmentEndTime])
+        ->first();
+        dd($data);
+        // dd($query->toSql());
+
+        if(!empty($appointment))
+        {
+            flash('Appointment Not Available!')->error();
+            return redirect('/');
+        }
+        else
+        {   
+                $appointment = new Appointment;
+                $appointment->user_id =  $userId;
+                $appointment->doctor_id =  $request->doctor_id;
+                $appointment->app_dt_start = $appointmentStartTime;
+                $appointment->app_dt_end =  $appointmentEndTime;
+                $appointment->save();
+                flash('Appointment created successfully!')->success();
+                return redirect('/');
+        }
     }
+
 }

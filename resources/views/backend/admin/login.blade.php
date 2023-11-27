@@ -17,7 +17,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-5 col-md-7">
                     <div class="card bg-secondary border-0 mb-0">
-                        <div class="card-header bg-transparent pb-5">
+                        <!-- <div class="card-header bg-transparent pb-5">
                             <div class="text-muted text-center mt-2 mb-3"><small>Sign in with</small></div>
                             <div class="btn-wrapper text-center">
                                 <a href="#" class="btn btn-neutral btn-icon">
@@ -31,10 +31,10 @@
                                     <span class="btn-inner--text">Google</span>
                                 </a>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="card-body px-lg-5 py-lg-5">
                             <div class="text-center text-muted mb-4">
-                                <small>Or sign in with credentials</small>
+                                <small>Admin Sign In</small>
                             </div>
                             <form role="form" action="{{ url('admin/login') }}" method="POST">
                                 @csrf
@@ -54,23 +54,23 @@
                                         <input class="form-control" placeholder="Password" type="password" name="password">
                                     </div>
                                 </div>
-                                <div class="custom-control custom-control-alternative custom-checkbox">
+                                <!-- <div class="custom-control custom-control-alternative custom-checkbox">
                                     <input class="custom-control-input" id=" customCheckLogin" type="checkbox">
                                     <label class="custom-control-label" for=" customCheckLogin">
                                         <span class="text-muted">Remember me</span>
                                     </label>
-                                </div>
+                                </div> -->
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-primary my-4">Sign in</button>
                                 </div>
                             </form>
                         </div>
                     </div>
-                    <div class="row mt-3">
+                    <!-- <div class="row mt-3">
                         <div class="col-6">
                             <a href="#" class="text-light"><small>Forgot password?</small></a>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
