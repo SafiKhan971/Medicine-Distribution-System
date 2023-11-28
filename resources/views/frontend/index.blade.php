@@ -1,9 +1,9 @@
-        @include('components/header');
-		@include('components/navbar');
-		@include('flash::message');
+        @include('components/header')
+		@include('components/navbar')
+		@include('flash::message')
 
 		<!-- Slider Area -->
-		<section class="slider">
+		<section class="slider" id="about">
 			<div class="hero-slider">
 				<!-- Start Single Slider -->
 				<div class="single-slider" style="background-image:url('img/slider2.jpg')">
@@ -292,7 +292,7 @@
 		<!--/ End Why choose -->
 
 		<!-- Start Call to action -->
-		<section class="call-action overlay" data-stellar-background-ratio="0.5">
+		<section id="contact" class="call-action overlay" data-stellar-background-ratio="0.5">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-12">

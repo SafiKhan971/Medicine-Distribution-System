@@ -57,11 +57,16 @@ Route::post('doctor/login', [DoctorController::class, 'store']);
 Route::get('doctor/register', [DoctorController::class, 'create']);
 Route::post('doctor/register', [DoctorController::class, 'register'])->name('doctor.register');
 
-Route::get('admin/logout', [AdminController::class, 'destroy']);
+Route::get('admin/logout', [AdminController::class, 'destroy'])->name('admin.logout');
 
 
 Route::group(['prefix' => 'admin', 'middleware' => 'checkUser'], function(){
     Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+    // Patient routes
+    Route::get('patients', [AdminController::class, 'patientsList'])->name('admin.patients');
+    // Docotor routes
+    Route::get('doctors', [AdminController::class, 'doctorsList'])->name('admin.doctors');
+    Route::post('doctors', [AdminController::class, 'doctorsList'])->name('admin.doctors');
 });
 
 Route::group(['prefix' => 'doctor', 'middleware' => 'checkDoctor'], function(){

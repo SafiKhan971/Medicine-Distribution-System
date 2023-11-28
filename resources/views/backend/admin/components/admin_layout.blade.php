@@ -25,9 +25,8 @@
         <div class="scrollbar-inner">
             <!-- Brand -->
             <div class="sidenav-header d-flex align-items-center">
-                <a class="navbar-brand" href="../../pages/dashboards/dashboard.html">
-                    <img src="{{ asset('BackEndAssets/assets/img/brand/blue.png') }}" class="navbar-brand-img"
-                        alt="...">
+                <a class="navbar-brand" href="{{ url('admin/dashboard') }}">
+                    <img src="{{ asset('img/dhc_logo.png') }}" class="navbar-brand-img" alt="...">
                 </a>
                 <div class="ml-auto">
                     <!-- Sidenav toggler -->
@@ -47,214 +46,40 @@
                     <!-- Nav items -->
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#navbar-dashboards" data-toggle="collapse" role="button"
+                            <a class="nav-link active" role="button" href="{{ url('admin/dashboard') }}"
                                 aria-expanded="true" aria-controls="navbar-dashboards">
                                 <i class="ni ni-shop text-primary"></i>
                                 <span class="nav-link-text">Dashboards</span>
                             </a>
-                            <div class="collapse show" id="navbar-dashboards">
-                                <ul class="nav nav-sm flex-column">
-                                    <li class="nav-item">
-                                        <a href="../../pages/dashboards/dashboard.html" class="nav-link">Dashboard</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="../../pages/dashboards/alternative.html"
-                                            class="nav-link active">Alternative</a>
-                                    </li>
-                                </ul>
-                            </div>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link" href="#navbar-examples" data-toggle="collapse" role="button"
-                                aria-expanded="false" aria-controls="navbar-examples">
-                                <i class="ni ni-ungroup text-orange"></i>
-                                <span class="nav-link-text">Examples</span>
-                            </a>
-                            <div class="collapse" id="navbar-examples">
-                                <ul class="nav nav-sm flex-column">
-                                    <li class="nav-item">
-                                        <a href="../../pages/examples/pricing.html" class="nav-link">Pricing</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="../../pages/examples/login.html" class="nav-link">Login</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="../../pages/examples/register.html" class="nav-link">Register</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="../../pages/examples/lock.html" class="nav-link">Lock</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="../../pages/examples/timeline.html" class="nav-link">Timeline</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="../../pages/examples/profile.html" class="nav-link">Profile</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#navbar-components" data-toggle="collapse" role="button"
-                                aria-expanded="false" aria-controls="navbar-components">
-                                <i class="ni ni-ui-04 text-info"></i>
-                                <span class="nav-link-text">Components</span>
-                            </a>
-                            <div class="collapse" id="navbar-components">
-                                <ul class="nav nav-sm flex-column">
-                                    <li class="nav-item">
-                                        <a href="../../pages/components/buttons.html" class="nav-link">Buttons</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="../../pages/components/cards.html" class="nav-link">Cards</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="../../pages/components/grid.html" class="nav-link">Grid</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="../../pages/components/notifications.html"
-                                            class="nav-link">Notifications</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="../../pages/components/icons.html" class="nav-link">Icons</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="../../pages/components/typography.html"
-                                            class="nav-link">Typography</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#navbar-multilevel" class="nav-link" data-toggle="collapse"
-                                            role="button" aria-expanded="true"
-                                            aria-controls="navbar-multilevel">Multi level</a>
-                                        <div class="collapse show" id="navbar-multilevel" style="">
-                                            <ul class="nav nav-sm flex-column">
-                                                <li class="nav-item">
-                                                    <a href="#!" class="nav-link ">Third level menu</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="#!" class="nav-link ">Just another link</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="#!" class="nav-link ">One last link</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#navbar-forms" data-toggle="collapse" role="button"
-                                aria-expanded="false" aria-controls="navbar-forms">
-                                <i class="ni ni-single-copy-04 text-pink"></i>
-                                <span class="nav-link-text">Forms</span>
-                            </a>
-                            <div class="collapse" id="navbar-forms">
-                                <ul class="nav nav-sm flex-column">
-                                    <li class="nav-item">
-                                        <a href="../../pages/forms/elements.html" class="nav-link">Elements</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="../../pages/forms/components.html" class="nav-link">Components</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="../../pages/forms/validation.html" class="nav-link">Validation</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#navbar-tables" data-toggle="collapse" role="button"
-                                aria-expanded="false" aria-controls="navbar-tables">
+                            <a class="nav-link" href="#navbar-patients" data-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="navbar-patients">
                                 <i class="ni ni-align-left-2 text-default"></i>
-                                <span class="nav-link-text">Tables</span>
+                                <span class="nav-link-text">Patients</span>
                             </a>
-                            <div class="collapse" id="navbar-tables">
+                            <div class="collapse" id="navbar-patients">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="../../pages/tables/tables.html" class="nav-link">Tables</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="../../pages/tables/sortable.html" class="nav-link">Sortable</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="../../pages/tables/datatables.html" class="nav-link">Datatables</a>
+                                        <a href="{{ route('admin.patients') }}" class="nav-link">Patients List</a>
                                     </li>
                                 </ul>
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#navbar-maps" data-toggle="collapse" role="button"
-                                aria-expanded="false" aria-controls="navbar-maps">
-                                <i class="ni ni-map-big text-primary"></i>
-                                <span class="nav-link-text">Maps</span>
+                            <a class="nav-link" href="#navbar-doctors" data-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="navbar-doctors">
+                                <i class="ni ni-align-left-2 text-default"></i>
+                                <span class="nav-link-text">Doctors</span>
                             </a>
-                            <div class="collapse" id="navbar-maps">
+                            <div class="collapse" id="navbar-doctors">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="../../pages/maps/google.html" class="nav-link">Google</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="../../pages/maps/vector.html" class="nav-link">Vector</a>
+                                        <a href="{{ route('admin.doctors') }}" class="nav-link">Doctors List</a>
                                     </li>
                                 </ul>
                             </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../../pages/widgets.html">
-                                <i class="ni ni-archive-2 text-green"></i>
-                                <span class="nav-link-text">Widgets</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../../pages/charts.html">
-                                <i class="ni ni-chart-pie-35 text-info"></i>
-                                <span class="nav-link-text">Charts</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../../pages/calendar.html">
-                                <i class="ni ni-calendar-grid-58 text-red"></i>
-                                <span class="nav-link-text">Calendar</span>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- Divider -->
-                    <hr class="my-3">
-                    <!-- Heading -->
-                    <h6 class="navbar-heading p-0 text-muted">Documentation</h6>
-                    <!-- Navigation -->
-                    <ul class="navbar-nav mb-md-3">
-                        <li class="nav-item">
-                            <a class="nav-link"
-                                href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html"
-                                target="_blank">
-                                <i class="ni ni-spaceship"></i>
-                                <span class="nav-link-text">Getting started</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link"
-                                href="https://demos.creative-tim.com/argon-dashboard/docs/foundation/colors.html"
-                                target="_blank">
-                                <i class="ni ni-palette"></i>
-                                <span class="nav-link-text">Foundation</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link"
-                                href="https://demos.creative-tim.com/argon-dashboard/docs/components/alerts.html"
-                                target="_blank">
-                                <i class="ni ni-ui-04"></i>
-                                <span class="nav-link-text">Components</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link"
-                                href="https://demos.creative-tim.com/argon-dashboard/docs/plugins/charts.html"
-                                target="_blank">
-                                <i class="ni ni-chart-pie-35"></i>
-                                <span class="nav-link-text">Plugins</span>
-                            </a>
                         </li>
                     </ul>
                 </div>
@@ -339,7 +164,8 @@
                                         <div class="row align-items-center">
                                             <div class="col-auto">
                                                 <!-- Avatar -->
-                                                <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/team-2.jpg')}}"
+                                                <img alt="Image placeholder"
+                                                    src="{{ asset('BackEndAssets/assets/img/theme/team-2.jpg') }}"
                                                     class="avatar rounded-circle">
                                             </div>
                                             <div class="col ml--2">
@@ -359,7 +185,8 @@
                                         <div class="row align-items-center">
                                             <div class="col-auto">
                                                 <!-- Avatar -->
-                                                <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/team-3.jpg')}}"
+                                                <img alt="Image placeholder"
+                                                    src="{{ asset('BackEndAssets/assets/img/theme/team-3.jpg') }}"
                                                     class="avatar rounded-circle">
                                             </div>
                                             <div class="col ml--2">
@@ -379,7 +206,8 @@
                                         <div class="row align-items-center">
                                             <div class="col-auto">
                                                 <!-- Avatar -->
-                                                <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/team-4.jpg')}}"
+                                                <img alt="Image placeholder"
+                                                    src="{{ asset('BackEndAssets/assets/img/theme/team-4.jpg') }}"
                                                     class="avatar rounded-circle">
                                             </div>
                                             <div class="col ml--2">
@@ -399,7 +227,8 @@
                                         <div class="row align-items-center">
                                             <div class="col-auto">
                                                 <!-- Avatar -->
-                                                <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/team-5.jpg')}}"
+                                                <img alt="Image placeholder"
+                                                    src="{{ asset('BackEndAssets/assets/img/theme/team-5.jpg') }}"
                                                     class="avatar rounded-circle">
                                             </div>
                                             <div class="col ml--2">
@@ -475,10 +304,13 @@
                                 aria-haspopup="true" aria-expanded="false">
                                 <div class="media align-items-center">
                                     <span class="avatar avatar-sm rounded-circle">
-                                        <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/team-4.jpg')}}">
+                                        <img alt="Image placeholder"
+                                            src="{{ asset('BackEndAssets/assets/img/theme/team-4.jpg') }}">
                                     </span>
                                     <div class="media-body ml-2 d-none d-lg-block">
-                                        <span class="mb-0 text-sm  font-weight-bold">John Snow</span>
+                                        <span class="mb-0 text-sm  font-weight-bold">
+                                            {{ session()->get('admin_name') }}
+                                        </span>
                                     </div>
                                 </div>
                             </a>
@@ -503,10 +335,16 @@
                                     <span>Support</span>
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a href="#!" class="dropdown-item">
-                                    <i class="ni ni-user-run"></i>
-                                    <span>Logout</span>
-                                </a>
+                                <form method="GET" action="{{ route('admin.logout') }}">
+                                    @csrf
+                                    <a href="#!"
+                                        onclick="event.preventDefault();
+                                    this.closest('form').submit();"
+                                        class="dropdown-item">
+                                        <i class="ni ni-user-run"></i>
+                                        <span>Logout</span>
+                                    </a>
+                                </form>
                             </div>
                         </li>
                     </ul>
@@ -530,10 +368,6 @@
                                 </ol>
                             </nav>
                         </div>
-                        <div class="col-lg-6 col-5 text-right">
-                            <a href="#" class="btn btn-sm btn-neutral">New</a>
-                            <a href="#" class="btn btn-sm btn-neutral">Filters</a>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -553,6 +387,17 @@
     <script src="{{ asset('BackEndAssets/assets/vendor/chart.js/dist/Chart.extension.js') }}"></script>
     <script src="{{ asset('BackEndAssets/assets/vendor/jvectormap-next/jquery-jvectormap.min.js') }}"></script>
     <script src="{{ asset('BackEndAssets/assets/js/vendor/jvectormap/jquery-jvectormap-world-mill.js') }}"></script>
+
+    <!-- Optional JS -->
+    <script src="{{ asset('BackEndAssets/assets/vendor/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('BackEndAssets/assets/vendor/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('BackEndAssets/assets/vendor/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('BackEndAssets/assets/vendor/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js') }}">
+    </script>
+    <script src="{{ asset('BackEndAssets/assets/vendor/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
+    <script src="{{ asset('BackEndAssets/assets/vendor/datatables.net-buttons/js/buttons.flash.min.js') }}"></script>
+    <script src="{{ asset('BackEndAssets/assets/vendor/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
+    <script src="{{ asset('BackEndAssets/assets/vendor/datatables.net-select/js/dataTables.select.min.js') }}"></script>
     <!-- Argon JS -->
     <script src="{{ asset('BackEndAssets/assets/js/argon.js?v=1.1.0') }}"></script>
     <!-- Demo JS - remove this in your project -->
