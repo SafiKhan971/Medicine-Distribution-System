@@ -11,6 +11,15 @@ use Illuminate\View\View;
 
 class ProfileController extends Controller
 {
+    public function index()
+    {
+        return view('frontend.patient.profile.index');
+    }
+
+    public function basic_info()
+    {
+        return view('frontend.patient.profile.basic_info');
+    }
     /**
      * Display the user's profile form.
      */

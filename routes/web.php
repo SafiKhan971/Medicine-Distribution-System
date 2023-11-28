@@ -35,6 +35,12 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
+Route::group(['prefix' => 'profile', 'middleware' => 'checkLogin'], function(){
+    Route::get('/', [ProfileController::class, 'index']);
+    Route::get('basic-information', [ProfileController::class, 'basic_info']);
+});
+
+
 
 Route::get('appointment', [AppointmentController::class, 'create'])->name('create.appointment')->middleware('checkLogin');
 Route::post('appointment', [AppointmentController::class, 'store'])->name('create.appointment');
