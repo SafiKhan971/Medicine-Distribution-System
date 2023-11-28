@@ -28,7 +28,7 @@
                                     <li><a href="#">Features </a></li>
                                     <!-- <li><a href="#">Pricing </a></li> -->
                                     <!-- <li><a href="#">Security </a></li> -->
-                                    <li><a href="#">About </a></li>
+                                    <li><a href="#about">About </a></li>
                                     <li><a href="#">Blogs </a></li>
                                     <li class="mr-5"><a href="{{ url('/contact') }}">Contact </a></li>
                                     <li><a href="#appointment">Schedule a Demo</a></li>

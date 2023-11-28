@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Admin;
 use App\Models\User;
+use App\Models\Admin;
+use App\Models\Doctor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Providers\RouteServiceProvider;
+use Illuminate\Support\Facades\Redirect;
 
 class AdminController extends Controller {
 
@@ -28,6 +30,7 @@ class AdminController extends Controller {
 
         if ( $admin && Hash::check( $request->password, $admin->password ) ) {
             request()->session()->put( 'admin_id', $admin->id );
+            request()->session()->put( 'admin_name', $admin->name );
             // flash( 'Logged In Successfully!' )->success();
             return redirect()->intended( RouteServiceProvider::ADMIN_HOME );
         } else {
@@ -37,8 +40,36 @@ class AdminController extends Controller {
 
     public function destroy() {
         session()->forget( 'admin_id' );
-        flash( 'Logged In Successfully!' )->success();
-        return redirect( '/' );
+        flash( 'Logged Out Successfully!' )->success();
+        return redirect( 'admin/login' );
     }
 
+    // Patient Functions
+
+    public function patientsList() {
+        $patients = User::orderBy( 'name', 'ASC' )->get();
+        return view( 'backend.admin.patients.index', compact( 'patients' ) );
+    }
+
+    // Doctors Functions
+
+    public function doctorsList() {
+        $doctors = Doctor::orderBy( 'name', 'ASC' )->get();
+        return view( 'backend.admin.doctors.index', compact( 'doctors' ) );
+    }
+
+    public function updateDoctorView( $id ) {
+        $doctor = Doctor::find( $id );
+        return view( 'backend.admin.doctors.update', compact( 'doctor' ) );
+    }
+
+    public function updateDoctor( Request $request ) {
+        // dd( $request->all() );
+        $doctor = Doctor::find( $request->id );
+        $doctor->name = $request->name;
+        $doctor->email = $request->email;
+        $doctor->update();
+
+        return Redirect::to( '/admin/doctors' )->with( 'success', 'Doctor Updated Successfully!' );
+    }
 }

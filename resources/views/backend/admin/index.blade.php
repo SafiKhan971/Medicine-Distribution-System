@@ -449,7 +449,8 @@
                                         <th scope="row">
                                             <div class="media align-items-center">
                                                 <a href="#" class="avatar rounded-circle mr-3">
-                                                    <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/sketch.jpg')}}">
+                                                    <img alt="Image placeholder"
+                                                        src="{{ asset('BackEndAssets/assets/img/theme/sketch.jpg') }}">
                                                 </a>
                                                 <div class="media-body">
                                                     <span class="name mb-0 text-sm">Black Dashboard</span>
@@ -469,19 +470,23 @@
                                             <div class="avatar-group">
                                                 <a href="#" class="avatar avatar-sm rounded-circle"
                                                     data-toggle="tooltip" data-original-title="Ryan Tompson">
-                                                    <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/team-1.jpg')}}">
+                                                    <img alt="Image placeholder"
+                                                        src="{{ asset('BackEndAssets/assets/img/theme/team-1.jpg') }}">
                                                 </a>
                                                 <a href="#" class="avatar avatar-sm rounded-circle"
                                                     data-toggle="tooltip" data-original-title="Romina Hadid">
-                                                    <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/team-2.jpg')}}">
+                                                    <img alt="Image placeholder"
+                                                        src="{{ asset('BackEndAssets/assets/img/theme/team-2.jpg') }}">
                                                 </a>
                                                 <a href="#" class="avatar avatar-sm rounded-circle"
                                                     data-toggle="tooltip" data-original-title="Alexander Smith">
-                                                    <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/team-3.jpg')}}">
+                                                    <img alt="Image placeholder"
+                                                        src="{{ asset('BackEndAssets/assets/img/theme/team-3.jpg') }}">
                                                 </a>
                                                 <a href="#" class="avatar avatar-sm rounded-circle"
                                                     data-toggle="tooltip" data-original-title="Jessica Doe">
-                                                    <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/team-4.jpg')}}">
+                                                    <img alt="Image placeholder"
+                                                        src="{{ asset('BackEndAssets/assets/img/theme/team-4.jpg') }}">
                                                 </a>
                                             </div>
                                         </td>
@@ -516,7 +521,8 @@
                                         <th scope="row">
                                             <div class="media align-items-center">
                                                 <a href="#" class="avatar rounded-circle mr-3">
-                                                    <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/react.jpg')}}">
+                                                    <img alt="Image placeholder"
+                                                        src="{{ asset('BackEndAssets/assets/img/theme/react.jpg') }}">
                                                 </a>
                                                 <div class="media-body">
                                                     <span class="name mb-0 text-sm">React Material Dashboard</span>
@@ -536,19 +542,23 @@
                                             <div class="avatar-group">
                                                 <a href="#" class="avatar avatar-sm rounded-circle"
                                                     data-toggle="tooltip" data-original-title="Ryan Tompson">
-                                                    <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/team-1.jpg')}}">
+                                                    <img alt="Image placeholder"
+                                                        src="{{ asset('BackEndAssets/assets/img/theme/team-1.jpg') }}">
                                                 </a>
                                                 <a href="#" class="avatar avatar-sm rounded-circle"
                                                     data-toggle="tooltip" data-original-title="Romina Hadid">
-                                                    <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/team-2.jpg')}}">
+                                                    <img alt="Image placeholder"
+                                                        src="{{ asset('BackEndAssets/assets/img/theme/team-2.jpg') }}">
                                                 </a>
                                                 <a href="#" class="avatar avatar-sm rounded-circle"
                                                     data-toggle="tooltip" data-original-title="Alexander Smith">
-                                                    <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/team-3.jpg')}}">
+                                                    <img alt="Image placeholder"
+                                                        src="{{ asset('BackEndAssets/assets/img/theme/team-3.jpg') }}">
                                                 </a>
                                                 <a href="#" class="avatar avatar-sm rounded-circle"
                                                     data-toggle="tooltip" data-original-title="Jessica Doe">
-                                                    <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/team-4.jpg')}}">
+                                                    <img alt="Image placeholder"
+                                                        src="{{ asset('BackEndAssets/assets/img/theme/team-4.jpg') }}">
                                                 </a>
                                             </div>
                                         </td>
@@ -583,7 +593,8 @@
                                         <th scope="row">
                                             <div class="media align-items-center">
                                                 <a href="#" class="avatar rounded-circle mr-3">
-                                                    <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/vue.jpg')}}">
+                                                    <img alt="Image placeholder"
+                                                        src="{{ asset('BackEndAssets/assets/img/theme/vue.jpg') }}">
                                                 </a>
                                                 <div class="media-body">
                                                     <span class="name mb-0 text-sm">Vue Paper UI Kit PRO</span>
@@ -603,19 +614,23 @@
                                             <div class="avatar-group">
                                                 <a href="#" class="avatar avatar-sm rounded-circle"
                                                     data-toggle="tooltip" data-original-title="Ryan Tompson">
-                                                    <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/team-1.jpg')}}">
+                                                    <img alt="Image placeholder"
+                                                        src="{{ asset('BackEndAssets/assets/img/theme/team-1.jpg') }}">
                                                 </a>
                                                 <a href="#" class="avatar avatar-sm rounded-circle"
                                                     data-toggle="tooltip" data-original-title="Romina Hadid">
-                                                    <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/team-2.jpg')}}">
+                                                    <img alt="Image placeholder"
+                                                        src="{{ asset('BackEndAssets/assets/img/theme/team-2.jpg') }}">
                                                 </a>
                                                 <a href="#" class="avatar avatar-sm rounded-circle"
                                                     data-toggle="tooltip" data-original-title="Alexander Smith">
-                                                    <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/team-3.jpg')}}">
+                                                    <img alt="Image placeholder"
+                                                        src="{{ asset('BackEndAssets/assets/img/theme/team-3.jpg') }}">
                                                 </a>
                                                 <a href="#" class="avatar avatar-sm rounded-circle"
                                                     data-toggle="tooltip" data-original-title="Jessica Doe">
-                                                    <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/team-4.jpg')}}">
+                                                    <img alt="Image placeholder"
+                                                        src="{{ asset('BackEndAssets/assets/img/theme/team-4.jpg') }}">
                                                 </a>
                                             </div>
                                         </td>
@@ -651,7 +666,7 @@
                                             <div class="media align-items-center">
                                                 <a href="#" class="avatar rounded-circle mr-3">
                                                     <img alt="Image placeholder"
-                                                        src="{{asset('BackEndAssets/assets/img/theme/bootstrap.jpg')}}">
+                                                        src="{{ asset('BackEndAssets/assets/img/theme/bootstrap.jpg') }}">
                                                 </a>
                                                 <div class="media-body">
                                                     <span class="name mb-0 text-sm">Argon Design System</span>
@@ -671,19 +686,23 @@
                                             <div class="avatar-group">
                                                 <a href="#" class="avatar avatar-sm rounded-circle"
                                                     data-toggle="tooltip" data-original-title="Ryan Tompson">
-                                                    <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/team-1.jpg')}}">
+                                                    <img alt="Image placeholder"
+                                                        src="{{ asset('BackEndAssets/assets/img/theme/team-1.jpg') }}">
                                                 </a>
                                                 <a href="#" class="avatar avatar-sm rounded-circle"
                                                     data-toggle="tooltip" data-original-title="Romina Hadid">
-                                                    <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/team-2.jpg')}}">
+                                                    <img alt="Image placeholder"
+                                                        src="{{ asset('BackEndAssets/assets/img/theme/team-2.jpg') }}">
                                                 </a>
                                                 <a href="#" class="avatar avatar-sm rounded-circle"
                                                     data-toggle="tooltip" data-original-title="Alexander Smith">
-                                                    <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/team-3.jpg')}}">
+                                                    <img alt="Image placeholder"
+                                                        src="{{ asset('BackEndAssets/assets/img/theme/team-3.jpg') }}">
                                                 </a>
                                                 <a href="#" class="avatar avatar-sm rounded-circle"
                                                     data-toggle="tooltip" data-original-title="Jessica Doe">
-                                                    <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/team-4.jpg')}}">
+                                                    <img alt="Image placeholder"
+                                                        src="{{ asset('BackEndAssets/assets/img/theme/team-4.jpg') }}">
                                                 </a>
                                             </div>
                                         </td>
@@ -748,7 +767,8 @@
                                 <div class="row align-items-center">
                                     <div class="col-auto">
                                         <!-- Country flag -->
-                                        <img src="{{asset('BackEndAssets/assets/img/icons/flags/US.png')}}" alt="Country flag" />
+                                        <img src="{{ asset('BackEndAssets/assets/img/icons/flags/US.png') }}"
+                                            alt="Country flag" />
                                     </div>
                                     <div class="col">
                                         <small>Country:</small>
@@ -768,7 +788,8 @@
                                 <div class="row align-items-center">
                                     <div class="col-auto">
                                         <!-- Country flag -->
-                                        <img src="{{asset('BackEndAssets/assets/img/icons/flags/DE.png')}}" alt="Country flag" />
+                                        <img src="{{ asset('BackEndAssets/assets/img/icons/flags/DE.png') }}"
+                                            alt="Country flag" />
                                     </div>
                                     <div class="col">
                                         <small>Country:</small>
@@ -788,7 +809,8 @@
                                 <div class="row align-items-center">
                                     <div class="col-auto">
                                         <!-- Country flag -->
-                                        <img src="{{asset('BackEndAssets/assets/img/icons/flags/GB.png')}}" alt="Country flag" />
+                                        <img src="{{ asset('BackEndAssets/assets/img/icons/flags/GB.png') }}"
+                                            alt="Country flag" />
                                     </div>
                                     <div class="col">
                                         <small>Country:</small>
@@ -826,7 +848,8 @@
                                 <div class="col-auto">
                                     <!-- Avatar -->
                                     <a href="#" class="avatar rounded-circle">
-                                        <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/team-1.jpg')}}">
+                                        <img alt="Image placeholder"
+                                            src="{{ asset('BackEndAssets/assets/img/theme/team-1.jpg') }}">
                                     </a>
                                 </div>
                                 <div class="col ml--2">
@@ -846,7 +869,8 @@
                                 <div class="col-auto">
                                     <!-- Avatar -->
                                     <a href="#" class="avatar rounded-circle">
-                                        <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/team-2.jpg')}}">
+                                        <img alt="Image placeholder"
+                                            src="{{ asset('BackEndAssets/assets/img/theme/team-2.jpg') }}">
                                     </a>
                                 </div>
                                 <div class="col ml--2">
@@ -866,7 +890,8 @@
                                 <div class="col-auto">
                                     <!-- Avatar -->
                                     <a href="#" class="avatar rounded-circle">
-                                        <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/team-3.jpg')}}">
+                                        <img alt="Image placeholder"
+                                            src="{{ asset('BackEndAssets/assets/img/theme/team-3.jpg') }}">
                                     </a>
                                 </div>
                                 <div class="col ml--2">
@@ -886,7 +911,8 @@
                                 <div class="col-auto">
                                     <!-- Avatar -->
                                     <a href="#" class="avatar rounded-circle">
-                                        <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/team-4.jpg')}}">
+                                        <img alt="Image placeholder"
+                                            src="{{ asset('BackEndAssets/assets/img/theme/team-4.jpg') }}">
                                     </a>
                                 </div>
                                 <div class="col ml--2">
@@ -990,7 +1016,8 @@
                                 <div class="col-auto">
                                     <!-- Avatar -->
                                     <a href="#" class="avatar rounded-circle">
-                                        <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/bootstrap.jpg')}}">
+                                        <img alt="Image placeholder"
+                                            src="{{ asset('BackEndAssets/assets/img/theme/bootstrap.jpg') }}">
                                     </a>
                                 </div>
                                 <div class="col">
@@ -1007,7 +1034,8 @@
                                 <div class="col-auto">
                                     <!-- Avatar -->
                                     <a href="#" class="avatar rounded-circle">
-                                        <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/angular.jpg')}}">
+                                        <img alt="Image placeholder"
+                                            src="{{ asset('BackEndAssets/assets/img/theme/angular.jpg') }}">
                                     </a>
                                 </div>
                                 <div class="col">
@@ -1024,7 +1052,8 @@
                                 <div class="col-auto">
                                     <!-- Avatar -->
                                     <a href="#" class="avatar rounded-circle">
-                                        <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/sketch.jpg')}}">
+                                        <img alt="Image placeholder"
+                                            src="{{ asset('BackEndAssets/assets/img/theme/sketch.jpg') }}">
                                     </a>
                                 </div>
                                 <div class="col">
@@ -1041,7 +1070,8 @@
                                 <div class="col-auto">
                                     <!-- Avatar -->
                                     <a href="#" class="avatar rounded-circle">
-                                        <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/react.jpg')}}">
+                                        <img alt="Image placeholder"
+                                            src="{{ asset('BackEndAssets/assets/img/theme/react.jpg') }}">
                                     </a>
                                 </div>
                                 <div class="col">
@@ -1062,26 +1092,11 @@
             <div class="row align-items-center justify-content-lg-between">
                 <div class="col-lg-6">
                     <div class="copyright text-center text-lg-left text-muted">
-                        &copy; 2019 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1"
-                            target="_blank">Creative Tim</a>
+                        &copy; 2023 Digital Clinic
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-                        <li class="nav-item">
-                            <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Creative Tim</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">About
-                                Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="http://blog.creative-tim.com" class="nav-link" target="_blank">Blog</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="https://www.creative-tim.com/license" class="nav-link" target="_blank">License</a>
-                        </li>
-                    </ul>
+                <div class="col-lg-6 copyright text-muted nav nav-footer justify-content-center justify-content-lg-end">
+                    All rights reserved
                 </div>
             </div>
         </footer>
