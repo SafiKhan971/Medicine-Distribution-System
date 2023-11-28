@@ -38,12 +38,13 @@ require __DIR__.'/auth.php';
 Route::group(['prefix' => 'profile', 'middleware' => 'checkLogin'], function(){
     Route::get('/', [ProfileController::class, 'index']);
     Route::get('basic-information', [ProfileController::class, 'basic_info']);
+    Route::get('appointments', [AppointmentController::class, 'index'])->middleware('checkLogin');
+Route::get('appointment', [AppointmentController::class, 'create'])->name('profile.create.appointment');
+Route::post('appointment', [AppointmentController::class, 'store'])->name('profile.create.appointment');
 });
 
 
 
-Route::get('appointment', [AppointmentController::class, 'create'])->name('create.appointment')->middleware('checkLogin');
-Route::post('appointment', [AppointmentController::class, 'store'])->name('create.appointment');
 
 Route::get('login/google', [GoogleAuthController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [GoogleAuthController::class, 'handleGoogleCallback']);

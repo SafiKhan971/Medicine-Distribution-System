@@ -1,7 +1,7 @@
 @include('components/header');
 @include('components/navbar');
 <div class="mb-5 container-fluid">
-    <form action="{{route('create.appointment')}}" method="post">
+    <form action="{{route('profile.create.appointment')}}" method="post">
         @csrf
         <div class="row">
             <div class="col-md-8">

@@ -11,13 +11,14 @@ class AppointmentController extends Controller
 {
     public function index()
     {
-        return view('frontend.appointments.index');
+        $appointments = Appointment::where('user_id', auth()->user()->id)->get();
+        return view('frontend.patient.appointments.index', compact('appointments'));
     }
 
     public function create()
     {
         $doctors = Doctor::select('id', 'name')->get();
-        return view('frontend.appointments.create', compact('doctors'));
+        return view('frontend.patient.appointments.create', compact('doctors'));
     }
 
     public function store(Request $request)
@@ -36,7 +37,7 @@ class AppointmentController extends Controller
         if(!empty($existingAppointment))
         {
             flash('Appointment Not Available!')->error();
-            return redirect('/');
+            return redirect()->back();
         }
         else
         {   

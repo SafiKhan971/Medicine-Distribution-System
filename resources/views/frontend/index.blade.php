@@ -14,7 +14,7 @@
 									<h1>We Provide <span>Medical</span> Services That You Can <span>Trust!</span></h1>
 									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed nisl pellentesque, faucibus libero eu, gravida quam. </p>
 									<div class="button">
-										<a href="{{route('create.appointment')}}" class="btn">Get Appointment</a>
+										<a href="{{route('profile.create.appointment')}}" class="btn">Get Appointment</a>
 										<a href="#" class="btn primary">Learn More</a>
 									</div>
 								</div>
