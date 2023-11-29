@@ -51,6 +51,22 @@ class AdminController extends Controller {
         return view( 'backend.admin.patients.index', compact( 'patients' ) );
     }
 
+    public function updatePatientView( $id ) {
+        $patient = User::find( $id );
+        // dd($patient);
+        return view( 'backend.admin.patients.update', compact( 'patient' ) );
+    }
+
+    public function updatePatient( Request $request ) {
+        // dd( $request->all() );
+        $patients = User::find( $request->id );
+        $patients->name = $request->name;
+        $patients->email = $request->email;
+        $patients->update();
+
+        return Redirect::to( '/admin/patients' )->with( 'success', 'Patient Updated Successfully!' );
+    }
+
     // Doctors Functions
 
     public function doctorsList() {
