@@ -41,6 +41,9 @@ Route::group(['prefix' => 'profile', 'middleware' => 'checkLogin'], function(){
     Route::get('appointments', [AppointmentController::class, 'index'])->middleware('checkLogin');
 Route::get('appointment', [AppointmentController::class, 'create'])->name('profile.create.appointment');
 Route::post('appointment', [AppointmentController::class, 'store'])->name('profile.create.appointment');
+Route::get('appointment/edit/{id}', [AppointmentController::class, 'edit'])->name('profile.edit.appointment');
+Route::post('appointment/edit/{id}', [AppointmentController::class, 'update'])->name('profile.edit.appointment');
+Route::get('appointment/delete/{id}', [AppointmentController::class, 'destroy'])->name('profile.delete.appointment');
 });
 
 
@@ -49,7 +52,7 @@ Route::post('appointment', [AppointmentController::class, 'store'])->name('profi
 Route::get('login/google', [GoogleAuthController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [GoogleAuthController::class, 'handleGoogleCallback']);
 
-Route::get('admin/login', [AdminController::class, 'login']);
+Route::get('admin/login', [AdminController::class, 'login'])->middleware('checkAdminLogin');
 Route::post('admin/login', [AdminController::class, 'store']);
 
 Route::get('doctor/login', [DoctorController::class, 'login'])->name('doctor.login');

@@ -11,7 +11,10 @@ class AppointmentController extends Controller
 {
     public function index()
     {
-        $appointments = Appointment::where('user_id', auth()->user()->id)->get();
+        $appointments = Appointment::with('doctor')
+        ->where('user_id', auth()->user()->id)
+        ->where('app_dt_start', '>', now())
+        ->get();
         return view('frontend.patient.appointments.index', compact('appointments'));
     }
 
@@ -50,6 +53,51 @@ class AppointmentController extends Controller
                 flash('Appointment created successfully!')->success();
                 return redirect('/');
         }
+    }
+
+    public function edit($id)
+    {
+        $appointment = Appointment::with('doctor')->find($id);
+        $doctors = Doctor::select('id', 'name')->get();
+        return view('frontend.patient.appointments.edit', compact('appointment', 'doctors'));
+    }
+
+    public function update(Request $request, $id)
+    {   
+        $userId = auth()->user()->id;
+        $appointmentStartTime = Carbon::parse($request->app_date_time);
+        $appointmentEndTime = $appointmentStartTime->copy()->addMinutes(30);
+        $startDt = $request->app_date_time;
+
+        $existingAppointment = Appointment::where('doctor_id', $request->doctor_id)
+        ->where(function ($query) use ($startDt) {
+            $query->where('app_dt_start', '<=', $startDt)
+                ->where('app_dt_end', '>=', $startDt);
+        })
+        ->first();
+        if(!empty($existingAppointment))
+        {
+            flash('Appointment Not Available!')->error();
+            return redirect()->back();
+        }
+        else
+        {   
+            $appointment = Appointment::find($id);
+                $appointment->doctor_id =  $request->doctor_id;
+                $appointment->app_dt_start = $appointmentStartTime;
+                $appointment->app_dt_end =  $appointmentEndTime;
+                $appointment->save();
+                flash('Appointment updated successfully!')->success();
+                return redirect('profile/appointments');
+        }
+    }
+
+    public function destroy($id)
+    {
+        $appointment = Appointment::find($id);
+        $appointment->delete();
+        flash('Appointment Deleted Successfully!')->success();
+        return redirect()->back();
     }
 
 }
