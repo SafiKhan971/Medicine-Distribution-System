@@ -1,51 +1,64 @@
 @extends('backend/admin/components/admin_layout')
 @section('title', 'Digital Clinic | Patients List')
-@section('content')
-<!-- Page content -->
-<div class="container-fluid mt--6">
-    @if (session('success'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <span class="alert-icon"><i class="ni ni-like-2"></i></span>
-        <span class="alert-text">
-            <strong>Success!</strong> {{ session('success') }}
-        </span>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    @endif
-    <div class="row">
-        <div class="col">
-            <div class="card">
-                <!-- Card header -->
-                <div class="card-header">
-                    <h2 class="mb-0">Patients List</h2>
-                </div>
-                <div class="table-responsive py-4">
-                    <table class="table table-flush" id="datatable-basic">
-                        <thead class="thead-light">
-                            <tr>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($patients as $patient)
-                            <tr>
-                                <td>{{ $patient['name'] }}</td>
-                                <td>{{ $patient['email'] }}</td>
-                                <td>
-                                    <a href="{{ url('/admin/patient/update/' . $patient['id']) }}" class="btn btn-primary btn-sm">Edit</a>
-                                    <a href="{{ url('/admin/patient/delete/' . $patient['id']) }}" class="btn btn-danger btn-sm">Delete</a>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+@section('header')
+    <!-- Header -->
+    <div class="header pb-6">
+        <div class="container-fluid">
+            <div class="header-body">
+                <div class="row align-items-center py-4">
+                    <div class="col-lg-6 col-7">
+                        <nav aria-label="breadcrumb" class="d-none d-md-inline-block mb-3">
+                            <ol class="breadcrumb breadcrumb-links">
+                                <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}"><i
+                                            class="fas fa-home"></i></a>
+                                </li>
+                                <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}">Dashboard</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Patients List</li>
+                            </ol>
+                        </nav>
+                        <br>
+                        <h6 class="h2 d-inline-block mb-0">Patients List</h6>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+@endsection
+@section('content')
+    <!-- Page content -->
+    <div class="container-fluid mt--6">
+        @include('flash::message')
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="table-responsive py-4">
+                        <table class="table table-flush" id="datatable-buttons">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                @foreach ($patients as $patient)
+                                    <tr>
+                                        <td>{{ $patient['name'] }}</td>
+                                        <td>{{ $patient['email'] }}</td>
+                                        <td>
+                                            <a href="{{ url('/admin/patient/update/' . $patient['id']) }}"
+                                                class="btn btn-primary btn-sm">Edit</a>
+                                            <a href="{{ url('/admin/patient/delete/' . $patient['id']) }}"
+                                                class="btn btn-danger btn-sm">Delete</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
