@@ -1,30 +1,37 @@
-{{-- <!--* Modal init *-->
-<div class="modal fade" id="update-doctor" tabindex="-1" role="dialog" aria-labelledby="new-event-label" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-secondary" role="document">
-        <div class="modal-content">
-            <!-- Modal body -->
-            <form class="new-event--form">
-                @csrf
-                <div class="modal-body">
-                    <input type="hidden" name="doctor_id">
+@extends('backend/admin/components/admin_layout')
+@section('title', 'Digital Clinic | Update Doctor')
+@section('content')
+    <!-- Page content -->
+    <div class="container-fluid mt--6">
+        <div class="card mb-4">
+            <!-- Card header -->
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h3 class="mb-0">Update Doctor</h3>
+                <a href="{{ url('admin/doctors') }}" class="btn btn-secondary">Back</a>
+            </div>
+            <form method="POST" action="{{ route('admin.doctor.update') }}">
+                <!-- Card body -->
+                <div class="card-body">
+                    @csrf
+                    <input type="hidden" name="id" value="{{ $doctor['id'] }}">
                     <div class="form-group">
-                        <label class="form-control-label">Doctor Name</label>
-                        <input type="text" class="form-control form-control-alternative new-event--title"
-                            placeholder="Doctor Name" name="doctor_name">
+                        <label class="form-control-label" for="name">Name</label>
+                        <input type="text" class="form-control" id="name" name="name"
+                            value="{{ $doctor['name'] }}">
                     </div>
                     <div class="form-group">
-                        <label class="form-control-label">Doctor Email</label>
-                        <input type="text" class="form-control form-control-alternative new-event--title"
-                            placeholder="Doctor Email" name="doctor_email">
+                        <label class="form-control-label" for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email"
+                            value="{{ $doctor['email'] }}">
                     </div>
                 </div>
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary new-event--add">Update</button>
-                    <button type="button" class="btn btn-link ml-auto" data-dismiss="modal">Close</button>
+
+                <div class="card-footer">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </div>
                 </div>
             </form>
-
         </div>
     </div>
-</div> --}}
+@endsection

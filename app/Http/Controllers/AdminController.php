@@ -8,6 +8,7 @@ use App\Models\Doctor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Providers\RouteServiceProvider;
+use Illuminate\Support\Facades\Redirect;
 
 class AdminController extends Controller {
 
@@ -57,12 +58,18 @@ class AdminController extends Controller {
         return view( 'backend.admin.doctors.index', compact( 'doctors' ) );
     }
 
-    public function updateDoctor($id){
-        $doctor = Doctor::find('id',$id);
+    public function updateDoctorView( $id ) {
+        $doctor = Doctor::find( $id );
+        return view( 'backend.admin.doctors.update', compact( 'doctor' ) );
+    }
+
+    public function updateDoctor( Request $request ) {
+        // dd( $request->all() );
+        $doctor = Doctor::find( $request->id );
         $doctor->name = $request->name;
         $doctor->email = $request->email;
         $doctor->update();
-        
-        return view( 'backend.admin.doctors.index', compact( 'doctors' ) );
+
+        return Redirect::to( '/admin/doctors' )->with( 'success', 'Doctor Updated Successfully!' );
     }
 }

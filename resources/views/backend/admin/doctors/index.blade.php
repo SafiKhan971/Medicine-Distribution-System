@@ -3,6 +3,17 @@
 @section('content')
     <!-- Page content -->
     <div class="container-fluid mt--6">
+        @if (session('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <span class="alert-icon"><i class="ni ni-like-2"></i></span>
+                <span class="alert-text">
+                    <strong>Success!</strong> {{ session('success') }}
+                </span>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
         <div class="row">
             <div class="col">
                 <div class="card">
@@ -28,7 +39,8 @@
                                         <td>{{ $doctor['name'] }}</td>
                                         <td>{{ $doctor['email'] }}</td>
                                         <td>
-                                            <a href="#" class="btn btn-primary btn-sm edit-doctor">Edit</a>
+                                            <a href="{{ url('/admin/doctor/update/' . $doctor['id']) }}"
+                                                class="btn btn-primary btn-sm">Edit</a>
                                             <a href="#" class="btn btn-danger btn-sm">Delete</a>
                                         </td>
                                     </tr>
@@ -40,22 +52,4 @@
             </div>
         </div>
     </div>
-    @include('backend.admin.doctors.update')
-
-    {{-- <script>
-        // Use a class selector for the click event
-        document.querySelectorAll('.edit-doctor').forEach(function(button) {
-            button.addEventListener('click', function() {
-                var doctorId = this.getAttribute('data-id');
-                var doctor = @json($doctors->firstWhere('id', $doctor['id'])); // Get the selected doctor by ID
-
-                // Populate the modal fields with the doctor's data
-                $('#update-doctor').find('[name="doctor_name"]').val(doctor.name);
-                $('#update-doctor').find('[name="doctor_email"]').val(doctor.email);
-
-                // Show the modal
-                $('#update-doctor').modal('show');
-            });
-        });
-    </script> --}}
 @endsection

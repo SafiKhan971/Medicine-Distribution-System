@@ -66,7 +66,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'checkUser'], function(){
     Route::get('patients', [AdminController::class, 'patientsList'])->name('admin.patients');
     // Docotor routes
     Route::get('doctors', [AdminController::class, 'doctorsList'])->name('admin.doctors');
-    Route::post('doctors', [AdminController::class, 'doctorsList'])->name('admin.doctors');
+    Route::get('doctor/update/{id}', [AdminController::class, 'updateDoctorView']);
+    Route::post('doctor/update', [AdminController::class, 'updateDoctor'])->name('admin.doctor.update');
 });
 
 Route::group(['prefix' => 'doctor', 'middleware' => 'checkDoctor'], function(){
