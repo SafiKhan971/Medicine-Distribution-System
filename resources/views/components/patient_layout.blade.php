@@ -17,7 +17,7 @@
         href="{{ asset('BackEndAssets/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css') }}" type="text/css">
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('BackEndAssets/assets/css/argon.css?v=1.1.0') }}" type="text/css">
-    
+
     <!-- Page plugins -->
     <link rel="stylesheet" href="{{ asset('BackEndAssets/assets/vendor/quill/dist/quill.core.css') }}">
     <link rel="stylesheet" href="{{ asset('BackEndAssets/assets/vendor/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}">
@@ -31,8 +31,8 @@
         <div class="scrollbar-inner">
             <!-- Brand -->
             <div class="sidenav-header d-flex align-items-center">
-                <a class="navbar-brand" href="../../pages/dashboards/dashboard.html">
-                    <img src="{{ asset('BackEndAssets/assets/img/brand/blue.png') }}" class="navbar-brand-img"
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    <img src="{{ asset('img/dhc_logo.png') }}" class="navbar-brand-img"
                         alt="...">
                 </a>
                 <div class="ml-auto">
@@ -87,6 +87,7 @@
 
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('profile.create.record')}}">
+                            <a class="nav-link" href="#">
                             <i class="ni ni-single-copy-04 text-pink"></i>
                                 <span class="nav-link-text">Health Record</span>
                             </a>
@@ -317,10 +318,10 @@
                                 aria-haspopup="true" aria-expanded="false">
                                 <div class="media align-items-center">
                                     <span class="avatar avatar-sm rounded-circle">
-                                        <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/team-4.jpg')}}">
+                                        <img alt="Image placeholder" src="{{ auth()->user()->picture ? asset('storage/profile_pictures/'. auth()->user()->picture) : asset('BackEndAssets/assets/img/theme/user-avatar.png') }}">
                                     </span>
                                     <div class="media-body ml-2 d-none d-lg-block">
-                                        <span class="mb-0 text-sm  font-weight-bold">John Snow</span>
+                                        <span class="mb-0 text-sm  font-weight-bold">{{ auth()->user()->name }}</span>
                                     </div>
                                 </div>
                             </a>
@@ -367,8 +368,8 @@
     <script src="{{ asset('BackEndAssets/assets/vendor/js-cookie/js.cookie.js') }}"></script>
     <script src="{{ asset('BackEndAssets/assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js') }}"></script>
     <script src="{{ asset('BackEndAssets/assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js') }}"></script>
-    
-    
+
+
     <!-- Optional JS -->
     <script src="{{ asset('BackEndAssets/assets/vendor/chart.js/dist/Chart.min.js') }}"></script>
     <script src="{{ asset('BackEndAssets/assets/vendor/chart.js/dist/Chart.extension.js') }}"></script>
@@ -385,6 +386,7 @@
     <script src="{{ asset('BackEndAssets/assets/vendor/datatables.net-select/js/dataTables.select.min.js') }}"></script>
     <script src="{{ asset('BackEndAssets/assets/vendor/quill/dist/quill.min.js') }}"></script>
     
+
     <!-- Argon JS -->
     <script src="{{ asset('BackEndAssets/assets/js/argon.js?v=1.1.0') }}"></script>
     <!-- Demo JS - remove this in your project -->

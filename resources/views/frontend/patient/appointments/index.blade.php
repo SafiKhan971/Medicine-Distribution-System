@@ -9,19 +9,15 @@
                 <div class="col-lg-6 col-7">
                     <nav aria-label="breadcrumb" class="d-none d-md-inline-block mb-3">
                         <ol class="breadcrumb breadcrumb-links">
-                            <li class="breadcrumb-item"><a href="{{url('profile')}}"><i class="fas fa-home"></i></a>
+                            <li class="breadcrumb-item"><a href="{{url('/')}}"><i class="fas fa-home"></i></a>
                             </li>
-                            <li class="breadcrumb-item"><a href="{{url('profile')}}">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="{{url('/')}}">Dashboard</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Appointments</li>
                         </ol>
                     </nav>
                     <br>
-                    <h6 class="h2 d-inline-block mb-0">Patient Appointments</h6>
+                    <h6 class="h2 d-inline-block mb-0">Appointments</h6>
                 </div>
-                <!-- <div class="col-lg-6 col-5 text-right">
-                            <a href="#" class="btn btn-sm btn-neutral">New</a>
-                            <a href="#" class="btn btn-sm btn-neutral">Filters</a>
-                        </div> -->
             </div>
         </div>
     </div>
@@ -38,7 +34,7 @@
                     <table class="table table-flush" id="datatable-buttons">
                         <thead class="thead-light">
                             <tr>
-                                <th>Sr.NO</th>
+                                <th>Sr.No</th>
                                 <th>Doctor</th>
                                 <th>Date / Time</th>
                                 <th>Action</th>
@@ -53,7 +49,7 @@
                             <tr>
                                 <td>{{ $serial_no++ }}</td>
                                 <td>{{ $appointment->doctor->name }}</td>
-                                <td>{{ $appointment->app_dt_start }}</td>
+                                <td>{{ \Carbon\Carbon::parse($appointment->app_dt_start)->format('M j, Y - h:i A') }}</td>
                                 <td>
                                     <a href="{{route('profile.edit.appointment', $appointment->id)}}" class="btn btn-primary btn-sm">Edit</a>
                                     <a href="{{route('profile.delete.appointment', $appointment->id)}}" class="btn btn-danger btn-sm">Delete</a>

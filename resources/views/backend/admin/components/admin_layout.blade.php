@@ -17,6 +17,14 @@
         href="{{ asset('BackEndAssets/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css') }}" type="text/css">
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('BackEndAssets/assets/css/argon.css?v=1.1.0') }}" type="text/css">
+
+    <!-- Page plugins -->
+    <link rel="stylesheet"
+        href="{{ asset('BackEndAssets/assets/vendor/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('BackEndAssets/assets/vendor/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('BackEndAssets/assets/vendor/datatables.net-select-bs4/css/select.bootstrap4.min.css') }}">
 </head>
 
 <body>
@@ -46,8 +54,8 @@
                     <!-- Nav items -->
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" role="button" href="{{ url('admin/dashboard') }}"
-                                aria-expanded="true" aria-controls="navbar-dashboards">
+                            <a class="nav-link" role="button" href="{{ url('admin/dashboard') }}" aria-expanded="true"
+                                aria-controls="navbar-dashboards">
                                 <i class="ni ni-shop text-primary"></i>
                                 <span class="nav-link-text">Dashboard</span>
                             </a>
@@ -60,15 +68,15 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.doctors') }}" role="button"
-                                aria-expanded="true" aria-controls="navbar-doctors">
+                            <a class="nav-link" href="{{ route('admin.doctors') }}" role="button" aria-expanded="true"
+                                aria-controls="navbar-doctors">
                                 <i class="ni ni-bullet-list-67 text-default"></i>
                                 <span class="nav-link-text">Doctors List</span>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('admin.appointments')}}">
+                            <a class="nav-link" href="{{ route('admin.appointments') }}">
                                 <i class="ni ni-calendar-grid-58 text-green"></i>
                                 <span class="nav-link-text">Appointments</span>
                             </a>
@@ -344,27 +352,8 @@
             </div>
         </nav>
         <!-- Header -->
-        <!-- Header -->
-        <div class="header pb-6">
-            <div class="container-fluid">
-                <div class="header-body">
-                    <div class="row align-items-center py-4">
-                        <div class="col-lg-6 col-7">
-                            <h6 class="h2 d-inline-block mb-0">Alternative</h6>
-                            <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
-                                <ol class="breadcrumb breadcrumb-links">
-                                    <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a>
-                                    </li>
-                                    <li class="breadcrumb-item"><a href="#">Dashboards</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Alternative</li>
-                                </ol>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        @yield('header')
+        <!-- Main Contenct -->
         @yield('content')
     </div>
     <!-- Argon Scripts -->
@@ -379,7 +368,6 @@
     <script src="{{ asset('BackEndAssets/assets/vendor/chart.js/dist/Chart.extension.js') }}"></script>
     <script src="{{ asset('BackEndAssets/assets/vendor/jvectormap-next/jquery-jvectormap.min.js') }}"></script>
     <script src="{{ asset('BackEndAssets/assets/js/vendor/jvectormap/jquery-jvectormap-world-mill.js') }}"></script>
-
     <!-- Optional JS -->
     <script src="{{ asset('BackEndAssets/assets/vendor/datatables.net/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('BackEndAssets/assets/vendor/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
