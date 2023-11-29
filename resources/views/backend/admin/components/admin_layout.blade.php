@@ -66,6 +66,13 @@
                                 <span class="nav-link-text">Doctors List</span>
                             </a>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('admin.appointments')}}">
+                                <i class="ni ni-calendar-grid-58 text-green"></i>
+                                <span class="nav-link-text">Appointments</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>

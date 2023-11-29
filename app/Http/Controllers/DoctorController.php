@@ -26,7 +26,7 @@ class DoctorController extends Controller {
         if ( $doctor && Hash::check( $request->password, $doctor->password ) ) {
             request()->session()->put( 'doctor_id', $doctor->id );
             flash( 'Logged In Successfully!' )->success();
-            return redirect( 'doctor.dashboard' );
+            return redirect( 'doctor/dashboard' );
         } else {
             return redirect( 'doctor/login' )->withErrors( [ 'error' => 'Invalid Email or Password' ] );
         }

@@ -17,6 +17,11 @@
         href="{{ asset('BackEndAssets/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css') }}" type="text/css">
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('BackEndAssets/assets/css/argon.css?v=1.1.0') }}" type="text/css">
+    
+    <!-- Page plugins -->
+    <link rel="stylesheet" href="{{ asset('BackEndAssets/assets/vendor/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('BackEndAssets/assets/vendor/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('BackEndAssets/assets/vendor/datatables.net-select-bs4/css/select.bootstrap4.min.css') }}">
 </head>
 
 <body>
@@ -73,7 +78,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="">
+                            <a class="nav-link" href="{{url('profile/basic-information')}}">
                             <i class="ni ni-circle-08 text-primary"></i>
                                 <span class="nav-link-text">Basic Information</span>
                             </a>
@@ -87,7 +92,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="../../pages/calendar.html">
+                            <a class="nav-link" href="{{url('profile/appointments')}}">
                                 <i class="ni ni-calendar-grid-58 text-red"></i>
                                 <span class="nav-link-text">Appointments</span>
                             </a>
@@ -350,30 +355,8 @@
             </div>
         </nav>
         <!-- Header -->
-        <!-- Header -->
-        <div class="header pb-6">
-            <div class="container-fluid">
-                <div class="header-body">
-                    <div class="row align-items-center py-4">
-                        <div class="col-lg-6 col-7">
-                            <h6 class="h2 d-inline-block mb-0">Alternative</h6>
-                            <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
-                                <ol class="breadcrumb breadcrumb-links">
-                                    <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a>
-                                    </li>
-                                    <li class="breadcrumb-item"><a href="#">Dashboards</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Alternative</li>
-                                </ol>
-                            </nav>
-                        </div>
-                        <div class="col-lg-6 col-5 text-right">
-                            <a href="#" class="btn btn-sm btn-neutral">New</a>
-                            <a href="#" class="btn btn-sm btn-neutral">Filters</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @yield('header')
+        <!-- Main Contenct -->
         @yield('content')
     </div>
     <!-- Argon Scripts -->
@@ -383,11 +366,23 @@
     <script src="{{ asset('BackEndAssets/assets/vendor/js-cookie/js.cookie.js') }}"></script>
     <script src="{{ asset('BackEndAssets/assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js') }}"></script>
     <script src="{{ asset('BackEndAssets/assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js') }}"></script>
+    
+    
     <!-- Optional JS -->
     <script src="{{ asset('BackEndAssets/assets/vendor/chart.js/dist/Chart.min.js') }}"></script>
     <script src="{{ asset('BackEndAssets/assets/vendor/chart.js/dist/Chart.extension.js') }}"></script>
     <script src="{{ asset('BackEndAssets/assets/vendor/jvectormap-next/jquery-jvectormap.min.js') }}"></script>
     <script src="{{ asset('BackEndAssets/assets/js/vendor/jvectormap/jquery-jvectormap-world-mill.js') }}"></script>
+    <!-- Optional JS -->
+    <script src="{{ asset('BackEndAssets/assets/vendor/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('BackEndAssets/assets/vendor/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('BackEndAssets/assets/vendor/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('BackEndAssets/assets/vendor/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('BackEndAssets/assets/vendor/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
+    <script src="{{ asset('BackEndAssets/assets/vendor/datatables.net-buttons/js/buttons.flash.min.js') }}"></script>
+    <script src="{{ asset('BackEndAssets/assets/vendor/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
+    <script src="{{ asset('BackEndAssets/assets/vendor/datatables.net-select/js/dataTables.select.min.js') }}"></script>
+    
     <!-- Argon JS -->
     <script src="{{ asset('BackEndAssets/assets/js/argon.js?v=1.1.0') }}"></script>
     <!-- Demo JS - remove this in your project -->
