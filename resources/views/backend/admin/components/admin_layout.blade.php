@@ -49,37 +49,22 @@
                             <a class="nav-link active" role="button" href="{{ url('admin/dashboard') }}"
                                 aria-expanded="true" aria-controls="navbar-dashboards">
                                 <i class="ni ni-shop text-primary"></i>
-                                <span class="nav-link-text">Dashboards</span>
+                                <span class="nav-link-text">Dashboard</span>
                             </a>
                         </li>
-
                         <li class="nav-item">
-                            <a class="nav-link" href="#navbar-patients" data-toggle="collapse" role="button"
-                                aria-expanded="false" aria-controls="navbar-patients">
-                                <i class="ni ni-align-left-2 text-default"></i>
-                                <span class="nav-link-text">Patients</span>
+                            <a class="nav-link" href="{{ route('admin.patients') }}" role="button"
+                                aria-expanded="true" aria-controls="navbar-patients">
+                                <i class="ni ni-bullet-list-67 text-default"></i>
+                                <span class="nav-link-text">Patients List</span>
                             </a>
-                            <div class="collapse" id="navbar-patients">
-                                <ul class="nav nav-sm flex-column">
-                                    <li class="nav-item">
-                                        <a href="{{ route('admin.patients') }}" class="nav-link">Patients List</a>
-                                    </li>
-                                </ul>
-                            </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#navbar-doctors" data-toggle="collapse" role="button"
-                                aria-expanded="false" aria-controls="navbar-doctors">
-                                <i class="ni ni-align-left-2 text-default"></i>
-                                <span class="nav-link-text">Doctors</span>
+                            <a class="nav-link" href="{{ route('admin.doctors') }}" role="button"
+                                aria-expanded="true" aria-controls="navbar-doctors">
+                                <i class="ni ni-bullet-list-67 text-default"></i>
+                                <span class="nav-link-text">Doctors List</span>
                             </a>
-                            <div class="collapse" id="navbar-doctors">
-                                <ul class="nav nav-sm flex-column">
-                                    <li class="nav-item">
-                                        <a href="{{ route('admin.doctors') }}" class="nav-link">Doctors List</a>
-                                    </li>
-                                </ul>
-                            </div>
                         </li>
 
                         <li class="nav-item">
