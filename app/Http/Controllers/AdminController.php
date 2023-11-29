@@ -67,6 +67,13 @@ class AdminController extends Controller {
         return Redirect::to( '/admin/patients' )->with( 'success', 'Patient Updated Successfully!' );
     }
 
+    public function deletePatient($id)
+    {
+        $doctor = User::find( $id );
+        $doctor->delete();
+        return Redirect::to( '/admin/patients' )->with( 'success', 'Patient Deleted Successfully!' );
+    }
+
     // Doctors Functions
 
     public function doctorsList() {
@@ -87,5 +94,12 @@ class AdminController extends Controller {
         $doctor->update();
 
         return Redirect::to( '/admin/doctors' )->with( 'success', 'Doctor Updated Successfully!' );
+    }
+
+    public function deleteDoctor($id)
+    {
+        $doctor = Doctor::find( $id );
+        $doctor->delete();
+        return Redirect::to( '/admin/doctors' )->with( 'success', 'Doctor Deleted Successfully!' );
     }
 }
