@@ -6,7 +6,7 @@ use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\GoogleAuthController;
-
+use App\Http\Controllers\HealthRecordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +47,9 @@ Route::group(['prefix' => 'profile', 'middleware' => 'checkLogin'], function(){
     Route::get('appointment/edit/{id}', [AppointmentController::class, 'edit'])->name('profile.edit.appointment');
     Route::post('appointment/edit/{id}', [AppointmentController::class, 'update'])->name('profile.edit.appointment');
     Route::get('appointment/delete/{id}', [AppointmentController::class, 'destroy'])->name('profile.delete.appointment');
+    Route::get('health-record', [HealthRecordController::class, 'create'])->name('profile.create.record');
+    Route::post('health-record', [HealthRecordController::class, 'store'])->name('profile.create.record');
+
 });
 
 
