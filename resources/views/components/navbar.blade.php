@@ -36,7 +36,7 @@
                                         <li><a href="#"> {{ auth()->user()->name }} <i
                                                     class="icofont-rounded-down"></i></a>
                                             <ul class="dropdown">
-                                                <li><a href="{{ route('profile.edit') }}">Profile</a></li>
+                                                <li><a href="{{ url('profile') }}">Profile</a></li>
                                                 <form method="POST" action="{{ route('logout') }}">
                                                     @csrf
                                                     <li><a href="#"

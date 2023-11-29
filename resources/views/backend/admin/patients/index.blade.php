@@ -19,10 +19,7 @@
             <div class="card">
                 <!-- Card header -->
                 <div class="card-header">
-                    <h3 class="mb-0">Patients List</h3>
-                    <p class="text-sm mb-0">
-                        This is Patients List.
-                    </p>
+                    <h2 class="mb-0">Patients List</h2>
                 </div>
                 <div class="table-responsive py-4">
                     <table class="table table-flush" id="datatable-basic">

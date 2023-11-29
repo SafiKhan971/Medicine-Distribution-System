@@ -22,6 +22,9 @@ use App\Http\Controllers\Auth\GoogleAuthController;
 Route::get('/', function () {
     return view('frontend/index');
 });
+Route::get('/contact', function () {
+    return view('frontend/contact');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
