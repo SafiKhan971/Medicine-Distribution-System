@@ -39,11 +39,11 @@ Route::group(['prefix' => 'profile', 'middleware' => 'checkLogin'], function(){
     Route::get('/', [ProfileController::class, 'index']);
     Route::get('basic-information', [ProfileController::class, 'basic_info']);
     Route::get('appointments', [AppointmentController::class, 'index'])->middleware('checkLogin');
-Route::get('appointment', [AppointmentController::class, 'create'])->name('profile.create.appointment');
-Route::post('appointment', [AppointmentController::class, 'store'])->name('profile.create.appointment');
-Route::get('appointment/edit/{id}', [AppointmentController::class, 'edit'])->name('profile.edit.appointment');
-Route::post('appointment/edit/{id}', [AppointmentController::class, 'update'])->name('profile.edit.appointment');
-Route::get('appointment/delete/{id}', [AppointmentController::class, 'destroy'])->name('profile.delete.appointment');
+    Route::get('appointment', [AppointmentController::class, 'create'])->name('profile.create.appointment');
+    Route::post('appointment', [AppointmentController::class, 'store'])->name('profile.create.appointment');
+    Route::get('appointment/edit/{id}', [AppointmentController::class, 'edit'])->name('profile.edit.appointment');
+    Route::post('appointment/edit/{id}', [AppointmentController::class, 'update'])->name('profile.edit.appointment');
+    Route::get('appointment/delete/{id}', [AppointmentController::class, 'destroy'])->name('profile.delete.appointment');
 });
 
 
@@ -76,6 +76,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'checkUser'], function(){
     Route::get('doctor/update/{id}', [AdminController::class, 'updateDoctorView']);
     Route::post('doctor/update', [AdminController::class, 'updateDoctor'])->name('admin.doctor.update');
     Route::get('doctor/delete/{id}', [AdminController::class, 'deleteDoctor']);
+    // Appointment routes
+    // Route::get('appointment', [AppointmentController::class, 'create'])->name('admin.create.appointment');
+    // Route::post('appointment', [AppointmentController::class, 'store'])->name('admin.create.appointment');
+    Route::get('appointments', [AdminController::class, 'getAppointment'])->name('admin.appointments');
+    Route::get('appointment/edit/{id}', [AdminController::class, 'editAppointment'])->name('admin.edit.appointment');
+    Route::post('appointment/edit/{id}', [AdminController::class, 'updateAppointment'])->name('admin.edit.appointment');
+    Route::get('appointment/delete/{id}', [AdminController::class, 'deleteAppointment'])->name('admin.delete.appointment');
 });
 
 Route::group(['prefix' => 'doctor', 'middleware' => 'checkDoctor'], function(){
