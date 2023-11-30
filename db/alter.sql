@@ -1,4 +1,4 @@
-ALTER TABLE users
+ALTER TABLE `users`
 ADD COLUMN `phone` varchar(255) DEFAULT NULL AFTER `email`,
 ADD COLUMN `picture` varchar(255) DEFAULT NULL AFTER `phone`,
 ADD COLUMN `gender` varchar(255) DEFAULT NULL AFTER `picture`,

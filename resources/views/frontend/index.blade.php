@@ -765,4 +765,4 @@
             </div>
         </section>
         <!-- /End Newsletter Area -->
-        @include('components/footer');
+        @include('components/footer')

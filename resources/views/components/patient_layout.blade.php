@@ -316,7 +316,7 @@
                                 aria-haspopup="true" aria-expanded="false">
                                 <div class="media align-items-center">
                                     <span class="avatar avatar-sm rounded-circle">
-                                        <img alt="Image placeholder" src="{{asset('storage/profile_pictures/'. auth()->user()->picture )}}">
+                                        <img alt="Image placeholder" src="{{ auth()->user()->picture ? asset('storage/profile_pictures/'. auth()->user()->picture) : asset('BackEndAssets/assets/img/theme/user-avatar.png') }}">
                                     </span>
                                     <div class="media-body ml-2 d-none d-lg-block">
                                         <span class="mb-0 text-sm  font-weight-bold">{{ auth()->user()->name }}</span>
