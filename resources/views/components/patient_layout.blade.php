@@ -85,7 +85,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="">
+                            <a class="nav-link" href="#">
                             <i class="ni ni-single-copy-04 text-pink"></i>
                                 <span class="nav-link-text">Health Record</span>
                             </a>
@@ -316,7 +316,7 @@
                                 aria-haspopup="true" aria-expanded="false">
                                 <div class="media align-items-center">
                                     <span class="avatar avatar-sm rounded-circle">
-                                        <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/team-1.jpg')}}">
+                                        <img alt="Image placeholder" src="{{asset('storage/profile_pictures/'. auth()->user()->picture )}}">
                                     </span>
                                     <div class="media-body ml-2 d-none d-lg-block">
                                         <span class="mb-0 text-sm  font-weight-bold">{{ auth()->user()->name }}</span>
