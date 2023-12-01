@@ -346,10 +346,15 @@
                                     <span>Support</span>
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a href="#!" class="dropdown-item">
-                                    <i class="ni ni-user-run"></i>
-                                    <span>Logout</span>
-                                </a>
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                            <a href="#!" class="dropdown-item"
+                                                onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                            <i class="ni ni-user-run"></i>
+                                                <span>Logout</span>
+                                            </a>
+                                    </form>
                             </div>
                         </li>
                     </ul>
@@ -385,7 +390,7 @@
     <script src="{{ asset('BackEndAssets/assets/vendor/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
     <script src="{{ asset('BackEndAssets/assets/vendor/datatables.net-select/js/dataTables.select.min.js') }}"></script>
     <script src="{{ asset('BackEndAssets/assets/vendor/quill/dist/quill.min.js') }}"></script>
-    
+
 
     <!-- Argon JS -->
     <script src="{{ asset('BackEndAssets/assets/js/argon.js?v=1.1.0') }}"></script>

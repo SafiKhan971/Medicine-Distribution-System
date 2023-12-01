@@ -72,6 +72,8 @@ Route::get('admin/logout', [AdminController::class, 'destroy'])->name('admin.log
 
 Route::group(['prefix' => 'admin', 'middleware' => 'checkUser'], function(){
     Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::get('profile', [AdminController::class, 'profile'])->name('admin.profile');
+    Route::post('profile/update', [AdminController::class, 'profileUpdate'])->name('admin.profile.update');
     // Patient routes
     Route::get('patients', [AdminController::class, 'patientsList'])->name('admin.patients');
     Route::get('patient/update/{id}', [AdminController::class, 'updatePatientView']);
