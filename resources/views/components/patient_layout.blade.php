@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="{{ asset('BackEndAssets/assets/vendor/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('BackEndAssets/assets/vendor/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('BackEndAssets/assets/vendor/datatables.net-select-bs4/css/select.bootstrap4.min.css') }}">
+    
 </head>
 
 <body>
@@ -87,7 +88,6 @@
 
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('profile.create.record')}}">
-                            <a class="nav-link" href="#">
                             <i class="ni ni-single-copy-04 text-pink"></i>
                                 <span class="nav-link-text">Health Record</span>
                             </a>
@@ -363,7 +363,8 @@
     </div>
     <!-- Argon Scripts -->
     <!-- Core -->
-    <script src="{{ asset('BackEndAssets/assets/vendor/jquery/dist/jquery.min.js') }}"></script>
+    
+    <!-- <script src="{{ asset('BackEndAssets/assets/vendor/jquery/dist/jquery.min.js') }}"></script> -->
     <script src="{{ asset('BackEndAssets/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('BackEndAssets/assets/vendor/js-cookie/js.cookie.js') }}"></script>
     <script src="{{ asset('BackEndAssets/assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js') }}"></script>
@@ -384,7 +385,8 @@
     <script src="{{ asset('BackEndAssets/assets/vendor/datatables.net-buttons/js/buttons.flash.min.js') }}"></script>
     <script src="{{ asset('BackEndAssets/assets/vendor/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
     <script src="{{ asset('BackEndAssets/assets/vendor/datatables.net-select/js/dataTables.select.min.js') }}"></script>
-    <script src="{{ asset('BackEndAssets/assets/vendor/quill/dist/quill.min.js') }}"></script>
+    
+
     
 
     <!-- Argon JS -->

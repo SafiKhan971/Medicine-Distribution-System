@@ -30,41 +30,38 @@
 @section('content')
 <div class="container-fluid mt--6">
     <div>
-        <form action="{{route('profile.create.record')}}" method="post">
+        <form id="myForm" action="{{route('profile.create.record')}}" method="post">
             @csrf
             <h2>Medical History</h2>
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label class="form-control-label" for="example3cols1Input">Past Medical Conditions <small>(Chronic illnesses, Surgeries, Allergies)</small> </label>
-                        <form>
-                            <div data-toggle="quill" data-quill-placeholder="Write Here ..."></div>
-                        </form>
+                        <label class="form-control-label" for="pmc">Past Medical Conditions <small>(Chronic illnesses, Surgeries, Allergies)</small></label>
+                        <textarea class="form-control" name="past_medical_condition" id="pmc" placeholder="Past Medical Conditions" rows="3"></textarea>
                     </div>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-6 mb-3">
                     <div class="form-group">
-                        <label class="form-control-label" for="example3cols1Input">Present Medical Conditions</label>
-                        <form>
-                            <div data-toggle="quill" data-quill-placeholder="Write Here ..."></div>
-                        </form>
+                        <label class="form-control-label" for="pmdc">Present Medical Conditions</label>
+                        <textarea class="form-control" name="present_medical_condition" id="pmdc" placeholder="Present Medical Conditions" rows="3"></textarea>
                     </div>
                 </div>
             </div>
+            <br>
 
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="form-control-label" for="medications">Medications <small>(Current and Past)</small></label>
-                        <textarea class="form-control" id="medications" placeholder="Medications" rows="3"></textarea>
+                        <textarea class="form-control" name="medications" id="medications" placeholder="Medications" rows="3"></textarea>
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="form-control-label" for="hcp">Health Care Providers <small>(Specialists)</small></label>
-                        <textarea class="form-control" id="hcp" placeholder="Health Care Providers" rows="3"></textarea>
+                        <textarea class="form-control" name="healthcare_providers" id="hcp" placeholder="Health Care Providers" rows="3"></textarea>
                     </div>
                 </div>
             </div>
@@ -74,21 +71,21 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="bp" class="form-control-label">Blood Pressure</label>
-                        <input class="form-control" type="number" placeholder="Blood Pressure" id="bp">
+                        <input class="form-control" name="blood_pressure" type="number" placeholder="Blood Pressure" id="bp">
                     </div>
                 </div>
 
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="hr" class="form-control-label">Heart Rate</label>
-                        <input class="form-control" type="number" placeholder="Heart Rate" id="hr">
+                        <input class="form-control" name="heart_rate" type="number" placeholder="Heart Rate" id="hr">
                     </div>
                 </div>
 
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="rr" class="form-control-label">Respiratory Rate</label>
-                        <input class="form-control" type="number" placeholder="Respiratory Rate" id="rr">
+                        <input class="form-control" name="respiratory_rate" type="number" placeholder="Respiratory Rate" id="rr">
                     </div>
                 </div>
             </div>
@@ -96,14 +93,14 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="temp" class="form-control-label">Temprature</label>
-                        <input class="form-control" type="number" placeholder="Temprature" id="temp">
+                        <input class="form-control" name="temprature" type="number" placeholder="Temprature" id="temp">
                     </div>
                 </div>
 
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="wt" class="form-control-label">Weight</label>
-                        <input class="form-control" type="number" placeholder="Weight" id="wt">
+                        <input class="form-control" name="weight" type="number" placeholder="Weight" id="wt">
                     </div>
                 </div>
             </div>
@@ -113,19 +110,17 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="form-control-label" for="lsi">Life Style Information <small>(Smoking/Alcohol Habits, Diet Preferences)</small></label>
-                        <textarea class="form-control" id="lsi" placeholder="Life Style Information" rows="3"></textarea>
+                        <textarea class="form-control" name="lifestyle_info" id="lsi" placeholder="Life Style Information" rows="3"></textarea>
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="form-control-label" for="docs">Documents <small>(Laboratory Results, Prescriptions)</small></label>
-                        <form>
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="customFileLang" lang="en">
-                                <label class="custom-file-label" for="customFileLang">Select file</label>
-                            </div>
-                        </form>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" name="documents" id="customFileLang" lang="en">
+                            <label class="custom-file-label" for="customFileLang">Select file</label>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -133,9 +128,8 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label class="form-control-label" for="cmnts">Comments <small>(Symptoms, Current Health Issues)</small></label>
-                        <form>
-                            <div data-toggle="quill" data-quill-placeholder="Write Here ..."></div>
-                        </form>
+                        <div id="quill-editor" data-toggle="quill" data-quill-placeholder="Write Here ..."></div>
+                        <input type="hidden" id="quill-content" name="comments">
                     </div>
                 </div>
             </div>
@@ -176,3 +170,15 @@
     </footer>
 </div>
 @endsection
+<script src="{{ asset('BackEndAssets/assets/vendor/jquery/dist/jquery.min.js') }}"></script>
+<script src="{{ asset('BackEndAssets/assets/vendor/quill/dist/quill.min.js') }}"></script>
+<script>
+    $(document).ready(function () {
+        var quill = new Quill('#quill-editor');
+
+        $('#myForm').submit(function () {
+            var quillContent = quill.root.innerHTML;
+            $('#quill-content').val(quillContent);
+        });
+    });
+</script>

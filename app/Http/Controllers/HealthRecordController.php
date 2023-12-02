@@ -14,6 +14,7 @@ class HealthRecordController extends Controller
 
     public function store(Request $request)
     {
+        dd($request->all());
         $record = new HealthRecord;
         $record->user_id = auth()->user()->id;
         $record->doctor_id = $request->doctor_id;
@@ -27,7 +28,11 @@ class HealthRecordController extends Controller
         $record->weight = $request->weight;
         $record->lifestyle_info = $request->lifestyle_info;
         $record->healthcare_providers = $request->healthcare_providers;
-        $record->documents = $request->documents;
+        if ($request->hasFile('documents')) {
+            $documents = $request->file('documents')->getClientOriginalName();
+            $request->file('documents')->storeAs('public/', $documents);
+            $record->documents = $documents;
+        }
         $record->comments = $request->comments;
         $record->save();
 
