@@ -24,16 +24,15 @@
             <div class="form-content">
                 <a href="{{ url('/') }}" id="logo"><img src="{{ asset('img/dhc_logo.png')}}" alt="logo" /></a>
                 <header>Doctor Login</header>
+                @error('error')
+                    <div style="color: red; margin-top: 10px">{{ $message }}</div>
+                @enderror
                 <form method="POST" action="{{ url('doctor/login') }}">
                     @csrf
                     <div class="field input-field">
                         <input type="email" placeholder="Email" class="input" name="email"
                             value="{{ old('email') }}" required autofocus>
                     </div>
-
-                    @error('error')
-                        <div class="mb-3" style="color: red; margin-top: 10px">{{ $message }}</div>
-                    @enderror
 
                     <div class="field input-field">
                         <input type="password" placeholder="Password" class="password" type="password" name="password"

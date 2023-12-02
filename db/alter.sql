@@ -7,3 +7,5 @@ ADD COLUMN `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_
 
 
 ALTER TABLE `admins` ADD `picture` VARCHAR(255) NULL AFTER `password`;
+
+ALTER TABLE `doctors` ADD `picture` VARCHAR(255) NULL AFTER `password`;

@@ -95,4 +95,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'checkUser'], function(){
 
 Route::group(['prefix' => 'doctor', 'middleware' => 'checkDoctor'], function(){
     Route::get('dashboard', [DoctorController::class, 'index'])->name('doctor.dashboard');
+    Route::get('basic-information', [DoctorController::class, 'basic_info']);
+    Route::post('profile/update', [DoctorController::class, 'profileUpdate'])->name('doctor.profile.update');
+    Route::post('doctor/logout', [DoctorController::class, 'destroy'])->name('doctor.destroy');
 });

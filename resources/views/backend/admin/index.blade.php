@@ -28,6 +28,14 @@
         {{-- <div class="mb-3">
             <h1>Admin Dashboard</h1>
         </div> --}}
+        @if(session('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <span class="alert-text"><strong>Success!</strong> {{ session('success') }}</span>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        @endif
         <div class="row" style="height: 25rem;">
             <div class="col-xl-4 col-md-6">
               <div class="card card-stats pt-3 pb-2">

@@ -85,7 +85,7 @@ class AdminController extends Controller {
             request()->session()->put( 'admin_email', $admin->email );
             request()->session()->put( 'admin_picture', $admin->picture );
             // flash( 'Logged In Successfully!' )->success();
-            return redirect()->intended( RouteServiceProvider::ADMIN_HOME );
+            return redirect()->intended( RouteServiceProvider::ADMIN_HOME )->with('success', 'Logged In Successfully!');
         } else {
             return redirect()->back()->with('error','Invalid Login Credentials!');
         }
@@ -93,8 +93,8 @@ class AdminController extends Controller {
 
     public function destroy() {
         session()->forget( 'admin_id' );
-        flash( 'Logged Out Successfully!' )->success();
-        return redirect( 'admin/login' );
+        // flash( 'Logged Out Successfully!' )->success();
+        return redirect( 'admin/login' )->with('success','Logged Out Successfully!');
     }
 
     // Patient Functions
@@ -195,8 +195,8 @@ class AdminController extends Controller {
                 $appointment->app_dt_start = $appointmentStartTime;
                 $appointment->app_dt_end =  $appointmentEndTime;
                 $appointment->save();
-                flash('Appointment updated successfully!')->success();
-                return redirect('admin/appointments');
+                // flash('Appointment updated successfully!')->success();
+                return redirect('admin/appointments')->with('success', 'Appointment updated successfully!');
         }
     }
 
@@ -204,7 +204,7 @@ class AdminController extends Controller {
     {
         $appointment = Appointment::find($id);
         $appointment->delete();
-        flash('Appointment Deleted Successfully!')->success();
-        return redirect()->back();
+        // flash('Appointment Deleted Successfully!')->success();
+        return redirect()->back()->with('success', 'Appointment Deleted Successfully!');
     }
 }
