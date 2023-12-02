@@ -26,10 +26,10 @@
 @section('content')
 <!-- Page content -->
 <div class="container-fluid mt--6">
-    {{-- <div style="height: 25rem;">
+    {{--  <div style="height: 25rem;">
         <h2>Patient Dashboard</h2>
-    </div> --}}
-    <!-- Footer -->
+    </div> 
+    <!-- Footer --> --}}
     <footer class="footer pt-0">
         <div class="row align-items-center justify-content-center">
             <div class="col-lg-6">

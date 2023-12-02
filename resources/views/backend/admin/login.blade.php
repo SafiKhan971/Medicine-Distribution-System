@@ -36,6 +36,22 @@
                             <div class="text-center text-muted mb-4">
                                 <small>Admin Sign In</small>
                             </div>
+                            @if(session('error'))
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <span class="alert-text"><strong>Error!</strong> {{ session('error') }}</span>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            @endif
+                            @if(session('success'))
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    <span class="alert-text"><strong>Success!</strong> {{ session('success') }}</span>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            @endif
                             <form role="form" action="{{ url('admin/login') }}" method="POST">
                                 @csrf
                                 <div class="form-group mb-3">

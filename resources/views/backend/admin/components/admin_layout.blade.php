@@ -63,14 +63,14 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('admin.patients') }}" role="button"
                                 aria-expanded="true" aria-controls="navbar-patients">
-                                <i class="ni ni-bullet-list-67 text-default"></i>
+                                <i class="fas fa-user text-warning"></i>
                                 <span class="nav-link-text">Patients List</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('admin.doctors') }}" role="button" aria-expanded="true"
                                 aria-controls="navbar-doctors">
-                                <i class="ni ni-bullet-list-67 text-default"></i>
+                                <i class="ni ni-hat-3 text-default"></i>
                                 <span class="nav-link-text">Doctors List</span>
                             </a>
                         </li>
@@ -305,7 +305,7 @@
                                 <div class="media align-items-center">
                                     <span class="avatar avatar-sm rounded-circle">
                                         <img alt="Image placeholder"
-                                            src="{{ asset('BackEndAssets/assets/img/theme/team-4.jpg') }}">
+                                            src="{{ session()->get('admin_picture') ? asset('storage/profile_pictures/' . session()->get('admin_picture')) : asset('BackEndAssets/assets/img/theme/team-1.jpg') }}">
                                     </span>
                                     <div class="media-body ml-2 d-none d-lg-block">
                                         <span class="mb-0 text-sm  font-weight-bold">
@@ -318,11 +318,11 @@
                                 <div class="dropdown-header noti-title">
                                     <h6 class="text-overflow m-0">Welcome!</h6>
                                 </div>
-                                <a href="#!" class="dropdown-item">
+                                <a href="{{ route('admin.profile') }}" class="dropdown-item">
                                     <i class="ni ni-single-02"></i>
                                     <span>My profile</span>
                                 </a>
-                                <a href="#!" class="dropdown-item">
+                                {{-- <a href="#!" class="dropdown-item">
                                     <i class="ni ni-settings-gear-65"></i>
                                     <span>Settings</span>
                                 </a>
@@ -333,7 +333,7 @@
                                 <a href="#!" class="dropdown-item">
                                     <i class="ni ni-support-16"></i>
                                     <span>Support</span>
-                                </a>
+                                </a> --}}
                                 <div class="dropdown-divider"></div>
                                 <form method="GET" action="{{ route('admin.logout') }}">
                                     @csrf

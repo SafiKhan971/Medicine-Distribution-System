@@ -42,7 +42,7 @@
                 <form class="form" action="{{ route('profile.create.appointment') }}" method="post">
                     @csrf
                     <div class="row">
-                        <div class="col-lg-6 col-md-6 col-12">
+                        {{-- <div class="col-lg-6 col-md-6 col-12">
                             <div class="form-group">
                                 <input name="name" type="text" placeholder="Name">
                             </div>
@@ -56,11 +56,11 @@
                             <div class="form-group">
                                 <input name="phone" type="text" placeholder="Phone">
                             </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-12">
+                        </div> --}}
+                        <div class="col-lg-12 col-md-12 col-12">
                             <div class="form-group">
-                                <select id="doctor" class="form-control" name="doctor_id">
-                                    <option disabled selected="" value="">Select Doctor</option>
+                                <select id="doctor" class="form-control wide" name="doctor_id">
+                                    <option selected="" value="">Select Doctor</option>
                                     @foreach ($doctors as $doctor)
                                         <option value="{{ $doctor->id }}"> {{ $doctor->name }} </option>
                                     @endforeach

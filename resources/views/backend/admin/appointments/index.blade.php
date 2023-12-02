@@ -30,7 +30,14 @@
 @section('content')
 <!-- Page content -->
 <div class="container-fluid mt--6">
-    @include('flash::message')
+    @if(session('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <span class="alert-text"><strong>Success!</strong> {{ session('success') }}</span>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    @endif
     <div class="row">
         <div class="col">
             <div class="card">
@@ -52,8 +59,8 @@
                             @foreach($appointments as $appointment)
                             <tr>
                                 <td>{{ $serial_no++ }}</td>
-                                <td>{{ $appointment->doctor->name }}</td>
-                                <td>{{ $appointment->app_dt_start }}</td>
+                                <td>{{ isset($appointment->doctor->name) ? $appointment->doctor->name : '-' }}</td>
+                                <td>{{ \Carbon\Carbon::parse($appointment->app_dt_start)->format('M j, Y - h:i A') }}</td>
                                 <td>
                                     <a href="{{route('admin.edit.appointment', $appointment->id)}}" class="btn btn-primary btn-sm">Edit</a>
                                     <a href="{{route('admin.delete.appointment', $appointment->id)}}" class="btn btn-danger btn-sm">Delete</a>
