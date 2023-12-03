@@ -14,7 +14,7 @@ class HealthRecordController extends Controller
 
     public function store(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
         $record = new HealthRecord;
         $record->user_id = auth()->user()->id;
         $record->doctor_id = $request->doctor_id;
@@ -36,7 +36,7 @@ class HealthRecordController extends Controller
         $record->comments = $request->comments;
         $record->save();
 
-
-
+        flash('Health Record Added Successfully!');
+        return redirect('/profile');
     }
 }

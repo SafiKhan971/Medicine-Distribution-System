@@ -26,6 +26,7 @@
 @section('content')
 <!-- Page content -->
 <div class="container-fluid mt--6">
+    @include('flash::message')
     {{--  <div style="height: 25rem;">
         <h2>Patient Dashboard</h2>
     </div> 

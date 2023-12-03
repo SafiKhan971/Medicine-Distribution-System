@@ -30,7 +30,7 @@
 @section('content')
 <div class="container-fluid mt--6">
     <div>
-        <form id="myForm" action="{{route('profile.create.record')}}" method="post">
+        <form id="myForm" action="{{route('profile.create.record')}}" method="post" enctype="multipart/form-data">
             @csrf
             <h2>Medical History</h2>
             <div class="row">
@@ -118,8 +118,8 @@
                     <div class="form-group">
                         <label class="form-control-label" for="docs">Documents <small>(Laboratory Results, Prescriptions)</small></label>
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" name="documents" id="customFileLang" lang="en">
-                            <label class="custom-file-label" for="customFileLang">Select file</label>
+                            <input type="file" class="custom-file-input" name="documents" id="docs" lang="en">
+                            <label class="custom-file-label" for="docs">Select file</label>
                         </div>
                     </div>
                 </div>
@@ -169,16 +169,16 @@
         </div>
     </footer>
 </div>
-@endsection
 <script src="{{ asset('BackEndAssets/assets/vendor/jquery/dist/jquery.min.js') }}"></script>
 <script src="{{ asset('BackEndAssets/assets/vendor/quill/dist/quill.min.js') }}"></script>
 <script>
-    $(document).ready(function () {
+    $(document).ready(function() {
         var quill = new Quill('#quill-editor');
 
-        $('#myForm').submit(function () {
+        $('#myForm').submit(function() {
             var quillContent = quill.root.innerHTML;
             $('#quill-content').val(quillContent);
         });
     });
 </script>
+@endsection
