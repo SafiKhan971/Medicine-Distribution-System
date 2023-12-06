@@ -10,76 +10,146 @@
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('img/favicon.png') }}">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="{{ asset('FrontEndAssets/css/style.css') }}">
+    <!-- MATERIAL DESIGN ICONIC FONT -->
+    <link rel="stylesheet"
+        href="{{ asset('FrontEndAssets/DoctorAssets/fonts/material-design-iconic-font/css/material-design-iconic-font.css') }}">
 
-    <!-- Boxicons CSS -->
-    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <!-- STYLE CSS -->
+    <link rel="stylesheet" href="{{ asset('FrontEndAssets/DoctorAssets/css/style.css') }}">
 </head>
 
 <body>
-    <section class="container forms">
-        <div class="form login">
-            <div class="form-content">
-                <a href="{{ url('/') }}" id="logo"><img src="{{ asset('img/dhc_logo.png')}}" alt="logo" /></a>
-                <header>Doctor Registration</header>
-                <form method="POST" action="{{ url('doctor/register') }}">
-                    @csrf
-                    <div class="field input-field">
-                        <input type="text" placeholder="Name" class="input" name="name"
-                            value="{{ old('name') }}" required autofocus autocomplete="name">
+    <div class="wrapper">
+        <form action="" id="wizard">
+            <!-- Personal Information -->
+            <h2></h2>
+            <section>
+                <div class="inner">
+                    <div class="image-holder">
+                        <img src="{{ asset('FrontEndAssets/DoctorAssets/images/form-wizard-1.jpg') }}" alt="">
                     </div>
-                    @error('name')
-                        <div style="color: red; margin-top: 5px; margin-bottom: 3px; font-size: 15px">
-                            {{ $message }}
+                    <div class="form-content">
+                        <div class="form-header">
+                            <h3>Doctor Registration</h3>
                         </div>
-                    @enderror
-
-                    <div class="field input-field">
-                        <input type="email" placeholder="Email" class="input" name="email"
-                            value="{{ old('email') }}" required autocomplete="username">
-                    </div>
-                    @error('email')
-                        <div style="color: red; margin-top: 5px; margin-bottom: 3px; font-size: 15px">
-                            {{ $message }}
+                        <p>Provide Personal Information</p>
+                        <div class="form-row">
+                            <div class="form-holder">
+                                <input type="text" placeholder="Full Name" class="form-control">
+                            </div>
+                            <div class="form-holder">
+                                <input title="Date Of Birth" type="date" class="form-control">
+                            </div>
                         </div>
-                    @enderror
-
-                    <div class="field input-field">
-                        <input type="password" placeholder="Create password" class="password" name="password" required
-                            autocomplete="new-password">
-                    </div>
-                    @error('password')
-                        <div style="color: red; margin-top: 5px; margin-bottom: 3px; font-size: 15px">
-                            {{ $message }}
+                        <div class="form-row">
+                            <div class="form-holder">
+                                <input type="text" placeholder="Your Email" class="form-control">
+                            </div>
+                            <div class="form-holder">
+                                <input type="text" placeholder="Phone Number" class="form-control">
+                            </div>
                         </div>
-                    @enderror
-
-                    <div class="field input-field">
-                        <input type="password" placeholder="Confirm password" class="password"
-                            name="password_confirmation" required autocomplete="new-password">
-                        <i class='bx bx-hide eye-icon'></i>
-                    </div>
-                    @error('password_confirmation')
-                        <div style="color: red; margin-top: 5px; margin-bottom: 3px; font-size: 15px">
-                            {{ $message }}
+                        <div class="form-row">
+                            <div class="form-holder">
+                                <input type="text" placeholder="Nationality" class="form-control">
+                            </div>
+                            <div class="form-holder" style="align-self: flex-end; transform: translateY(4px);">
+                                <div class="checkbox-tick">
+                                    <label class="male">
+                                        <input type="radio" name="gender" value="male" checked> Male<br>
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="female">
+                                        <input type="radio" name="gender" value="female"> Female<br>
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                            </div>
                         </div>
-                    @enderror
-
-                    <div class="field button-field">
-                        <button>Signup</button>
                     </div>
-                </form>
-
-                <div class="form-link">
-                    <span>Already have an account? <a href="{{ url('doctor/login') }}">Login</a></span>
                 </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <!-- JavaScript -->
-    <script src="{{ asset('FrontEndAssets/js/script.js') }}"></script>
+            <!-- Professional Information -->
+            <h2></h2>
+            <section>
+                <div class="inner">
+                    <div class="image-holder">
+                        <img src="{{ asset('FrontEndAssets/DoctorAssets/images/form-wizard-2.jpg') }}" alt="">
+                    </div>
+                    <div class="form-content">
+                        <div class="form-header">
+                            <h3>Doctor Registration</h3>
+                        </div>
+                        <p>Provide Professional Information</p>
+                        <div class="form-row">
+                            <div class="form-holder">
+                                <input type="text" placeholder="Medical License Number" class="form-control">
+                            </div>
+                            <div class="form-holder">
+                                <input type="text" placeholder="Specialization" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-holder">
+                                <input type="number" min="0" placeholder="Years of Experience"
+                                    class="form-control">
+                            </div>
+                            <div class="form-holder">
+                                <input type="text" placeholder="Medical School Attended" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-holder w-100">
+                                <input type="text" placeholder="Board Certifications" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 3 -->
+            <h2></h2>
+            <section>
+                <div class="inner">
+                    <div class="image-holder">
+                        <img src="{{ asset('FrontEndAssets/DoctorAssets/images/form-wizard-3.jpg') }}" alt="">
+                    </div>
+                    <div class="form-content">
+                        <div class="form-header">
+                            <h3>Doctor Registration</h3>
+                        </div>
+                        <p>Provide Clinic/Hospital Affiliation</p>
+                        <div class="form-row">
+                            <div class="form-holder w-100">
+                                <input type="text" placeholder="Name of Clinic/Hospital" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-holder">
+                                <input type="email" placeholder="Email" class="form-control">
+                            </div>
+                            <div class="form-holder">
+                                <input type="text" placeholder="Phone" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-holder w-100">
+                                <textarea type="text" placeholder="Address" class="form-control"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </form>
+    </div>
+    <!-- JQUERY -->
+    <script src="{{ asset('FrontEndAssets/DoctorAssets/js/jquery-3.3.1.min.js') }}"></script>
+
+    <!-- JQUERY STEP -->
+    <script src="{{ asset('FrontEndAssets/DoctorAssets/js/jquery.steps.js') }}"></script>
+    <script src="{{ asset('FrontEndAssets/DoctorAssets/js/main.js') }}"></script>
 </body>
 
 </html>
