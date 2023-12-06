@@ -58,6 +58,7 @@ class AppointmentController extends Controller
     public function edit($id)
     {
         $appointment = Appointment::with('doctor')->find($id);
+        // dd($appointment);
         $doctors = Doctor::select('id', 'name')->get();
         return view('frontend.patient.appointments.edit', compact('appointment', 'doctors'));
     }

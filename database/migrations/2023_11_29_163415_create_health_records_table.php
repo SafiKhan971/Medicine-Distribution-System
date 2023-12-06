@@ -25,7 +25,6 @@ return new class extends Migration
             $table->integer('weight')->nullable();
             $table->longText('lifestyle_info');
             $table->longText('healthcare_providers');
-            $table->text('documents')->nullable();
             $table->longText('comments');
             $table->timestamps();
         });
