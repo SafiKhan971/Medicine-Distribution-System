@@ -11,8 +11,7 @@
     <link rel="icon" href="{{ asset('img/favicon.png') }}">
 
     <!-- MATERIAL DESIGN ICONIC FONT -->
-    <link rel="stylesheet"
-        href="{{ asset('FrontEndAssets/DoctorAssets/fonts/material-design-iconic-font/css/material-design-iconic-font.css') }}">
+    <link rel="stylesheet" href="{{ asset('FrontEndAssets/DoctorAssets/fonts/material-design-iconic-font/css/material-design-iconic-font.css') }}">
 
     <!-- STYLE CSS -->
     <link rel="stylesheet" href="{{ asset('FrontEndAssets/DoctorAssets/css/style.css') }}">
@@ -66,10 +65,14 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="form-row">
+                            <div class="form-holder">
+                                <input type="file" accept="image/*" class="form-control" title="Professional Picture" />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
-
             <!-- Professional Information -->
             <h2></h2>
             <section>
@@ -84,18 +87,17 @@
                         <p>Provide Professional Information</p>
                         <div class="form-row">
                             <div class="form-holder">
-                                <input type="text" placeholder="Medical License Number" class="form-control">
+                                <input type="text" placeholder="Medical License #" class="form-control">
                             </div>
                             <div class="form-holder">
                                 <input type="text" placeholder="Specialization" class="form-control">
                             </div>
+                            <div class="form-holder">
+                                <input type="number" min="0" placeholder="Experience" class="form-control">
+                            </div>
                         </div>
                         <div class="form-row">
-                            <div class="form-holder">
-                                <input type="number" min="0" placeholder="Years of Experience"
-                                    class="form-control">
-                            </div>
-                            <div class="form-holder">
+                            <div class="form-holder w-100">
                                 <input type="text" placeholder="Medical School Attended" class="form-control">
                             </div>
                         </div>
@@ -108,8 +110,7 @@
                     </div>
                 </div>
             </section>
-
-            <!-- SECTION 3 -->
+            <!-- Clinic / Hospital Affiliation -->
             <h2></h2>
             <section>
                 <div class="inner">
@@ -120,10 +121,10 @@
                         <div class="form-header">
                             <h3>Doctor Registration</h3>
                         </div>
-                        <p>Provide Clinic/Hospital Affiliation</p>
+                        <p>Provide Clinic / Hospital Affiliation</p>
                         <div class="form-row">
                             <div class="form-holder w-100">
-                                <input type="text" placeholder="Name of Clinic/Hospital" class="form-control">
+                                <input type="text" placeholder="Name of Clinic / Hospital" class="form-control">
                             </div>
                         </div>
                         <div class="form-row">
@@ -137,6 +138,101 @@
                         <div class="form-row">
                             <div class="form-holder w-100">
                                 <textarea type="text" placeholder="Address" class="form-control"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Availability -->
+            <h2></h2>
+            <section>
+                <div class="inner">
+                    <div class="image-holder">
+                        <img src="{{ asset('FrontEndAssets/DoctorAssets/images/form-wizard-3.jpg') }}" alt="">
+                    </div>
+                    <div class="form-content">
+                        <div class="form-header">
+                            <h3>Doctor Registration</h3>
+                        </div>
+                        <p>Provide Availability</p>
+                        <div class="form-row">
+                            <div class="form-holder w-100">
+                                <input type="text" placeholder="Days Of week" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-holder">
+                                <input type="time" placeholder="Start Time" class="form-control">
+                            </div>
+                            <div class="form-holder">
+                                <input type="time" placeholder="End Time" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Languages Spoken Social Links -->
+            <h2></h2>
+            <section>
+                <div class="inner">
+                    <div class="image-holder">
+                        <img src="{{ asset('FrontEndAssets/DoctorAssets/images/form-wizard-3.jpg') }}" alt="">
+                    </div>
+                    <div class="form-content">
+                        <div class="form-header">
+                            <h3>Doctor Registration</h3>
+                        </div>
+                        <p>Provide Languages & Social Links</p>
+                        <div class="form-row">
+                            <div class="form-holder w-100">
+                                <input type="text" placeholder="Languages Spoken" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-holder">
+                                <input type="url" placeholder="Facebook Link" class="form-control">
+                            </div>
+                            <div class="form-holder">
+                                <input type="url" placeholder="Instagram Link" class="form-control">
+                            </div>
+                            <div class="form-holder">
+                                <input type="url" placeholder="LinkedIn Link" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Biography -->
+            <h2></h2>
+            <section>
+                <div class="inner">
+                    <div class="image-holder">
+                        <img src="{{ asset('FrontEndAssets/DoctorAssets/images/form-wizard-3.jpg') }}" alt="">
+                    </div>
+                    <div class="form-content">
+                        <div class="form-header">
+                            <h3>Doctor Registration</h3>
+                        </div>
+                        <p>Provide Biography and Profile</p>
+                        <div class="form-row">
+                            <div class="form-holder">
+                                <textarea type="text" placeholder="Professional Bio" class="form-control"></textarea>
+                            </div>
+                            <div class="form-holder">
+                                <textarea type="text" placeholder="Educational Background" class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-holder">
+                                <textarea type="text" placeholder="Areas of Expertise" class="form-control"></textarea>
+                            </div>
+                            <div class="form-holder">
+                                <textarea type="text" placeholder="Publications(if applicable)" class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-holder">
+                                <input type="number" placeholder="Consultation Fee" class="form-control" />
                             </div>
                         </div>
                     </div>

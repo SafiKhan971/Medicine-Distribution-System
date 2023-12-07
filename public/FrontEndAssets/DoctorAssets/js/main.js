@@ -11,6 +11,12 @@ $(function(){
             previous: "Previous"
         }
     });
+
+    $("#wizard").submit(function (e) {
+        e.preventDefault();
+        console.log("Form submitted!");
+    });
+
     $('.wizard > .steps li a').click(function(){
     	$(this).parent().addClass('checked');
 		$(this).parent().prevAll().addClass('checked');
