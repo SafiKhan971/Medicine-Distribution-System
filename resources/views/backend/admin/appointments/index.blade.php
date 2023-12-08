@@ -62,8 +62,14 @@
                                 <td>{{ isset($appointment->doctor->name) ? $appointment->doctor->name : '-' }}</td>
                                 <td>{{ \Carbon\Carbon::parse($appointment->app_dt_start)->format('M j, Y - h:i A') }}</td>
                                 <td>
-                                    <a href="{{route('admin.edit.appointment', $appointment->id)}}" class="btn btn-primary btn-sm">Edit</a>
-                                    <a href="{{route('admin.delete.appointment', $appointment->id)}}" class="btn btn-danger btn-sm">Delete</a>
+                                    <a href="{{route('admin.edit.appointment', $appointment->id)}}"
+                                        class="btn btn-outline-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+                                    <a href="{{route('admin.delete.appointment', $appointment->id)}}"
+                                        class="btn btn-outline-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Delete">
+                                        <i class="fa fa-trash"></i>
+                                    </a>
                                 </td>
                             </tr>
                             @endforeach

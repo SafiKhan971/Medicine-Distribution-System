@@ -27,13 +27,21 @@
 @section('content')
     <!-- Page content -->
     <div class="container-fluid mt--6">
-        @if(session('success'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <span class="alert-text"><strong>Success!</strong> {{ session('success') }}</span>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
+        @if (session('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <span class="alert-text"><strong>Success!</strong> {{ session('success') }}</span>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
+        @if (session('error'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <span class="alert-text"><strong>Error!</strong> {{ session('error') }}</span>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
         @endif
         <div class="row">
             <div class="col">
@@ -44,6 +52,7 @@
                                 <tr>
                                     <th>Name</th>
                                     <th>Email</th>
+                                    <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -53,25 +62,31 @@
                                     <tr>
                                         <td>{{ $doctor['name'] }}</td>
                                         <td>{{ $doctor['email'] }}</td>
+                                        <td>{{ $doctor['status'] == 1 ? 'Approved' : 'Unapproved' }}</td>
                                         <td>
                                             <a href="{{ url('/admin/doctor/view/' . $doctor['id']) }}"
-                                                class="btn btn-outline-default btn-sm" data-toggle="tooltip" data-placement="top" title="View Details">
+                                                class="btn btn-outline-default btn-sm" data-toggle="tooltip"
+                                                data-placement="top" title="View Details">
                                                 <i class="fa fa-eye"></i>
                                             </a>
                                             <a href="{{ url('/admin/doctor/approve/' . $doctor['id']) }}"
-                                                class="btn btn-outline-success btn-sm" data-toggle="tooltip" data-placement="top" title="Approve">
+                                                class="btn btn-outline-success btn-sm" data-toggle="tooltip"
+                                                data-placement="top" title="Approve">
                                                 <i class="fa fa-thumbs-up"></i>
                                             </a>
                                             <a href="{{ url('/admin/doctor/disapprove/' . $doctor['id']) }}"
-                                                class="btn btn-outline-warning btn-sm" data-toggle="tooltip" data-placement="top" title="Disapprove">
+                                                class="btn btn-outline-warning btn-sm" data-toggle="tooltip"
+                                                data-placement="top" title="Disapprove">
                                                 <i class="fa fa-thumbs-down"></i>
                                             </a>
                                             <a href="{{ url('/admin/doctor/update/' . $doctor['id']) }}"
-                                                class="btn btn-outline-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                class="btn btn-outline-primary btn-sm" data-toggle="tooltip"
+                                                data-placement="top" title="Edit">
                                                 <i class="fa fa-edit"></i>
                                             </a>
                                             <a href="{{ url('/admin/doctor/delete/' . $doctor['id']) }}"
-                                                class="btn btn-outline-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                class="btn btn-outline-danger btn-sm" data-toggle="tooltip"
+                                                data-placement="top" title="Delete">
                                                 <i class="fa fa-trash"></i>
                                             </a>
                                         </td>

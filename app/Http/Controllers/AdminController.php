@@ -8,7 +8,9 @@ use App\Models\Admin;
 use App\Models\Doctor;
 use App\Models\Appointment;
 use Illuminate\Http\Request;
+use App\Mail\DoctorApprovalMail;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Redirect;
 
@@ -154,6 +156,24 @@ class AdminController extends Controller {
         $doctor = Doctor::find( $id );
         $doctor->delete();
         return Redirect::to( '/admin/doctors' )->with( 'success', 'Doctor Deleted Successfully!' );
+    }
+
+    public function doctorApprove($id)
+    {
+        $doctor = Doctor::find($id);
+
+        if ($doctor) {
+            // Update status and password fields
+            $doctor->status = 1;
+            $doctor->password = bcrypt('123456');
+            $doctor->save();
+
+            // Send approval email
+            $password = '123456';
+            Mail::to($doctor->email)->send(new DoctorApprovalMail($doctor, $password));
+
+            return redirect()->back()->with('success', 'Doctor approved successfully and email has been sent.');
+        }
     }
 
     // Appointments

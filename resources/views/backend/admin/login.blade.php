@@ -34,7 +34,7 @@
                         </div> -->
                         <div class="card-body px-lg-5 py-lg-5">
                             <div class="text-center text-muted mb-4">
-                                <small>Admin Sign In</small>
+                                <legend>Admin Sign in</legend>
                             </div>
                             @if(session('error'))
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">

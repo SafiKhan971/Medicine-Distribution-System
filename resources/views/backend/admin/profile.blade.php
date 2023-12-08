@@ -40,7 +40,7 @@
                 <div class="card mb-4">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="form-control-label" for="name">Name</label>
                                     <input type="text" value="{{ session()->get('admin_name') }}"
@@ -48,7 +48,7 @@
                                         name="name">
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="form-control-label" for="email">Email</label>
                                     <input type="text" value="{{ session()->get('admin_email') }}"
@@ -56,7 +56,7 @@
                                         name="email">
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="form-control-label" for="picture">Profile Picture</label>
                                     <input type="file" class="form-control form-control-sm" id="picture"
