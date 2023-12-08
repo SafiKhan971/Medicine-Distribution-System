@@ -78,6 +78,13 @@
                         </li>
 
                         <li class="nav-item">
+                            <a class="nav-link" href="{{route('search-doctor.index')}}">
+                                <i class="ni ni-shop text-primary"></i>
+                                <span class="nav-link-text">Search For Doctors</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
                             <a class="nav-link" href="{{url('profile/basic-information')}}">
                                 <i class="ni ni-circle-08 text-primary"></i>
                                 <span class="nav-link-text">Basic Information</span>

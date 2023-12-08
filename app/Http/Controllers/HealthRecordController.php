@@ -11,13 +11,11 @@ class HealthRecordController extends Controller
     public function create()
     {
         $record = HealthRecord::where('user_id', auth()->user()->id)->first();
-        // dd($record->toArray());
         return view('frontend.patient.health_record.create', compact('record'));
     }
 
     public function store(Request $request)
     {
-        // dd($request->all());
         $record = HealthRecord::updateOrCreate(
             ['user_id' => auth()->user()->id],
             [
@@ -51,71 +49,19 @@ class HealthRecordController extends Controller
                 $document->path = $documentPath;
                 $document->health_record_id = $record->id;
 
-                // Save the document
                 $document->save();
             }
         }
 
+        if($record->wasRecentlyCreated())
+        {
+            flash('Health Record Created Successfully!');
+        }
+        else
+        {
+            
+        }
+        return redirect()->back();
 
-        // $document = new Document;
-        // if ($request->hasFile('documents')) {
-        //     $documents = $request->file('documents')->getClientOriginalName();
-        //     $request->file('documents')->storeAs('public/', $documents);
-        //     $document->path = $documents;
-        // }
-        // $document->health_record_id = $record->id;
-        // $document->save();
-
-        // Assuming 'documents' is the relationship method in the HealthRecord model
-        // $documentsData = $request->input('documents');
-
-        // if ($documentsData) {
-        //     $documents = [];
-
-        //     foreach ($documentsData as $documentData) {
-        //         // Assuming you have a Document model with the appropriate fields in $fillable
-        //         $document = new Document($documentData);
-        //         $documents[] = $document;
-        //     }
-        //     // Save the documents using saveMany method
-        //     $record->documents()->saveMany($documents);
-        // }
-        // dd($request->all());
-        // $existing_record = HealthRecord::where('user_id', auth()->user()->id)->first();
-        // if(empty($existing_record))
-        // {
-        //     $record = new HealthRecord;
-        //     $record->user_id = auth()->user()->id;
-        //     $record->doctor_id = $request->doctor_id;
-        //     $record->past_medical_condition = $request->past_medical_condition;
-        //     $record->present_medical_condition = $request->present_medical_condition;
-        //     $record->medications = $request->medications;
-        //     $record->blood_pressure = $request->blood_pressure;
-        //     $record->heart_rate = $request->heart_rate;
-        //     $record->respiratory_rate = $request->respiratory_rate;
-        //     $record->temprature = $request->temprature;
-        //     $record->weight = $request->weight;
-        //     $record->lifestyle_info = $request->lifestyle_info;
-        //     $record->healthcare_providers = $request->healthcare_providers;
-        //     $record->comments = $request->comments;
-        //     $record->save();
-
-        //     $document = new Document;
-        //     if ($request->hasFile('documents')) {
-        //         $documents = $request->file('documents')->getClientOriginalName();
-        //         $request->file('documents')->storeAs('public/', $documents);
-        //         $document->path = $documents;
-        //     }
-        //     $document->health_record_id = $record->id;
-        //     $document->save();
-
-        //     flash('Health Record Added Successfully!')->success();
-        //     return redirect('/profile');
-        // }
-        // else
-        // {
-        //     flash('Health Record Already Exists!')->error();
-        //     return redirect('/profile');
-        // }
     }
 }
