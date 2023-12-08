@@ -7,6 +7,8 @@ use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\GoogleAuthController;
 use App\Http\Controllers\HealthRecordController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,7 +40,7 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::group(['prefix' => 'profile', 'middleware' => 'checkLogin'], function(){
+Route::group(['prefix' => 'profile', 'middleware' => ['checkLogin', 'verified']], function(){
     Route::get('/', [ProfileController::class, 'index']);
     Route::get('basic-information', [ProfileController::class, 'basic_info']);
     Route::get('appointments', [AppointmentController::class, 'index'])->middleware('checkLogin');
@@ -49,11 +51,23 @@ Route::group(['prefix' => 'profile', 'middleware' => 'checkLogin'], function(){
     Route::get('appointment/delete/{id}', [AppointmentController::class, 'destroy'])->name('profile.delete.appointment');
     Route::get('create-health-record', [HealthRecordController::class, 'create'])->name('profile.create.record');
     Route::post('create-health-record', [HealthRecordController::class, 'store'])->name('profile.create.record');
-
 });
 
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
 
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
 
+    return redirect('/');
+})->middleware(['signed'])->name('verification.verify');
+
+Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+
+    return back()->with('message', 'Verification link sent!');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
 Route::get('login/google', [GoogleAuthController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [GoogleAuthController::class, 'handleGoogleCallback']);
@@ -65,8 +79,8 @@ Route::get('doctor/login', [DoctorController::class, 'login'])->name('doctor.log
 Route::post('doctor/login', [DoctorController::class, 'store']);
 
 Route::get('doctor/register', [DoctorController::class, 'create']);
-// Route::post('doctor/register', [DoctorController::class, 'register'])->name('doctor.register');
-Route::post('doctor/registration', [DoctorController::class, 'register'])->name('doctor.register');
+Route::post('doctor/register', [DoctorController::class, 'register'])->name('doctor.register');
+Route::post('doctor/registration', [DoctorController::class, 'register']);
 
 Route::get('admin/logout', [AdminController::class, 'destroy'])->name('admin.logout');
 
@@ -85,6 +99,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'checkUser'], function(){
     Route::get('doctor/update/{id}', [AdminController::class, 'updateDoctorView']);
     Route::post('doctor/update', [AdminController::class, 'updateDoctor'])->name('admin.doctor.update');
     Route::get('doctor/delete/{id}', [AdminController::class, 'deleteDoctor']);
+    Route::get('/doctor/approve/{id}', [AdminController::class, 'doctorApprove']);
     // Appointment routes
     // Route::get('appointment', [AppointmentController::class, 'create'])->name('admin.create.appointment');
     // Route::post('appointment', [AppointmentController::class, 'store'])->name('admin.create.appointment');
