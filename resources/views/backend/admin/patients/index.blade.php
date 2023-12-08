@@ -55,9 +55,13 @@
                                         <td>{{ $patient['email'] }}</td>
                                         <td>
                                             <a href="{{ url('/admin/patient/update/' . $patient['id']) }}"
-                                                class="btn btn-primary btn-sm">Edit</a>
+                                                class="btn btn-outline-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                <i class="fa fa-edit"></i>
+                                            </a>
                                             <a href="{{ url('/admin/patient/delete/' . $patient['id']) }}"
-                                                class="btn btn-danger btn-sm">Delete</a>
+                                                class="btn btn-outline-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                <i class="fa fa-trash"></i>
+                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach

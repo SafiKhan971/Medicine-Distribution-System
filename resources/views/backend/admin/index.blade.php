@@ -44,12 +44,14 @@
                   <div class="row">
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-2">Registered Patients</h5>
-                      <span class="h2 font-weight-bold mb-0">{{ $total_patients }}</span>
+                      <a href="{{ url('admin/patients') }}"><span class="h2 font-weight-bold mb-0">{{ $total_patients }}</span></a>
                     </div>
                     <div class="col-auto">
-                      <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
-                        <i class="fas fa-user"></i>
-                      </div>
+                      <a href="{{ url('admin/patients') }}">
+                        <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
+                          <i class="fas fa-user"></i>
+                        </div>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -62,12 +64,14 @@
                   <div class="row">
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-2">Registered Doctors</h5>
-                      <span class="h2 font-weight-bold mb-0">{{ $total_doctors }}</span>
+                      <a href="{{ url('admin/doctors') }}"><span class="h2 font-weight-bold mb-0">{{ $total_doctors }}</span></a>
                     </div>
                     <div class="col-auto">
-                      <div class="icon icon-shape bg-gradient-dark text-white rounded-circle shadow">
-                        <i class="ni ni-hat-3"></i>
-                      </div>
+                      <a href="{{ url('admin/doctors') }}">
+                        <div class="icon icon-shape bg-gradient-dark text-white rounded-circle shadow">
+                          <i class="ni ni-hat-3"></i>
+                        </div>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -80,12 +84,14 @@
                   <div class="row">
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-2">Total Appointments</h5>
-                      <span class="h2 font-weight-bold mb-0">{{ $total_appointments }}</span>
+                      <a href="{{ url('admin/appointments') }}"><span class="h2 font-weight-bold mb-0">{{ $total_appointments }}</span>
                     </div>
                     <div class="col-auto">
-                      <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
-                        <i class="ni ni-calendar-grid-58"></i>
-                      </div>
+                      <a href="{{ url('admin/appointments') }}">
+                        <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
+                          <i class="ni ni-calendar-grid-58"></i>
+                        </div>
+                      </a>
                     </div>
                   </div>
                 </div>

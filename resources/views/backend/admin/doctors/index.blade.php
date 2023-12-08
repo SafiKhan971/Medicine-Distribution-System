@@ -54,10 +54,26 @@
                                         <td>{{ $doctor['name'] }}</td>
                                         <td>{{ $doctor['email'] }}</td>
                                         <td>
+                                            <a href="{{ url('/admin/doctor/view/' . $doctor['id']) }}"
+                                                class="btn btn-outline-default btn-sm" data-toggle="tooltip" data-placement="top" title="View Details">
+                                                <i class="fa fa-eye"></i>
+                                            </a>
+                                            <a href="{{ url('/admin/doctor/approve/' . $doctor['id']) }}"
+                                                class="btn btn-outline-success btn-sm" data-toggle="tooltip" data-placement="top" title="Approve">
+                                                <i class="fa fa-thumbs-up"></i>
+                                            </a>
+                                            <a href="{{ url('/admin/doctor/disapprove/' . $doctor['id']) }}"
+                                                class="btn btn-outline-warning btn-sm" data-toggle="tooltip" data-placement="top" title="Disapprove">
+                                                <i class="fa fa-thumbs-down"></i>
+                                            </a>
                                             <a href="{{ url('/admin/doctor/update/' . $doctor['id']) }}"
-                                                class="btn btn-primary btn-sm">Edit</a>
+                                                class="btn btn-outline-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                <i class="fa fa-edit"></i>
+                                            </a>
                                             <a href="{{ url('/admin/doctor/delete/' . $doctor['id']) }}"
-                                                class="btn btn-danger btn-sm">Delete</a>
+                                                class="btn btn-outline-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                <i class="fa fa-trash"></i>
+                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach
