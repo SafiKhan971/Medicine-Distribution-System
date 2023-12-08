@@ -65,7 +65,8 @@ Route::get('doctor/login', [DoctorController::class, 'login'])->name('doctor.log
 Route::post('doctor/login', [DoctorController::class, 'store']);
 
 Route::get('doctor/register', [DoctorController::class, 'create']);
-Route::post('doctor/register', [DoctorController::class, 'register'])->name('doctor.register');
+// Route::post('doctor/register', [DoctorController::class, 'register'])->name('doctor.register');
+Route::post('doctor/registration', [DoctorController::class, 'register'])->name('doctor.register');
 
 Route::get('admin/logout', [AdminController::class, 'destroy'])->name('admin.logout');
 

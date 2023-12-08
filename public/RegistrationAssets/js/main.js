@@ -1,33 +1,33 @@
-(function($) {
+(function ($) {
 
     var form = $("#signup-form");
     form.validate({
         errorPlacement: function errorPlacement(error, element) {
-             element.before(error); 
+            element.before(error);
         },
         rules: {
-            first_name : {
+            first_name: {
                 required: true,
             },
-            last_name : {
+            last_name: {
                 required: true,
             },
-            user_name : {
+            user_name: {
                 required: true,
             },
-            password : {
+            password: {
                 required: true,
             },
-            email : {
+            email: {
                 required: true,
             },
-            phone : {
+            phone: {
                 required: true,
             },
             address: {
                 required: true,
             },
-            employee_id : {
+            employee_id: {
                 required: true,
             },
             designation: {
@@ -53,15 +53,15 @@
                 required: true,
             },
         },
-        onfocusout: function(element) {
+        onfocusout: function (element) {
             $(element).valid();
         },
-        highlight : function(element, errorClass, validClass) {
+        highlight: function (element, errorClass, validClass) {
             $(element.form).find('.actions').addClass('form-error');
             $(element).removeClass('valid');
             $(element).addClass('error');
         },
-        unhighlight: function(element, errorClass, validClass) {
+        unhighlight: function (element, errorClass, validClass) {
             $(element.form).find('.actions').removeClass('form-error');
             $(element).removeClass('error');
             $(element).addClass('valid');
@@ -72,25 +72,66 @@
         bodyTag: "fieldset",
         transitionEffect: "fade",
         labels: {
-            previous : 'Previous',
-            next : 'Next',
-            finish : 'Submit',
-            current : ''
+            previous: 'Previous',
+            next: 'Next',
+            finish: 'Submit',
+            current: ''
         },
-        titleTemplate : '<span class="title">#title#</span>',
-        onStepChanging: function (event, currentIndex, newIndex)
-        {
+        titleTemplate: '<span class="title">#title#</span>',
+        onStepChanging: function (event, currentIndex, newIndex) {
             form.validate().settings.ignore = ":disabled,:hidden";
             return form.valid();
         },
-        onFinishing: function (event, currentIndex)
-        {
+        onFinishing: function (event, currentIndex) {
             form.validate().settings.ignore = ":disabled";
             return form.valid();
         },
-        onFinished: function (event, currentIndex)
-        {
-            alert('Sumited');
+        onFinished: function (event, currentIndex) {
+            // Serialize the form data except for file inputs
+            var formData = form.find(':input:not(:file)').serialize();
+
+            // Extract file names and append them to the serialized data
+            var profilePictureInput = $('#profile_picture')[0];
+            var profilePicture = profilePictureInput.files[0];
+
+            if (profilePicture) {
+                formData += '&' + $.param({ 'profile_picture': profilePicture.name });
+            }
+
+            var medicalLicensePictureInput = $('#medical_license_picture')[0];
+            var medicalLicensePicture = medicalLicensePictureInput.files[0];
+
+            if (medicalLicensePicture) {
+                formData += '&' + $.param({ 'medical_license_picture': medicalLicensePicture.name });
+            }
+
+            toastr.options = {
+                closeButton: true,
+                progressBar: true,
+                positionClass: 'toast-bottom-right',
+            };
+
+            // alert(formData);
+
+            // Perform AJAX request
+            $.ajax({
+                type: 'POST',
+                url: 'registration', // Replace with your actual URL
+                data: formData,
+                success: function (response) {
+                    // Handle success, e.g., show a success message
+                    // alert('Form submitted successfully!');
+                    toastr.success(response.message);
+                    setTimeout(function () {
+                        location.href = "register";
+                    }, 5000)
+                },
+                error: function (xhr, status, error) {
+                    // Handle errors, e.g., show an error message
+                    // console.error('Error submitting form: ' + error);
+                    toastr.error('Error submitting form: ' + error);
+                }
+            });
         },
         // onInit : function (event, currentIndex) {
         //     event.append('demo');
@@ -111,18 +152,18 @@
     });
 
     $('#gender').parent().append('<ul class="list-item" id="newgender" name="gender"></ul>');
-    $('#gender option').each(function(){
-        $('#newgender').append('<li value="' + $(this).val() + '">'+$(this).text()+'</li>');
+    $('#gender option').each(function () {
+        $('#newgender').append('<li value="' + $(this).val() + '">' + $(this).text() + '</li>');
     });
     $('#gender').remove();
     $('#newgender').attr('id', 'gender');
     $('#gender li').first().addClass('init');
-    $("#gender").on("click", ".init", function() {
+    $("#gender").on("click", ".init", function () {
         $(this).closest("#gender").children('li:not(.init)').toggle();
     });
-    
+
     var allOptions = $("#gender").children('li:not(.init)');
-    $("#gender").on("click", "li:not(.init)", function() {
+    $("#gender").on("click", "li:not(.init)", function () {
         allOptions.removeClass('selected');
         $(this).addClass('selected');
         $("#gender").children('.init').html($(this).html());
@@ -130,18 +171,18 @@
     });
 
     $('#country').parent().append('<ul class="list-item" id="newcountry" name="country"></ul>');
-    $('#country option').each(function(){
-        $('#newcountry').append('<li value="' + $(this).val() + '">'+$(this).text()+'</li>');
+    $('#country option').each(function () {
+        $('#newcountry').append('<li value="' + $(this).val() + '">' + $(this).text() + '</li>');
     });
     $('#country').remove();
     $('#newcountry').attr('id', 'country');
     $('#country li').first().addClass('init');
-    $("#country").on("click", ".init", function() {
+    $("#country").on("click", ".init", function () {
         $(this).closest("#country").children('li:not(.init)').toggle();
     });
-    
+
     var CountryOptions = $("#country").children('li:not(.init)');
-    $("#country").on("click", "li:not(.init)", function() {
+    $("#country").on("click", "li:not(.init)", function () {
         CountryOptions.removeClass('selected');
         $(this).addClass('selected');
         $("#country").children('.init').html($(this).html());
@@ -149,18 +190,18 @@
     });
 
     $('#payment_type').parent().append('<ul  class="list-item" id="newpayment_type" name="payment_type"></ul>');
-    $('#payment_type option').each(function(){
-        $('#newpayment_type').append('<li value="' + $(this).val() + '">'+$(this).text()+'</li>');
+    $('#payment_type option').each(function () {
+        $('#newpayment_type').append('<li value="' + $(this).val() + '">' + $(this).text() + '</li>');
     });
     $('#payment_type').remove();
     $('#newpayment_type').attr('id', 'payment_type');
     $('#payment_type li').first().addClass('init');
-    $("#payment_type").on("click", ".init", function() {
+    $("#payment_type").on("click", ".init", function () {
         $(this).closest("#payment_type").children('li:not(.init)').toggle();
     });
-    
+
     var PaymentsOptions = $("#payment_type").children('li:not(.init)');
-    $("#payment_type").on("click", "li:not(.init)", function() {
+    $("#payment_type").on("click", "li:not(.init)", function () {
         PaymentsOptions.removeClass('selected');
         $(this).addClass('selected');
         $("#payment_type").children('.init').html($(this).html());
@@ -188,5 +229,5 @@
         minimumAge: 0,
         maximumAge: 120
     });
-        
+
 })(jQuery);

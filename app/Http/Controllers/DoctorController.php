@@ -86,7 +86,72 @@ class DoctorController extends Controller {
         return view( 'frontend.doctor.register' );
     }
 
-    public function register( Request $request ) {
+    public function register(Request $request)
+    {
+        $doctor = new Doctor;
+    
+        $validator = Validator::make($request->all(), [
+            'full_name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . Doctor::class],
+        ]);
+    
+        if ($validator->fails()) {
+            // Validation failed, return the validation errors
+            if ($request->ajax()) {
+                return response()->json(['success' => false, 'message' => $validator->errors()->first()], 422);
+            } else {
+                return redirect()->back()->withErrors($validator)->withInput();
+            }
+        } else {
+            // Validation passed, proceed with saving the Doctor Details
+            
+            // Personal
+            $dob = $request->birth_year . '-' . str_pad($request->birth_month, 2, '0', STR_PAD_LEFT) . '-' . str_pad($request->birth_date, 2, '0', STR_PAD_LEFT);
+            
+            $doctor->name = $request->full_name;
+            $doctor->email = $request->email;
+            $doctor->phone_no = $request->phone_no;
+            $doctor->nationality = $request->nationality;
+            $doctor->dob = $dob;
+            $doctor->gender = $request->gender;
+            $doctor->profile_picture = $request->profile_picture;
+            $doctor->medical_license_picture = $request->medical_license_picture;
+            
+            // Professional
+            $doctor->medical_license_no = $request->medical_license_no;
+            $doctor->specialization = $request->specialization;
+            $doctor->experience = $request->experience;
+            $doctor->board_certifications = $request->board_certifications;
+
+            // Affiliation
+            $doctor->clinic_name = $request->clinic_name;
+            $doctor->clinic_email = $request->clinic_email;
+            $doctor->clinic_phone = $request->clinic_phone;
+            $doctor->clinic_address = $request->clinic_address;
+            
+            // Availability
+            $doctor->days_week = $request->days_week;
+            $doctor->start_time = $request->start_time;
+            $doctor->end_time = $request->end_time;
+
+            // dd($doctor);
+
+            $doctor->save();
+
+            // Provide a success message
+            $successMessage = 'Thank you for Registration! We will let you know through email if your account is approved by Admin.';
+
+            if ($request->ajax()) {
+                return response()->json(['success' => true, 'message' => $successMessage]);
+            } else {
+                // Flash message for non-AJAX requests
+                flash($successMessage)->success();
+                return redirect()->back();
+            }
+        }
+    }
+
+    public function register_old( Request $request ) {
         $doctor = new Doctor;
 
         $validator = Validator::make( $request->all(), [
