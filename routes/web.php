@@ -101,6 +101,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'checkUser'], function(){
     Route::get('doctors', [AdminController::class, 'doctorsList'])->name('admin.doctors');
     Route::get('doctor/update/{id}', [AdminController::class, 'updateDoctorView']);
     Route::post('doctor/update', [AdminController::class, 'updateDoctor'])->name('admin.doctor.update');
+    Route::get('doctor/details/{id}', [AdminController::class, 'detailsDoctor'])->name('admin.doctor.details');
     Route::get('doctor/delete/{id}', [AdminController::class, 'deleteDoctor']);
     Route::get('/doctor/approve/{id}', [AdminController::class, 'doctorApprove']);
     // Appointment routes

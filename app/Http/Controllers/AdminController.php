@@ -151,6 +151,11 @@ class AdminController extends Controller {
         return Redirect::to( '/admin/doctors' )->with( 'success', 'Doctor Updated Successfully!' );
     }
 
+    public function detailsDoctor( $id ) {
+        $doctor = Doctor::find( $id );
+        return view( 'backend.admin.doctors.details', compact('doctor'));
+    }
+
     public function deleteDoctor($id)
     {
         $doctor = Doctor::find( $id );

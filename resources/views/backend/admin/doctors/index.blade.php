@@ -64,7 +64,7 @@
                                         <td>{{ $doctor['email'] }}</td>
                                         <td>{{ $doctor['status'] == 1 ? 'Approved' : 'Unapproved' }}</td>
                                         <td>
-                                            <a href="{{ url('/admin/doctor/view/' . $doctor['id']) }}"
+                                            <a href="{{ url('/admin/doctor/details/' . $doctor['id']) }}"
                                                 class="btn btn-outline-default btn-sm" data-toggle="tooltip"
                                                 data-placement="top" title="View Details">
                                                 <i class="fa fa-eye"></i>
