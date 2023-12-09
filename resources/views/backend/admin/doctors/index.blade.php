@@ -79,11 +79,11 @@
                                                 data-placement="top" title="Disapprove">
                                                 <i class="fa fa-thumbs-down"></i>
                                             </a>
-                                            <a href="{{ url('/admin/doctor/update/' . $doctor['id']) }}"
+                                            {{-- <a href="{{ url('/admin/doctor/update/' . $doctor['id']) }}"
                                                 class="btn btn-outline-primary btn-sm" data-toggle="tooltip"
                                                 data-placement="top" title="Edit">
                                                 <i class="fa fa-edit"></i>
-                                            </a>
+                                            </a> --}}
                                             <a href="{{ url('/admin/doctor/delete/' . $doctor['id']) }}"
                                                 class="btn btn-outline-danger btn-sm" data-toggle="tooltip"
                                                 data-placement="top" title="Delete">

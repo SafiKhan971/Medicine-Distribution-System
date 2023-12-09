@@ -70,7 +70,7 @@
                         </div>
 
                         <div class="col-md-6">
-                            <label class="form-control-label" for="picture">Gender</label>
+                            <label class="form-control-label" for="gender">Gender</label>
                             <div class="row">
                                 <div class="col-md-2">
                                     <div class="custom-control custom-radio mb-3">
