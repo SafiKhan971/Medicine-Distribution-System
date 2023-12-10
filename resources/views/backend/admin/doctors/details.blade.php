@@ -90,22 +90,15 @@
                                     value="{{ $doctor['medical_license_picture'] }}">View Medical License Picture</a>
                             </div>
                         </div> --}}
-                        <div class="col-md-3 mt-lg-2">
-                            <a href="{{ asset('storage/doctorfiles/' . $doctor['profile_picture']) }}" target="_blank">
-                                <img data-toggle="tooltip" data-placement="top"
-                                    title="Click the Profile Picture to open it in a new tab"
-                                    src="{{ asset('storage/doctorfiles/' . $doctor['profile_picture']) }}" width="50px"
-                                    height="50px" alt="" srcset="">
-                            </a>
+                        <div class="col-md-3 mt-lg-3">
+                            <label class="form-control-label" for="profile_picture">Profile Picture</label>
+                            <img src="{{ asset('storage/doctorfiles/' . $doctor['profile_picture']) }}" width="50px"
+                                height="50px" alt="" data-action="zoom">
                         </div>
-                        <div class="col-md-3 mt-lg-2">
-                            <a href="{{ asset('storage/doctorfiles/' . $doctor['medical_license_picture']) }}"
-                                target="_blank">
-                                <img data-toggle="tooltip" data-placement="top"
-                                    title="Click the Medical License to open it in a new tab"
-                                    src="{{ asset('storage/doctorfiles/' . $doctor['medical_license_picture']) }}"
-                                    width="50px" height="50px" alt="" srcset="">
-                            </a>
+                        <div class="col-md-3 mt-lg-3">
+                            <label class="form-control-label" for="medical_license_picture">Medical License</label>
+                            <img src="{{ asset('storage/doctorfiles/' . $doctor['medical_license_picture']) }}"
+                                width="50px" height="50px" alt="" data-action="zoom">
                         </div>
                     </div>
                 </div>

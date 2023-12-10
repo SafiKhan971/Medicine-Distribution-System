@@ -25,6 +25,8 @@
         href="{{ asset('BackEndAssets/assets/vendor/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css') }}">
     <link rel="stylesheet"
         href="{{ asset('BackEndAssets/assets/vendor/datatables.net-select-bs4/css/select.bootstrap4.min.css') }}">
+
+    <link href="{{ asset('BackEndAssets/zoom.js/css/zoom.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -382,6 +384,8 @@
     <script src="{{ asset('BackEndAssets/assets/js/argon.js?v=1.1.0') }}"></script>
     <!-- Demo JS - remove this in your project -->
     <script src="{{ asset('BackEndAssets/assets/js/demo.min.js') }}"></script>
+
+    <script src="{{ asset('BackEndAssets/zoom.js/js/zoom.js') }}"></script>
 </body>
 
 </html>
