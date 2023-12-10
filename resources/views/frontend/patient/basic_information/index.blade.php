@@ -34,7 +34,7 @@
     </div>
     @endif
 
-    <div style="height: 25rem;">
+    <div style="height: 35rem;">
         <form method="POST" action="{{ route('profile.update') }}" enctype="multipart/form-data">
             @csrf
             <div class="card mb-4">
