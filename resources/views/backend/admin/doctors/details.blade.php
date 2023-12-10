@@ -78,7 +78,7 @@
                             <input type="text" class="form-control form-control-sm" id="name"
                                 value="{{ ucwords($doctor['gender']) }}">
                         </div>
-                        <div class="col-md-3">
+                        {{-- <div class="col-md-3">
                             <div class="form-group">
                                 <a href="#" id="nationality" class="btn btn-outline-primary btn-sm"
                                     value="{{ $doctor['profile_picture'] }}">View Profile Picture</a>
@@ -89,6 +89,23 @@
                                 <a href="#" id="nationality" class="btn btn-outline-primary btn-sm"
                                     value="{{ $doctor['medical_license_picture'] }}">View Medical License Picture</a>
                             </div>
+                        </div> --}}
+                        <div class="col-md-3 mt-lg-2">
+                            <a href="{{ asset('storage/doctorfiles/' . $doctor['profile_picture']) }}" target="_blank">
+                                <img data-toggle="tooltip" data-placement="top"
+                                    title="Click the Profile Picture to open it in a new tab"
+                                    src="{{ asset('storage/doctorfiles/' . $doctor['profile_picture']) }}" width="50px"
+                                    height="50px" alt="" srcset="">
+                            </a>
+                        </div>
+                        <div class="col-md-3 mt-lg-2">
+                            <a href="{{ asset('storage/doctorfiles/' . $doctor['medical_license_picture']) }}"
+                                target="_blank">
+                                <img data-toggle="tooltip" data-placement="top"
+                                    title="Click the Medical License to open it in a new tab"
+                                    src="{{ asset('storage/doctorfiles/' . $doctor['medical_license_picture']) }}"
+                                    width="50px" height="50px" alt="" srcset="">
+                            </a>
                         </div>
                     </div>
                 </div>

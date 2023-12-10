@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Digital Clinic | Doctor Registration</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('img/favicon.png') }}">
     <!-- Font Icon -->
@@ -93,10 +94,10 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="form-group">
                             <label class="form-label">Gender</label>
-                            <select name="gender">
+                            <select name="gender" id="Gender">
                                 <option value="" selected>Please select one…</option>
                                 <option value="female">Female</option>
                                 <option value="male">Male</option>
@@ -165,7 +166,7 @@
 
                     <div class="form-group">
                         <label for="clinic_email" class="form-label">Clinic / Hospital Email</label>
-                        <input type="text" name="clinic_email" id="Clinic Email" placeholder="Clinic / Hospital Email" />
+                        <input type="text" name="clinic_email" id="clinic_email" placeholder="Clinic / Hospital Email" />
                     </div>
 
                     <div class="form-group">

@@ -89,12 +89,12 @@ class DoctorController extends Controller {
     public function register(Request $request)
     {
         $doctor = new Doctor;
-    
+
         $validator = Validator::make($request->all(), [
             'full_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . Doctor::class],
         ]);
-    
+
         if ($validator->fails()) {
             // Validation failed, return the validation errors
             if ($request->ajax()) {
@@ -104,19 +104,33 @@ class DoctorController extends Controller {
             }
         } else {
             // Validation passed, proceed with saving the Doctor Details
-            
+
             // Personal
             $dob = $request->birth_year . '-' . str_pad($request->birth_month, 2, '0', STR_PAD_LEFT) . '-' . str_pad($request->birth_date, 2, '0', STR_PAD_LEFT);
-            
+
             $doctor->name = $request->full_name;
             $doctor->email = $request->email;
             $doctor->phone_no = $request->phone_no;
             $doctor->nationality = $request->nationality;
             $doctor->dob = $dob;
-            $doctor->gender = $request->gender;
-            $doctor->profile_picture = $request->profile_picture;
-            $doctor->medical_license_picture = $request->medical_license_picture;
-            
+            $doctor->gender = $request->Gender;
+            // $doctor->profile_picture = $request->profile_picture;
+            // $doctor->medical_license_picture = $request->medical_license_picture;
+
+            // Handle profile picture
+            if ($request->hasFile('profile_picture')) {
+                $profilePicture = $request->file('profile_picture');
+                $profilePicture->storeAs('public/doctorfiles', $profilePicture->getClientOriginalName());
+                $doctor->profile_picture = $profilePicture->getClientOriginalName();
+            }
+
+            // Handle medical license picture
+            if ($request->hasFile('medical_license_picture')) {
+                $medicalLicensePicture = $request->file('medical_license_picture');
+                $medicalLicensePicture->storeAs('public/doctorfiles', $medicalLicensePicture->getClientOriginalName());
+                $doctor->medical_license_picture = $medicalLicensePicture->getClientOriginalName();
+            }
+
             // Professional
             $doctor->medical_license_no = $request->medical_license_no;
             $doctor->specialization = $request->specialization;
@@ -128,7 +142,7 @@ class DoctorController extends Controller {
             $doctor->clinic_email = $request->clinic_email;
             $doctor->clinic_phone = $request->clinic_phone;
             $doctor->clinic_address = $request->clinic_address;
-            
+
             // Availability
             $doctor->days_week = $request->days_week;
             $doctor->start_time = $request->start_time;

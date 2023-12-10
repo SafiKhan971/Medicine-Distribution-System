@@ -87,23 +87,60 @@
             return form.valid();
         },
         onFinished: function (event, currentIndex) {
-            // Serialize the form data except for file inputs
-            var formData = form.find(':input:not(:file)').serialize();
+            // // Serialize the form data except for file inputs
+            // var formData = form.find(':input:not(:file)').serialize();
 
-            // Extract file names and append them to the serialized data
+            // // Extract file names and append them to the serialized data
+            // var profilePictureInput = $('#profile_picture')[0];
+            // var profilePicture = profilePictureInput.files[0];
+
+            // if (profilePicture) {
+            //     formData += '&' + $.param({ 'profile_picture': profilePicture.name, 'profile_picture_file': profilePicture });
+            // }
+
+            // var medicalLicensePictureInput = $('#medical_license_picture')[0];
+            // var medicalLicensePicture = medicalLicensePictureInput.files[0];
+
+            // if (medicalLicensePicture) {
+            //     formData += '&' + $.param({ 'medical_license_picture': medicalLicensePicture.name, 'medical_license_picture': medicalLicensePicture });
+            // }
+
+            // Create a new FormData object
+            var formData = new FormData();
+
+            // Specify the input names to retrieve values
+            var inputNames = [
+                'full_name', 'email', 'phone_no', 'nationality', 'birth_date', 'birth_month', 'birth_year', 'Gender',
+                'medical_license_no', 'specialization', 'experience', 'board_certifications',
+                'clinic_name', 'clinic_email', 'clinic_phone', 'clinic_address',
+                'days_week', 'start_time', 'end_time'
+            ];
+
+            // Loop through the input names and append values to the FormData object
+            inputNames.forEach(function (inputName) {
+                formData.append(inputName, $('#' + inputName).val());
+            });
+
+            // Append the profile picture file to the FormData object
             var profilePictureInput = $('#profile_picture')[0];
             var profilePicture = profilePictureInput.files[0];
 
             if (profilePicture) {
-                formData += '&' + $.param({ 'profile_picture': profilePicture.name });
+                formData.append('profile_picture', profilePicture, profilePicture.name);
             }
 
+            // Append the medical license picture file to the FormData object
             var medicalLicensePictureInput = $('#medical_license_picture')[0];
             var medicalLicensePicture = medicalLicensePictureInput.files[0];
 
             if (medicalLicensePicture) {
-                formData += '&' + $.param({ 'medical_license_picture': medicalLicensePicture.name });
+                formData.append('medical_license_picture', medicalLicensePicture, medicalLicensePicture.name);
             }
+
+            // Display the FormData content
+            // for (var pair of formData.entries()) {
+            //     console.log("formData.append('" + pair[0] + "', '" + pair[1] + "');");
+            // }
 
             toastr.options = {
                 closeButton: true,
@@ -118,6 +155,11 @@
                 type: 'POST',
                 url: 'registration', // Replace with your actual URL
                 data: formData,
+                processData: false,
+                contentType: false,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
                 success: function (response) {
                     // Handle success, e.g., show a success message
                     // alert('Form submitted successfully!');
