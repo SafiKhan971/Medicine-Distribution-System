@@ -104,6 +104,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'checkUser'], function(){
     Route::get('doctor/details/{id}', [AdminController::class, 'detailsDoctor'])->name('admin.doctor.details');
     Route::get('doctor/delete/{id}', [AdminController::class, 'deleteDoctor']);
     Route::get('/doctor/approve/{id}', [AdminController::class, 'doctorApprove']);
+    Route::get('/doctor/disapprove/{id}', [AdminController::class, 'doctorDisapproveView']);
+    Route::post('/doctor/disapprove', [AdminController::class, 'doctorDisapprove'])->name('admin.doctor.disapproval');
+
     // Appointment routes
     // Route::get('appointment', [AppointmentController::class, 'create'])->name('admin.create.appointment');
     // Route::post('appointment', [AppointmentController::class, 'store'])->name('admin.create.appointment');

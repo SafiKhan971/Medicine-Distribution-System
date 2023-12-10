@@ -69,16 +69,20 @@
                                                 data-placement="top" title="View Details">
                                                 <i class="fa fa-eye"></i>
                                             </a>
-                                            <a href="{{ url('/admin/doctor/approve/' . $doctor['id']) }}"
-                                                class="btn btn-outline-success btn-sm" data-toggle="tooltip"
-                                                data-placement="top" title="Approve">
-                                                <i class="fa fa-thumbs-up"></i>
-                                            </a>
-                                            <a href="{{ url('/admin/doctor/disapprove/' . $doctor['id']) }}"
-                                                class="btn btn-outline-warning btn-sm" data-toggle="tooltip"
-                                                data-placement="top" title="Disapprove">
-                                                <i class="fa fa-thumbs-down"></i>
-                                            </a>
+                                            @if ($doctor['status'] == 0)
+                                                <a href="{{ url('/admin/doctor/approve/' . $doctor['id']) }}"
+                                                    class="btn btn-outline-success btn-sm" data-toggle="tooltip"
+                                                    data-placement="top" title="Approve">
+                                                    <i class="fa fa-thumbs-up"></i>
+                                                </a>
+                                            @else
+                                                <a href="{{ url('/admin/doctor/disapprove/' . $doctor['id']) }}"
+                                                    class="btn btn-outline-warning btn-sm" data-toggle="tooltip"
+                                                    data-placement="top" title="Disapprove" data-toggle="modal"
+                                                    data-target="#modal-form">
+                                                    <i class="fa fa-thumbs-down"></i>
+                                                </a>
+                                            @endif
                                             {{-- <a href="{{ url('/admin/doctor/update/' . $doctor['id']) }}"
                                                 class="btn btn-outline-primary btn-sm" data-toggle="tooltip"
                                                 data-placement="top" title="Edit">

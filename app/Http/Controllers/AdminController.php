@@ -9,6 +9,7 @@ use App\Models\Doctor;
 use App\Models\Appointment;
 use Illuminate\Http\Request;
 use App\Mail\DoctorApprovalMail;
+use App\Mail\DoctorDisapprovalMail;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use App\Providers\RouteServiceProvider;
@@ -177,7 +178,30 @@ class AdminController extends Controller {
             $password = '123456';
             Mail::to($doctor->email)->send(new DoctorApprovalMail($doctor, $password));
 
-            return redirect()->back()->with('success', 'Doctor approved successfully and email has been sent.');
+            return redirect()->back()->with('success', 'Doctor approved successfully and email has been sent to that doctor.');
+        }
+    }
+
+    public function doctorDisapproveView($id)
+    {
+        $doctor = Doctor::find($id);
+        return view('backend.admin.doctors.doctor_disapproval', compact('doctor'));
+    }
+
+    public function doctorDisapprove(Request $request)
+    {
+        $doctor = Doctor::find($request->id);
+        // dd($doctor);
+        if ($doctor) {
+            // Update status
+            $doctor->status = 0;
+            $doctor->save();
+
+            // Send Disapproval email
+            $disapproval_reason = $request->disapproval_reason;
+            Mail::to($doctor->email)->send(new DoctorDisapprovalMail($doctor, $disapproval_reason));
+
+            return redirect()->to('admin/doctors')->with('success', 'Doctor disapproved successfully and email has been sent to that doctor.');
         }
     }
 
