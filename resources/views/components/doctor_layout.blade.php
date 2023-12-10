@@ -150,40 +150,64 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-xl dropdown-menu-right py-0 overflow-hidden">
                                 <!-- Dropdown header -->
+                                @php
+                                    use App\Models\Doctor;
+                                    use App\Models\Appointment;
+                                    use Carbon\Carbon;
+
+                                    $doctor = Doctor::find(session()->get('doctor_id'));
+                                    $totalAppointments = Appointment::where('doctor_id', $doctor->id)->count();
+
+                                    $latestAppointments = Appointment::where('doctor_id', $doctor->id)
+                                    ->orderBy('app_dt_start', 'desc')
+                                    ->take(5)
+                                    ->get();
+
+                                    $createdTimes = Appointment::where('doctor_id', $doctor->id)->pluck('created_at');
+
+                                    foreach ($createdTimes as $createdAt) {
+                                        // Convert the stored timestamp to a Carbon instance
+                                        $createdAt = Carbon::parse($createdAt);
+
+                                        // Calculate the difference in hours from the time of creation until now
+                                        $hoursDifference = $createdAt->diffInHours(Carbon::now());
+                                    }
+                                @endphp
                                 <div class="px-3 py-3">
-                                    <h6 class="text-sm text-muted m-0">You have <strong
-                                            class="text-primary">13</strong> notifications.</h6>
+                                    <h6 class="text-sm text-muted m-0">
+                                        You have <strong class="text-primary">{{ $totalAppointments }}</strong> Appointments.</h6>
                                 </div>
                                 <!-- List group -->
                                 <div class="list-group list-group-flush">
+                                    @foreach($latestAppointments as $item)
                                     <a href="#!" class="list-group-item list-group-item-action">
                                         <div class="row align-items-center">
-                                            <div class="col-auto">
-                                                <!-- Avatar -->
-                                                <img alt="Image placeholder"
-                                                    src="{{ asset('BackEndAssets/assets/img/theme/team-1.jpg') }}"
-                                                    class="avatar rounded-circle">
-                                            </div>
                                             <div class="col ml--2">
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <div>
-                                                        <h4 class="mb-0 text-sm">John Snow</h4>
+                                                        <h4 class="mb-0 text-sm">{{ $item->patient->name }}</h4>
                                                     </div>
                                                     <div class="text-right text-muted">
-                                                        <small>2 hrs ago</small>
+                                                        <small>
+                                                            {{  $createdAt->isPast()
+                                                                ? $hoursDifference . ' ' . ($hoursDifference === 1 ? 'hour' : 'hours') . ' ago'
+                                                                : 'In ' . $createdAt->diffForHumans();
+                                                            }}
+                                                        </small>
                                                     </div>
                                                 </div>
-                                                <p class="text-sm mb-0">Let's meet at Starbucks at 11:30. Wdyt?</p>
+                                                <p class="text-sm mb-0"> {{ $item->patient->name }} created an appointment at {{ $createdAt->format('h:i A'); }}.</p>
                                             </div>
                                         </div>
                                     </a>
-                                    <a href="#!" class="list-group-item list-group-item-action">
+                                    @endforeach
+                                    <!--<a href="#!" class="list-group-item list-group-item-action">
                                         <div class="row align-items-center">
-                                            <div class="col-auto">
+                                            {{-- <div class="col-auto">
                                                 <!-- Avatar -->
                                                 <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/team-2.jpg')}}"
                                                     class="avatar rounded-circle">
-                                            </div>
+                                            </div> --}}
                                             <div class="col ml--2">
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <div>
@@ -199,11 +223,11 @@
                                     </a>
                                     <a href="#!" class="list-group-item list-group-item-action">
                                         <div class="row align-items-center">
-                                            <div class="col-auto">
+                                            {{-- <div class="col-auto">
                                                 <!-- Avatar -->
                                                 <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/team-3.jpg')}}"
                                                     class="avatar rounded-circle">
-                                            </div>
+                                            </div> --}}
                                             <div class="col ml--2">
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <div>
@@ -219,11 +243,11 @@
                                     </a>
                                     <a href="#!" class="list-group-item list-group-item-action">
                                         <div class="row align-items-center">
-                                            <div class="col-auto">
+                                            {{-- <div class="col-auto">
                                                 <!-- Avatar -->
                                                 <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/team-4.jpg')}}"
                                                     class="avatar rounded-circle">
-                                            </div>
+                                            </div> --}}
                                             <div class="col ml--2">
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <div>
@@ -239,11 +263,11 @@
                                     </a>
                                     <a href="#!" class="list-group-item list-group-item-action">
                                         <div class="row align-items-center">
-                                            <div class="col-auto">
+                                            {{-- <div class="col-auto">
                                                 <!-- Avatar -->
                                                 <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/team-5.jpg')}}"
                                                     class="avatar rounded-circle">
-                                            </div>
+                                            </div> --}}
                                             <div class="col ml--2">
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <div>
@@ -256,7 +280,7 @@
                                                 <p class="text-sm mb-0">A new issue has been reported for Argon.</p>
                                             </div>
                                         </div>
-                                    </a>
+                                    </a> -->
                                 </div>
                                 <!-- View all -->
                                 <a href="#!"
