@@ -197,4 +197,10 @@ class DoctorController extends Controller {
         return redirect( '/doctor/login' );
     }
 
+    public function patient_hr_index()
+    {
+        $patient_records = User::all();
+        return view('frontend.doctor.patient_health_record', compact('patient_records'));
+    }
+
 }
