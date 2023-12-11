@@ -30,7 +30,7 @@
                                                 <i class="icofont-rounded-down"></i>
                                             </a>
                                             <ul class="dropdown">
-                                                <li><a href="{{ url('profile') }}">Profile</a></li>
+                                                <li><a href="{{ url('profile') }}">Dashboard</a></li>
                                                 <form method="POST" action="{{ route('logout') }}">
                                                     @csrf
                                                     <li>

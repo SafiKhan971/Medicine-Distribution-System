@@ -1,8 +1,9 @@
         @include('components/header')
         @include('components/navbar')
-        <div class="container">
+        @include('notify::components.notify')
+        {{-- <div class="container">
             @include('flash::message')
-        </div>
+        </div> --}}
 
         <!-- Slider Area -->
         <section class="slider" id="about">

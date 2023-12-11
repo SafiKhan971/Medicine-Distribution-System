@@ -163,14 +163,11 @@
                                     ->take(5)
                                     ->get();
 
-                                    $createdTimes = Appointment::where('doctor_id', $doctor->id)->pluck('created_at');
+                                    $app_dt_start = Appointment::where('doctor_id', $doctor->id)->pluck('app_dt_start');
 
-                                    foreach ($createdTimes as $createdAt) {
+                                    foreach ($app_dt_start as $datetime) {
                                         // Convert the stored timestamp to a Carbon instance
-                                        $createdAt = Carbon::parse($createdAt);
-
-                                        // Calculate the difference in hours from the time of creation until now
-                                        $hoursDifference = $createdAt->diffInHours(Carbon::now());
+                                        $datetime = Carbon::parse($datetime);
                                     }
                                 @endphp
                                 <div class="px-3 py-3">
@@ -183,20 +180,7 @@
                                     <a href="#!" class="list-group-item list-group-item-action">
                                         <div class="row align-items-center">
                                             <div class="col ml--2">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div>
-                                                        <h4 class="mb-0 text-sm">{{ $item->patient->name }}</h4>
-                                                    </div>
-                                                    <div class="text-right text-muted">
-                                                        <small>
-                                                            {{  $createdAt->isPast()
-                                                                ? $hoursDifference . ' ' . ($hoursDifference === 1 ? 'hour' : 'hours') . ' ago'
-                                                                : 'In ' . $createdAt->diffForHumans();
-                                                            }}
-                                                        </small>
-                                                    </div>
-                                                </div>
-                                                <p class="text-sm mb-0"> {{ $item->patient->name }} created an appointment at {{ $createdAt->format('h:i A'); }}.</p>
+                                                <p class="text-sm mb-0"> Appointment with {{ $item->patient->name }} at {{ $datetime->format('M j, Y - h:i a'); }}.</p>
                                             </div>
                                         </div>
                                     </a>
@@ -287,7 +271,7 @@
                                     class="dropdown-item text-center text-primary font-weight-bold py-3">View all</a>
                             </div>
                         </li>
-                        <li class="nav-item dropdown">
+                        {{-- <li class="nav-item dropdown">
                             <a class="nav-link" href="#" role="button" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
                                 <i class="ni ni-ungroup"></i>
@@ -333,7 +317,7 @@
                                     </a>
                                 </div>
                             </div>
-                        </li>
+                        </li> --}}
                     </ul>
                     <ul class="navbar-nav align-items-center ml-auto ml-md-0">
                         <li class="nav-item dropdown">
@@ -354,7 +338,7 @@
                                 </div>
                                 <a href="{{ url('doctor/basic-information') }}" class="dropdown-item">
                                     <i class="ni ni-single-02"></i>
-                                    <span>My profile</span>
+                                    <span>Profile</span>
                                 </a>
                                 {{-- <a href="#!" class="dropdown-item">
                                     <i class="ni ni-settings-gear-65"></i>
