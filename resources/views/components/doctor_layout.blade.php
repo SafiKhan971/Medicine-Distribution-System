@@ -119,9 +119,9 @@
                         </li>
 
                         <li class="nav-item">
-                            <!-- <a class="nav-link" href="{{ route('doctor.health-record.index')}}"> -->
+                            <a class="nav-link" href="{{ route('health-record.index')}}">
                             <i class="ni ni-single-copy-04 text-pink"></i>
-                                <span class="nav-link-text">Health Records</span>
+                                <span class="nav-link-text">Patient Health Records</span>
                             </a>
                         </li>
 

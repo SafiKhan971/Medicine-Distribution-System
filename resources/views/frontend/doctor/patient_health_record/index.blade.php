@@ -53,7 +53,7 @@
                                 <td>{{ $patient_record->name }}</td>
                                 <td>{{ $patient_record->address }}</td>
                                 <td>
-                                    <a href="{{route('health-record.create', $appointment->id)}}" class="btn btn-primary btn-sm">View</a>
+                                    <a href="{{route('health-record.show', $patient_record->id)}}" class="btn btn-primary btn-sm">View</a>
                                 </td>
                             </tr>
                             @endforeach

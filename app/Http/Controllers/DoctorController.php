@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Doctor;
 use App\Models\Appointment;
+use App\Models\HealthRecord;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\Hash;
@@ -217,7 +218,13 @@ class DoctorController extends Controller {
     public function patient_hr_index()
     {
         $patient_records = User::all();
-        return view('frontend.doctor.patient_health_record', compact('patient_records'));
+        return view('frontend.doctor.patient_health_record.index', compact('patient_records'));
+    }
+
+    public function show($id)
+    {
+        $record = HealthRecord::where('id', $id)->first();
+        return view('frontend.doctor.patient_health_record.show', compact('record'));
     }
 
 }
