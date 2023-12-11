@@ -23,9 +23,42 @@
     <link rel="stylesheet" href="{{ asset('BackEndAssets/assets/vendor/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('BackEndAssets/assets/vendor/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('BackEndAssets/assets/vendor/datatables.net-select-bs4/css/select.bootstrap4.min.css') }}">
+
+    <style>
+        .notification-counter {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 7px;
+            font-size: 12px;
+        }
+    </style>
 </head>
 
 <body>
+    @php
+        use App\Models\Doctor;
+        use App\Models\Appointment;
+        use Carbon\Carbon;
+
+        $doctor = Doctor::find(session()->get('doctor_id'));
+        $totalAppointments = Appointment::where('doctor_id', $doctor->id)->count();
+
+        $latestAppointments = Appointment::where('doctor_id', $doctor->id)
+        ->orderBy('app_dt_start', 'desc')
+        ->take(5)
+        ->get();
+
+        $app_dt_start = Appointment::where('doctor_id', $doctor->id)->pluck('app_dt_start');
+
+        foreach ($app_dt_start as $datetime) {
+            // Convert the stored timestamp to a Carbon instance
+            $datetime = Carbon::parse($datetime);
+        }
+    @endphp
     <!-- Sidenav -->
     <nav class="sidenav navbar navbar-vertical fixed-left navbar-expand-xs navbar-light bg-white" id="sidenav-main">
         <div class="scrollbar-inner">
@@ -147,43 +180,32 @@
                             <a class="nav-link" href="#" role="button" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
                                 <i class="ni ni-bell-55"></i>
+                                <span class="notification-counter">{{ $totalAppointments }}</span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-xl dropdown-menu-right py-0 overflow-hidden">
                                 <!-- Dropdown header -->
                                 <div class="px-3 py-3">
-                                    <h6 class="text-sm text-muted m-0">You have <strong
-                                            class="text-primary">13</strong> notifications.</h6>
+                                    <h6 class="text-sm text-muted m-0">
+                                        You have <strong class="text-primary">{{ $totalAppointments }}</strong> Appointments.</h6>
                                 </div>
                                 <!-- List group -->
                                 <div class="list-group list-group-flush">
+                                    @foreach($latestAppointments as $item)
                                     <a href="#!" class="list-group-item list-group-item-action">
                                         <div class="row align-items-center">
-                                            <div class="col-auto">
-                                                <!-- Avatar -->
-                                                <img alt="Image placeholder"
-                                                    src="{{ asset('BackEndAssets/assets/img/theme/team-1.jpg') }}"
-                                                    class="avatar rounded-circle">
-                                            </div>
                                             <div class="col ml--2">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div>
-                                                        <h4 class="mb-0 text-sm">John Snow</h4>
-                                                    </div>
-                                                    <div class="text-right text-muted">
-                                                        <small>2 hrs ago</small>
-                                                    </div>
-                                                </div>
-                                                <p class="text-sm mb-0">Let's meet at Starbucks at 11:30. Wdyt?</p>
+                                                <p class="text-sm mb-0"> Appointment with {{ $item->patient->name }} at {{ $datetime->format('M j, Y - h:i a'); }}.</p>
                                             </div>
                                         </div>
                                     </a>
-                                    <a href="#!" class="list-group-item list-group-item-action">
+                                    @endforeach
+                                    <!--<a href="#!" class="list-group-item list-group-item-action">
                                         <div class="row align-items-center">
-                                            <div class="col-auto">
+                                            {{-- <div class="col-auto">
                                                 <!-- Avatar -->
                                                 <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/team-2.jpg')}}"
                                                     class="avatar rounded-circle">
-                                            </div>
+                                            </div> --}}
                                             <div class="col ml--2">
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <div>
@@ -199,11 +221,11 @@
                                     </a>
                                     <a href="#!" class="list-group-item list-group-item-action">
                                         <div class="row align-items-center">
-                                            <div class="col-auto">
+                                            {{-- <div class="col-auto">
                                                 <!-- Avatar -->
                                                 <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/team-3.jpg')}}"
                                                     class="avatar rounded-circle">
-                                            </div>
+                                            </div> --}}
                                             <div class="col ml--2">
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <div>
@@ -219,11 +241,11 @@
                                     </a>
                                     <a href="#!" class="list-group-item list-group-item-action">
                                         <div class="row align-items-center">
-                                            <div class="col-auto">
+                                            {{-- <div class="col-auto">
                                                 <!-- Avatar -->
                                                 <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/team-4.jpg')}}"
                                                     class="avatar rounded-circle">
-                                            </div>
+                                            </div> --}}
                                             <div class="col ml--2">
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <div>
@@ -239,11 +261,11 @@
                                     </a>
                                     <a href="#!" class="list-group-item list-group-item-action">
                                         <div class="row align-items-center">
-                                            <div class="col-auto">
+                                            {{-- <div class="col-auto">
                                                 <!-- Avatar -->
                                                 <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/team-5.jpg')}}"
                                                     class="avatar rounded-circle">
-                                            </div>
+                                            </div> --}}
                                             <div class="col ml--2">
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <div>
@@ -256,14 +278,14 @@
                                                 <p class="text-sm mb-0">A new issue has been reported for Argon.</p>
                                             </div>
                                         </div>
-                                    </a>
+                                    </a> -->
                                 </div>
                                 <!-- View all -->
                                 <a href="#!"
                                     class="dropdown-item text-center text-primary font-weight-bold py-3">View all</a>
                             </div>
                         </li>
-                        <li class="nav-item dropdown">
+                        {{-- <li class="nav-item dropdown">
                             <a class="nav-link" href="#" role="button" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
                                 <i class="ni ni-ungroup"></i>
@@ -309,7 +331,7 @@
                                     </a>
                                 </div>
                             </div>
-                        </li>
+                        </li> --}}
                     </ul>
                     <ul class="navbar-nav align-items-center ml-auto ml-md-0">
                         <li class="nav-item dropdown">
@@ -330,7 +352,7 @@
                                 </div>
                                 <a href="{{ url('doctor/basic-information') }}" class="dropdown-item">
                                     <i class="ni ni-single-02"></i>
-                                    <span>My profile</span>
+                                    <span>Profile</span>
                                 </a>
                                 {{-- <a href="#!" class="dropdown-item">
                                     <i class="ni ni-settings-gear-65"></i>

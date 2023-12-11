@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Doctor;
+use App\Models\Appointment;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\Hash;
@@ -23,6 +24,21 @@ class DoctorController extends Controller {
 
         $doctor = Doctor::where( 'email', $request->email )->first();
 
+        if (!$doctor) {
+            // Doctor not found
+            return redirect('doctor/login')->withErrors(['error' => 'Invalid email or password']);
+        }
+        
+        if ($doctor->password === null) {
+            // Password in the database is null
+            return redirect('doctor/login')->withErrors(['error' => 'Password is not set for this account']);
+        }
+        
+        if ($request->password === null) {
+            // Password is null
+            return redirect('doctor/login')->withErrors(['error' => 'Password is required']);
+        }
+
         if ( $doctor && Hash::check( $request->password, $doctor->password ) ) {
             request()->session()->put( 'doctor_id', $doctor->id );
             request()->session()->put( 'doctor_name', $doctor->name );
@@ -31,7 +47,7 @@ class DoctorController extends Controller {
             // flash( 'Logged In Successfully!' )->success();
             return redirect( 'doctor/dashboard' )->with('success','Logged In Successfully!');
         } else {
-            return redirect( 'doctor/login' )->withErrors( [ 'error' => 'Invalid Email or Password' ] );
+            return redirect( 'doctor/login' )->withErrors( [ 'error' => 'Invalid email or password' ] );
         }
     }
 
@@ -193,7 +209,8 @@ class DoctorController extends Controller {
 
     public function destroy() {
         session()->forget( 'doctor_id' );
-        flash( 'Logged Out Successfully!' )->success();
+        // flash( 'Logged Out Successfully!' )->success();
+        notify()->success('Logged Out Successfully!', 'Success');
         return redirect( '/doctor/login' );
     }
 

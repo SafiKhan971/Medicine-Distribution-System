@@ -131,6 +131,9 @@
 		<script src="{{asset('js/bootstrap.min.js')}}"></script>
 		<!-- Main JS -->
 		<script src="{{asset('js/main.js')}}"></script>
+
+		<!-- Laravel Notify JS -->
+		@notifyJs
 		<script>
 		$('div.alert').not('.alert-important').delay(3000).fadeOut(350);
 		</script>

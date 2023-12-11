@@ -1,5 +1,6 @@
 @include('components/header')
 @include('components/navbar')
+@include('notify::components.notify')
 {{-- <div class="mb-5 container-fluid">
     <form action="{{ route('profile.create.appointment') }}" method="post">
         @csrf
@@ -42,6 +43,9 @@
                 <form class="form" action="{{ route('profile.create.appointment') }}" method="post">
                     @csrf
                     <div class="row">
+                        @error('error')
+                            <div style="color: red; margin-top: 10px">{{ $message }}</div>
+                        @enderror
                         {{-- <div class="col-lg-6 col-md-6 col-12">
                             <div class="form-group">
                                 <input name="name" type="text" placeholder="Name">
@@ -60,7 +64,7 @@
                         <div class="col-lg-12 col-md-12 col-12">
                             <div class="form-group">
                                 <select id="doctor" class="form-control wide" name="doctor_id">
-                                    <option selected="" value="">Select Doctor</option>
+                                    <option selected="" value="" required>Select Doctor</option>
                                     @foreach ($doctors as $doctor)
                                         <option value="{{ $doctor->id }}"> {{ $doctor->name }} </option>
                                     @endforeach
@@ -69,7 +73,7 @@
                         </div>
                         <div class="col-lg-12 col-md-12 col-12">
                             <div class="form-group">
-                                <input type="datetime-local" name="app_date_time">
+                                <input type="datetime-local" name="app_date_time" required value=""{{ old('app_date_time') }}>
                             </div>
                         </div>
                     </div>
@@ -77,7 +81,7 @@
                         <div class="col-lg-5 col-md-4 col-12">
                             <div class="form-group">
                                 <div class="button">
-                                    <button type="submit" class="btn">Book An Appointment</button>
+                                    <button type="submit" class="btn btn-primary">Book An Appointment</button>
                                 </div>
                             </div>
                         </div>

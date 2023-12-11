@@ -16,9 +16,12 @@
     <!-- Boxicons CSS -->
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 
+    <!-- Laravel Notify CSS -->
+    @notifyCss
 </head>
 
 <body>
+    @include('notify::components.notify')
     <section class="container forms">
         <div class="form login">
             <div class="form-content">
@@ -57,6 +60,8 @@
 
     <!-- JavaScript -->
     <script src="{{ asset('FrontEndAssets/js/script.js') }}"></script>
+    <!-- Laravel Notify JS -->
+    @notifyJs
 </body>
 
 </html>
