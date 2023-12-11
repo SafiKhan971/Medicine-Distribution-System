@@ -23,10 +23,42 @@
     <link rel="stylesheet" href="{{ asset('BackEndAssets/assets/vendor/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('BackEndAssets/assets/vendor/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('BackEndAssets/assets/vendor/datatables.net-select-bs4/css/select.bootstrap4.min.css') }}">
-
+    
+    <style>
+        .notification-counter {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 7px;
+            font-size: 12px;
+        }
+    </style>
 </head>
 
 <body>
+    @php
+        use App\Models\User;
+        use App\Models\Appointment;
+        use Carbon\Carbon;
+
+        $patient = User::find(auth()->user()->id);
+        $totalAppointments = Appointment::where('user_id', $patient->id)->count();
+
+        $latestAppointments = Appointment::where('user_id', $patient->id)
+        ->orderBy('app_dt_start', 'desc')
+        ->take(5)
+        ->get();
+
+        $app_dt_start = Appointment::where('user_id', $patient->id)->pluck('app_dt_start');
+
+        foreach ($app_dt_start as $datetime) {
+            // Convert the stored timestamp to a Carbon instance
+            $datetime = Carbon::parse($datetime);
+        }
+    @endphp
     <!-- Sidenav -->
     <nav class="sidenav navbar navbar-vertical fixed-left navbar-expand-xs navbar-light bg-white" id="sidenav-main">
         <div class="scrollbar-inner">
@@ -149,28 +181,9 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="ni ni-bell-55"></i>
+                                <span class="notification-counter">{{ $totalAppointments }}</span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-xl dropdown-menu-right py-0 overflow-hidden">
-                                @php
-                                    use App\Models\User;
-                                    use App\Models\Appointment;
-                                    use Carbon\Carbon;
-
-                                    $patient = User::find(auth()->user()->id);
-                                    $totalAppointments = Appointment::where('user_id', $patient->id)->count();
-
-                                    $latestAppointments = Appointment::where('user_id', $patient->id)
-                                    ->orderBy('app_dt_start', 'desc')
-                                    ->take(5)
-                                    ->get();
-
-                                    $app_dt_start = Appointment::where('user_id', $patient->id)->pluck('app_dt_start');
-
-                                    foreach ($app_dt_start as $datetime) {
-                                        // Convert the stored timestamp to a Carbon instance
-                                        $datetime = Carbon::parse($datetime);
-                                    }
-                                @endphp
                                 <!-- Dropdown header -->
                                 <div class="px-3 py-3">
                                     <h6 class="text-sm text-muted m-0">You have <strong class="text-primary">{{ $totalAppointments }}</strong> Appointments.</h6>
