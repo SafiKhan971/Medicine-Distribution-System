@@ -1,4 +1,4 @@
-@extends('components/patient_layout')
+@extends('components/doctor_layout')
 @section('title', 'Digital Clinic | Patient Dashboard')
 @section('header')
 <!-- Header -->

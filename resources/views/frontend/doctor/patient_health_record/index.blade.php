@@ -1,4 +1,4 @@
-@extends('components/patient_layout')
+@extends('components/doctor_layout')
 @section('title', 'Digital Clinic | Patient Health Records')
 @section('header')
 <!-- Header -->
@@ -49,9 +49,9 @@
                             @foreach($patient_records as $patient_record)
                             <tr>
                                 <td>{{ $serial_no++ }}</td>
-                                <td>{{ $patient_record->id }}</td>
-                                <td>{{ $patient_record->name }}</td>
-                                <td>{{ $patient_record->address }}</td>
+                                <td>{{ isset($patient_record->id) ? $patient_record->id : '-' }}</td>
+                                <td>{{ isset($patient_record->name) ? $patient_record->name : '-'  }}</td>
+                                <td>{{ isset($patient_record->address) ? $patient_record->address : '-' }}</td>
                                 <td>
                                     <a href="{{route('health-record.show', $patient_record->id)}}" class="btn btn-primary btn-sm">View</a>
                                 </td>
