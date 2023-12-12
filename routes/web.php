@@ -11,6 +11,7 @@ use App\Http\Controllers\SearchDoctors;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Doctor;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,10 @@ Route::get('/', function () {
 });
 Route::get('/contact', function () {
     return view('frontend/contact');
+});
+Route::get('/doctors', function () {
+    $doctors = Doctor::orderBy('name', 'asc')->take(6)->get();
+    return view('frontend/doctors', compact('doctors'));
 });
 
 Route::get('/dashboard', function () {
