@@ -47,7 +47,6 @@ class AppointmentController extends Controller
                 ->first();
                 if(!empty($existingAppointment))
                 {
-                    // flash('Appointment Not Available!')->error();
                     notify()->error('Appointment Not Available!', 'Error');
                     return redirect()->back();
                 }
@@ -59,7 +58,6 @@ class AppointmentController extends Controller
                         $appointment->app_dt_start = $appointmentStartTime;
                         $appointment->app_dt_end =  $appointmentEndTime;
                         $appointment->save();
-                        // flash('Appointment created successfully!')->success();
                         notify()->success('Appointment created successfully!', 'Success');
                         return redirect('/');
                 }
@@ -105,6 +103,14 @@ class AppointmentController extends Controller
     }
 
     public function destroy($id)
+    {
+        $appointment = Appointment::find($id);
+        $appointment->delete();
+        flash('Appointment Deleted Successfully!')->success();
+        return redirect()->back();
+    }
+
+    public function video_call($id)
     {
         $appointment = Appointment::find($id);
         $appointment->delete();

@@ -37,12 +37,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="form-control-label" for="pmc">Past Medical Conditions <small>(Chronic illnesses, Surgeries, Allergies)</small></label>
-                        <textarea class="form-control" 
-                        name="past_medical_condition" 
-                        id="pmc" 
-                        disabled
-                        placeholder="Past Medical Conditions" 
-                        rows="3">{{ ($record->past_medical_condition ?? '') }}</textarea>
+                        <textarea class="form-control" name="past_medical_condition" id="pmc" disabled placeholder="Past Medical Conditions" rows="3">{{ ($record->past_medical_condition ?? '') }}</textarea>
                     </div>
                 </div>
 
@@ -133,7 +128,7 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label class="form-control-label" for="cmnts"> Comments <small>(Symptoms, Current Health Issues)</small></label>
-                        <textarea name="comments" id="comments" rows="3" placeholder="Write Here ...">{{ ($record->comments ?? '') }}</textarea>   
+                        <textarea name="comments" id="comments" rows="3" placeholder="Write Here ...">{{ ($record->comments ?? '') }}</textarea>
                     </div>
                 </div>
             </div>
