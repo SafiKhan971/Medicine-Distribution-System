@@ -14,7 +14,11 @@ use Illuminate\Support\Facades\Validator;
 class DoctorController extends Controller {
 
     public function index() {
-        return view( 'frontend.doctor.index' );
+        $total_patients = User::count();
+
+        $doctor = Doctor::find(session()->get('doctor_id'));
+        $total_appointments = Appointment::where('doctor_id', $doctor->id)->count();
+        return view( 'frontend.doctor.index', compact('total_patients', 'total_appointments') );
     }
 
     public function login() {
@@ -29,12 +33,12 @@ class DoctorController extends Controller {
             // Doctor not found
             return redirect('doctor/login')->withErrors(['error' => 'Invalid email or password']);
         }
-        
+
         if ($doctor->password === null) {
             // Password in the database is null
             return redirect('doctor/login')->withErrors(['error' => 'Password is not set for this account']);
         }
-        
+
         if ($request->password === null) {
             // Password is null
             return redirect('doctor/login')->withErrors(['error' => 'Password is required']);
