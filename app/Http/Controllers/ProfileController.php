@@ -17,7 +17,8 @@ class ProfileController extends Controller
     public function index()
     {
         $total_doctors = Doctor::count();
-        $total_appointments = Appointment::count();
+        $patient = User::find(auth()->user()->id);
+        $total_appointments = Appointment::where('user_id', $patient->id)->count();
         return view('frontend.patient.index',  compact('total_doctors', 'total_appointments'));
     }
 

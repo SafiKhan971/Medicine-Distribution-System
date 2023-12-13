@@ -46,11 +46,9 @@
                                 <span class="h2 font-weight-bold mb-0">{{ $total_patients }}</span>
                             </div>
                             <div class="col-auto">
-                                <a href="{{ url('admin/patients') }}">
-                                    <div class="icon icon-shape bg-gradient-blue text-white rounded-circle shadow">
-                                        <i class="fas fa-user"></i>
-                                    </div>
-                                </a>
+                                <div class="icon icon-shape bg-gradient-blue text-white rounded-circle shadow">
+                                    <i class="fas fa-user"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -66,11 +64,9 @@
                                 <span class="h2 font-weight-bold mb-0">{{ $total_appointments }}</span>
                             </div>
                             <div class="col-auto">
-                                <a href="{{ url('admin/patients') }}">
-                                    <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
-                                        <i class="ni ni-calendar-grid-58"></i>
-                                    </div>
-                                </a>
+                                <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
+                                    <i class="ni ni-calendar-grid-58"></i>
+                                </div>
                             </div>
                         </div>
                     </div>

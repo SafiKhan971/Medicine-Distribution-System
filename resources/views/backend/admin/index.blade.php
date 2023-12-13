@@ -69,7 +69,7 @@
                     <div class="col-auto">
                       <a href="{{ url('admin/doctors') }}">
                         <div class="icon icon-shape bg-gradient-dark text-white rounded-circle shadow">
-                          <i class="ni ni-hat-3"></i>
+                          <i class="fa fa-user-md" aria-hidden="true"></i>
                         </div>
                       </a>
                     </div>
