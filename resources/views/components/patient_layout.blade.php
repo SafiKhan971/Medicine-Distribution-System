@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="{{ asset('BackEndAssets/assets/vendor/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('BackEndAssets/assets/vendor/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('BackEndAssets/assets/vendor/datatables.net-select-bs4/css/select.bootstrap4.min.css') }}">
-    
+
     <style>
         .notification-counter {
             position: absolute;
@@ -111,7 +111,7 @@
 
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('search-doctor.index')}}">
-                                <i class="ni ni-shop text-primary"></i>
+                                <i class="fa fa-search text-green" aria-hidden="true"></i>
                                 <span class="nav-link-text">Search For Doctors</span>
                             </a>
                         </li>
@@ -134,6 +134,13 @@
                             <a class="nav-link" href="{{url('profile/appointments')}}">
                                 <i class="ni ni-calendar-grid-58 text-red"></i>
                                 <span class="nav-link-text">Appointments</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url('profile/feedbacks')}}">
+                                <i class="fa fa-comments text-black" aria-hidden="true"></i>
+                                <span class="nav-link-text">Feedbacks</span>
                             </a>
                         </li>
                     </ul>
@@ -201,7 +208,7 @@
                                     @endforeach
                                 </div>
                                 <!-- View all -->
-                                <a href="#!" class="dropdown-item text-center text-primary font-weight-bold py-3">View all</a>
+                                <a href="{{ url('profile/appointments') }}" class="dropdown-item text-center text-primary font-weight-bold py-3">View all</a>
                             </div>
                         </li>
                         {{-- <li class="nav-item dropdown">

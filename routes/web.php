@@ -1,17 +1,18 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\AppointmentController;
-use App\Http\Controllers\DoctorController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\Auth\GoogleAuthController;
-use App\Http\Controllers\HealthRecordController;
-use App\Http\Controllers\SearchDoctors;
-use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use App\Models\Doctor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use App\Models\Doctor;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SearchDoctors;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\FeedBackController;
+use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\HealthRecordController;
+use App\Http\Controllers\Auth\GoogleAuthController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,8 +61,7 @@ Route::group(['prefix' => 'profile', 'middleware' => ['checkLogin', 'verified']]
     Route::post('create-health-record', [HealthRecordController::class, 'store'])->name('profile.create.record');
     
     Route::get('search-for-doctors', [SearchDoctors::class, 'index'])->name('search-doctor.index');
-
-
+    Route::get('feedbacks', [FeedBackController::class, 'index'])->name('profile.feedbacks');
 });
 
 Route::get('/email/verify', function () {
