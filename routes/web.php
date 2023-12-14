@@ -26,14 +26,17 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 */
 
 Route::get('/', function () {
-    return view('frontend/index');
+    $pageTitle = 'Digital Clinic';
+    return view('frontend/index', compact('pageTitle'));
 });
 Route::get('/contact', function () {
-    return view('frontend/contact');
+    $pageTitle = 'Digital Clinic | Contact Us';
+    return view('frontend/contact', compact('pageTitle'));
 });
 Route::get('/doctors', function () {
+    $pageTitle = 'Digital Clinic | Doctors';
     $doctors = Doctor::orderBy('name', 'asc')->take(6)->get();
-    return view('frontend/doctors', compact('doctors'));
+    return view('frontend/doctors', compact('doctors', 'pageTitle'));
 });
 
 Route::get('/dashboard', function () {

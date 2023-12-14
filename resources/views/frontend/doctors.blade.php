@@ -26,31 +26,31 @@
         <div class="row">
             @if (count($doctors) > 0)
                 @foreach ($doctors as $doctor)
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="single-team">
-                        <div class="t-head">
-                            <img src="{{ asset('storage/doctorfiles/' . ($doctor->profile_picture ? $doctor->profile_picture : 'img/team1.jpg')) }}" alt="Profile Picture">
-                            <div class="t-icon">
-                                <a href="{{ url('profile/appointment') }}" class="btn">Get Appointment</a>
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="single-team">
+                            <div class="t-head">
+                                <img src="{{ asset('storage/doctorfiles/' . ($doctor->profile_picture ? $doctor->profile_picture : 'img/team1.jpg')) }}"
+                                    alt="Profile Picture">
+                                <div class="t-icon">
+                                    <a href="{{ url('profile/appointment') }}" class="btn">Get Appointment</a>
+                                </div>
+                            </div>
+                            <div class="t-bottom">
+                                <p>{{ $doctor->specialization }}</p>
+                                <h2><a href="doctor-details.html">{{ $doctor->name }}</a></h2>
                             </div>
                         </div>
-                        <div class="t-bottom">
-                            <p>{{ $doctor->specialization }}</p>
-                            <h2><a href="doctor-details.html">{{ $doctor->name }}</a></h2>
-                        </div>
                     </div>
-                </div>
                 @endforeach
-                <div class="text-center">
-                    <a href="{{route('search-doctor.index')}}" class="btn text-light">See More</a>
-                </div>
             @else
                 <div class="text-center">
                     <p> No Doctor Found. </p>
                 </div>
             @endif
         </div>
-
+        <div class="text-center">
+            <a href="{{ route('search-doctor.index') }}" class="btn text-light">See More</a>
+        </div>
     </div>
 </section>
 <!-- Doctors End -->

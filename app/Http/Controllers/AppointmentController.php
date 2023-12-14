@@ -21,8 +21,9 @@ class AppointmentController extends Controller
 
     public function create()
     {
+        $pageTitle = 'Digital Clinic | Book An Appointment';
         $doctors = Doctor::select('id', 'name')->get();
-        return view('frontend.patient.appointments.create', compact('doctors'));
+        return view('frontend.patient.appointments.create', compact('doctors', 'pageTitle'));
     }
 
     public function store(Request $request)
@@ -51,7 +52,7 @@ class AppointmentController extends Controller
                     return redirect()->back();
                 }
                 else
-                {   
+                {
                         $appointment = new Appointment;
                         $appointment->user_id =  $userId;
                         $appointment->doctor_id =  $request->doctor_id;
@@ -73,7 +74,7 @@ class AppointmentController extends Controller
     }
 
     public function update(Request $request, $id)
-    {   
+    {
         $userId = auth()->user()->id;
         $appointmentStartTime = Carbon::parse($request->app_date_time);
         $appointmentEndTime = $appointmentStartTime->copy()->addMinutes(30);
@@ -91,7 +92,7 @@ class AppointmentController extends Controller
             return redirect()->back();
         }
         else
-        {   
+        {
             $appointment = Appointment::find($id);
                 $appointment->doctor_id =  $request->doctor_id;
                 $appointment->app_dt_start = $appointmentStartTime;
