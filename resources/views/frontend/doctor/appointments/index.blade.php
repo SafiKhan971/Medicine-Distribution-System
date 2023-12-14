@@ -1,4 +1,4 @@
-@extends('components/patient_layout')
+@extends('components/doctor_layout')
 @section('title', 'Digital Clinic | Appointments')
 @section('header')
 <!-- Header -->
@@ -35,9 +35,9 @@
                         <thead class="thead-light">
                             <tr>
                                 <th>Sr.No</th>
-                                <th>Doctor</th>
+                                <th>Patient</th>
                                 <th>Date / Time</th>
-                                <th>Action</th>
+                                {{-- <th>Action</th> --}}
                             </tr>
                         </thead>
 
@@ -48,12 +48,12 @@
                             @foreach($appointments as $appointment)
                             <tr>
                                 <td>{{ $serial_no++ }}</td>
-                                <td>{{ $appointment->doctor->name }}</td>
+                                <td>{{ $appointment->patient->name }}</td>
                                 <td>{{ \Carbon\Carbon::parse($appointment->app_dt_start)->format('M j, Y - h:i A') }}</td>
-                                <td>
+                                {{-- <td>
                                     <a href="{{route('profile.edit.appointment', $appointment->id)}}" class="btn btn-primary btn-sm">Edit</a>
                                     <a href="{{route('profile.delete.appointment', $appointment->id)}}" class="btn btn-danger btn-sm">Delete</a>
-                                </td>
+                                </td> --}}
                             </tr>
                             @endforeach
                         </tbody>

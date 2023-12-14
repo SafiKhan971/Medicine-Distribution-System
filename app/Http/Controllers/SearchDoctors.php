@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 class SearchDoctors extends Controller
 {
     public function index()
-    { 
+    {
         $doctors = Doctor::all();
-        return view('frontend.patient.doctors', compact('doctors'));
+        return view('frontend.patient.doctors.index', compact('doctors'));
     }
 }
