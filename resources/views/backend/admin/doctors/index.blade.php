@@ -62,7 +62,8 @@
                                     <tr>
                                         <td>{{ $doctor['name'] }}</td>
                                         <td>{{ $doctor['email'] }}</td>
-                                        <td>{{ $doctor['status'] == 1 ? 'Approved' : 'Unapproved' }}</td>
+                                        {{-- <td>{{ $doctor['status'] == 1 ? 'Approved' : 'Unapproved' }}</td> --}}
+                                        <td>{{ statusLabel($doctor['status']); }}</td>
                                         <td>
                                             <a href="{{ url('/admin/doctor/details/' . $doctor['id']) }}"
                                                 class="btn btn-outline-default btn-sm" data-toggle="tooltip"

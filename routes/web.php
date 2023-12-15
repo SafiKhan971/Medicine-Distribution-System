@@ -8,7 +8,7 @@ use App\Http\Controllers\SearchDoctors;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\FeedBackController;
+use App\Http\Controllers\PatientFeedbackController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\HealthRecordController;
 use App\Http\Controllers\Auth\GoogleAuthController;
@@ -64,7 +64,10 @@ Route::group(['prefix' => 'profile', 'middleware' => ['checkLogin', 'verified']]
     Route::post('create-health-record', [HealthRecordController::class, 'store'])->name('profile.create.record');
 
     Route::get('search-for-doctors', [SearchDoctors::class, 'index'])->name('search-doctor.index');
-    Route::get('feedbacks', [FeedBackController::class, 'index'])->name('profile.feedbacks');
+    Route::get('feedbacks', [PatientFeedbackController::class, 'index'])->name('profile.feedbacks');
+    Route::get('create-feedback', [PatientFeedbackController::class, 'create'])->name('profile.create.feedback');
+    Route::post('store-feedback', [PatientFeedbackController::class, 'store'])->name('profile.store.feedback');
+    Route::get('edit-feedback', [PatientFeedbackController::class, 'update'])->name('profile.edit.feedback');
 });
 
 Route::get('/email/verify', function () {
