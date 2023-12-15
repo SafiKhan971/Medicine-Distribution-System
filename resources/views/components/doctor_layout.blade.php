@@ -180,13 +180,13 @@
                             <a class="nav-link" href="#" role="button" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
                                 <i class="ni ni-bell-55"></i>
-                                <span class="notification-counter">{{ $totalAppointments }}</span>
+                                <span class="notification-counter">{{ $totalAppointments ?? '' }}</span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-xl dropdown-menu-right py-0 overflow-hidden">
                                 <!-- Dropdown header -->
                                 <div class="px-3 py-3">
                                     <h6 class="text-sm text-muted m-0">
-                                        You have <strong class="text-primary">{{ $totalAppointments }}</strong> Appointments.</h6>
+                                        You have <strong class="text-primary">{{ $totalAppointments ?? '' }}</strong> Appointments.</h6>
                                 </div>
                                 <!-- List group -->
                                 <div class="list-group list-group-flush">
@@ -194,7 +194,7 @@
                                     <a href="#!" class="list-group-item list-group-item-action">
                                         <div class="row align-items-center">
                                             <div class="col ml--2">
-                                                <p class="text-sm mb-0"> Appointment with {{ $item->patient->name }} at {{ $datetime->format('M j, Y - h:i a'); }}.</p>
+                                                <p class="text-sm mb-0"> Appointment with {{ $item->patient->name ?? ''}} at {{ $datetime->format('M j, Y - h:i a'); }}.</p>
                                             </div>
                                         </div>
                                     </a>
@@ -342,7 +342,7 @@
                                         <img alt="Image placeholder" src="{{ session()->get('doctor_picture') ? asset('storage/profile_pictures/' . session()->get('doctor_picture')) : asset('BackEndAssets/assets/img/theme/team-1.jpg') }}">
                                     </span>
                                     <div class="media-body ml-2 d-none d-lg-block">
-                                        <span class="mb-0 text-sm  font-weight-bold">{{ session()->get('doctor_name') }}</span>
+                                        <span class="mb-0 text-sm  font-weight-bold">{{ session()->get('doctor_name') ?? '' }}</span>
                                     </div>
                                 </div>
                             </a>

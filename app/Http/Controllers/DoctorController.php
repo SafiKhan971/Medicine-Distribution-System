@@ -45,7 +45,10 @@ class DoctorController extends Controller {
         }
 
         if ( $doctor && Hash::check( $request->password, $doctor->password ) ) {
-            request()->session()->put( 'doctor_id', $doctor->id );
+            // request()->session()->put( 'doctor_id', $doctor->id );
+            session(['doctor_id' => $doctor->id]);
+            $id = session('doctor_id');
+            // dd($id);
             request()->session()->put( 'doctor_name', $doctor->name );
             request()->session()->put( 'doctor_email', $doctor->email );
             request()->session()->put( 'doctor_picture', $doctor->picture );
