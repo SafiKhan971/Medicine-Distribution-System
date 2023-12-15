@@ -25,7 +25,6 @@ class GoogleAuthController extends Controller
             // Handle any exceptions that might occur during the socialite process
             return redirect('/')->with('error', 'Unable to fetch user data from Google.');
         }
-
         $authUser = $this->findOrCreateUser($user);
 
         Auth::login($authUser, true);

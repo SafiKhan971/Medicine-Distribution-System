@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\Doctor;
 use App\Models\Appointment;
+use App\Models\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -58,6 +59,14 @@ class AppointmentController extends Controller
                         $appointment->app_dt_start = $appointmentStartTime;
                         $appointment->app_dt_end =  $appointmentEndTime;
                         $appointment->save();
+
+                        $notification = new Notification;
+                        $notification->type = 'appointment';
+                        $notification->user_id =$appointment->user_id;
+                        $notification->type = $appointment->doctor_id;
+                        $notification->save();
+
+
                         notify()->success('Appointment created successfully!', 'Success');
                         return redirect('/');
                 }
@@ -110,12 +119,5 @@ class AppointmentController extends Controller
         return redirect()->back();
     }
 
-    public function video_call($id)
-    {
-        $appointment = Appointment::find($id);
-        $appointment->delete();
-        flash('Appointment Deleted Successfully!')->success();
-        return redirect()->back();
-    }
 
 }
