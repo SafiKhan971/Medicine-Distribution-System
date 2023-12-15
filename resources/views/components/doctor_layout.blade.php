@@ -126,7 +126,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{{ route('doctor.appointments') }}">
                                 <i class="ni ni-calendar-grid-58 text-red"></i>
                                 <span class="nav-link-text">Appointments</span>
                             </a>
@@ -281,7 +281,7 @@
                                     </a> -->
                                 </div>
                                 <!-- View all -->
-                                <a href="#!"
+                                <a href="{{ route('doctor.appointments') }}"
                                     class="dropdown-item text-center text-primary font-weight-bold py-3">View all</a>
                             </div>
                         </li>

@@ -1,30 +1,6 @@
 @include('components/header')
 @include('components/navbar')
 @include('notify::components.notify')
-{{-- <div class="mb-5 container-fluid">
-    <form action="{{ route('profile.create.appointment') }}" method="post">
-        @csrf
-        <div class="row">
-            <div class="col-md-8">
-                <label for="doctor">Select Doctor</label><br>
-                <select id="doctor" class="form-select" name="doctor_id">
-                    <option disabled selected>Choose ...</option>
-                    @foreach ($doctors as $doctor)
-                        <option value="{{ $doctor->id }}"> {{ $doctor->name }} </option>
-                    @endforeach
-                </select>
-            </div>
-            <div class="mb-3 col-md-8">
-                <label for="datetimepicker">Select Date and Time:</label>
-                <input type="datetime-local" class="form-control" name="app_date_time">
-            </div>
-            <div class="col-md-8">
-                <button class="btn" type="submit">Submit</button>
-            </div>
-        </div>
-    </form>
-</div> --}}
-
 
 <!-- Start Appointment -->
 <section class="appointment" id="appointment">

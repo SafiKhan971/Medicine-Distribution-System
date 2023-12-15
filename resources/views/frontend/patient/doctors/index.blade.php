@@ -53,8 +53,8 @@
                                 <td>{{ $doctor->name }}</td>
                                 <td>{{ $doctor->specialization }}</td>
                                 <td>{{ $doctor->experience }}</td>
-                                <td>{{ \Carbon\Carbon::parse($doctor->start_time)->format('H:i') }} To {{ \Carbon\Carbon::parse($doctor->end_time)->format('H:i') }}</td>
-                                <td>{{($doctor->days_week == 4)? "Monday To Thursday" : "Monday To Friday"}}</td>
+                                <td>{{ \Carbon\Carbon::parse($doctor->start_time)->format('h:i A') }} to {{ \Carbon\Carbon::parse($doctor->end_time)->format('h:i A') }}</td>
+                                <td>{{($doctor->days_week == 4)? "Monday to Thursday" : "Monday to Friday"}}</td>
 
                                 <td>
                                     <a href="{{route('profile.create.appointment')}}" class="btn btn-primary btn-sm">Get Appointment</a>

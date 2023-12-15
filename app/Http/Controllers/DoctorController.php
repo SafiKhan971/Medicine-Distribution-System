@@ -231,4 +231,12 @@ class DoctorController extends Controller {
         return view('frontend.doctor.patient_health_record.show', compact('record'));
     }
 
+    // Appointments
+    public function getAppointment()
+    {
+        // $appointments = Appointment::with('doctor')->get();
+        $appointments = Appointment::where('doctor_id', session()->get('doctor_id'))->get();
+        return view('frontend.doctor.appointments.index', compact('appointments'));
+    }
+
 }

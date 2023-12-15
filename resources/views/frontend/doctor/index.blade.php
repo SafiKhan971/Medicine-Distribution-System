@@ -64,9 +64,11 @@
                                 <span class="h2 font-weight-bold mb-0">{{ $total_appointments }}</span>
                             </div>
                             <div class="col-auto">
-                                <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
-                                    <i class="ni ni-calendar-grid-58"></i>
-                                </div>
+                                <a href="{{ route('doctor.appointments') }}">
+                                    <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
+                                        <i class="ni ni-calendar-grid-58"></i>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
