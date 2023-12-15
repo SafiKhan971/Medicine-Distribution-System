@@ -37,7 +37,7 @@
                             </div>
                             <div class="t-bottom">
                                 <p>{{ $doctor->specialization }}</p>
-                                <h2><a href="doctor-details.html">{{ $doctor->name }}</a></h2>
+                                <h2><a href="#">{{ $doctor->name }}</a></h2>
                             </div>
                         </div>
                     </div>
