@@ -22,8 +22,8 @@
                                     <li><a href="#">Features </a></li>
                                     <li><a href="#">About </a></li>
                                     <li><a href="#">Blogs </a></li>
-                                    <li><a href="{{ url('/contact') }}">Contact </a></li>
-                                    <li><a href="#appointment">Schedule a Demo</a></li>
+                                    <li  class="mr-5"><a href="{{ url('/contact') }}">Contact </a></li>
+                                    {{-- <li><a href="#appointment">Schedule a Demo</a></li> --}}
                                     @if (auth()->check())
                                         <li class="ml-5">
                                             <a href="#">{{ auth()->user()->name }}

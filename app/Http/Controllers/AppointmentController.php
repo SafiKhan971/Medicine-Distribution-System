@@ -22,8 +22,9 @@ class AppointmentController extends Controller
 
     public function create()
     {
+        $pageTitle = 'Digital Clinic | Book An Appointment';
         $doctors = Doctor::select('id', 'name')->get();
-        return view('frontend.patient.appointments.create', compact('doctors'));
+        return view('frontend.patient.appointments.create', compact('doctors', 'pageTitle'));
     }
 
     public function store(Request $request)

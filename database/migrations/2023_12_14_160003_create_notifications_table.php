@@ -11,8 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('doctors', function (Blueprint $table) {
-            $table->boolean('status')->default(false);
+        Schema::create('notifications', function (Blueprint $table) {
+            $table->id();
+            $table->string('type');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('doctor_id');
+            $table->timestamps();
         });
     }
 
@@ -21,8 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('doctors', function (Blueprint $table) {
-            $table->dropColumn('status');
-        });
+        Schema::dropIfExists('notifications');
     }
 };

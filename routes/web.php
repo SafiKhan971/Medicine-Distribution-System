@@ -26,14 +26,17 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 */
 
 Route::get('/', function () {
-    return view('frontend/index');
+    $pageTitle = 'Digital Clinic';
+    return view('frontend/index', compact('pageTitle'));
 });
 Route::get('/contact', function () {
-    return view('frontend/contact');
+    $pageTitle = 'Digital Clinic | Contact Us';
+    return view('frontend/contact', compact('pageTitle'));
 });
 Route::get('/doctors', function () {
+    $pageTitle = 'Digital Clinic | Doctors';
     $doctors = Doctor::orderBy('name', 'asc')->take(6)->get();
-    return view('frontend/doctors', compact('doctors'));
+    return view('frontend/doctors', compact('doctors', 'pageTitle'));
 });
 
 Route::get('/dashboard', function () {
@@ -59,7 +62,7 @@ Route::group(['prefix' => 'profile', 'middleware' => ['checkLogin', 'verified']]
     Route::get('appointment/delete/{id}', [AppointmentController::class, 'destroy'])->name('profile.delete.appointment');
     Route::get('create-health-record', [HealthRecordController::class, 'create'])->name('profile.create.record');
     Route::post('create-health-record', [HealthRecordController::class, 'store'])->name('profile.create.record');
-    
+
     Route::get('search-for-doctors', [SearchDoctors::class, 'index'])->name('search-doctor.index');
     Route::get('feedbacks', [FeedBackController::class, 'index'])->name('profile.feedbacks');
 });
@@ -132,6 +135,8 @@ Route::group(['prefix' => 'doctor', 'middleware' => 'checkDoctor'], function(){
     Route::get('patient-health-record', [DoctorController::class, 'patient_hr_index'])->name('health-record.index');
     Route::get('patient-health-record-show/{id}', [DoctorController::class, 'show'])->name('health-record.show');
     // Route::post('patient-health-record', [DoctorController::class, 'store'])->name('health-record.store');
+
+    Route::get('appointments', [DoctorController::class, 'getAppointment'])->name('doctor.appointments');
 });
 
 Route::get('hash', function(){

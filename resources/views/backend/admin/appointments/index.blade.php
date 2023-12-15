@@ -46,7 +46,8 @@
                         <thead class="thead-light">
                             <tr>
                                 <th>Sr.NO</th>
-                                <th>Doctor</th>
+                                <th>Doctor Name</th>
+                                <th>Patient Name</th>
                                 <th>Date / Time</th>
                                 <th>Action</th>
                             </tr>
@@ -60,6 +61,7 @@
                             <tr>
                                 <td>{{ $serial_no++ }}</td>
                                 <td>{{ isset($appointment->doctor->name) ? $appointment->doctor->name : '-' }}</td>
+                                <td>{{ isset($appointment->patient->name) ? $appointment->patient->name : '-' }}</td>
                                 <td>{{ \Carbon\Carbon::parse($appointment->app_dt_start)->format('M j, Y - h:i A') }}</td>
                                 <td>
                                     <a href="{{route('admin.edit.appointment', $appointment->id)}}"

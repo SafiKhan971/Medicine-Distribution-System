@@ -315,7 +315,7 @@
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porttitor dictum turpis
                                 nec gravida.</p>
                             <div class="button">
-                                <a href="#" class="btn">Contact Now</a>
+                                <a href="{{ url('/contact') }}" class="btn">Contact Now</a>
                                 <a href="#" class="btn second">Learn More<i
                                         class="fa fa-long-arrow-right"></i></a>
                             </div>
@@ -345,35 +345,35 @@
                         <div class="owl-carousel portfolio-slider">
                             <div class="single-pf">
                                 <img src="{{ asset('img/pf1.jpg') }}" alt="#">
-                                <a href="portfolio-details.html" class="btn">View Details</a>
+                                <a href="#" class="btn">View Details</a>
                             </div>
                             <div class="single-pf">
                                 <img src="{{ asset('img/pf2.jpg') }}" alt="#">
-                                <a href="portfolio-details.html" class="btn">View Details</a>
+                                <a href="#" class="btn">View Details</a>
                             </div>
                             <div class="single-pf">
                                 <img src="{{ asset('img/pf3.jpg') }}" alt="#">
-                                <a href="portfolio-details.html" class="btn">View Details</a>
+                                <a href="#" class="btn">View Details</a>
                             </div>
                             <div class="single-pf">
                                 <img src="{{ asset('img/pf4.jpg') }}" alt="#">
-                                <a href="portfolio-details.html" class="btn">View Details</a>
+                                <a href="#" class="btn">View Details</a>
                             </div>
                             <div class="single-pf">
                                 <img src="{{ asset('img/pf1.jpg') }}" alt="#">
-                                <a href="portfolio-details.html" class="btn">View Details</a>
+                                <a href="#" class="btn">View Details</a>
                             </div>
                             <div class="single-pf">
                                 <img src="{{ asset('img/pf2.jpg') }}" alt="#">
-                                <a href="portfolio-details.html" class="btn">View Details</a>
+                                <a href="#" class="btn">View Details</a>
                             </div>
                             <div class="single-pf">
                                 <img src="{{ asset('img/pf3.jpg') }}" alt="#">
-                                <a href="portfolio-details.html" class="btn">View Details</a>
+                                <a href="#" class="btn">View Details</a>
                             </div>
                             <div class="single-pf">
                                 <img src="{{ asset('img/pf4.jpg') }}" alt="#">
-                                <a href="portfolio-details.html" class="btn">View Details</a>
+                                <a href="#" class="btn">View Details</a>
                             </div>
                         </div>
                     </div>
@@ -399,7 +399,7 @@
                         <!-- Start Single Service -->
                         <div class="single-service">
                             <i class="icofont icofont-prescription"></i>
-                            <h4><a href="service-details.html">General Treatment</a></h4>
+                            <h4><a href="#">General Treatment</a></h4>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut
                                 imperdiet. </p>
                         </div>
@@ -409,7 +409,7 @@
                         <!-- Start Single Service -->
                         <div class="single-service">
                             <i class="icofont icofont-tooth"></i>
-                            <h4><a href="service-details.html">Teeth Whitening</a></h4>
+                            <h4><a href="#">Teeth Whitening</a></h4>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut
                                 imperdiet. </p>
                         </div>
@@ -419,7 +419,7 @@
                         <!-- Start Single Service -->
                         <div class="single-service">
                             <i class="icofont icofont-heart-alt"></i>
-                            <h4><a href="service-details.html">Heart Surgery</a></h4>
+                            <h4><a href="#">Heart Surgery</a></h4>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut
                                 imperdiet. </p>
                         </div>
@@ -429,7 +429,7 @@
                         <!-- Start Single Service -->
                         <div class="single-service">
                             <i class="icofont icofont-listening"></i>
-                            <h4><a href="service-details.html">Ear Treatment</a></h4>
+                            <h4><a href="#">Ear Treatment</a></h4>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut
                                 imperdiet. </p>
                         </div>
@@ -439,7 +439,7 @@
                         <!-- Start Single Service -->
                         <div class="single-service">
                             <i class="icofont icofont-eye-alt"></i>
-                            <h4><a href="service-details.html">Vision Problems</a></h4>
+                            <h4><a href="#">Vision Problems</a></h4>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut
                                 imperdiet. </p>
                         </div>
@@ -449,7 +449,7 @@
                         <!-- Start Single Service -->
                         <div class="single-service">
                             <i class="icofont icofont-blood"></i>
-                            <h4><a href="service-details.html">Blood Transfusion</a></h4>
+                            <h4><a href="#">Blood Transfusion</a></h4>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut
                                 imperdiet. </p>
                         </div>
@@ -495,7 +495,7 @@
                                 <li class="cross"><i class="icofont icofont-ui-close"></i>Pellentesque eget nibh</li>
                             </ul>
                             <div class="table-bottom">
-                                <a class="btn" href="#">Book Now</a>
+                                <a class="btn" href="{{ url('profile/appointment') }}">Book Now</a>
                             </div>
                             <!-- Table Bottom -->
                         </div>
@@ -523,7 +523,7 @@
                                 <li class="cross"><i class="icofont icofont-ui-close"></i>Pellentesque eget nibh</li>
                             </ul>
                             <div class="table-bottom">
-                                <a class="btn" href="#">Book Now</a>
+                                <a class="btn" href="{{ url('profile/appointment') }}">Book Now</a>
                             </div>
                             <!-- Table Bottom -->
                         </div>
@@ -551,7 +551,7 @@
                                 <li><i class="icofont icofont-ui-check"></i>Pellentesque eget nibh</li>
                             </ul>
                             <div class="table-bottom">
-                                <a class="btn" href="#">Book Now</a>
+                                <a class="btn" href="{{ url('profile/appointment') }}">Book Now</a>
                             </div>
                             <!-- Table Bottom -->
                         </div>
@@ -586,7 +586,7 @@
                             <div class="news-body">
                                 <div class="news-content">
                                     <div class="date">22 Aug, 2020</div>
-                                    <h2><a href="blog-single.html">We have annnocuced our new product.</a></h2>
+                                    <h2><a href="#">We have annnocuced our new product.</a></h2>
                                     <p class="text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed
                                         do eiusmod tempor incididunt sed do incididunt sed.</p>
                                 </div>
@@ -603,7 +603,7 @@
                             <div class="news-body">
                                 <div class="news-content">
                                     <div class="date">15 Jul, 2020</div>
-                                    <h2><a href="blog-single.html">Top five way for solving teeth problems.</a></h2>
+                                    <h2><a href="#">Top five way for solving teeth problems.</a></h2>
                                     <p class="text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed
                                         do eiusmod tempor incididunt sed do incididunt sed.</p>
                                 </div>
@@ -620,7 +620,7 @@
                             <div class="news-body">
                                 <div class="news-content">
                                     <div class="date">05 Jan, 2020</div>
-                                    <h2><a href="blog-single.html">We provide highly business soliutions.</a></h2>
+                                    <h2><a href="#">We provide highly business soliutions.</a></h2>
                                     <p class="text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed
                                         do eiusmod tempor incididunt sed do incididunt sed.</p>
                                 </div>
@@ -674,13 +674,13 @@
         <!--/Ens clients -->
 
         <!-- Start Appointment -->
-        <section class="appointment" id="appointment">
+        {{-- <section class="appointment" id="appointment">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section-title">
                             <h2>We Are Always Ready to Help You. Book An Appointment</h2>
-                            {{-- <img src="{{ asset('img/section-img.png') }}" alt="#"> --}}
+                            <img src="{{ asset('img/section-img.png') }}" alt="#">
                             <p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
                         </div>
                     </div>
@@ -763,7 +763,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
         <!-- End Appointment -->
 
         <!-- Start Newsletter Area -->
