@@ -12,11 +12,11 @@
                                 <li class="breadcrumb-item"><a href="{{ url('/') }}"><i class="fas fa-home"></i></a>
                                 </li>
                                 <li class="breadcrumb-item"><a href="{{ url('/') }}">Dashboard</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Create a Feedback</li>
+                                <li class="breadcrumb-item active" aria-current="page">Update Feedback</li>
                             </ol>
                         </nav>
                         <br>
-                        <h6 class="h2 d-inline-block mb-0">Create a Feedback</h6>
+                        <h6 class="h2 d-inline-block mb-0">Update Feedback</h6>
                     </div>
                 </div>
             </div>
@@ -31,7 +31,7 @@
                 <div class="d-flex justify-content-end">
                     <a href="{{ route('profile.feedbacks') }}" class="btn btn-secondary btn-sm">Back</a>
                 </div>
-                <form method="POST" action="{{ route('profile.store.feedback') }}">
+                <form method="POST" action="{{ route('profile.update.feedback', $feedback->id ) }}">
                     @csrf
                     <div class="row">
                         <div class="col-md-12">
@@ -39,8 +39,8 @@
                                 <label class="form-control-label" for="Comments">
                                     Comments <small> (max 50 words): </small>
                                 </label>
-                                <textarea type="text" class="form-control form-control-sm" id="Comments" placeholder="Comments" name="comments"
-                                    rows="5"></textarea>
+                                <textarea type="text" class="form-control form-control-sm" id="Comments" placeholder="Comments" 
+                                name="comments" rows="5">{{ $feedback->comments }}</textarea>
                                 <small id="wordCount" class="text-muted text-right">Word count: 0</small>
                             </div>
                         </div>

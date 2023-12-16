@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Admin;
 use App\Models\Doctor;
+use App\Models\Feedback;
 use App\Models\Appointment;
 use Illuminate\Http\Request;
 use App\Mail\DoctorApprovalMail;
@@ -255,5 +256,42 @@ class AdminController extends Controller {
         $appointment->delete();
         // flash('Appointment Deleted Successfully!')->success();
         return redirect()->back()->with('success', 'Appointment Deleted Successfully!');
+    }
+
+    // Feedbacks
+    public function feedbacks()
+    {
+        $feedbacks = Feedback::all();
+        return view('backend.admin.feedbacks.index', compact('feedbacks'));
+    }
+
+    public function feedbackApprrove(Request $request)
+    {
+        $feedback = Feedback::find( $request->feedback_id );
+
+        $feedback->status = 1;
+        if($feedback->update())
+        {
+            return redirect()->to('admin/feedbacks')->with('success', 'Feedback Apprroved successfully!');
+        } 
+        else 
+        {
+            return redirect()->to('admin/feedbacks')->with('error', 'something went wrong!');
+        }
+    }
+
+    public function feedbackDisapprrove(Request $request)
+    {
+        $feedback= Feedback::find( $request->feedback_id );
+        $feedback->status = 0;
+
+        if($feedback->update())
+        {
+            return redirect()->to('admin/feedbacks')->with('success', 'Feedback Disapprroved successfully!');
+        } 
+        else 
+        {
+            return redirect()->to('admin/feedbacks')->with('error', 'something went wrong!');
+        }
     }
 }

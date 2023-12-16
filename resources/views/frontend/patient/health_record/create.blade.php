@@ -9,19 +9,14 @@
                     <div class="col-lg-6 col-7">
                         <nav aria-label="breadcrumb" class="d-none d-md-inline-block mb-3">
                             <ol class="breadcrumb breadcrumb-links">
-                                <li class="breadcrumb-item"><a href="{{ url('profile') }}"><i class="fas fa-home"></i></a>
-                                </li>
-                                <li class="breadcrumb-item"><a href="{{ url('profile') }}">Dashboard</a></li>
+                                <li class="breadcrumb-item"><a href="{{ url('/') }}"><i class="fas fa-home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="{{ url('/profile') }}">Dashboard</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Health Record</li>
                             </ol>
                         </nav>
                         <br>
                         <h6 class="h2 d-inline-block mb-0">Patient Health Record</h6>
                     </div>
-                    <!-- <div class="col-lg-6 col-5 text-right">
-                                                    <a href="#" class="btn btn-sm btn-neutral">New</a>
-                                                    <a href="#" class="btn btn-sm btn-neutral">Filters</a>
-                                                </div> -->
                 </div>
             </div>
         </div>
@@ -45,7 +40,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="form-control-label" for="pmdc">Present Medical Conditions</label>
                                     <textarea class="form-control form-control-sm" name="present_medical_condition" id="pmdc"
@@ -53,7 +48,6 @@
                                 </div>
                             </div>
                         </div>
-                        <br>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -135,7 +129,7 @@
                                     <label class="form-control-label" for="docs">Documents <small>(Laboratory Results,
                                             Prescriptions)</small></label>
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" name="documents[]" multiple
+                                        <input type="file" class="custom-file-input custom-file-input-sm" name="documents[]" multiple
                                             id="docs" lang="en">
                                         <label class="custom-file-label" for="docs">Select file</label>
                                     </div>
@@ -145,29 +139,18 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label class="form-control-label" for="cmnts">Comments <small>(Symptoms, Current
-                                            Health
-                                            Issues)</small></label>
+                                    <label class="form-control-label" for="cmnts">Comments 
+                                    <small>(Symptoms, Current Health Issues)</small></label>
                                     <textarea name="comments" id="comments" rows="3" placeholder="Write Here ...">{{ $record->comments ?? '' }}</textarea>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-12 text-right">
-                            <button type="submit" class="btn btn-primary"> Submit </button>
+                            <button type="submit" class="btn btn-primary btn-sm"> Submit </button>
                         </div>
                     </div>
                 </div>
             </form>
         </div>
-        <!-- Footer -->
-        <footer class="footer pt-0">
-            <div class="row align-items-center justify-content-center">
-                <div class="col-lg-6">
-                    <div class="copyright text-center text-muted">
-                        &copy; 2023 <a href="{{ url('/') }}" class="font-weight-bold ml-1">Digital Clinic</a>
-                    </div>
-                </div>
-            </div>
-        </footer>
     </div>
 @endsection

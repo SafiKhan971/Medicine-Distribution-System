@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Doctor;
+use App\Models\Feedback;
 use Illuminate\View\View;
 use App\Models\Appointment;
 use Illuminate\Http\Request;
@@ -19,7 +20,8 @@ class ProfileController extends Controller
         $total_doctors = Doctor::count();
         $patient = User::find(auth()->user()->id);
         $total_appointments = Appointment::where('user_id', $patient->id)->count();
-        return view('frontend.patient.index',  compact('total_doctors', 'total_appointments'));
+        $total_feedbacks = Feedback::where('user_id', $patient->id)->count();
+        return view('frontend.patient.index',  compact('total_doctors', 'total_appointments', 'total_feedbacks'));
     }
 
     public function basic_info()

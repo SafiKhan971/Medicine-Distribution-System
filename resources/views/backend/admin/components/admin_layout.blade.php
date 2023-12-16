@@ -83,6 +83,13 @@
                                 <span class="nav-link-text">Appointments</span>
                             </a>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.feedbacks') }}">
+                                <i class="ni ni-calendar-grid-58 text-green"></i>
+                                <span class="nav-link-text">Feedbacks</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>

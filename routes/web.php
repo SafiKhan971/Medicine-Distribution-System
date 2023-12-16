@@ -8,10 +8,11 @@ use App\Http\Controllers\SearchDoctors;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\PatientFeedbackController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\HealthRecordController;
+use App\Http\Controllers\DoctorFeedbackController;
 use App\Http\Controllers\Auth\GoogleAuthController;
+use App\Http\Controllers\PatientFeedbackController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
@@ -64,10 +65,13 @@ Route::group(['prefix' => 'profile', 'middleware' => ['checkLogin', 'verified']]
     Route::post('create-health-record', [HealthRecordController::class, 'store'])->name('profile.create.record');
 
     Route::get('search-for-doctors', [SearchDoctors::class, 'index'])->name('search-doctor.index');
+   
+    // Patient Feedback
     Route::get('feedbacks', [PatientFeedbackController::class, 'index'])->name('profile.feedbacks');
     Route::get('create-feedback', [PatientFeedbackController::class, 'create'])->name('profile.create.feedback');
     Route::post('store-feedback', [PatientFeedbackController::class, 'store'])->name('profile.store.feedback');
-    Route::get('edit-feedback', [PatientFeedbackController::class, 'update'])->name('profile.edit.feedback');
+    Route::get('edit-feedback/{id}', [PatientFeedbackController::class, 'edit'])->name('profile.edit.feedback');
+    Route::post('update-feedback/{id}', [PatientFeedbackController::class, 'update'])->name('profile.update.feedback');
 });
 
 Route::get('/email/verify', function () {
@@ -122,12 +126,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'checkUser'], function(){
     Route::post('/doctor/disapprove', [AdminController::class, 'doctorDisapprove'])->name('admin.doctor.disapproval');
 
     // Appointment routes
-    // Route::get('appointment', [AppointmentController::class, 'create'])->name('admin.create.appointment');
-    // Route::post('appointment', [AppointmentController::class, 'store'])->name('admin.create.appointment');
     Route::get('appointments', [AdminController::class, 'getAppointment'])->name('admin.appointments');
     Route::get('appointment/edit/{id}', [AdminController::class, 'editAppointment'])->name('admin.edit.appointment');
     Route::post('appointment/edit/{id}', [AdminController::class, 'updateAppointment'])->name('admin.edit.appointment');
     Route::get('appointment/delete/{id}', [AdminController::class, 'deleteAppointment'])->name('admin.delete.appointment');
+
+    // Feedbacks
+    Route::get('feedbacks', [AdminController::class, 'feedbacks'])->name('admin.feedbacks');
+    Route::post('feedbacks/approve', [AdminController::class, 'feedbackApprrove'])->name('admin.approve.feedback');
+    Route::post('feedbacks/disapprove', [AdminController::class, 'feedbackDisapprrove'])->name('admin.disapprove.feedback');
 });
 
 Route::group(['prefix' => 'doctor', 'middleware' => 'checkDoctor'], function(){
@@ -140,6 +147,13 @@ Route::group(['prefix' => 'doctor', 'middleware' => 'checkDoctor'], function(){
     // Route::post('patient-health-record', [DoctorController::class, 'store'])->name('health-record.store');
 
     Route::get('appointments', [DoctorController::class, 'getAppointment'])->name('doctor.appointments');
+
+    // Doctor Feedback
+    Route::get('feedbacks', [DoctorFeedbackController::class, 'index'])->name('doctor.feedbacks');
+    Route::get('create-feedback', [DoctorFeedbackController::class, 'create'])->name('doctor.create.feedback');
+    Route::post('store-feedback', [DoctorFeedbackController::class, 'store'])->name('doctor.store.feedback');
+    Route::get('edit-feedback/{id}', [DoctorFeedbackController::class, 'edit'])->name('doctor.edit.feedback');
+    Route::post('update-feedback/{id}', [DoctorFeedbackController::class, 'update'])->name('doctor.update.feedback');
 });
 
 Route::get('hash', function(){

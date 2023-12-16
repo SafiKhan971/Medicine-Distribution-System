@@ -40,19 +40,19 @@
             <div class="card mb-4">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label class="form-control-label" for="fullname">Full Name</label>
                                 <input type="text" value="{{ session()->get('doctor_name') }}" class="form-control form-control-sm" id="fullname" placeholder="Full Name" name="name">
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label class="form-control-label" for="email">Email</label>
                                 <input type="text" value="{{ session()->get('doctor_email') }}" class="form-control form-control-sm" id="email" placeholder="Email" name="email">
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label class="form-control-label" for="picture">Profile Picture</label>
                                 <input type="file" class="form-control form-control-sm" id="picture" accept="image/*" name="picture">

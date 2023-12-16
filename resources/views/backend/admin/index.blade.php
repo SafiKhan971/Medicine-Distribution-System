@@ -25,9 +25,6 @@
 @section('content')
     <!-- Page content -->
     <div class="container-fluid mt--6 h-100">
-        {{-- <div class="mb-3">
-            <h1>Admin Dashboard</h1>
-        </div> --}}
         @if(session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <span class="alert-text"><strong>Success!</strong> {{ session('success') }}</span>
@@ -36,8 +33,8 @@
             </button>
         </div>
         @endif
-        <div class="row" style="height: 25rem;">
-            <div class="col-xl-4 col-md-6">
+        <div class="row" style="height: 35rem;">
+            <div class="col-xl-3 col-md-6">
               <div class="card card-stats pt-3 pb-2">
                 <!-- Card body -->
                 <div class="card-body">
@@ -57,7 +54,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-xl-4 col-md-6">
+            <div class="col-xl-3 col-md-6">
               <div class="card card-stats pt-3 pb-2">
                 <!-- Card body -->
                 <div class="card-body">
@@ -77,7 +74,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-xl-4 col-md-6">
+            <div class="col-xl-3 col-md-6">
               <div class="card card-stats pt-3 pb-2">
                 <!-- Card body -->
                 <div class="card-body">
@@ -90,6 +87,26 @@
                       <a href="{{ url('admin/appointments') }}">
                         <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
                           <i class="ni ni-calendar-grid-58"></i>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+              <div class="card card-stats pt-3 pb-2">
+                <!-- Card body -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-2">Total Appointments</h5>
+                      <a href="{{ url('admin/feedbacks') }}"><span class="h2 font-weight-bold mb-0">{{ $total_appointments }}</span>
+                    </div>
+                    <div class="col-auto">
+                      <a href="{{ url('admin/feedbacks') }}">
+                        <div class="icon icon-shape bg-gradient-gray text-white rounded-circle shadow">
+                          <i class="fa fa-comments"></i>
                         </div>
                       </a>
                     </div>

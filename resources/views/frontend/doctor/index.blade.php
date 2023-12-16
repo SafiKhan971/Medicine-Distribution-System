@@ -35,7 +35,7 @@
                 </button>
             </div>
         @endif
-        <div class="row" style="height: 23rem;">
+        <div class="row" style="height: 31rem;">
             <div class="col-xl-4 col-md-6">
                 <div class="card card-stats pt-3 pb-2">
                     <!-- Card body -->
@@ -67,6 +67,26 @@
                                 <a href="{{ route('doctor.appointments') }}">
                                     <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
                                         <i class="ni ni-calendar-grid-58"></i>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-6">
+                <div class="card card-stats pt-3 pb-2">
+                    <!-- Card body -->
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <h5 class="card-title text-uppercase text-muted mb-2">Total Feedbacks</h5>
+                                <span class="h2 font-weight-bold mb-0">{{ $total_feedbacks }}</span>
+                            </div>
+                            <div class="col-auto">
+                                <a href="{{ route('doctor.feedbacks') }}">
+                                    <div class="icon icon-shape bg-gradient-dark text-white rounded-circle shadow">
+                                        <i class="fa fa-comments"></i>
                                     </div>
                                 </a>
                             </div>

@@ -15,7 +15,7 @@ class Feedback extends Model {
     protected $fillable = [ 'comments', 'user_id', 'doctor_id' ];
 
     public function doctor() {
-        return $this->belongsTo( Doctor::class );
+        return $this->belongsTo( Doctor::class, 'doctor_id' );
     }
 
     public function patient() {

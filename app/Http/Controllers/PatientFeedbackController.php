@@ -6,6 +6,7 @@ use App\Models\Feedback;
 use Illuminate\Http\Request;
 
 class PatientFeedbackController extends Controller {
+    
     public function index() {
         $feedbacks = Feedback::where( 'user_id', auth()->user()->id )->get();
         return view( 'frontend.patient.feedbacks.index', compact('feedbacks') );
@@ -29,10 +30,30 @@ class PatientFeedbackController extends Controller {
             'user_id' => auth()->user()->id,
         ] );
 
-        return redirect()->to( '/profile/feedbacks' )->with( 'success', 'Feedback created successfully!' );
+        return redirect()->to( 'profile/feedbacks' )->with( 'success', 'Feedback created successfully!' );
     }
 
-    public function update() {
-        return view( 'frontend.patient.feedbacks.update' );
+    public function edit($id) {
+        $feedback = Feedback::find( $id );
+        return view( 'frontend.patient.feedbacks.update', compact( 'feedback' ) );
+    }
+
+    public function update( Request $request , $id ) {
+        $feedback = Feedback::find( $id );
+        
+        // Validate the request data
+        $request->validate( [
+            'comments' => 'required|string|max:191',
+        ] );
+
+        // Update a feedback
+        if ($feedback) {
+            $feedback->update([
+                'comments' => $request->input('comments'),
+                'user_id' => auth()->user()->id,
+            ]);
+        }
+
+        return redirect()->to( 'profile/feedbacks' )->with( 'success', 'Feedback Updated successfully!' );
     }
 }

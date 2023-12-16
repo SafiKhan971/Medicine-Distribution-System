@@ -2,9 +2,58 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Feedback;
 use Illuminate\Http\Request;
 
 class DoctorFeedbackController extends Controller
 {
-    //
+    public function index() {
+        $feedbacks = Feedback::where( 'doctor_id', session()->get('doctor_id') )->get();
+        return view( 'frontend.doctor.feedbacks.index', compact('feedbacks') );
+    }
+
+    public function create() {
+        return view( 'frontend.doctor.feedbacks.create' );
+    }
+
+    public function store( Request $request ) {
+        $feedback = new Feedback;
+
+        // Validate the request data
+        $request->validate( [
+            'comments' => 'required|string|max:191',
+        ] );
+
+        // Create a new feedback using the create method
+        Feedback::create( [
+            'comments' => $request->input( 'comments' ),
+            'doctor_id' => session()->get('doctor_id'),
+        ] );
+
+        return redirect()->to( 'doctor/feedbacks' )->with( 'success', 'Feedback created successfully!' );
+    }
+
+    public function edit($id) {
+        $feedback = Feedback::find( $id );
+        return view( 'frontend.doctor.feedbacks.update', compact( 'feedback' ) );
+    }
+
+    public function update( Request $request , $id ) {
+        $feedback = Feedback::find( $id );
+        
+        // Validate the request data
+        $request->validate( [
+            'comments' => 'required|string|max:191',
+        ] );
+
+        // Update a feedback
+        if ($feedback) {
+            $feedback->update([
+                'comments' => $request->input('comments'),
+                'doctor_id' => session()->get('doctor_id'),
+            ]);
+        }
+
+        return redirect()->to( 'doctor/feedbacks' )->with( 'success', 'Feedback Updated successfully!' );
+    }
 }
