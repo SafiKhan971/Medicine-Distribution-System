@@ -23,12 +23,15 @@ class GoogleAuthController extends Controller
             $user = Socialite::driver('google')->user();
         } catch (\Exception $e) {
             // Handle any exceptions that might occur during the socialite process
-            return redirect('/')->with('error', 'Unable to fetch user data from Google.');
+            // return redirect('patient/login')->with('error', 'Unable to fetch user data from Google.');
+            notify()->error($e->getMessage() , 'Error');
+            return redirect('/login');
         }
         $authUser = $this->findOrCreateUser($user);
 
         Auth::login($authUser, true);
-        flash('Logged In Successfully!')->success();
+        // flash('Logged In Successfully!')->success();
+        notify()->success('Logged In Successfully!', 'Success');
         return redirect('/');
     }
 

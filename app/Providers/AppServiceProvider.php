@@ -23,7 +23,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $id = session('doctor_id');
-        dd($id);
+        // dd($id);
         // if(!empty($id))
         // {
         //     dd($id);
