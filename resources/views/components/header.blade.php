@@ -77,10 +77,10 @@
                     <div class="col-lg-6 col-md-5 col-12">
                         <!-- Contact -->
                         <ul class="top-link">
-                            <li><a href="#">About</a></li>
+                            <li><a href="{{ url('about') }}">About</a></li>
                             <li><a href="{{ url('/doctors') }}">Doctors</a></li>
                             <li><a href="{{ url('/contact') }}">Contact</a></li>
-                            <li><a href="#">FAQ</a></li>
+                            <li><a href="{{ url('/faqs') }}">FAQ</a></li>
                         </ul>
                         <!-- End Contact -->
                     </div>

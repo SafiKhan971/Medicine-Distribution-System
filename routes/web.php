@@ -39,6 +39,18 @@ Route::get('/doctors', function () {
     $doctors = Doctor::orderBy('name', 'asc')->take(6)->get();
     return view('frontend/doctors', compact('doctors', 'pageTitle'));
 });
+Route::get('/timetable', function () {
+    $pageTitle = 'Digital Clinic | Timetable';
+    return view('frontend/timetable', compact('pageTitle'));
+});
+Route::get('/faqs', function () {
+    $pageTitle = 'Digital Clinic | FAQs';
+    return view('frontend/faqs', compact('pageTitle'));
+});
+Route::get('/about', function () {
+    $pageTitle = 'Digital Clinic | About Us';
+    return view('frontend/about', compact('pageTitle'));
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -65,7 +77,7 @@ Route::group(['prefix' => 'profile', 'middleware' => ['checkLogin', 'verified']]
     Route::post('create-health-record', [HealthRecordController::class, 'store'])->name('profile.create.record');
 
     Route::get('search-for-doctors', [SearchDoctors::class, 'index'])->name('search-doctor.index');
-   
+
     // Patient Feedback
     Route::get('feedbacks', [PatientFeedbackController::class, 'index'])->name('profile.feedbacks');
     Route::get('create-feedback', [PatientFeedbackController::class, 'create'])->name('profile.create.feedback');

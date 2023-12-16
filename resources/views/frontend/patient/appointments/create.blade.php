@@ -2,6 +2,25 @@
 @include('components/navbar')
 @include('notify::components.notify')
 
+<!-- Breadcrumbs -->
+<div class="breadcrumbs overlay">
+    <div class="container">
+        <div class="bread-inner">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Get Your Appointment</h2>
+                    <ul class="bread-list">
+                        <li><a href="{{ url('/') }}">Home</a></li>
+                        <li><i class="icofont-simple-right"></i></li>
+                        <li class="active">Appointment</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Breadcrumbs -->
+
 <!-- Start Appointment -->
 <section class="appointment" id="appointment">
     <div class="container">
@@ -9,7 +28,6 @@
             <div class="col-lg-12">
                 <div class="section-title">
                     <h2>We Are Always Ready to Help You. Book An Appointment</h2>
-                    <img src="{{ asset('img/section-img.png') }}" alt="#">
                     <p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
                 </div>
             </div>
@@ -49,7 +67,8 @@
                         </div>
                         <div class="col-lg-12 col-md-12 col-12">
                             <div class="form-group">
-                                <input type="datetime-local" name="app_date_time" required value=""{{ old('app_date_time') }}>
+                                <input type="datetime-local" name="app_date_time" required
+                                    value=""{{ old('app_date_time') }}>
                             </div>
                         </div>
                     </div>

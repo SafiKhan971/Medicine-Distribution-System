@@ -68,7 +68,7 @@
                                         <form method="post" action="{{ route('admin.approve.feedback') }}" >
                                             @csrf
                                             <input type="hidden" name="feedback_id" value="{{ $feedback->id }}">
-                                            <button type="submit" class="btn btn-outline-success btn-sm mr-2" data-toggle="tooltip" 
+                                            <button type="submit" class="btn btn-outline-success btn-sm mr-2" data-toggle="tooltip"
                                                 data-placement="top" title="Approve">
                                                 <i class="fa fa-thumbs-up"></i>
                                             </button>

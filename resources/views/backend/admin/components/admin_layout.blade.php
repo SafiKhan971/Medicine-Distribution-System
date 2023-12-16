@@ -86,7 +86,7 @@
 
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('admin.feedbacks') }}">
-                                <i class="ni ni-calendar-grid-58 text-green"></i>
+                                <i class="fa fa-comments text-black" aria-hidden="true"></i>
                                 <span class="nav-link-text">Feedbacks</span>
                             </a>
                         </li>
@@ -329,7 +329,7 @@
                                 </div>
                                 <a href="{{ route('admin.profile') }}" class="dropdown-item">
                                     <i class="ni ni-single-02"></i>
-                                    <span>My profile</span>
+                                    <span>Profile</span>
                                 </a>
                                 {{-- <a href="#!" class="dropdown-item">
                                     <i class="ni ni-settings-gear-65"></i>
