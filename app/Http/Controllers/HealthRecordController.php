@@ -8,6 +8,18 @@ use Illuminate\Http\Request;
 
 class HealthRecordController extends Controller
 {
+    public function index()
+    {
+        $health_records = HealthRecord::where('user_id', auth()->user()->id)->get();
+        return view('frontend.patient.health_record.index', compact('health_records'));
+    }
+
+    public function view()
+    {
+        $record = HealthRecord::where('user_id', auth()->user()->id)->first();
+        return view('frontend.patient.health_record.view', compact('record'));
+    }
+
     public function create()
     {
         $record = HealthRecord::where('user_id', auth()->user()->id)->first();
@@ -37,13 +49,13 @@ class HealthRecordController extends Controller
 
         $documentsData = $request->file('documents');
 
-        if ($documentsData && is_array($documentsData)) {
+        if ($documentsData && is_array($documentsData) && count($documentsData) > 0) {
             foreach ($documentsData as $documentFile) {
                 $document = new Document;
 
                 // Generate a unique filename for each document
                 $documentName = $documentFile->getClientOriginalName();
-                $documentPath = $documentFile->storeAs('public/', $documentName);
+                $documentPath = $documentFile->storeAs('public/documents/', $documentName);
 
                 // Set document attributes
                 $document->path = $documentPath;
@@ -53,15 +65,15 @@ class HealthRecordController extends Controller
             }
         }
 
-        if($record->wasRecentlyCreated())
-        {
-            flash('Health Record Created Successfully!');
-        }
-        else
-        {
-            
-        }
-        return redirect()->back();
+        // if($record->wasRecentlyCreated())
+        // {
+        //     flash('Health Record Created Successfully!');
+        // }
+        // else
+        // {
+        // }
+
+        return redirect()->to('profile/health-record')->with('success', 'Health Record Created Successfully!');;
 
     }
 }

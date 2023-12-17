@@ -11,11 +11,11 @@
                             <ol class="breadcrumb breadcrumb-links">
                                 <li class="breadcrumb-item"><a href="{{ url('/') }}"><i class="fas fa-home"></i></a></li>
                                 <li class="breadcrumb-item"><a href="{{ url('/profile') }}">Dashboard</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Health Record</li>
+                                <li class="breadcrumb-item active" aria-current="page">Create a Health Record</li>
                             </ol>
                         </nav>
                         <br>
-                        <h6 class="h2 d-inline-block mb-0">Patient Health Record</h6>
+                        <h6 class="h2 d-inline-block mb-0">Create a Health Record</h6>
                     </div>
                 </div>
             </div>
@@ -129,8 +129,8 @@
                                     <label class="form-control-label" for="docs">Documents <small>(Laboratory Results,
                                             Prescriptions)</small></label>
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input custom-file-input-sm" name="documents[]" multiple
-                                            id="docs" lang="en">
+                                        <input type="file" class="custom-file-input custom-file-input-sm"
+                                            name="documents[]" multiple id="docs" lang="en">
                                         <label class="custom-file-label" for="docs">Select file</label>
                                     </div>
                                 </div>
@@ -139,8 +139,8 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label class="form-control-label" for="cmnts">Comments 
-                                    <small>(Symptoms, Current Health Issues)</small></label>
+                                    <label class="form-control-label" for="cmnts">Comments
+                                        <small>(Symptoms, Current Health Issues)</small></label>
                                     <textarea name="comments" id="comments" rows="3" placeholder="Write Here ...">{{ $record->comments ?? '' }}</textarea>
                                 </div>
                             </div>

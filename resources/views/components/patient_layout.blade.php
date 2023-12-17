@@ -110,13 +110,6 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('search-doctor.index')}}">
-                                <i class="fa fa-search text-green" aria-hidden="true"></i>
-                                <span class="nav-link-text">Search For Doctors</span>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
                             <a class="nav-link" href="{{url('profile/basic-information')}}">
                                 <i class="ni ni-circle-08 text-primary"></i>
                                 <span class="nav-link-text">Basic Information</span>
@@ -124,16 +117,30 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('profile.create.record')}}">
-                                <i class="ni ni-single-copy-04 text-pink"></i>
-                                <span class="nav-link-text">Health Record</span>
+                            <a class="nav-link" href="{{route('search-doctor.index')}}">
+                                <i class="fa fa-search text-green" aria-hidden="true"></i>
+                                <span class="nav-link-text">Search For Doctors</span>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('profile/appointments')}}">
-                                <i class="ni ni-calendar-grid-58 text-red"></i>
-                                <span class="nav-link-text">Appointments</span>
+                            <a class="nav-link" href="{{route('profile.health-records')}}">
+                                <i class="fa fa-medkit text-pink" aria-hidden="true"></i>
+                                <span class="nav-link-text">Health Records</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url('profile/future-appointments')}}">
+                                <i class="fa fa-clock text-red" aria-hidden="true"></i>
+                                <span class="nav-link-text">Furture Appointments</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url('profile/past-appointments')}}">
+                               <i class="fa fa-history text-gray" aria-hidden="true"></i>
+                                <span class="nav-link-text">Past Appointments</span>
                             </a>
                         </li>
 

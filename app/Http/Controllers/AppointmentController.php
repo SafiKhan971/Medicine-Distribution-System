@@ -11,13 +11,22 @@ use Illuminate\Support\Facades\Validator;
 
 class AppointmentController extends Controller
 {
-    public function index()
+    public function futureAppointments()
     {
-        $appointments = Appointment::with('doctor')
+        $future_appointments = Appointment::with('doctor')
             ->where('user_id', auth()->user()->id)
-            ->where('app_dt_start', '>', now())
+            ->where('app_dt_start', '>=', now())
             ->get();
-        return view('frontend.patient.appointments.index', compact('appointments'));
+        return view('frontend.patient.appointments.index', compact('future_appointments'));
+    }
+
+    public function pastAppointments()
+    {
+        $past_appointments = Appointment::with('doctor')
+            ->where('user_id', auth()->user()->id)
+            ->where('app_dt_start', '<', now())
+            ->get();
+        return view('frontend.patient.appointments.past', compact('past_appointments'));
     }
 
     public function create()

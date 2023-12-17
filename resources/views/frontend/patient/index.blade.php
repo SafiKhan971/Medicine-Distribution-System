@@ -27,8 +27,8 @@
 <!-- Page content -->
 <div class="container-fluid mt--6">
     @include('flash::message')
-    <div class="row" style="height: 33rem;">
-        <div class="col-xl-4 col-md-6">
+    <div class="row">
+        <div class="col-xl-3 col-md-6">
             <div class="card card-stats pt-3 pb-2">
                 <!-- Card body -->
                 <div class="card-body">
@@ -46,19 +46,19 @@
                 </div>
             </div>
         </div>
-        <div class="col-xl-4 col-md-6">
+        <div class="col-xl-3 col-md-6">
             <div class="card card-stats pt-3 pb-2">
                 <!-- Card body -->
                 <div class="card-body">
                     <div class="row">
                         <div class="col">
-                            <h5 class="card-title text-uppercase text-muted mb-2">Total Appointments</h5>
-                            <span class="h2 font-weight-bold mb-0">{{ $total_appointments }}</span>
+                            <h5 class="card-title text-uppercase text-muted mb-2">Future Appointments</h5>
+                            <span class="h2 font-weight-bold mb-0">{{ $future_appointments }}</span>
                         </div>
                         <div class="col-auto">
-                            <a href="{{ url('profile/appointments') }}">
+                            <a href="{{ url('profile/future-appointments') }}">
                                 <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
-                                    <i class="ni ni-calendar-grid-58"></i>
+                                    <i class="fa fa-clock" aria-hidden="true"></i>
                                 </div>
                             </a>
                         </div>
@@ -66,7 +66,27 @@
                 </div>
             </div>
         </div>
-        <div class="col-xl-4 col-md-6">
+        <div class="col-xl-3 col-md-6">
+            <div class="card card-stats pt-3 pb-2">
+                <!-- Card body -->
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <h5 class="card-title text-uppercase text-muted mb-2">Past Appointments</h5>
+                            <span class="h2 font-weight-bold mb-0">{{ $past_appointments }}</span>
+                        </div>
+                        <div class="col-auto">
+                            <a href="{{ url('profile/past-appointments') }}">
+                                <div class="icon icon-shape bg-gradient-gray text-white rounded-circle shadow">
+                                    <i class="fa fa-history" aria-hidden="true"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
             <div class="card card-stats pt-3 pb-2">
                 <!-- Card body -->
                 <div class="card-body">
@@ -86,9 +106,29 @@
                 </div>
             </div>
         </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="card card-stats pt-3 pb-2">
+                <!-- Card body -->
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <h5 class="card-title text-uppercase text-muted mb-2">Total Health Records</h5>
+                            <span class="h2 font-weight-bold mb-0">{{ $total_health_records }}</span>
+                        </div>
+                        <div class="col-auto">
+                            <a href="{{ route('profile.health-records') }}">
+                                <div class="icon icon-shape bg-gradient-pink text-white rounded-circle shadow">
+                                    <i class="fa fa-medkit" aria-hidden="true"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- Footer -->
-    <footer class="footer pt-0">
+    <footer class="footer pt-0 mt-5">
         <div class="row align-items-center justify-content-center">
             <div class="col-lg-6">
                 <div class="copyright text-center text-muted">

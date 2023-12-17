@@ -69,12 +69,15 @@ require __DIR__.'/auth.php';
 Route::group(['prefix' => 'profile', 'middleware' => ['checkLogin', 'verified']], function(){
     Route::get('/', [ProfileController::class, 'index']);
     Route::get('basic-information', [ProfileController::class, 'basic_info']);
-    Route::get('appointments', [AppointmentController::class, 'index'])->middleware('checkLogin');
+    Route::get('future-appointments', [AppointmentController::class, 'futureAppointments'])->middleware('checkLogin');
+    Route::get('past-appointments', [AppointmentController::class, 'pastAppointments'])->middleware('checkLogin');
     Route::get('appointment', [AppointmentController::class, 'create'])->name('profile.create.appointment');
     Route::post('appointment', [AppointmentController::class, 'store'])->name('profile.create.appointment');
     Route::get('appointment/edit/{id}', [AppointmentController::class, 'edit'])->name('profile.edit.appointment');
     Route::post('appointment/edit/{id}', [AppointmentController::class, 'update'])->name('profile.edit.appointment');
     Route::get('appointment/delete/{id}', [AppointmentController::class, 'destroy'])->name('profile.delete.appointment');
+    Route::get('health-records', [HealthRecordController::class, 'index'])->name('profile.health-records');
+    Route::get('health-record', [HealthRecordController::class, 'view'])->name('profile.health-record.view');
     Route::get('create-health-record', [HealthRecordController::class, 'create'])->name('profile.create.record');
     Route::post('create-health-record', [HealthRecordController::class, 'store'])->name('profile.create.record');
 
