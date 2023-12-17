@@ -103,7 +103,7 @@
                                 <h4>Doctors Timetable</h4>
                                 <p>Lorem ipsum sit amet consectetur adipiscing elit. Vivamus et erat in lacus
                                     convallis sodales.</p>
-                                <a href="#">LEARN MORE<i class="fa fa-long-arrow-right"></i></a>
+                                <a href="{{ url('/timetable') }}">LEARN MORE<i class="fa fa-long-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -119,7 +119,7 @@
                                 <span>Donec luctus</span>
                                 <h4>Opening Hours</h4>
                                 <ul class="time-sidual">
-                                    <li class="day">Monday - Fridayp <span>8.00-20.00</span></li>
+                                    <li class="day">Monday - Friday <span>8.00-20.00</span></li>
                                     <li class="day">Saturday <span>9.00-18.30</span></li>
                                     <li class="day">Monday - Thusday <span>9.00-15.00</span></li>
                                 </ul>
@@ -378,93 +378,6 @@
 </section>
 <!--/ End portfolio -->
 
-<!-- Start Testimonials Area -->
-{{-- <section class="section testimonials overlay" data-stellar-background-ratio="0.5"
-            style="background-position: -25px 113.93px;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="section-title">
-                            <h2>What Our Patients Say About Our Medical Treatments</h2>
-                            <img src="{{ asset('img/section-img2.png') }}" alt="#">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12 col-12">
-                        <div class="owl-carousel testimonial-slider owl-theme owl-loaded">
-                            <div class="owl-stage-outer">
-                                <div class="owl-stage"
-                                    style="transform: translate3d(-2790px, 0px, 0px); transition: all 0.3s ease 0s; width: 5580px;">
-                                    <div class="owl-item cloned" style="width: 465px; margin-right: 0px;">
-                                        <div class="single-testimonial">
-                                            <img src="{{ asset('img/testimonial-1.jpg') }}" alt="#">
-                                            <p>Lorem ipsum dolor sit amet consectetur eliet adipiscing. Aliquam nec
-                                                suscipit turpis, vel pretium eros. </p>
-                                            <h4 class="name">Ruhfayed Sakib</h4>
-                                        </div>
-                                    </div>
-                                    <div class="owl-item cloned" style="width: 465px; margin-right: 0px;">
-                                        <div class="single-testimonial">
-                                            <img src="{{ asset('img/testimonial-2.jpg') }}" alt="#">
-                                            <p>Lorem ipsum dolor sit amet consectetur eliet adipiscing. Aliquam nec
-                                                suscipit turpis, vel pretium eros. </p>
-                                            <h4 class="name">Naimur Rahman</h4>
-                                        </div>
-                                    </div>
-                                    <div class="owl-item" style="width: 465px; margin-right: 0px;">
-                                        <div class="single-testimonial">
-                                            <img src="{{ asset('img/testimonial-3.jpg') }}" alt="#">
-                                            <p>Lorem ipsum dolor sit amet consectetur eliet adipiscing. Aliquam nec
-                                                suscipit turpis, vel pretium eros. </p>
-                                            <h4 class="name">Ruhfayed Sakib</h4>
-                                        </div>
-                                    </div>
-                                    <div class="owl-item" style="width: 465px; margin-right: 0px;">
-                                        <div class="single-testimonial">
-                                            <img src="{{ asset('img/testimonial-1.jpg') }}" alt="#">
-                                            <p>Lorem ipsum dolor sit amet consectetur eliet adipiscing. Aliquam nec
-                                                suscipit turpis, vel pretium eros. </p>
-                                            <h4 class="name">Shakil Hossain</h4>
-                                        </div>
-                                    </div>
-                                    <div class="owl-item" style="width: 465px; margin-right: 0px;">
-                                        <div class="single-testimonial">
-                                            <img src="{{ asset('img/testimonial-2.jpg') }}" alt="#">
-                                            <p>Lorem ipsum dolor sit amet consectetur eliet adipiscing. Aliquam nec
-                                                suscipit turpis, vel pretium eros. </p>
-                                            <h4 class="name">Naimur Rahman</h4>
-                                        </div>
-                                    </div>
-                                    <div class="owl-item" style="width: 465px; margin-right: 0px;">
-                                        <div class="single-testimonial">
-                                            <img src="{{ asset('img/testimonial-3.jpg') }}" alt="#">
-                                            <p>Lorem ipsum dolor sit amet consectetur eliet adipiscing. Aliquam nec
-                                                suscipit turpis, vel pretium eros. </p>
-                                            <h4 class="name">Ruhfayed Sakib</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="owl-controls">
-                                <div class="owl-nav">
-                                    <div class="owl-prev" style="display: none;">prev</div>
-                                    <div class="owl-next" style="display: none;">next</div>
-                                </div>
-                                <div class="owl-dots" style="">
-                                    <div class="owl-dot"><span></span></div>
-                                    <div class="owl-dot"><span></span></div>
-                                    <div class="owl-dot active"><span></span></div>
-                                    <div class="owl-dot"><span></span></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> --}}
-<!-- End -->
-
 <!-- Start service -->
 <section class="services section">
     <div class="container">
@@ -550,7 +463,6 @@
             <div class="col-lg-12">
                 <div class="section-title">
                     <h2>We Offer Different Departments To Diagnose Your Diseases</h2>
-                    <img src="{{ asset('img/section-img.png') }}" alt="#">
                 </div>
             </div>
         </div>
@@ -842,75 +754,41 @@
 </section>
 <!--/ End Pricing Table -->
 
-<!-- Start Blog Area -->
+@if ($feedbacks)
+<!-- Start Testimonial Area -->
 <section class="blog section" id="blog">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title">
-                    <h2>Keep up with Our Most Recent Medical News.</h2>
-                    {{-- <img src="{{ asset('img/section-img.png') }}" alt="#"> --}}
+                    <h2>What Our Patients Say About Our Medical Treatments</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
                 </div>
             </div>
         </div>
         <div class="row">
+            @foreach ($feedbacks as $feedback)
             <div class="col-lg-4 col-md-6 col-12">
                 <!-- Single Blog -->
                 <div class="single-news">
-                    <div class="news-head">
-                        <img src="{{ asset('img/blog1.jpg') }}" alt="#">
-                    </div>
                     <div class="news-body">
                         <div class="news-content">
-                            <div class="date">22 Aug, 2020</div>
-                            <h2><a href="#">We have annnocuced our new product.</a></h2>
-                            <p class="text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed
-                                do eiusmod tempor incididunt sed do incididunt sed.</p>
+                            <div class="date">
+                                {{ Carbon\Carbon::parse($feedback->created_at)->format('d M, Y'); }}
+                            </div>
+                            <h2> {{ $feedback->patient->name }} </h2>
+                            <p class="text">{{ $feedback->comments }}</p>
                         </div>
                     </div>
                 </div>
                 <!-- End Single Blog -->
             </div>
-            <div class="col-lg-4 col-md-6 col-12">
-                <!-- Single Blog -->
-                <div class="single-news">
-                    <div class="news-head">
-                        <img src="{{ asset('img/blog2.jpg') }}" alt="#">
-                    </div>
-                    <div class="news-body">
-                        <div class="news-content">
-                            <div class="date">15 Jul, 2020</div>
-                            <h2><a href="#">Top five way for solving teeth problems.</a></h2>
-                            <p class="text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed
-                                do eiusmod tempor incididunt sed do incididunt sed.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Blog -->
-            </div>
-            <div class="col-lg-4 col-md-6 col-12">
-                <!-- Single Blog -->
-                <div class="single-news">
-                    <div class="news-head">
-                        <img src="{{ asset('img/blog3.jpg') }}" alt="#">
-                    </div>
-                    <div class="news-body">
-                        <div class="news-content">
-                            <div class="date">05 Jan, 2020</div>
-                            <h2><a href="#">We provide highly business soliutions.</a></h2>
-                            <p class="text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed
-                                do eiusmod tempor incididunt sed do incididunt sed.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Blog -->
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
-<!-- End Blog Area -->
-
+<!-- End Testimonial Area -->
+@endif
 <!-- Start clients -->
 <div class="clients overlay">
     <div class="container">

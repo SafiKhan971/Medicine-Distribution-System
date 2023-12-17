@@ -9,9 +9,9 @@
                 <div class="col-lg-6 col-7">
                     <nav aria-label="breadcrumb" class="d-none d-md-inline-block mb-3">
                         <ol class="breadcrumb breadcrumb-links">
-                            <li class="breadcrumb-item"><a href="{{url('profile')}}"><i class="fas fa-home"></i></a>
+                            <li class="breadcrumb-item"><a href="{{url('/')}}"><i class="fas fa-home"></i></a>
                             </li>
-                            <li class="breadcrumb-item"><a href="{{url('profile')}}">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="{{url('doctor/dashboard')}}">Dashboard</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Health Record</li>
                         </ol>
                     </nav>
@@ -45,7 +45,7 @@
                                 <textarea class="form-control form-control-sm" name="present_medical_condition" id="pmdc" placeholder="Present Medical Conditions" rows="3">{{ ($record->present_medical_condition) ?? '' }}</textarea>
                             </div>
                         </div>
-                    </div>  
+                    </div>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">

@@ -133,12 +133,12 @@
                             </a>
                         </li>
 
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link" href="{{ url('doctor/feedbacks') }}">
                                 <i class="fa fa-comments text-black" aria-hidden="true"></i>
                                 <span class="nav-link-text">Feedbacks</span>
                             </a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </div>
             </div>
@@ -411,7 +411,7 @@
         toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
     });
     </script>
-    
+
     <!-- Optional JS -->
     <script src="{{ asset('BackEndAssets/assets/vendor/chart.js/dist/Chart.min.js') }}"></script>
     <script src="{{ asset('BackEndAssets/assets/vendor/chart.js/dist/Chart.extension.js') }}"></script>

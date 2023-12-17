@@ -105,8 +105,8 @@
                     <div class="single-info">
                         <i class="icofont icofont-ui-call"></i>
                         <div class="content">
-                            <h3>+(000) 1234 56789</h3>
-                            <p>info@company.com</p>
+                            <h3>+(92) 1234 56789</h3>
+                            <p>info@digitalclinic.com</p>
                         </div>
                     </div>
                 </div>
@@ -116,8 +116,8 @@
                     <div class="single-info">
                         <i class="icofont-google-map"></i>
                         <div class="content">
-                            <h3>2 Fir e Brigade Road</h3>
-                            <p>Chittagonj, Lakshmipur</p>
+                            <h3>Lahore</h3>
+                            <p>Lahore, Punjab</p>
                         </div>
                     </div>
                 </div>

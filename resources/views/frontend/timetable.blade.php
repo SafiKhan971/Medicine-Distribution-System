@@ -9,7 +9,7 @@
                 <div class="col-12">
                     <h2>Time Table</h2>
                     <ul class="bread-list">
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="{{ url('/') }}">Home</a></li>
                         <li><i class="icofont-simple-right"></i></li>
                         <li class="active">Time Table</li>
                     </ul>

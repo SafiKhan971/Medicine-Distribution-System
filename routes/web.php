@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Doctor;
+use App\Models\Feedback;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
@@ -28,7 +29,8 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 Route::get('/', function () {
     $pageTitle = 'Digital Clinic';
-    return view('frontend/index', compact('pageTitle'));
+    $feedbacks = Feedback::latest()->take(6)->get();
+    return view('frontend/index', compact('pageTitle', 'feedbacks'));
 });
 Route::get('/contact', function () {
     $pageTitle = 'Digital Clinic | Contact Us';

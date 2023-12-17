@@ -42,7 +42,7 @@
                         <thead class="thead-light">
                             <tr>
                                 <th>Sr.No</th>
-                                <th>User Name</th>
+                                <th>Patient Name</th>
                                 <th>Comments</th>
                                 <th>Status</th>
                                 <th>Action</th>
@@ -57,9 +57,9 @@
                             <tr>
                                 <td>{{ $serial_no++ }}</td>
                                 @if($feedback->patient)
-                                    <td>{{ ($feedback->patient ? $feedback->patient->name .' (Patient)' : '-'); }}</td>
-                                @elseif($feedback->doctor)
-                                    <td>{{ ($feedback->doctor ? $feedback->doctor->name .' (Doctor)' : '-'); }}</td>
+                                    <td>{{ ($feedback->patient ? $feedback->patient->name : '-'); }}</td>
+                                {{-- @elseif($feedback->doctor)
+                                    <td>{{ ($feedback->doctor ? $feedback->doctor->name .' (Doctor)' : '-'); }}</td> --}}
                                 @endif
                                 <td>{{ $feedback->comments }}</td>
                                 <td>{{ statusLabel($feedback->status) }}</td>
