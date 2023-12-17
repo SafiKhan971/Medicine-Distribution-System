@@ -90,7 +90,7 @@
                             <li><i class="fa fa-phone"></i><a
                                     href="tel:+92 1234 56789">+92 1234 56789</a></li>
                             <li><i class="fa fa-envelope"></i><a
-                                    href="mailto:digitalclinic@gmail.com">digitalclinic@gmail.com</a></li>
+                                    href="mailto:info@digitalclinic.com">info@digitalclinic.com</a></li>
                         </ul>
                         <!-- End Top Contact -->
                     </div>

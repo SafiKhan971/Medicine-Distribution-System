@@ -1,5 +1,5 @@
 @extends('components/patient_layout')
-@section('title', 'Digital Clinic | Appointments')
+@section('title', 'Digital Clinic | Future Appointments')
 @section('header')
 <!-- Header -->
 <div class="header pb-6">

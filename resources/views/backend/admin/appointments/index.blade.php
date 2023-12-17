@@ -1,5 +1,5 @@
 @extends('backend/admin/components/admin_layout')
-@section('title', 'Digital Clinic | Appointments')
+@section('title', 'Digital Clinic | Future Appointments')
 @section('header')
 <!-- Header -->
 <div class="header pb-6">
@@ -12,16 +12,12 @@
                             <li class="breadcrumb-item"><a href="{{url('admin/dashboard')}}"><i class="fas fa-home"></i></a>
                             </li>
                             <li class="breadcrumb-item"><a href="{{url('admin/dashboard')}}">Dashboard</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Appointments</li>
+                            <li class="breadcrumb-item active" aria-current="page">Future Appointments</li>
                         </ol>
                     </nav>
                     <br>
-                    <h6 class="h2 d-inline-block mb-0">Appointments</h6>
+                    <h6 class="h2 d-inline-block mb-0">Future Appointments</h6>
                 </div>
-                <!-- <div class="col-lg-6 col-5 text-right">
-                            <a href="#" class="btn btn-sm btn-neutral">New</a>
-                            <a href="#" class="btn btn-sm btn-neutral">Filters</a>
-                        </div> -->
             </div>
         </div>
     </div>

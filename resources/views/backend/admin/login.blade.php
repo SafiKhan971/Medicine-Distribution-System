@@ -17,24 +17,9 @@
             <div class="row justify-content-center">
                 <div class="col-lg-5 col-md-7">
                     <div class="card bg-secondary border-0 mb-0">
-                        <!-- <div class="card-header bg-transparent pb-5">
-                            <div class="text-muted text-center mt-2 mb-3"><small>Sign in with</small></div>
-                            <div class="btn-wrapper text-center">
-                                <a href="#" class="btn btn-neutral btn-icon">
-                                    <span class="btn-inner--icon"><img
-                                            src="{{ asset('BackEndAssets/assets/img/icons/common/github.svg') }}"></span>
-                                    <span class="btn-inner--text">Github</span>
-                                </a>
-                                <a href="#" class="btn btn-neutral btn-icon">
-                                    <span class="btn-inner--icon"><img
-                                            src="{{ asset('BackEndAssets/assets/img/icons/common/google.svg') }}"></span>
-                                    <span class="btn-inner--text">Google</span>
-                                </a>
-                            </div>
-                        </div> -->
                         <div class="card-body px-lg-5 py-lg-5">
                             <div class="text-center text-muted mb-4">
-                                <legend>Admin Sign in</legend>
+                                <legend>Admin Login in</legend>
                             </div>
                             @if(session('error'))
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -70,23 +55,12 @@
                                         <input class="form-control" placeholder="Password" type="password" name="password">
                                     </div>
                                 </div>
-                                <!-- <div class="custom-control custom-control-alternative custom-checkbox">
-                                    <input class="custom-control-input" id=" customCheckLogin" type="checkbox">
-                                    <label class="custom-control-label" for=" customCheckLogin">
-                                        <span class="text-muted">Remember me</span>
-                                    </label>
-                                </div> -->
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-primary my-4">Sign in</button>
+                                    <button type="submit" class="btn btn-primary btn-sm my-4">Login in</button>
                                 </div>
                             </form>
                         </div>
                     </div>
-                    <!-- <div class="row mt-3">
-                        <div class="col-6">
-                            <a href="#" class="text-light"><small>Forgot password?</small></a>
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </div>

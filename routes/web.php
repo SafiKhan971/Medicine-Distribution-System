@@ -110,7 +110,7 @@ Route::post('/email/verification-notification', function (Request $request) {
 Route::get('login/google', [GoogleAuthController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [GoogleAuthController::class, 'handleGoogleCallback']);
 
-Route::get('admin/login', [AdminController::class, 'login'])->middleware('checkAdminLogin');
+Route::get('admin/login', [AdminController::class, 'login'])->middleware('checkAdminLogin')->name('admin.login');
 Route::post('admin/login', [AdminController::class, 'store']);
 
 Route::get('doctor/login', [DoctorController::class, 'login'])->name('doctor.login');
@@ -120,7 +120,7 @@ Route::get('doctor/register', [DoctorController::class, 'create']);
 Route::post('doctor/register', [DoctorController::class, 'register'])->name('doctor.register');
 Route::post('doctor/registration', [DoctorController::class, 'register']);
 
-Route::get('admin/logout', [AdminController::class, 'destroy'])->name('admin.logout');
+Route::post('admin/logout', [AdminController::class, 'destroy'])->name('admin.logout');
 
 
 Route::group(['prefix' => 'admin', 'middleware' => 'checkUser'], function(){
@@ -147,6 +147,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'checkUser'], function(){
     Route::get('appointment/edit/{id}', [AdminController::class, 'editAppointment'])->name('admin.edit.appointment');
     Route::post('appointment/edit/{id}', [AdminController::class, 'updateAppointment'])->name('admin.edit.appointment');
     Route::get('appointment/delete/{id}', [AdminController::class, 'deleteAppointment'])->name('admin.delete.appointment');
+    Route::get('future-appointments', [AdminController::class, 'futureAppointments'])->name('admin.future.appointment');
+    Route::get('past-appointments', [AdminController::class, 'pastAppointments'])->name('admin.past.appointment');
 
     // Feedbacks
     Route::get('feedbacks', [AdminController::class, 'feedbacks'])->name('admin.feedbacks');
@@ -175,4 +177,10 @@ Route::group(['prefix' => 'doctor', 'middleware' => 'checkDoctor'], function(){
 
 Route::get('hash', function(){
     dd(Hash::make('safi123'));
+});
+
+// Catch-all route for 404
+Route::fallback(function () {
+    $pageTitle = 'Digital Clinic | Not Found';
+    return view('errors.404', compact('pageTitle'));
 });

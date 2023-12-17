@@ -40,33 +40,20 @@
                         @error('error')
                             <div style="color: red; margin-top: 10px">{{ $message }}</div>
                         @enderror
-                        {{-- <div class="col-lg-6 col-md-6 col-12">
-                            <div class="form-group">
-                                <input name="name" type="text" placeholder="Name">
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-12">
-                            <div class="form-group">
-                                <input name="email" type="email" placeholder="Email">
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-12">
-                            <div class="form-group">
-                                <input name="phone" type="text" placeholder="Phone">
-                            </div>
-                        </div> --}}
                         <div class="col-lg-12 col-md-12 col-12">
                             <div class="form-group">
+                                <label for="app_date_time">Select Doctor</label>
                                 <select id="doctor" class="form-control wide" name="doctor_id">
                                     <option selected="" value="" required>Select Doctor</option>
                                     @foreach ($doctors as $doctor)
-                                        <option value="{{ $doctor->id }}"> {{ $doctor->name }} </option>
+                                        <option value="{{ $doctor->id }}"> {{ $doctor->name }} ({{ $doctor->specialization }}) </option>
                                     @endforeach
                                 </select>
                             </div>
                         </div>
                         <div class="col-lg-12 col-md-12 col-12">
                             <div class="form-group">
+                                <label for="app_date_time">Select Date/Time</label>
                                 <input type="datetime-local" name="app_date_time" required
                                     value=""{{ old('app_date_time') }}>
                             </div>

@@ -20,9 +20,10 @@ class AdminController extends Controller {
 
     public function index() {
         $total_patients = User::count();
-        $total_doctors = Doctor::count();
-        $total_appointments = Appointment::count();
-        return view( 'backend.admin.index', compact('total_patients','total_doctors', 'total_appointments') );
+        $total_doctors = Doctor::where('status', 1)->count();
+        $future_appointments = Appointment::where('app_dt_start', '>=', now())->count();
+        $past_appointments = Appointment::where('app_dt_start', '<', now())->count();
+        return view( 'backend.admin.index', compact('total_patients','total_doctors', 'future_appointments', 'past_appointments') );
     }
 
     public function profile(){
@@ -258,6 +259,22 @@ class AdminController extends Controller {
         return redirect()->back()->with('success', 'Appointment Deleted Successfully!');
     }
 
+    public function futureAppointments()
+    {
+        $future_appointments = Appointment::with('doctor')
+            ->where('app_dt_start', '>=', now())
+            ->get();
+        return view('backend.admin.appointments.index', compact('future_appointments'));
+    }
+
+    public function pastAppointments()
+    {
+        $past_appointments = Appointment::with('doctor')
+            ->where('app_dt_start', '<', now())
+            ->get();
+        return view('backend.admin.appointments.past', compact('past_appointments'));
+    }
+
     // Feedbacks
     public function feedbacks()
     {
@@ -273,8 +290,8 @@ class AdminController extends Controller {
         if($feedback->update())
         {
             return redirect()->to('admin/feedbacks')->with('success', 'Feedback Apprroved successfully!');
-        } 
-        else 
+        }
+        else
         {
             return redirect()->to('admin/feedbacks')->with('error', 'something went wrong!');
         }
@@ -288,8 +305,8 @@ class AdminController extends Controller {
         if($feedback->update())
         {
             return redirect()->to('admin/feedbacks')->with('success', 'Feedback Disapprroved successfully!');
-        } 
-        else 
+        }
+        else
         {
             return redirect()->to('admin/feedbacks')->with('error', 'something went wrong!');
         }

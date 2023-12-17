@@ -23,7 +23,7 @@
 <!-- Doctors Start -->
 <section id="team" class="team section single-page">
     <div class="container">
-        <div class="row">
+        <div class="row mb-5">
             @if (count($doctors) > 0)
                 @foreach ($doctors as $doctor)
                     <div class="col-lg-4 col-md-6 col-12">
