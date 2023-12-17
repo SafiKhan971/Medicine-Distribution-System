@@ -53,7 +53,7 @@
                             @php
                                 $serial_no = 1;
                             @endphp
-                            @foreach($appointments as $appointment)
+                            @foreach($future_appointments as $appointment)
                             <tr>
                                 <td>{{ $serial_no++ }}</td>
                                 <td>{{ isset($appointment->doctor->name) ? $appointment->doctor->name : '-' }}</td>
