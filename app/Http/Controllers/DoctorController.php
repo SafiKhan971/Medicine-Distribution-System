@@ -15,6 +15,7 @@ class DoctorController extends Controller {
 
     public function index() {
         $total_patients = User::count();
+        // $doctor_notification = Notification::where('doctor_id', $doctor_id)->get();
 
         $doctor = Doctor::find(session()->get('doctor_id'));
         $total_appointments = Appointment::where('doctor_id', $doctor->id)->count();
@@ -234,6 +235,7 @@ class DoctorController extends Controller {
         return view('frontend.doctor.patient_health_record.show', compact('record'));
     }
 
+    
     // Appointments
     public function getAppointment()
     {

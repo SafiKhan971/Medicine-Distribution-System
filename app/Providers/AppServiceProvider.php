@@ -22,14 +22,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $id = session('doctor_id');
-        dd($id);
-        // if(!empty($id))
-        // {
-        //     dd($id);
-        // }
-        // dd('id not available');
-        // $notification = Notification::where('doctor_id', $id)->get();
         Schema::defaultStringLength(191);
     }
 }

@@ -7,6 +7,7 @@ use App\Models\Doctor;
 use App\Models\Appointment;
 use App\Models\Notification;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class AppointmentController extends Controller
@@ -100,7 +101,7 @@ class AppointmentController extends Controller
             $appointment->app_dt_start = $appointmentStartTime;
             $appointment->app_dt_end =  $appointmentEndTime;
             $appointment->save();
-            flash('Appointment updated successfully!')->success();
+            notify()->success('Appointment updated successfully!', 'Success');
             return redirect('profile/appointments');
         }
     }
@@ -109,15 +110,23 @@ class AppointmentController extends Controller
     {
         $appointment = Appointment::find($id);
         $appointment->delete();
-        flash('Appointment Deleted Successfully!')->success();
+        notify()->success('Appointment deleted successfully!', 'Success');
         return redirect()->back();
     }
 
-    public function video_call($id)
+    public function video_call(Request $request)
     {
-        $appointment = Appointment::find($id);
-        $appointment->delete();
-        flash('Appointment Deleted Successfully!')->success();
+        $notification = new Notification;
+        $notification->type = 'video_call_request';
+        $notification->user_id = Auth::id();
+        $notification->doctor_id = $request->doctor_id;
+        $notification->save();
+        notify()->success('Request has been sent successfully!', 'Success');
         return redirect()->back();
+    }
+
+    public function doctorNotification($doctor_id) 
+    {
+        $doctor_notification = Notification::where('doctor_id', $doctor_id)->get();
     }
 }

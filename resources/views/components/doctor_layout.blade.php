@@ -39,24 +39,13 @@
 </head>
 
 <body>
+    
     @php
-        use App\Models\Doctor;
-        use App\Models\Appointment;
-        use Carbon\Carbon;
-
-        $doctor = Doctor::find(session()->get('doctor_id'));
-        $totalAppointments = Appointment::where('doctor_id', $doctor->id)->count();
-
-        $latestAppointments = Appointment::where('doctor_id', $doctor->id)
-        ->orderBy('app_dt_start', 'desc')
-        ->take(5)
-        ->get();
-
-        $app_dt_start = Appointment::where('doctor_id', $doctor->id)->pluck('app_dt_start');
-
-        foreach ($app_dt_start as $datetime) {
-            // Convert the stored timestamp to a Carbon instance
-            $datetime = Carbon::parse($datetime);
+        $doctor_id = session('doctor_id');
+        if($doctor_id)
+        {
+            $doctor_notifications = App\Models\Notification::where('doctor_id', $doctor_id)->get(); 
+            $total = $doctor_notifications->count();
         }
     @endphp
     <!-- Sidenav -->
@@ -180,21 +169,25 @@
                             <a class="nav-link" href="#" role="button" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
                                 <i class="ni ni-bell-55"></i>
-                                <span class="notification-counter">{{ $totalAppointments ?? '' }}</span>
+                                <span class="notification-counter">{{ $total ?? '' }}</span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-xl dropdown-menu-right py-0 overflow-hidden">
                                 <!-- Dropdown header -->
                                 <div class="px-3 py-3">
                                     <h6 class="text-sm text-muted m-0">
-                                        You have <strong class="text-primary">{{ $totalAppointments ?? '' }}</strong> Appointments.</h6>
+                                        You have <strong class="text-primary">{{ $total ?? '' }}</strong> Notifications.</h6>
                                 </div>
                                 <!-- List group -->
                                 <div class="list-group list-group-flush">
-                                    @foreach($latestAppointments as $item)
+                                    @foreach($doctor_notifications as $notification)
                                     <a href="#!" class="list-group-item list-group-item-action">
                                         <div class="row align-items-center">
                                             <div class="col ml--2">
-                                                <p class="text-sm mb-0"> Appointment with {{ $item->patient->name ?? ''}} at {{ $datetime->format('M j, Y - h:i a'); }}.</p>
+                                                @if($notification->type == 'appointment' )
+                                                    <p class="text-sm mb-0"> New Appointment has been created.</p>
+                                                @else
+                                                <p class="text-sm mb-0"> New Video Call request has been recieved.</p>
+                                                @endif
                                             </div>
                                         </div>
                                     </a>

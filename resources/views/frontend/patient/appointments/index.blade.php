@@ -51,7 +51,11 @@
                                 <td>{{ $appointment->doctor->name }}</td>
                                 <td>{{ \Carbon\Carbon::parse($appointment->app_dt_start)->format('M j, Y - h:i A') }}</td>
                                 <td>
-                                    <a href="#" class="btn btn-info btn-sm">Video Call Request</a>
+                                    <form action="{{route('profile.store.call_request')}}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="doctor_id" value="{{$appointment->doctor->id}}">
+                                        <button class="btn btn-info btn-sm">Video Call Request</button>
+                                    </form>
                                     <a href="{{route('profile.edit.appointment', $appointment->id)}}" class="btn btn-primary btn-sm">Edit</a>
                                     <a href="{{route('profile.delete.appointment', $appointment->id)}}" class="btn btn-danger btn-sm">Delete</a>
                                 </td>

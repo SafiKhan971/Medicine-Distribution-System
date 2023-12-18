@@ -68,6 +68,9 @@ Route::group(['prefix' => 'profile', 'middleware' => ['checkLogin', 'verified']]
     Route::get('create-feedback', [PatientFeedbackController::class, 'create'])->name('profile.create.feedback');
     Route::post('store-feedback', [PatientFeedbackController::class, 'store'])->name('profile.store.feedback');
     Route::get('edit-feedback', [PatientFeedbackController::class, 'update'])->name('profile.edit.feedback');
+    
+    Route::post('video-call-request', [AppointmentController::class, 'video_call'])->name('profile.store.call_request');
+
 });
 
 Route::get('/email/verify', function () {
