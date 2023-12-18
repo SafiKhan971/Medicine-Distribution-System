@@ -13,8 +13,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <!-- Icons -->
     <link rel="stylesheet" href="{{ asset('BackEndAssets/assets/vendor/nucleo/css/nucleo.css') }}" type="text/css">
-    <link rel="stylesheet"
-        href="{{ asset('BackEndAssets/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('BackEndAssets/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css') }}" type="text/css">
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('BackEndAssets/assets/css/argon.css?v=1.1.0') }}" type="text/css">
     <!-- Tiny MCE  -->
@@ -40,14 +39,14 @@
 </head>
 
 <body>
-    
+
     @php
-        $doctor_id = session('doctor_id');
-        if($doctor_id)
-        {
-            $doctor_notifications = App\Models\Notification::where('doctor_id', $doctor_id)->get(); 
-            $total = $doctor_notifications->count();
-        }
+    $doctor_id = session('doctor_id');
+    if($doctor_id)
+    {
+    $doctor_notifications = App\Models\Notification::where('doctor_id', $doctor_id)->get();
+    $total = $doctor_notifications->count();
+    }
     @endphp
     <!-- Sidenav -->
     <nav class="sidenav navbar navbar-vertical fixed-left navbar-expand-xs navbar-light bg-white" id="sidenav-main">
@@ -55,13 +54,11 @@
             <!-- Brand -->
             <div class="sidenav-header d-flex align-items-center">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ asset('img/dhc_logo.png') }}" class="navbar-brand-img"
-                        alt="...">
+                    <img src="{{ asset('img/dhc_logo.png') }}" class="navbar-brand-img" alt="...">
                 </a>
                 <div class="ml-auto">
                     <!-- Sidenav toggler -->
-                    <div class="sidenav-toggler d-none d-xl-block" data-action="sidenav-unpin"
-                        data-target="#sidenav-main">
+                    <div class="sidenav-toggler d-none d-xl-block" data-action="sidenav-unpin" data-target="#sidenav-main">
                         <div class="sidenav-toggler-inner">
                             <i class="sidenav-toggler-line"></i>
                             <i class="sidenav-toggler-line"></i>
@@ -96,21 +93,21 @@
 
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('doctor/dashboard')}}">
-                            <i class="ni ni-shop text-primary"></i>
+                                <i class="ni ni-shop text-primary"></i>
                                 <span class="nav-link-text">Dashboard</span>
                             </a>
                         </li>
 
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('doctor/basic-information')}}">
-                            <i class="ni ni-circle-08 text-primary"></i>
+                                <i class="ni ni-circle-08 text-primary"></i>
                                 <span class="nav-link-text">Basic Information</span>
                             </a>
                         </li>
 
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('health-record.index')}}">
-                            <i class="ni ni-single-copy-04 text-pink"></i>
+                                <i class="ni ni-single-copy-04 text-pink"></i>
                                 <span class="nav-link-text">Patient Health Records</span>
                             </a>
                         </li>
@@ -124,9 +121,9 @@
 
                         {{-- <li class="nav-item">
                             <a class="nav-link" href="{{ url('doctor/feedbacks') }}">
-                                <i class="fa fa-comments text-black" aria-hidden="true"></i>
-                                <span class="nav-link-text">Feedbacks</span>
-                            </a>
+                        <i class="fa fa-comments text-black" aria-hidden="true"></i>
+                        <span class="nav-link-text">Feedbacks</span>
+                        </a>
                         </li> --}}
                     </ul>
                 </div>
@@ -149,8 +146,7 @@
                                 <input class="form-control" placeholder="Search" type="text">
                             </div>
                         </div>
-                        <button type="button" class="close" data-action="search-close"
-                            data-target="#navbar-search-main" aria-label="Close">
+                        <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
                             <span aria-hidden="true">×</span>
                         </button>
                     </form>
@@ -158,8 +154,7 @@
                     <ul class="navbar-nav align-items-center ml-md-auto">
                         <li class="nav-item d-xl-none">
                             <!-- Sidenav toggler -->
-                            <div class="pr-3 sidenav-toggler sidenav-toggler-light" data-action="sidenav-pin"
-                                data-target="#sidenav-main">
+                            <div class="pr-3 sidenav-toggler sidenav-toggler-light" data-action="sidenav-pin" data-target="#sidenav-main">
                                 <div class="sidenav-toggler-inner">
                                     <i class="sidenav-toggler-line"></i>
                                     <i class="sidenav-toggler-line"></i>
@@ -168,14 +163,12 @@
                             </div>
                         </li>
                         <li class="nav-item d-sm-none">
-                            <a class="nav-link" href="#" data-action="search-show"
-                                data-target="#navbar-search-main">
+                            <a class="nav-link" href="#" data-action="search-show" data-target="#navbar-search-main">
                                 <i class="ni ni-zoom-split-in"></i>
                             </a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link" href="#" role="button" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="ni ni-bell-55"></i>
                                 <span class="notification-counter">{{ $total ?? '' }}</span>
                             </a>
@@ -192,9 +185,12 @@
                                         <div class="row align-items-center">
                                             <div class="col ml--2">
                                                 @if($notification->type == 'appointment' )
-                                                    <p class="text-sm mb-0"> New Appointment has been created.</p>
+                                                <p class="text-sm mb-0"> New Appointment has been created.</p>
                                                 @else
                                                 <p class="text-sm mb-0"> New Video Call request has been recieved.</p>
+                                                <form action="" method="post">
+                                                    <button type="submit" class="success">Start video call</button>
+                                                </form>
                                                 @endif
                                             </div>
                                         </div>
@@ -204,89 +200,87 @@
                                         <div class="row align-items-center">
                                             {{-- <div class="col-auto">
                                                 <!-- Avatar -->
-                                                <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/team-2.jpg')}}"
-                                                    class="avatar rounded-circle">
-                                            </div> --}}
-                                            <div class="col ml--2">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div>
-                                                        <h4 class="mb-0 text-sm">John Snow</h4>
-                                                    </div>
-                                                    <div class="text-right text-muted">
-                                                        <small>3 hrs ago</small>
-                                                    </div>
-                                                </div>
-                                                <p class="text-sm mb-0">A new issue has been reported for Argon.</p>
-                                            </div>
+                                    <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/team-2.jpg')}}" class="avatar rounded-circle">
+                                </div> --}}
+                                <div class="col ml--2">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h4 class="mb-0 text-sm">John Snow</h4>
                                         </div>
-                                    </a>
-                                    <a href="#!" class="list-group-item list-group-item-action">
-                                        <div class="row align-items-center">
-                                            {{-- <div class="col-auto">
+                                        <div class="text-right text-muted">
+                                            <small>3 hrs ago</small>
+                                        </div>
+                                    </div>
+                                    <p class="text-sm mb-0">A new issue has been reported for Argon.</p>
+                                </div>
+                            </div>
+                            </a>
+                            <a href="#!" class="list-group-item list-group-item-action">
+                                <div class="row align-items-center">
+                                    {{-- <div class="col-auto">
                                                 <!-- Avatar -->
                                                 <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/team-3.jpg')}}"
-                                                    class="avatar rounded-circle">
-                                            </div> --}}
-                                            <div class="col ml--2">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div>
-                                                        <h4 class="mb-0 text-sm">John Snow</h4>
-                                                    </div>
-                                                    <div class="text-right text-muted">
-                                                        <small>5 hrs ago</small>
-                                                    </div>
-                                                </div>
-                                                <p class="text-sm mb-0">Your posts have been liked a lot.</p>
-                                            </div>
+                                    class="avatar rounded-circle">
+                                </div> --}}
+                                <div class="col ml--2">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h4 class="mb-0 text-sm">John Snow</h4>
                                         </div>
-                                    </a>
-                                    <a href="#!" class="list-group-item list-group-item-action">
-                                        <div class="row align-items-center">
-                                            {{-- <div class="col-auto">
+                                        <div class="text-right text-muted">
+                                            <small>5 hrs ago</small>
+                                        </div>
+                                    </div>
+                                    <p class="text-sm mb-0">Your posts have been liked a lot.</p>
+                                </div>
+                </div>
+                </a>
+                <a href="#!" class="list-group-item list-group-item-action">
+                    <div class="row align-items-center">
+                        {{-- <div class="col-auto">
                                                 <!-- Avatar -->
                                                 <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/team-4.jpg')}}"
-                                                    class="avatar rounded-circle">
-                                            </div> --}}
-                                            <div class="col ml--2">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div>
-                                                        <h4 class="mb-0 text-sm">John Snow</h4>
-                                                    </div>
-                                                    <div class="text-right text-muted">
-                                                        <small>2 hrs ago</small>
-                                                    </div>
-                                                </div>
-                                                <p class="text-sm mb-0">Let's meet at Starbucks at 11:30. Wdyt?</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#!" class="list-group-item list-group-item-action">
-                                        <div class="row align-items-center">
-                                            {{-- <div class="col-auto">
+                        class="avatar rounded-circle">
+                    </div> --}}
+                    <div class="col ml--2">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h4 class="mb-0 text-sm">John Snow</h4>
+                            </div>
+                            <div class="text-right text-muted">
+                                <small>2 hrs ago</small>
+                            </div>
+                        </div>
+                        <p class="text-sm mb-0">Let's meet at Starbucks at 11:30. Wdyt?</p>
+                    </div>
+            </div>
+            </a>
+            <a href="#!" class="list-group-item list-group-item-action">
+                <div class="row align-items-center">
+                    {{-- <div class="col-auto">
                                                 <!-- Avatar -->
                                                 <img alt="Image placeholder" src="{{asset('BackEndAssets/assets/img/theme/team-5.jpg')}}"
-                                                    class="avatar rounded-circle">
-                                            </div> --}}
-                                            <div class="col ml--2">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div>
-                                                        <h4 class="mb-0 text-sm">John Snow</h4>
-                                                    </div>
-                                                    <div class="text-right text-muted">
-                                                        <small>3 hrs ago</small>
-                                                    </div>
-                                                </div>
-                                                <p class="text-sm mb-0">A new issue has been reported for Argon.</p>
-                                            </div>
-                                        </div>
-                                    </a> -->
-                                </div>
-                                <!-- View all -->
-                                <a href="{{ route('doctor.appointments') }}"
-                                    class="dropdown-item text-center text-primary font-weight-bold py-3">View all</a>
-                            </div>
-                        </li>
-                        {{-- <li class="nav-item dropdown">
+                    class="avatar rounded-circle">
+                </div> --}}
+                <div class="col ml--2">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h4 class="mb-0 text-sm">John Snow</h4>
+                        </div>
+                        <div class="text-right text-muted">
+                            <small>3 hrs ago</small>
+                        </div>
+                    </div>
+                    <p class="text-sm mb-0">A new issue has been reported for Argon.</p>
+                </div>
+    </div>
+    </a> -->
+    </div>
+    <!-- View all -->
+    <a href="{{ route('doctor.appointments') }}" class="dropdown-item text-center text-primary font-weight-bold py-3">View all</a>
+    </div>
+    </li>
+    {{-- <li class="nav-item dropdown">
                             <a class="nav-link" href="#" role="button" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
                                 <i class="ni ni-ungroup"></i>
@@ -333,29 +327,28 @@
                                 </div>
                             </div>
                         </li> --}}
-                    </ul>
-                    <ul class="navbar-nav align-items-center ml-auto ml-md-0">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                <div class="media align-items-center">
-                                    <span class="avatar avatar-sm rounded-circle">
-                                        <img alt="Image placeholder" src="{{ session()->get('doctor_picture') ? asset('storage/profile_pictures/' . session()->get('doctor_picture')) : asset('BackEndAssets/assets/img/theme/team-1.jpg') }}">
-                                    </span>
-                                    <div class="media-body ml-2 d-none d-lg-block">
-                                        <span class="mb-0 text-sm  font-weight-bold">{{ session()->get('doctor_name') ?? '' }}</span>
-                                    </div>
-                                </div>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <div class="dropdown-header noti-title">
-                                    <h6 class="text-overflow m-0">Welcome!</h6>
-                                </div>
-                                <a href="{{ url('doctor/basic-information') }}" class="dropdown-item">
-                                    <i class="ni ni-single-02"></i>
-                                    <span>Profile</span>
-                                </a>
-                                {{-- <a href="#!" class="dropdown-item">
+    </ul>
+    <ul class="navbar-nav align-items-center ml-auto ml-md-0">
+        <li class="nav-item dropdown">
+            <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="media align-items-center">
+                    <span class="avatar avatar-sm rounded-circle">
+                        <img alt="Image placeholder" src="{{ session()->get('doctor_picture') ? asset('storage/profile_pictures/' . session()->get('doctor_picture')) : asset('BackEndAssets/assets/img/theme/team-1.jpg') }}">
+                    </span>
+                    <div class="media-body ml-2 d-none d-lg-block">
+                        <span class="mb-0 text-sm  font-weight-bold">{{ session()->get('doctor_name') ?? '' }}</span>
+                    </div>
+                </div>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+                <div class="dropdown-header noti-title">
+                    <h6 class="text-overflow m-0">Welcome!</h6>
+                </div>
+                <a href="{{ url('doctor/basic-information') }}" class="dropdown-item">
+                    <i class="ni ni-single-02"></i>
+                    <span>Profile</span>
+                </a>
+                {{-- <a href="#!" class="dropdown-item">
                                     <i class="ni ni-settings-gear-65"></i>
                                     <span>Settings</span>
                                 </a>
@@ -367,26 +360,25 @@
                                     <i class="ni ni-support-16"></i>
                                     <span>Support</span>
                                 </a> --}}
-                                <div class="dropdown-divider"></div>
-                                    <form method="POST" action="{{ route('doctor.destroy') }}">
-                                        @csrf
-                                            <a href="#!" class="dropdown-item"
-                                                onclick="event.preventDefault();
+                <div class="dropdown-divider"></div>
+                <form method="POST" action="{{ route('doctor.destroy') }}">
+                    @csrf
+                    <a href="#!" class="dropdown-item" onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                            <i class="ni ni-user-run"></i>
-                                                <span>Logout</span>
-                                            </a>
-                                    </form>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+                        <i class="ni ni-user-run"></i>
+                        <span>Logout</span>
+                    </a>
+                </form>
             </div>
-        </nav>
-        <!-- Header -->
-        @yield('header')
-        <!-- Main Contenct -->
-        @yield('content')
+        </li>
+    </ul>
+    </div>
+    </div>
+    </nav>
+    <!-- Header -->
+    @yield('header')
+    <!-- Main Contenct -->
+    @yield('content')
     </div>
     <!-- Argon Scripts -->
     <!-- Core -->
@@ -398,11 +390,11 @@
 
     <!-- Tiny MCE -->
     <script>
-    tinymce.init({
-        selector: '#comments',
-        plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
-        toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
-    });
+        tinymce.init({
+            selector: '#comments',
+            plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+        });
     </script>
 
     <!-- Optional JS -->

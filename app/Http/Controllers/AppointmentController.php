@@ -7,6 +7,7 @@ use App\Models\Doctor;
 use App\Models\Appointment;
 use App\Models\Notification;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
@@ -61,21 +62,34 @@ class AppointmentController extends Controller
                 notify()->error('Appointment Not Available!', 'Error');
                 return redirect()->back();
             } else {
-                $appointment = new Appointment;
-                $appointment->user_id =  $userId;
-                $appointment->doctor_id =  $request->doctor_id;
-                $appointment->app_dt_start = $appointmentStartTime;
-                $appointment->app_dt_end =  $appointmentEndTime;
-                $appointment->save();
+                try {
+                    DB::beginTransaction();
 
-                $notification = new Notification;
-                $notification->type = 'appointment';
-                $notification->user_id = $appointment->user_id;
-                $notification->doctor_id = $appointment->doctor_id;
-                $notification->save();
+                    // Your existing appointment creation code
+                    $appointment = new Appointment;
+                    $appointment->user_id =  $userId;
+                    $appointment->doctor_id =  $request->doctor_id;
+                    $appointment->app_dt_start = $appointmentStartTime;
+                    $appointment->app_dt_end =  $appointmentEndTime;
+                    $appointment->save();
 
-                notify()->success('Appointment created successfully!', 'Success');
-                return redirect('/');
+                    // Your existing notification creation code
+                    $notification = new Notification;
+                    $notification->type = 'appointment';
+                    $notification->user_id = $appointment->user_id;
+                    $notification->doctor_id = $appointment->doctor_id;
+                    $notification->status = 0;
+                    $notification->save();
+
+                    // If everything is successful, commit the transaction
+                    DB::commit();
+
+                    notify()->success('Appointment created successfully!', 'Success');
+                    return redirect('/');
+                } catch (\Exception $e) {
+                    // If an exception occurs, rollback the transaction
+                    DB::rollback();
+                }
             }
         }
     }
@@ -129,12 +143,13 @@ class AppointmentController extends Controller
         $notification->type = 'video_call_request';
         $notification->user_id = Auth::id();
         $notification->doctor_id = $request->doctor_id;
+        $notification->status = 0;
         $notification->save();
         notify()->success('Request has been sent successfully!', 'Success');
         return redirect()->back();
     }
 
-    public function doctorNotification($doctor_id) 
+    public function doctorNotification($doctor_id)
     {
         $doctor_notification = Notification::where('doctor_id', $doctor_id)->get();
     }

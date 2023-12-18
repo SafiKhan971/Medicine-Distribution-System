@@ -80,6 +80,7 @@ Route::group(['prefix' => 'profile', 'middleware' => ['checkLogin', 'verified']]
     Route::get('health-record', [HealthRecordController::class, 'view'])->name('profile.health-record.view');
     Route::get('create-health-record', [HealthRecordController::class, 'create'])->name('profile.create.record');
     Route::post('create-health-record', [HealthRecordController::class, 'store'])->name('profile.create.record');
+    Route::post('video-call-request', [AppointmentController::class, 'video_call'])->name('profile.store.call_request');
 
     Route::get('search-for-doctors', [SearchDoctors::class, 'index'])->name('search-doctor.index');
 
