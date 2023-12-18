@@ -205,7 +205,7 @@
                                 <!-- List group -->
                                 <div class="list-group list-group-flush">
                                     @foreach($latestAppointments as $item)
-                                        <a href="{{ url('profile/appointments') }}" class="list-group-item list-group-item-action">
+                                        <a href="{{ url('profile/future-appointments') }}" class="list-group-item list-group-item-action">
                                             <div class="row align-items-center">
                                                 <div class="col ml--2">
                                                     <p class="text-sm mb-0">Appointment with <b>{{ $item->doctor->name }}</b> at <b>{{ $datetime->format('M j, y - h:i a'); }}</b>.</p>
@@ -215,7 +215,7 @@
                                     @endforeach
                                 </div>
                                 <!-- View all -->
-                                <a href="{{ url('profile/appointments') }}" class="dropdown-item text-center text-primary font-weight-bold py-3">View all</a>
+                                <a href="{{ url('profile/future-appointments') }}" class="dropdown-item text-center text-primary font-weight-bold py-3">View all</a>
                             </div>
                         </li>
                         {{-- <li class="nav-item dropdown">
