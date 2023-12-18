@@ -54,6 +54,12 @@
                         <button>Login</button>
                     </div>
                 </form>
+
+                <div class="form-link">
+                    <span> Don't have an account?
+                        <a href="{{ url('doctor/register') }}">Signup</a>
+                    </span>
+                </div>
             </div>
         </div>
     </section>

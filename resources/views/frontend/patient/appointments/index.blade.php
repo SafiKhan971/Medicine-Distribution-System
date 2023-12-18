@@ -1,5 +1,5 @@
 @extends('components/patient_layout')
-@section('title', 'Digital Clinic | Appointments')
+@section('title', 'Digital Clinic | Future Appointments')
 @section('header')
 <!-- Header -->
 <div class="header pb-6">
@@ -11,12 +11,12 @@
                         <ol class="breadcrumb breadcrumb-links">
                             <li class="breadcrumb-item"><a href="{{url('/')}}"><i class="fas fa-home"></i></a>
                             </li>
-                            <li class="breadcrumb-item"><a href="{{url('/')}}">Dashboard</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Appointments</li>
+                            <li class="breadcrumb-item"><a href="{{url('/profile')}}">Dashboard</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Future Appointments</li>
                         </ol>
                     </nav>
                     <br>
-                    <h6 class="h2 d-inline-block mb-0">Appointments</h6>
+                    <h6 class="h2 d-inline-block mb-0">Future Appointments</h6>
                 </div>
             </div>
         </div>
@@ -45,7 +45,7 @@
                             @php
                                 $serial_no = 1;
                             @endphp
-                            @foreach($appointments as $appointment)
+                            @foreach($future_appointments as $appointment)
                             <tr>
                                 <td>{{ $serial_no++ }}</td>
                                 <td>{{ $appointment->doctor->name }}</td>

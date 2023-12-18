@@ -17,7 +17,8 @@
         href="{{ asset('BackEndAssets/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css') }}" type="text/css">
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('BackEndAssets/assets/css/argon.css?v=1.1.0') }}" type="text/css">
-
+    <!-- Tiny MCE  -->
+    <script src="https://cdn.tiny.cloud/1/yikbazui90uh2y8pdilmb6g58m0h17mdn7wpp7opiescxn58/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <!-- Page plugins -->
     <link rel="stylesheet" href="{{ asset('BackEndAssets/assets/vendor/quill/dist/quill.core.css') }}">
     <link rel="stylesheet" href="{{ asset('BackEndAssets/assets/vendor/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}">
@@ -120,6 +121,13 @@
                                 <span class="nav-link-text">Appointments</span>
                             </a>
                         </li>
+
+                        {{-- <li class="nav-item">
+                            <a class="nav-link" href="{{ url('doctor/feedbacks') }}">
+                                <i class="fa fa-comments text-black" aria-hidden="true"></i>
+                                <span class="nav-link-text">Feedbacks</span>
+                            </a>
+                        </li> --}}
                     </ul>
                 </div>
             </div>
@@ -388,6 +396,14 @@
     <script src="{{ asset('BackEndAssets/assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js') }}"></script>
     <script src="{{ asset('BackEndAssets/assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js') }}"></script>
 
+    <!-- Tiny MCE -->
+    <script>
+    tinymce.init({
+        selector: '#comments',
+        plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+        toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+    });
+    </script>
 
     <!-- Optional JS -->
     <script src="{{ asset('BackEndAssets/assets/vendor/chart.js/dist/Chart.min.js') }}"></script>

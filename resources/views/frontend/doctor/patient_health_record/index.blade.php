@@ -11,7 +11,7 @@
                         <ol class="breadcrumb breadcrumb-links">
                             <li class="breadcrumb-item"><a href="{{url('/')}}"><i class="fas fa-home"></i></a>
                             </li>
-                            <li class="breadcrumb-item"><a href="{{url('/')}}">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="{{url('doctor/dashboard')}}">Dashboard</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Patient Health Records</li>
                         </ol>
                     </nav>
@@ -35,9 +35,9 @@
                         <thead class="thead-light">
                             <tr>
                                 <th>Sr.No</th>
-                                <th>Patient Id</th>
-                                <th>Paitent Name</th>
-                                <th>Paitent Address</th>
+                                <th>Patient Name</th>
+                                <th>Patient Email</th>
+                                <th>Patient Address</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -49,8 +49,8 @@
                             @foreach($patient_records as $patient_record)
                             <tr>
                                 <td>{{ $serial_no++ }}</td>
-                                <td>{{ isset($patient_record->id) ? $patient_record->id : '-' }}</td>
                                 <td>{{ isset($patient_record->name) ? $patient_record->name : '-'  }}</td>
+                                <td>{{ isset($patient_record->email) ? $patient_record->email : '-' }}</td>
                                 <td>{{ isset($patient_record->address) ? $patient_record->address : '-' }}</td>
                                 <td>
                                     <a href="{{route('health-record.show', $patient_record->id)}}" class="btn btn-primary btn-sm">View</a>

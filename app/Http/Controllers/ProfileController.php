@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Doctor;
+use App\Models\Feedback;
 use Illuminate\View\View;
 use App\Models\Appointment;
+use App\Models\HealthRecord;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
@@ -18,8 +21,12 @@ class ProfileController extends Controller
     {
         $total_doctors = Doctor::count();
         $patient = User::find(auth()->user()->id);
-        $total_appointments = Appointment::where('user_id', $patient->id)->count();
-        return view('frontend.patient.index',  compact('total_doctors', 'total_appointments'));
+        $currentDate = Carbon::now();
+        $future_appointments = Appointment::where('user_id', $patient->id)->where('app_dt_start', '>=', $currentDate)->count();
+        $past_appointments = Appointment::where('user_id', $patient->id)->where('app_dt_start', '<', $currentDate)->count();
+        $total_feedbacks = Feedback::where('user_id', $patient->id)->count();
+        $total_health_records = HealthRecord::where('user_id', $patient->id)->count();
+        return view('frontend.patient.index',  compact('total_doctors', 'future_appointments', 'past_appointments', 'total_feedbacks', 'total_health_records'));
     }
 
     public function basic_info()

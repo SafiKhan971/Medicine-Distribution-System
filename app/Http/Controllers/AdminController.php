@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Admin;
 use App\Models\Doctor;
+use App\Models\Feedback;
 use App\Models\Appointment;
 use Illuminate\Http\Request;
 use App\Mail\DoctorApprovalMail;
@@ -19,9 +20,10 @@ class AdminController extends Controller {
 
     public function index() {
         $total_patients = User::count();
-        $total_doctors = Doctor::count();
-        $total_appointments = Appointment::count();
-        return view( 'backend.admin.index', compact('total_patients','total_doctors', 'total_appointments') );
+        $total_doctors = Doctor::where('status', 1)->count();
+        $future_appointments = Appointment::where('app_dt_start', '>=', now())->count();
+        $past_appointments = Appointment::where('app_dt_start', '<', now())->count();
+        return view( 'backend.admin.index', compact('total_patients','total_doctors', 'future_appointments', 'past_appointments') );
     }
 
     public function profile(){
@@ -255,5 +257,58 @@ class AdminController extends Controller {
         $appointment->delete();
         // flash('Appointment Deleted Successfully!')->success();
         return redirect()->back()->with('success', 'Appointment Deleted Successfully!');
+    }
+
+    public function futureAppointments()
+    {
+        $future_appointments = Appointment::with('doctor')
+            ->where('app_dt_start', '>=', now())
+            ->get();
+        return view('backend.admin.appointments.index', compact('future_appointments'));
+    }
+
+    public function pastAppointments()
+    {
+        $past_appointments = Appointment::with('doctor')
+            ->where('app_dt_start', '<', now())
+            ->get();
+        return view('backend.admin.appointments.past', compact('past_appointments'));
+    }
+
+    // Feedbacks
+    public function feedbacks()
+    {
+        $feedbacks = Feedback::all();
+        return view('backend.admin.feedbacks.index', compact('feedbacks'));
+    }
+
+    public function feedbackApprrove(Request $request)
+    {
+        $feedback = Feedback::find( $request->feedback_id );
+
+        $feedback->status = 1;
+        if($feedback->update())
+        {
+            return redirect()->to('admin/feedbacks')->with('success', 'Feedback Apprroved successfully!');
+        }
+        else
+        {
+            return redirect()->to('admin/feedbacks')->with('error', 'something went wrong!');
+        }
+    }
+
+    public function feedbackDisapprrove(Request $request)
+    {
+        $feedback= Feedback::find( $request->feedback_id );
+        $feedback->status = 0;
+
+        if($feedback->update())
+        {
+            return redirect()->to('admin/feedbacks')->with('success', 'Feedback Disapprroved successfully!');
+        }
+        else
+        {
+            return redirect()->to('admin/feedbacks')->with('error', 'something went wrong!');
+        }
     }
 }

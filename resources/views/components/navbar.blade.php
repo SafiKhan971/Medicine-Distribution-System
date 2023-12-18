@@ -19,35 +19,69 @@
                         <div class="main-menu">
                             <nav class="navigation">
                                 <ul class="nav menu">
-                                    <li><a href="#">Features </a></li>
-                                    <li><a href="#">About </a></li>
+                                    {{-- <li><a href="#">Features </a></li> --}}
+                                    <li><a href="{{ url('about') }}">About </a></li>
                                     <li><a href="#">Blogs </a></li>
-                                    <li  class="mr-5"><a href="{{ url('/contact') }}">Contact </a></li>
-                                    {{-- <li><a href="#appointment">Schedule a Demo</a></li> --}}
-                                    @if (auth()->check())
+                                    <li><a href="{{ url('doctors') }}">Doctors </a></li>
+                                    <li class="mr-5"><a href="{{ url('/contact') }}">Contact </a></li>
+                                    @if (auth()->guard('web')->check() || session('admin_id') || session('doctor_id'))
                                         <li class="ml-5">
-                                            <a href="#">{{ auth()->user()->name }}
+                                            <a href="#">
+                                                {{ auth()->guard('web')->check() ? auth()->guard('web')->user()->name : '' }}
+                                                {{ session('doctor_id') ? session()->get('doctor_name') : '' }}
+                                                {{ session('admin_id') ? session()->get('admin_name') : '' }}
                                                 <i class="icofont-rounded-down"></i>
                                             </a>
-                                            <ul class="dropdown">
-                                                <li><a href="{{ url('profile') }}">Dashboard</a></li>
-                                                <form method="POST" action="{{ route('logout') }}">
-                                                    @csrf
-                                                    <li>
-                                                        <a href="#"
-                                                            onclick="event.preventDefault();
-                                                            this.closest('form').submit();">
-                                                            Log Out
-                                                        </a>
-                                                    </li>
-                                                </form>
-                                            </ul>
+                                            @if (auth()->guard('web')->check())
+                                                <ul class="dropdown">
+                                                    <li><a href="{{ url('profile') }}">Dashboard</a></li>
+                                                    <form method="POST" action="{{ route('logout') }}">
+                                                        @csrf
+                                                        <li>
+                                                            <a href="#"
+                                                                onclick="event.preventDefault();
+                                                                this.closest('form').submit();">
+                                                                Log Out
+                                                            </a>
+                                                        </li>
+                                                    </form>
+                                                </ul>
+                                            @elseif(session('admin_id'))
+                                                <ul class="dropdown">
+                                                    <li><a href="{{ url('admin/dashboard') }}">Dashboard</a></li>
+                                                    <form method="POST" action="{{ url('admin/logout') }}">
+                                                        @csrf
+                                                        <li>
+                                                            <a href="#"
+                                                                onclick="event.preventDefault();
+                                                                this.closest('form').submit();">
+                                                                Log Out
+                                                            </a>
+                                                        </li>
+                                                    </form>
+                                                </ul>
+                                            @elseif(session('doctor_id'))
+                                                <ul class="dropdown">
+                                                    <li><a href="{{ url('doctor/dashboard') }}">Dashboard</a></li>
+                                                    <form method="POST" action="{{ url('doctor/logout') }}">
+                                                        @csrf
+                                                        <li>
+                                                            <a href="#"
+                                                                onclick="event.preventDefault();
+                                                                this.closest('form').submit();">
+                                                                Log Out
+                                                            </a>
+                                                        </li>
+                                                    </form>
+                                                </ul>
+                                            @endif
                                         </li>
                                     @else
                                         <li><a href="#"> Login <i class="icofont-rounded-down"></i></a>
                                             <ul class="dropdown">
                                                 <li><a href="{{ route('login') }}">Login As Patient</a></li>
                                                 <li><a href="{{ route('doctor.login') }}">Login As Doctor</a></li>
+                                                <li><a href="{{ route('admin.login') }}">Login As Admin</a></li>
                                             </ul>
                                         </li>
                                         <li><a href="#"> Register <i class="icofont-rounded-down"></i></a>

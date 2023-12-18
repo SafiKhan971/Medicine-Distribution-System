@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Doctor;
+use App\Models\Feedback;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
@@ -8,10 +9,11 @@ use App\Http\Controllers\SearchDoctors;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\PatientFeedbackController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\HealthRecordController;
+use App\Http\Controllers\DoctorFeedbackController;
 use App\Http\Controllers\Auth\GoogleAuthController;
+use App\Http\Controllers\PatientFeedbackController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
@@ -27,7 +29,8 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 Route::get('/', function () {
     $pageTitle = 'Digital Clinic';
-    return view('frontend/index', compact('pageTitle'));
+    $feedbacks = Feedback::latest()->take(6)->get();
+    return view('frontend/index', compact('pageTitle', 'feedbacks'));
 });
 Route::get('/contact', function () {
     $pageTitle = 'Digital Clinic | Contact Us';
@@ -37,6 +40,18 @@ Route::get('/doctors', function () {
     $pageTitle = 'Digital Clinic | Doctors';
     $doctors = Doctor::orderBy('name', 'asc')->take(6)->get();
     return view('frontend/doctors', compact('doctors', 'pageTitle'));
+});
+Route::get('/timetable', function () {
+    $pageTitle = 'Digital Clinic | Timetable';
+    return view('frontend/timetable', compact('pageTitle'));
+});
+Route::get('/faqs', function () {
+    $pageTitle = 'Digital Clinic | FAQs';
+    return view('frontend/faqs', compact('pageTitle'));
+});
+Route::get('/about', function () {
+    $pageTitle = 'Digital Clinic | About Us';
+    return view('frontend/about', compact('pageTitle'));
 });
 
 Route::get('/dashboard', function () {
@@ -54,23 +69,26 @@ require __DIR__.'/auth.php';
 Route::group(['prefix' => 'profile', 'middleware' => ['checkLogin', 'verified']], function(){
     Route::get('/', [ProfileController::class, 'index']);
     Route::get('basic-information', [ProfileController::class, 'basic_info']);
-    Route::get('appointments', [AppointmentController::class, 'index'])->middleware('checkLogin');
+    Route::get('future-appointments', [AppointmentController::class, 'futureAppointments'])->middleware('checkLogin');
+    Route::get('past-appointments', [AppointmentController::class, 'pastAppointments'])->middleware('checkLogin');
     Route::get('appointment', [AppointmentController::class, 'create'])->name('profile.create.appointment');
     Route::post('appointment', [AppointmentController::class, 'store'])->name('profile.create.appointment');
     Route::get('appointment/edit/{id}', [AppointmentController::class, 'edit'])->name('profile.edit.appointment');
     Route::post('appointment/edit/{id}', [AppointmentController::class, 'update'])->name('profile.edit.appointment');
     Route::get('appointment/delete/{id}', [AppointmentController::class, 'destroy'])->name('profile.delete.appointment');
+    Route::get('health-records', [HealthRecordController::class, 'index'])->name('profile.health-records');
+    Route::get('health-record', [HealthRecordController::class, 'view'])->name('profile.health-record.view');
     Route::get('create-health-record', [HealthRecordController::class, 'create'])->name('profile.create.record');
     Route::post('create-health-record', [HealthRecordController::class, 'store'])->name('profile.create.record');
 
     Route::get('search-for-doctors', [SearchDoctors::class, 'index'])->name('search-doctor.index');
+
+    // Patient Feedback
     Route::get('feedbacks', [PatientFeedbackController::class, 'index'])->name('profile.feedbacks');
     Route::get('create-feedback', [PatientFeedbackController::class, 'create'])->name('profile.create.feedback');
     Route::post('store-feedback', [PatientFeedbackController::class, 'store'])->name('profile.store.feedback');
-    Route::get('edit-feedback', [PatientFeedbackController::class, 'update'])->name('profile.edit.feedback');
-    
-    Route::post('video-call-request', [AppointmentController::class, 'video_call'])->name('profile.store.call_request');
-
+    Route::get('edit-feedback/{id}', [PatientFeedbackController::class, 'edit'])->name('profile.edit.feedback');
+    Route::post('update-feedback/{id}', [PatientFeedbackController::class, 'update'])->name('profile.update.feedback');
 });
 
 Route::get('/email/verify', function () {
@@ -92,7 +110,7 @@ Route::post('/email/verification-notification', function (Request $request) {
 Route::get('login/google', [GoogleAuthController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [GoogleAuthController::class, 'handleGoogleCallback']);
 
-Route::get('admin/login', [AdminController::class, 'login'])->middleware('checkAdminLogin');
+Route::get('admin/login', [AdminController::class, 'login'])->middleware('checkAdminLogin')->name('admin.login');
 Route::post('admin/login', [AdminController::class, 'store']);
 
 Route::get('doctor/login', [DoctorController::class, 'login'])->name('doctor.login');
@@ -102,7 +120,7 @@ Route::get('doctor/register', [DoctorController::class, 'create']);
 Route::post('doctor/register', [DoctorController::class, 'register'])->name('doctor.register');
 Route::post('doctor/registration', [DoctorController::class, 'register']);
 
-Route::get('admin/logout', [AdminController::class, 'destroy'])->name('admin.logout');
+Route::post('admin/logout', [AdminController::class, 'destroy'])->name('admin.logout');
 
 
 Route::group(['prefix' => 'admin', 'middleware' => 'checkUser'], function(){
@@ -125,12 +143,17 @@ Route::group(['prefix' => 'admin', 'middleware' => 'checkUser'], function(){
     Route::post('/doctor/disapprove', [AdminController::class, 'doctorDisapprove'])->name('admin.doctor.disapproval');
 
     // Appointment routes
-    // Route::get('appointment', [AppointmentController::class, 'create'])->name('admin.create.appointment');
-    // Route::post('appointment', [AppointmentController::class, 'store'])->name('admin.create.appointment');
     Route::get('appointments', [AdminController::class, 'getAppointment'])->name('admin.appointments');
     Route::get('appointment/edit/{id}', [AdminController::class, 'editAppointment'])->name('admin.edit.appointment');
     Route::post('appointment/edit/{id}', [AdminController::class, 'updateAppointment'])->name('admin.edit.appointment');
     Route::get('appointment/delete/{id}', [AdminController::class, 'deleteAppointment'])->name('admin.delete.appointment');
+    Route::get('future-appointments', [AdminController::class, 'futureAppointments'])->name('admin.future.appointment');
+    Route::get('past-appointments', [AdminController::class, 'pastAppointments'])->name('admin.past.appointment');
+
+    // Feedbacks
+    Route::get('feedbacks', [AdminController::class, 'feedbacks'])->name('admin.feedbacks');
+    Route::post('feedbacks/approve', [AdminController::class, 'feedbackApprrove'])->name('admin.approve.feedback');
+    Route::post('feedbacks/disapprove', [AdminController::class, 'feedbackDisapprrove'])->name('admin.disapprove.feedback');
 });
 
 Route::group(['prefix' => 'doctor', 'middleware' => 'checkDoctor'], function(){
@@ -143,8 +166,21 @@ Route::group(['prefix' => 'doctor', 'middleware' => 'checkDoctor'], function(){
     // Route::post('patient-health-record', [DoctorController::class, 'store'])->name('health-record.store');
 
     Route::get('appointments', [DoctorController::class, 'getAppointment'])->name('doctor.appointments');
+
+    // Doctor Feedback
+    Route::get('feedbacks', [DoctorFeedbackController::class, 'index'])->name('doctor.feedbacks');
+    Route::get('create-feedback', [DoctorFeedbackController::class, 'create'])->name('doctor.create.feedback');
+    Route::post('store-feedback', [DoctorFeedbackController::class, 'store'])->name('doctor.store.feedback');
+    Route::get('edit-feedback/{id}', [DoctorFeedbackController::class, 'edit'])->name('doctor.edit.feedback');
+    Route::post('update-feedback/{id}', [DoctorFeedbackController::class, 'update'])->name('doctor.update.feedback');
 });
 
 Route::get('hash', function(){
     dd(Hash::make('safi123'));
+});
+
+// Catch-all route for 404
+Route::fallback(function () {
+    $pageTitle = 'Digital Clinic | Not Found';
+    return view('errors.404', compact('pageTitle'));
 });

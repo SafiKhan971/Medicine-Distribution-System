@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Doctor;
+use App\Models\Feedback;
 use App\Models\Appointment;
 use App\Models\HealthRecord;
 use Illuminate\Http\Request;
@@ -19,7 +20,8 @@ class DoctorController extends Controller {
 
         $doctor = Doctor::find(session()->get('doctor_id'));
         $total_appointments = Appointment::where('doctor_id', $doctor->id)->count();
-        return view( 'frontend.doctor.index', compact('total_patients', 'total_appointments') );
+        $total_feedbacks = Feedback::where('doctor_id', $doctor->id)->count();
+        return view( 'frontend.doctor.index', compact('total_patients', 'total_appointments', 'total_feedbacks') );
     }
 
     public function login() {

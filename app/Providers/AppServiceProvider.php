@@ -2,8 +2,6 @@
 
 namespace App\Providers;
 
-use App\Models\Doctor;
-use App\Models\Notification;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
