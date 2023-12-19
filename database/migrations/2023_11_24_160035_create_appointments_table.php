@@ -17,6 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('doctor_id');
             $table->dateTime('app_dt_start');
             $table->dateTime('app_dt_end');
+            $table->boolean('status')->nullable()->default(false);
             $table->timestamps();
         });
     }
