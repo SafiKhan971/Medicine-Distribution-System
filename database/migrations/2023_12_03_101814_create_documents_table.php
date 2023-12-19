@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('documents', function (Blueprint $table) {
             $table->id();
-            $table->string('path');
+            $table->string('file_name');
             $table->unsignedBigInteger('health_record_id');
             $table->timestamps();
         });

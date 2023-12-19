@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Doctor;
+use App\Models\Document;
 use App\Models\Feedback;
 use App\Models\Appointment;
 use App\Models\HealthRecord;
@@ -19,9 +20,9 @@ class DoctorController extends Controller {
         // $doctor_notification = Notification::where('doctor_id', $doctor_id)->get();
 
         $doctor = Doctor::find(session()->get('doctor_id'));
-        $total_appointments = Appointment::where('doctor_id', $doctor->id)->count();
-        $total_feedbacks = Feedback::where('doctor_id', $doctor->id)->count();
-        return view( 'frontend.doctor.index', compact('total_patients', 'total_appointments', 'total_feedbacks') );
+        $future_appointments = Appointment::where('doctor_id', $doctor->id)->where('app_dt_start', '>=' , now())->count();
+        $health_records = HealthRecord::where('doctor_id', $doctor->id)->count();
+        return view( 'frontend.doctor.index', compact('total_patients', 'future_appointments', 'health_records') );
     }
 
     public function login() {
@@ -234,10 +235,10 @@ class DoctorController extends Controller {
     public function show($id)
     {
         $record = HealthRecord::where('id', $id)->first();
-        return view('frontend.doctor.patient_health_record.show', compact('record'));
+        $documents = Document::where('health_record_id', $id)->get();
+        return view('frontend.doctor.patient_health_record.show', compact('record', 'documents'));
     }
 
-    
     // Appointments
     public function getAppointment()
     {

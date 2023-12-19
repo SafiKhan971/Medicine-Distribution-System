@@ -15,7 +15,7 @@
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed nisl
                                 pellentesque, faucibus libero eu, gravida quam. </p>
                             <div class="button">
-                                <a href="{{ route('profile.create.appointment') }}" class="btn">Get
+                                <a href="{{ route('profile.appointment') }}" class="btn">Get
                                     Appointment</a>
                                 <a href="#" class="btn primary">Learn More</a>
                             </div>
@@ -35,7 +35,7 @@
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed nisl
                                 pellentesque, faucibus libero eu, gravida quam. </p>
                             <div class="button">
-                                <a href="{{ route('profile.create.appointment') }}" class="btn">Get
+                                <a href="{{ route('profile.appointment') }}" class="btn">Get
                                     Appointment</a>
                                 <a href="#about" class="btn primary">About Us</a>
                             </div>
@@ -55,7 +55,7 @@
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed nisl
                                 pellentesque, faucibus libero eu, gravida quam. </p>
                             <div class="button">
-                                <a href="{{ route('profile.create.appointment') }}" class="btn">Get
+                                <a href="{{ route('profile.appointment') }}" class="btn">Get
                                     Appointment</a>
                                 <a href="{{ url('contact') }}" class="btn primary">Conatct Now</a>
                             </div>

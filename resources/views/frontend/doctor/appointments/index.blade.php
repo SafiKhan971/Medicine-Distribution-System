@@ -12,11 +12,11 @@
                             <li class="breadcrumb-item"><a href="{{url('/')}}"><i class="fas fa-home"></i></a>
                             </li>
                             <li class="breadcrumb-item"><a href="{{url('/')}}">Dashboard</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Appointments</li>
+                            <li class="breadcrumb-item active" aria-current="page">Future Appointments</li>
                         </ol>
                     </nav>
                     <br>
-                    <h6 class="h2 d-inline-block mb-0">Appointments</h6>
+                    <h6 class="h2 d-inline-block mb-0">Future Appointments</h6>
                 </div>
             </div>
         </div>
@@ -37,7 +37,7 @@
                                 <th>Sr.No</th>
                                 <th>Patient</th>
                                 <th>Date / Time</th>
-                                {{-- <th>Action</th> --}}
+                                <th>Action</th>
                             </tr>
                         </thead>
 

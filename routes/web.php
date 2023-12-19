@@ -71,14 +71,14 @@ Route::group(['prefix' => 'profile', 'middleware' => ['checkLogin', 'verified']]
     Route::get('basic-information', [ProfileController::class, 'basic_info']);
     Route::get('future-appointments', [AppointmentController::class, 'futureAppointments'])->middleware('checkLogin');
     Route::get('past-appointments', [AppointmentController::class, 'pastAppointments'])->middleware('checkLogin');
-    Route::get('appointment', [AppointmentController::class, 'create'])->name('profile.create.appointment');
-    Route::post('appointment', [AppointmentController::class, 'store'])->name('profile.create.appointment');
-    Route::get('appointment/edit/{id}', [AppointmentController::class, 'edit'])->name('profile.edit.appointment');
+    Route::get('appointment', [AppointmentController::class, 'create'])->name('profile.appointment');
+    Route::post('create-appointment', [AppointmentController::class, 'store'])->name('profile.create.appointment');
+    Route::get('appointment/edit/{id}', [AppointmentController::class, 'edit'])->name('profile.update.appointment');
     Route::post('appointment/edit/{id}', [AppointmentController::class, 'update'])->name('profile.edit.appointment');
     Route::get('appointment/delete/{id}', [AppointmentController::class, 'destroy'])->name('profile.delete.appointment');
     Route::get('health-records', [HealthRecordController::class, 'index'])->name('profile.health-records');
     Route::get('health-record', [HealthRecordController::class, 'view'])->name('profile.health-record.view');
-    Route::get('create-health-record', [HealthRecordController::class, 'create'])->name('profile.create.record');
+    Route::get('create-health-record', [HealthRecordController::class, 'create'])->name('profile.health.record');
     Route::post('create-health-record', [HealthRecordController::class, 'store'])->name('profile.create.record');
 
     Route::get('search-for-doctors', [SearchDoctors::class, 'index'])->name('search-doctor.index');
@@ -93,13 +93,13 @@ Route::group(['prefix' => 'profile', 'middleware' => ['checkLogin', 'verified']]
 
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
-})->middleware('auth')->name('verification.notice');
+})->middleware('auth');
 
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
     $request->fulfill();
 
     return redirect('/');
-})->middleware(['signed'])->name('verification.verify');
+})->middleware(['signed']);
 
 Route::post('/email/verification-notification', function (Request $request) {
     $request->user()->sendEmailVerificationNotification();
@@ -144,7 +144,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'checkUser'], function(){
 
     // Appointment routes
     Route::get('appointments', [AdminController::class, 'getAppointment'])->name('admin.appointments');
-    Route::get('appointment/edit/{id}', [AdminController::class, 'editAppointment'])->name('admin.edit.appointment');
+    Route::get('appointment/edit/{id}', [AdminController::class, 'editAppointment'])->name('admin.update.appointment');
     Route::post('appointment/edit/{id}', [AdminController::class, 'updateAppointment'])->name('admin.edit.appointment');
     Route::get('appointment/delete/{id}', [AdminController::class, 'deleteAppointment'])->name('admin.delete.appointment');
     Route::get('future-appointments', [AdminController::class, 'futureAppointments'])->name('admin.future.appointment');
