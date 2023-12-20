@@ -8,6 +8,7 @@ use App\Models\Document;
 use App\Models\Feedback;
 use App\Models\Appointment;
 use App\Models\HealthRecord;
+use App\Models\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\Hash;
@@ -243,8 +244,15 @@ class DoctorController extends Controller {
     public function getAppointment()
     {
         // $appointments = Appointment::with('doctor')->get();
-        $appointments = Appointment::where('doctor_id', session()->get('doctor_id'))->get();
+        $appointments = Appointment::where('doctor_id', session()->get('doctor_id'))->where('app_dt_start', '>=', now())->get();
         return view('frontend.doctor.appointments.index', compact('appointments'));
+    }
+
+    // Video Consultation Requests
+    public function getVideoConsultationRequests()
+    {
+        $consultations = Notification::where('type', 'video_call_request')->where('doctor_id', session()->get('doctor_id'))->get();
+        return view('frontend.doctor.consultations.index', compact('consultations'));
     }
 
 }

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SearchDoctors;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\ZoomController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\HealthRecordController;
@@ -15,6 +16,7 @@ use App\Http\Controllers\DoctorFeedbackController;
 use App\Http\Controllers\Auth\GoogleAuthController;
 use App\Http\Controllers\PatientFeedbackController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -174,7 +176,14 @@ Route::group(['prefix' => 'doctor', 'middleware' => 'checkDoctor'], function(){
     Route::post('store-feedback', [DoctorFeedbackController::class, 'store'])->name('doctor.store.feedback');
     Route::get('edit-feedback/{id}', [DoctorFeedbackController::class, 'edit'])->name('doctor.edit.feedback');
     Route::post('update-feedback/{id}', [DoctorFeedbackController::class, 'update'])->name('doctor.update.feedback');
+
+    // Video Consultation Requests
+    Route::get('/video-consultation-requests', [DoctorController::class, 'getVideoConsultationRequests'])->name('doctor.consultations');
 });
+
+// Doctor Zoom Meeting
+Route::get('/authorize', [ZoomController::class, 'authorizeZoom']);
+Route::get('/redirect', [ZoomController::class, 'redirect']);
 
 Route::get('hash', function(){
     dd(Hash::make('safi123'));

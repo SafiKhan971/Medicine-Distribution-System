@@ -26,7 +26,14 @@
 @section('content')
 <!-- Page content -->
 <div class="container-fluid mt--6">
-    @include('flash::message')
+    @if(session('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <span class="alert-text"><strong>Success!</strong> {{ session('success') }}</span>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
     <div class="row">
         <div class="col">
             <div class="card">
@@ -37,6 +44,7 @@
                                 <th>Sr.No</th>
                                 <th>Doctor</th>
                                 <th>Date / Time</th>
+                                <th>Video Consultaion</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -51,11 +59,21 @@
                                 <td>{{ $appointment->doctor->name }}</td>
                                 <td>{{ \Carbon\Carbon::parse($appointment->app_dt_start)->format('M j, Y - h:i A') }}</td>
                                 <td>
+                                    {{-- <form action="{{route('profile.store.call_request')}}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="doctor_id" value="{{$appointment->doctor->id}}">
+                                        <button class="btn btn-info btn-sm">Send Request</button>
+                                    </form> --}}
                                     <form action="{{route('profile.store.call_request')}}" method="POST">
                                         @csrf
                                         <input type="hidden" name="doctor_id" value="{{$appointment->doctor->id}}">
-                                        <button class="btn btn-info btn-sm">Video Call Request</button>
+                                        <button class="btn btn-icon btn-info btn-sm" type="submit">
+                                            <span class="btn-inner--icon"><i class="fa fa-paper-plane" aria-hidden="true"></i></i></span>
+                                            <span class="btn-inner--text">Send Request</span>
+                                        </button>
                                     </form>
+                                </td>
+                                <td>
                                     <a href="{{route('profile.edit.appointment', $appointment->id)}}" class="btn btn-primary btn-sm">Edit</a>
                                     <a href="{{route('profile.delete.appointment', $appointment->id)}}" class="btn btn-danger btn-sm">Delete</a>
                                 </td>

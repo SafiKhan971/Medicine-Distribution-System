@@ -106,6 +106,13 @@
                         <span class="nav-link-text">Feedbacks</span>
                         </a>
                         </li> --}}
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('doctor.consultations') }}">
+                                <i class="fa fa-paper-plane text-info" aria-hidden="true"></i>
+                                <span class="nav-link-text">Video Consultation Requests</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -168,10 +175,10 @@
                                                 @if($notification->type == 'appointment' )
                                                 <p class="text-sm mb-0"> New Appointment has been created.</p>
                                                 @else
-                                                <p class="text-sm mb-0"> New Video Call request has been recieved.</p>
-                                                <form action="" method="post">
-                                                    <button type="submit" class="success">Start video call</button>
-                                                </form>
+                                                <p class="text-sm mb-0"> New Video Consultaion request has been recieved.</p>
+                                                {{-- <form action="#" method="post">
+                                                    <button type="button" class="btn btn-success btn-sm">Start video call</button>
+                                                </form> --}}
                                                 @endif
                                             </div>
                                         </div>

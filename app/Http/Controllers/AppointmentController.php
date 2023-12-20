@@ -124,8 +124,8 @@ class AppointmentController extends Controller
             $appointment->app_dt_start = $appointmentStartTime;
             $appointment->app_dt_end =  $appointmentEndTime;
             $appointment->save();
-            notify()->success('Appointment updated successfully!', 'Success');
-            return redirect('profile/appointments');
+            // notify()->success('Appointment updated successfully!', 'Success');
+            return redirect('profile/appointments')->with('success', 'Appointment updated successfully!');
         }
     }
 
@@ -133,8 +133,8 @@ class AppointmentController extends Controller
     {
         $appointment = Appointment::find($id);
         $appointment->delete();
-        notify()->success('Appointment deleted successfully!', 'Success');
-        return redirect()->back();
+        // notify()->success('Appointment deleted successfully!', 'Success');
+        return redirect()->back()->with('success', 'Appointment deleted successfully!');
     }
 
     public function video_call(Request $request)
@@ -145,8 +145,8 @@ class AppointmentController extends Controller
         $notification->doctor_id = $request->doctor_id;
         $notification->status = 0;
         $notification->save();
-        notify()->success('Request has been sent successfully!', 'Success');
-        return redirect()->back();
+        // notify()->success('Request has been sent successfully!', 'Success');
+        return redirect()->back()->with('success', 'Request has been sent successfully. If doctor approved it then you will be notified via email containing the video consultaion deatils.');
     }
 
     public function doctorNotification($doctor_id)

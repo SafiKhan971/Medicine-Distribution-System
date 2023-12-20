@@ -45,9 +45,9 @@
         use Carbon\Carbon;
 
         $patient = User::find(auth()->user()->id);
-        $totalAppointments = Appointment::where('user_id', $patient->id)->count();
+        $futureAppointments = Appointment::where('user_id', $patient->id)->where('app_dt_start', '>=', now())->count();
 
-        $latestAppointments = Appointment::where('user_id', $patient->id)
+        $latestAppointments = Appointment::where('user_id', $patient->id)->where('app_dt_start', '>=', now())
         ->orderBy('app_dt_start', 'desc')
         ->take(5)
         ->get();
@@ -195,12 +195,12 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="ni ni-bell-55"></i>
-                                <span class="notification-counter">{{ $totalAppointments }}</span>
+                                <span class="notification-counter">{{ $futureAppointments }}</span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-xl dropdown-menu-right py-0 overflow-hidden">
                                 <!-- Dropdown header -->
                                 <div class="px-3 py-3">
-                                    <h6 class="text-sm text-muted m-0">You have <strong class="text-primary">{{ $totalAppointments }}</strong> Appointments.</h6>
+                                    <h6 class="text-sm text-muted m-0">You have <strong class="text-primary">{{ $futureAppointments }}</strong> Appointments.</h6>
                                 </div>
                                 <!-- List group -->
                                 <div class="list-group list-group-flush">

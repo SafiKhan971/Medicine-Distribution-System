@@ -61,13 +61,13 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col">
-                                <h5 class="card-title text-uppercase text-muted mb-2">Future Appointments</h5>
-                                <span class="h2 font-weight-bold mb-0">{{ $future_appointments }}</span>
+                                <h5 class="card-title text-uppercase text-muted mb-2">Patient Health Records</h5>
+                                <span class="h2 font-weight-bold mb-0">{{ $health_records }}</span>
                             </div>
                             <div class="col-auto">
-                                <a href="{{ route('doctor.appointments') }}">
-                                    <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
-                                        <i class="fa fa-clock" aria-hidden="true"></i>
+                                <a href="{{ route('health-record.index') }}">
+                                    <div class="icon icon-shape bg-gradient-pink text-white rounded-circle shadow">
+                                        <i class="fa fa-medkit" aria-hidden="true"></i>
                                     </div>
                                 </a>
                             </div>
@@ -81,13 +81,13 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col">
-                                <h5 class="card-title text-uppercase text-muted mb-2">Patient Health Records</h5>
-                                <span class="h2 font-weight-bold mb-0">{{ $health_records }}</span>
+                                <h5 class="card-title text-uppercase text-muted mb-2">Future Appointments</h5>
+                                <span class="h2 font-weight-bold mb-0">{{ $future_appointments }}</span>
                             </div>
                             <div class="col-auto">
-                                <a href="{{ route('health-record.index') }}">
-                                    <div class="icon icon-shape bg-gradient-pink text-white rounded-circle shadow">
-                                        <i class="fa fa-medkit" aria-hidden="true"></i>
+                                <a href="{{ route('doctor.appointments') }}">
+                                    <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
+                                        <i class="fa fa-clock" aria-hidden="true"></i>
                                     </div>
                                 </a>
                             </div>
