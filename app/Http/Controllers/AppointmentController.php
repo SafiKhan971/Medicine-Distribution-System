@@ -146,7 +146,7 @@ class AppointmentController extends Controller
         $notification->status = 0;
         $notification->save();
         // notify()->success('Request has been sent successfully!', 'Success');
-        return redirect()->back()->with('success', 'Request has been sent successfully. If doctor approved it then you will be notified via email containing the video consultaion deatils.');
+        return redirect()->back()->with('success', 'Request has been sent successfully. If doctor approved it then you will be notified via email containing the video consultaion details.');
     }
 
     public function doctorNotification($doctor_id)

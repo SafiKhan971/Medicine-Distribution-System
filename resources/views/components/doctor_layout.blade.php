@@ -186,8 +186,7 @@
                                     @endforeach
                                 </div>
                                 <!-- View all -->
-                                <a href="{{ route('doctor.appointments') }}"
-                                    class="dropdown-item text-center text-primary font-weight-bold py-3">View all</a>
+                                {{-- <a href="{{ route('doctor.appointments') }}" class="dropdown-item text-center text-primary font-weight-bold py-3">View all</a> --}}
                             </div>
                         </li>
                     </ul>

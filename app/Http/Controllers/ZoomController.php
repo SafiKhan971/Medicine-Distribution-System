@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use GuzzleHttp\Client;
+use App\Models\Notification;
 use Illuminate\Http\Request;
 use App\Mail\ZoomMeetingDetails;
 use Illuminate\Support\Facades\Mail;
@@ -29,7 +30,12 @@ class ZoomController extends Controller {
         $zoomMeetingDetails = $this->createZoomMeeting( $userAccessToken );
 
         // Get user email from request or any other source
-        $userEmail = 'user@example.com';
+        $notifications = Notification::where('type', 'video_call_request')->where('doctor_id', session()->get('doctor_id'))->get();
+
+        foreach($notifications as $notification)
+        {
+            $userEmail = $notification->patient->email;
+        }
 
         // Send email with Zoom meeting details
         Mail::to( $userEmail )->send( new ZoomMeetingDetails( $zoomMeetingDetails ) );
