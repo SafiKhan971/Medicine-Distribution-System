@@ -15,6 +15,7 @@ use App\Http\Controllers\HealthRecordController;
 use App\Http\Controllers\DoctorFeedbackController;
 use App\Http\Controllers\Auth\GoogleAuthController;
 use App\Http\Controllers\PatientFeedbackController;
+use App\Http\Controllers\PrescriptionController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 
@@ -179,6 +180,9 @@ Route::group(['prefix' => 'doctor', 'middleware' => 'checkDoctor'], function(){
 
     // Video Consultation Requests
     Route::get('/video-consultation-requests', [DoctorController::class, 'getVideoConsultationRequests'])->name('doctor.consultations');
+    Route::resource('prescriptions', PrescriptionController::class);
+
+
 });
 
 // Doctor Zoom Meeting

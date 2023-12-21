@@ -113,6 +113,14 @@
                                 <span class="nav-link-text">Video Consultation Requests</span>
                             </a>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('prescriptions.index') }}">
+                                <i class="ni ni-single-copy-04 text-success" aria-hidden="true"></i>
+                                <span class="nav-link-text">Prescriptions</span>
+                            </a>
+                        </li>
+
                     </ul>
                 </div>
             </div>
