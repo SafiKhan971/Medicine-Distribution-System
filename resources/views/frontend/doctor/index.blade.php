@@ -105,7 +105,7 @@
                                 <span class="h2 font-weight-bold mb-0">{{ $future_appointments }}</span>
                             </div>
                             <div class="col-auto">
-                                <a href="{{ route('doctor.appointments') }}">
+                                <a href="{{ route('doctor.consultations') }}">
                                     <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
                                         <i class="fa fa-paper-plane" aria-hidden="true"></i>
                                     </div>

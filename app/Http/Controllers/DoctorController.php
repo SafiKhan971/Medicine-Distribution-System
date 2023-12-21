@@ -251,7 +251,9 @@ class DoctorController extends Controller {
     // Video Consultation Requests
     public function getVideoConsultationRequests()
     {
-        $consultations = Notification::where('type', 'video_call_request')->where('doctor_id', session()->get('doctor_id'))->get();
+        $consultations = Notification::where('type', 'video_call_request')
+                        ->where('doctor_id', session()->get('doctor_id'))
+                        ->where('status',0)->get();
         return view('frontend.doctor.consultations.index', compact('consultations'));
     }
 

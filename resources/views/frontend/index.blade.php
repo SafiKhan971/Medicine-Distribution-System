@@ -12,8 +12,7 @@
                     <div class="col-lg-7">
                         <div class="text">
                             <h1>We Provide <span>Medical</span> Services That You Can <span>Trust!</span></h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed nisl
-                                pellentesque, faucibus libero eu, gravida quam. </p>
+                            <p>Experience comprehensive primary care that focuses on preventive measures, routine check-ups, and personalized healthcare plans tailored to your needs.</p>
                             <div class="button">
                                 <a href="{{ route('profile.appointment') }}" class="btn">Get
                                     Appointment</a>
@@ -32,8 +31,7 @@
                     <div class="col-lg-7">
                         <div class="text">
                             <h1>We Provide <span>Medical</span> Services That You Can <span>Trust!</span></h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed nisl
-                                pellentesque, faucibus libero eu, gravida quam. </p>
+                            <p>Discover cutting-edge medical treatments and therapies delivered by our expert team, ensuring the highest standards of care and innovation.</p>
                             <div class="button">
                                 <a href="{{ route('profile.appointment') }}" class="btn">Get
                                     Appointment</a>
@@ -52,8 +50,7 @@
                     <div class="col-lg-7">
                         <div class="text">
                             <h1>We Provide <span>Medical</span> Services That You Can <span>Trust!</span></h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed nisl
-                                pellentesque, faucibus libero eu, gravida quam. </p>
+                            <p>Our dedicated team is ready 24/7 to provide prompt emergency and urgent care services, offering peace of mind during critical moments.</p>
                             <div class="button">
                                 <a href="{{ route('profile.appointment') }}" class="btn">Get
                                     Appointment</a>
@@ -82,10 +79,9 @@
                                 <i class="fa fa-ambulance"></i>
                             </div>
                             <div class="single-content">
-                                <span>Lorem Amet</span>
-                                <h4>Emergency Cases</h4>
-                                <p>Lorem ipsum sit amet consectetur adipiscing elit. Vivamus et erat in lacus
-                                    convallis sodales.</p>
+                                {{-- <span>Lorem Amet</span> --}}
+                                <h4>Rapid Emergency Response</h4>
+                                <p>Our dedicated team is committed to providing immediate and effective emergency assistance.</p>
                                 <a href="#">LEARN MORE<i class="fa fa-long-arrow-right"></i></a>
                             </div>
                         </div>
@@ -99,10 +95,9 @@
                                 <i class="icofont-prescription"></i>
                             </div>
                             <div class="single-content">
-                                <span>Fusce Porttitor</span>
-                                <h4>Doctors Timetable</h4>
-                                <p>Lorem ipsum sit amet consectetur adipiscing elit. Vivamus et erat in lacus
-                                    convallis sodales.</p>
+                                {{-- <span>Fusce Porttitor</span> --}}
+                                <h4>Explore Doctors' Timetable</h4>
+                                <p>Discover the schedule of our dedicated medical professionals. Professionals has a carefully curated schedule.</p>
                                 <a href="{{ url('/timetable') }}">LEARN MORE<i class="fa fa-long-arrow-right"></i></a>
                             </div>
                         </div>
@@ -116,7 +111,7 @@
                                 <i class="icofont-ui-clock"></i>
                             </div>
                             <div class="single-content">
-                                <span>Donec luctus</span>
+                                {{-- <span>Donec luctus</span> --}}
                                 <h4>Opening Hours</h4>
                                 <ul class="time-sidual">
                                     <li class="day">Monday - Friday <span>8.00-20.00</span></li>
@@ -142,7 +137,7 @@
                 <div class="section-title">
                     <h2>We Are Always Ready to Help You & Your Family</h2>
                     {{-- <img src="{{ asset('img/section-img.png') }}" alt="#"> --}}
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
+                    <p>Experience compassionate and reliable care tailored for you and your family.</p>
                 </div>
             </div>
         </div>
@@ -154,7 +149,7 @@
                         <i class="icofont icofont-ambulance-cross"></i>
                     </div>
                     <h3>Emergency Help</h3>
-                    <p>Lorem ipsum sit, consectetur adipiscing elit. Maecenas mi quam vulputate.</p>
+                    <p>Count on our dedicated team for immediate and expert emergency help.</p>
                 </div>
                 <!-- End Single features -->
             </div>
@@ -165,7 +160,7 @@
                         <i class="icofont icofont-medical-sign-alt"></i>
                     </div>
                     <h3>Enriched Pharmecy</h3>
-                    <p>Lorem ipsum sit, consectetur adipiscing elit. Maecenas mi quam vulputate.</p>
+                    <p>Explore our enriched pharmacy services designed to meet all your healthcare needs.</p>
                 </div>
                 <!-- End Single features -->
             </div>
@@ -176,7 +171,7 @@
                         <i class="icofont icofont-stethoscope"></i>
                     </div>
                     <h3>Medical Treatment</h3>
-                    <p>Lorem ipsum sit, consectetur adipiscing elit. Maecenas mi quam vulputate.</p>
+                    <p>Experience personalized and compassionate treatment at our facility.</p>
                 </div>
                 <!-- End Single features -->
             </div>
@@ -246,7 +241,7 @@
                 <div class="section-title">
                     <h2>We Offer Different Services To Improve Your Health</h2>
                     {{-- <img src="{{ asset('img/section-img.png') }}" alt="#"> --}}
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
+                    <p>Explore a range of services crafted to enhance your health and well-being.</p>
                 </div>
             </div>
         </div>
@@ -255,23 +250,20 @@
                 <!-- Start Choose Left -->
                 <div class="choose-left">
                     <h3>Who We Are</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pharetra antege vel est
-                        lobortis, a commodo magna rhoncus. In quis nisi non emet quam pharetra commodo. </p>
-                    <p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
-                        himenaeos. </p>
+                    <p>At Digital Clinic, we are dedicated to providing exceptional healthcare services with a focus on compassion and excellence. Our commitment to your well-being extends beyond conventional practices, ensuring that you receive personalized care tailored to your unique needs.</p>
                     <div class="row">
                         <div class="col-lg-6">
                             <ul class="list">
-                                <li><i class="fa fa-caret-right"></i>Maecenas vitae luctus nibh. </li>
-                                <li><i class="fa fa-caret-right"></i>Duis massa massa.</li>
-                                <li><i class="fa fa-caret-right"></i>Aliquam feugiat interdum.</li>
+                                <li><i class="fa fa-caret-right"></i>Committed to your well-being.</li>
+                                <li><i class="fa fa-caret-right"></i>Striving for excellence.</li>
+                                <li><i class="fa fa-caret-right"></i>Personalized care plans.</li>
                             </ul>
                         </div>
                         <div class="col-lg-6">
                             <ul class="list">
-                                <li><i class="fa fa-caret-right"></i>Maecenas vitae luctus nibh. </li>
-                                <li><i class="fa fa-caret-right"></i>Duis massa massa.</li>
-                                <li><i class="fa fa-caret-right"></i>Aliquam feugiat interdum.</li>
+                                <li><i class="fa fa-caret-right"></i>Emphasizing compassion.</li>
+                                <li><i class="fa fa-caret-right"></i>Continuous pursuit.</li>
+                                <li><i class="fa fa-caret-right"></i>Building a healthier community.</li>
                             </ul>
                         </div>
                     </div>
@@ -308,9 +300,8 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-12">
                 <div class="content">
-                    <h2>Do you need Emergency Medical Care? Call @ 1234 56789</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porttitor dictum turpis
-                        nec gravida.</p>
+                    <h2>For Immediate Emergency Medical Care, Call Us at 1234 56789</h2>
+                    <p>At Digital Clinic, we understand that emergencies require an expert attention.</p>
                     <div class="button">
                         <a href="{{ url('/contact') }}" class="btn">Contact Now</a>
                         <a href="#" class="btn second">Learn More<i class="fa fa-long-arrow-right"></i></a>
@@ -328,9 +319,9 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title">
-                    <h2>We Maintain Cleanliness Rules Inside Our Hospital</h2>
+                    <h2>Our Commitment to a Clean and Safe Environment</h2>
                     {{-- <img src="{{ asset('img/section-img.png') }}" alt="#"> --}}
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
+                    <p>At Digital Clinic, we prioritize the health and safety of our patients and staff.</p>
                 </div>
             </div>
         </div>
@@ -384,9 +375,9 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title">
-                    <h2>We Offer Different Services To Improve Your Health</h2>
+                    <h2>Comprehensive Healthcare Services for your well-being</h2>
                     {{-- <img src="{{ asset('img/section-img.png') }}" alt="#"> --}}
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
+                    <p>Experience a range of tailored healthcare services designed to enhance your well-being at Digitial Clinic.</p>
                 </div>
             </div>
         </div>
