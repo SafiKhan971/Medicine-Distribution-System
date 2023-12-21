@@ -182,7 +182,7 @@ Route::group(['prefix' => 'doctor', 'middleware' => 'checkDoctor'], function(){
 });
 
 // Doctor Zoom Meeting
-Route::get('/authorize', [ZoomController::class, 'authorizeZoom']);
+Route::post('/authorize', [ZoomController::class, 'authorizeZoom']);
 Route::get('/redirect', [ZoomController::class, 'redirect']);
 
 Route::get('hash', function(){

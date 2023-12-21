@@ -1,5 +1,5 @@
 @extends('components/doctor_layout')
-@section('title', 'Digital Clinic | Feedbacks')
+@section('title', 'Digital Clinic | Video Consultation Requests')
 @section('header')
     <!-- Header -->
     <div class="header pb-6">
@@ -56,7 +56,13 @@
                                         <td>{{ $serial_no++ }}</td>
                                         <td>{{ $consultation->patient->name }}</td>
                                         <td>
-                                            <a href="{{ url('authorize') }}" class="btn btn-success btn-sm"><i class="fa fa-check" aria-hidden="true"></i> Accept</a>
+                                            {{-- <a href="{{ url('authorize') }}" class="btn btn-success btn-sm"><i class="fa fa-check" aria-hidden="true"></i> Accept</a> --}}
+                                            <form method="POST" action="{{ url('authorize') }}">
+                                                @csrf
+                                                <input type="hidden" name="patient_email" value="{{ $consultation->patient->email }}">
+                                                <input type="hidden" name="patient_id" value="{{ $consultation->patient->id }}">
+                                                <button type="submit" class="btn btn-success btn-sm"><i class="fa fa-check" aria-hidden="true"></i> Accept</button>
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach

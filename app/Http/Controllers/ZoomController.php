@@ -10,7 +10,12 @@ use Illuminate\Support\Facades\Mail;
 
 class ZoomController extends Controller {
 
-    public function authorizeZoom() {
+    public function authorizeZoom( Request $request ) {
+        $user_email = $request->patient_email;
+        $user_id = $request->patient_id;
+        session()->put( 'user_email', $user_email );
+        session()->put( 'user_id', $user_id );
+
         $zoomAuthorizeUrl = 'https://zoom.us/oauth/authorize?' . http_build_query( [
             'response_type' => 'code',
             'client_id' => '7xi6_VY6RayS3AkHWshCQQ',
@@ -29,19 +34,31 @@ class ZoomController extends Controller {
         // Create and send Zoom meeting details
         $zoomMeetingDetails = $this->createZoomMeeting( $userAccessToken );
 
-        // Get user email from request or any other source
-        $notifications = Notification::where('type', 'video_call_request')->where('doctor_id', session()->get('doctor_id'))->get();
+        $notification = Notification::where( 'type', 'video_call_request' )
+        ->where( 'user_id', session()->get( 'user_id' ) )
+        ->first();
 
-        foreach($notifications as $notification)
-        {
-            $userEmail = $notification->patient->email;
+        $notification = Notification::where( 'type', 'video_call_request' )
+        ->where( 'user_id', session()->get( 'user_id' ) )
+        ->first();
+
+        // Check if a notification was found
+        if ( $notification ) {
+            // Update the status
+            $notification->status = 1;
+            $notification->save();
         }
+
+        // Get user email from the session
+        $userEmail = session()->get( 'user_email' );
+        $doctorEmail = session()->get( 'doctor_email' );
 
         // Send email with Zoom meeting details
         Mail::to( $userEmail )->send( new ZoomMeetingDetails( $zoomMeetingDetails ) );
+        Mail::to( $doctorEmail )->send( new ZoomMeetingDetails( $zoomMeetingDetails ) );
 
         // return response()->json( [ 'message' => 'Zoom meeting created and details sent successfully' ] );
-        return redirect()->to( 'doctor/video-consultation-requests' )->with( 'success', 'Zoom meeting created and details sent to user successfully!' );
+        return redirect()->to( 'doctor/video-consultation-requests' )->with( 'success', 'Zoom meeting created and details of that meeting has been sent to you & user successfully!' );
     }
 
     private function getUserAccessToken( $authorizationCode ) {
