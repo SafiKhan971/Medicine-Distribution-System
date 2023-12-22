@@ -21,7 +21,7 @@
                                 <ul class="nav menu">
                                     {{-- <li><a href="#">Features </a></li> --}}
                                     <li><a href="{{ url('about') }}">About </a></li>
-                                    <li><a href="#">Blogs </a></li>
+                                    <li><a href="{{ url('faqs') }}">FAQs </a></li>
                                     <li><a href="{{ url('doctors') }}">Doctors </a></li>
                                     <li class="mr-5"><a href="{{ url('/contact') }}">Contact </a></li>
                                     @if (auth()->guard('web')->check() || session('admin_id') || session('doctor_id'))

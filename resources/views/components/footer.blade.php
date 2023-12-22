@@ -7,7 +7,7 @@
 						<div class="col-lg-3 col-md-6 col-12">
 							<div class="single-footer">
 								<h2>About Us</h2>
-								<p>We Provide <span>Medical</span> Services That You Can <span>Trust!</span></p>
+								<p>Navigate Your Wellness Journey with Our Digital Clinic.</p>
 								<!-- Social -->
 								<ul class="social">
 									<li><a href="#"><i class="icofont-facebook"></i></a></li>
@@ -37,7 +37,7 @@
 						<div class="col-lg-3 col-md-6 col-12">
 							<div class="single-footer">
 								<h2>Open Hours</h2>
-								<p>Lorem ipsum dolor sit ame consectetur adipisicing elit do eiusmod tempor incididunt.</p>
+								<p>Discover our convenient operating hours designed to accommodate your schedule and ensure accessible healthcare.</p>
 								<ul class="time-sidual">
 									<li class="day">Monday - Friday <span>8.00-20.00</span></li>
 									<li class="day">Saturday <span>9.00-18.30</span></li>
@@ -48,7 +48,7 @@
 						<div class="col-lg-3 col-md-6 col-12">
 							<div class="single-footer">
 								<h2>Newsletter</h2>
-								<p>subscribe to our newsletter to get allour news in your inbox.. Lorem ipsum dolor sit amet, consectetur adipisicing elit,</p>
+								<p>Subscribe to our newsletter for the latest updates, health tips.</p>
 								<form action="mail/mail.php" method="get" target="_blank" class="newsletter-inner">
 									<input name="email" placeholder="Email Address" class="common-input" onfocus="this.placeholder = ''"
 										onblur="this.placeholder = 'Your email address'" required="" type="email">
