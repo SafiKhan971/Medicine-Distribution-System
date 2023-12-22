@@ -283,8 +283,7 @@
                             </div>
                         </div>
                         <!--/ End Video Animation -->
-                        <a href="https://www.youtube.com/watch?v=RFVXy6CRVR4" class="video video-popup mfp-iframe"><i
-                                class="fa fa-play"></i></a>
+                        <a href="https://www.youtube.com/watch?v=RFVXy6CRVR4" class="video video-popup mfp-iframe"><i class="fa fa-play"></i></a>
                     </div>
                 </div>
                 <!-- End Choose Rights -->
@@ -387,8 +386,7 @@
                 <div class="single-service">
                     <i class="icofont icofont-prescription"></i>
                     <h4><a href="#">General Treatment</a></h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut
-                        imperdiet. </p>
+                    <p>Discover a holistic approach to general treatment at Digital Clinic. Our experienced team is dedicated to providing personalized care, addressing your specific health needs.</p>
                 </div>
                 <!-- End Single Service -->
             </div>
@@ -397,8 +395,7 @@
                 <div class="single-service">
                     <i class="icofont icofont-tooth"></i>
                     <h4><a href="#">Teeth Whitening</a></h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut
-                        imperdiet. </p>
+                    <p>Enhance your smile with our professional teeth whitening services at Digital Clinic. Our skilled team is dedicated to providing safe and effective teeth whitening treatments.</p>
                 </div>
                 <!-- End Single Service -->
             </div>
@@ -407,8 +404,7 @@
                 <div class="single-service">
                     <i class="icofont icofont-heart-alt"></i>
                     <h4><a href="#">Heart Surgery</a></h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut
-                        imperdiet. </p>
+                    <p>Trust our experienced team for heart surgery services at Digital Clinic. Our skilled surgeons and medical staff are committed to providing compassionate and state-of-the-art care.</p>
                 </div>
                 <!-- End Single Service -->
             </div>
@@ -417,8 +413,7 @@
                 <div class="single-service">
                     <i class="icofont icofont-listening"></i>
                     <h4><a href="#">Ear Treatment</a></h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut
-                        imperdiet. </p>
+                    <p>Experience specialized care for your ears at Digital Clinic. Our expert team is dedicated to providing ear treatments with a focus on your well-being.</p>
                 </div>
                 <!-- End Single Service -->
             </div>
@@ -427,8 +422,7 @@
                 <div class="single-service">
                     <i class="icofont icofont-eye-alt"></i>
                     <h4><a href="#">Vision Problems</a></h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut
-                        imperdiet. </p>
+                    <p>Your vision concerns with specialized care at Digital Clinic. Our experienced team is providing solutions for vision problems, ensuring your eye health.</p>
                 </div>
                 <!-- End Single Service -->
             </div>
@@ -437,8 +431,7 @@
                 <div class="single-service">
                     <i class="icofont icofont-blood"></i>
                     <h4><a href="#">Blood Transfusion</a></h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut
-                        imperdiet. </p>
+                    <p>Trust our dedicated team for reliable blood transfusion services at Digital Clinic. Our professionals ensure the safety during the entire process.</p>
                 </div>
                 <!-- End Single Service -->
             </div>
@@ -460,176 +453,149 @@
         <div class="row">
             <div class="col-12">
                 <div class="department-tab">
-
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
-                        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#t-tab1"
-                                role="tab" aria-selected="true"><i class="icofont-heart-beat"></i><span
-                                    class="first">Cardiac Clinic</span><span class="second">Lorem
-                                    Sit</span></a></li>
-                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#t-tab2" role="tab"
-                                aria-selected="false"><i class="icofont-brain-alt"></i><span
-                                    class="first">Neurology</span><span class="second">Quis Est</span></a>
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#t-tab1" role="tab" aria-selected="true">
+                                <i class="icofont-heart-beat"></i>
+                                <span class="first">Cardiac Clinic</span>
+                                <span class="second">Heart Care</span>
+                            </a>
                         </li>
-                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#t-tab3" role="tab"
-                                aria-selected="false"><i class="icofont-tooth"></i><span
-                                    class="first">Dentistry</span><span class="second">Sit Dolor</span></a>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#t-tab2" role="tab" aria-selected="false">
+                                <i class="icofont-brain-alt"></i>
+                                <span class="first">Neurology</span>
+                                <span class="second">Nervous Care</span>
+                            </a>
                         </li>
-                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#t-tab4" role="tab"
-                                aria-selected="false"><i class="icofont-heart-beat"></i><span
-                                    class="first">Gastroenterology</span><span class="second">Lorem
-                                    Sit</span></a></li>
-                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#t-tab5" role="tab"
-                                aria-selected="false"><i class="icofont-bone"></i><span
-                                    class="first">Orthopedagogy</span><span class="second">Lorem
-                                    Sit</span></a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#t-tab3" role="tab" aria-selected="false">
+                                <i class="icofont-tooth"></i>
+                                <span class="first">Dentistry</span>
+                                <span class="second">Oral Care</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#t-tab4" role="tab" aria-selected="false">
+                                <i class="icofont-heart-beat"></i>
+                                <span class="first">Gastroenterology</span>
+                                <span class="second">Digestive Care</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#t-tab5" role="tab" aria-selected="false">
+                                <i class="icofont-bone"></i>
+                                <span class="first">Orthopedagogy</span>
+                                <span class="second">Joints Care</span>
+                            </a>
+                        </li>
                     </ul>
-
                     <div class="tab-content" id="myTabContent">
-
                         <div class="tab-pane fade active show" id="t-tab1" role="tabpanel">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="department-left">
                                         <h3>Cardiac Clinic</h3>
-                                        <p class="p1">“Vivamus ut tellus sed tellus finibus egestas. Mauris
-                                            adipiscing aliquet et nisl nec eleifend adipiscing elit.”</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-                                            pharetra ante vel est lobortis, a commodo magna rhoncus. In quis
-                                            nisi non quam pharetra commodo. </p>
+                                        <p class="p1">“Your Heart Health is Our Priority.”</p>
+                                        <p>At Digital Clinic, we are dedicated to providing exceptional cardiac care.</p>
                                         <ul class="list">
-                                            <li><i class="fa fa-check"></i>Maecenas vitae luctus nibh.
-                                                Curabitur pharetra luctus est, sit amet aliquam ex posuere id.
-                                            </li>
-                                            <li><i class="fa fa-check"></i> Maecenas pharetra ante vel est
-                                                lobortis</li>
-                                            <li><i class="fa fa-check"></i>Lorem ipsum dolor sit amet,
-                                                consectetur.</li>
+                                            <li><i class="fa fa-check"></i>Comprehensive cardiovascular care tailored to your needs.</li>
+                                            <li><i class="fa fa-check"></i>Expert team of cardiologists ensuring your well-being.</li>
+                                            <li><i class="fa fa-check"></i>State-of-the-art facilities for accurate diagnosis and treatment.</li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="department-right">
-                                        <img src="{{ asset('img/department.jpg') }}" alt="#">
+                                        <img src="{{ asset('img/heart.jpg') }}" alt="#">
                                     </div>
                                 </div>
                             </div>
                         </div>
-
 
                         <div class="tab-pane fade" id="t-tab2" role="tabpanel">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="department-left">
                                         <h3>Neurology</h3>
-                                        <p class="p1">“Vivamus ut tellus sed tellus finibus egestas. Mauris
-                                            adipiscing aliquet et nisl nec eleifend adipiscing elit.”</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-                                            pharetra ante vel est lobortis, a commodo magna rhoncus. In quis
-                                            nisi non quam pharetra commodo. </p>
+                                        <p class="p1">“Dedicated to Your Neurological Health.”</p>
+                                        <p>At Digital Clinic, we specialize in comprehensive neurological care.</p>
                                         <ul class="list">
-                                            <li><i class="fa fa-check"></i>Maecenas vitae luctus nibh.
-                                                Curabitur pharetra luctus est, sit amet aliquam ex posuere id.
-                                            </li>
-                                            <li><i class="fa fa-check"></i> Maecenas pharetra ante vel est
-                                                lobortis</li>
-                                            <li><i class="fa fa-check"></i>Lorem ipsum dolor sit amet,
-                                                consectetur.</li>
+                                            <li><i class="fa fa-check"></i>Neurological care.</li>
+                                            <li><i class="fa fa-check"></i>Accurate assessments.</li>
+                                            <li><i class="fa fa-check"></i>Neurological well-being.</li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="department-right">
-                                        <img src="img/department.jpg" alt="#">
+                                        <img src="{{ asset('img/neurology.jpg') }}" alt="#">
                                     </div>
                                 </div>
                             </div>
                         </div>
-
 
                         <div class="tab-pane fade" id="t-tab3" role="tabpanel">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="department-left">
                                         <h3>Dentistry</h3>
-                                        <p class="p1">“Vivamus ut tellus sed tellus finibus egestas. Mauris
-                                            adipiscing aliquet et nisl nec eleifend adipiscing elit.”</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-                                            pharetra ante vel est lobortis, a commodo magna rhoncus. In quis
-                                            nisi non quam pharetra commodo. </p>
+                                        <p class="p1">“Your Smile is Our Priority.”</p>
+                                        <p>At Digital Clinic, we are committed to providing exceptional dental care.</p>
                                         <ul class="list">
-                                            <li><i class="fa fa-check"></i>Maecenas vitae luctus nibh.
-                                                Curabitur pharetra luctus est, sit amet aliquam ex posuere id.
-                                            </li>
-                                            <li><i class="fa fa-check"></i> Maecenas pharetra ante vel est
-                                                lobortis</li>
-                                            <li><i class="fa fa-check"></i>Lorem ipsum dolor sit amet,
-                                                consectetur.</li>
+                                            <li><i class="fa fa-check"></i>Dental care</li>
+                                            <li><i class="fa fa-check"></i>Experienced Dentists.</li>
+                                            <li><i class="fa fa-check"></i>Oral health.</li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="department-right">
-                                        <img src="img/department.jpg" alt="#">
+                                        <img src="{{ asset('img/dentistry.avif')}}" alt="#">
                                     </div>
                                 </div>
                             </div>
                         </div>
-
 
                         <div class="tab-pane fade" id="t-tab4" role="tabpanel">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="department-left">
                                         <h3>Gastroenterology</h3>
-                                        <p class="p1">“Vivamus ut tellus sed tellus finibus egestas. Mauris
-                                            adipiscing aliquet et nisl nec eleifend adipiscing elit.”</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-                                            pharetra ante vel est lobortis, a commodo magna rhoncus. In quis
-                                            nisi non quam pharetra commodo. </p>
+                                        <p class="p1">“Expert Care for Your Digestive Health.”</p>
+                                        <p>At Digital Clinic, we specialize in care for your digestive health.</p>
                                         <ul class="list">
-                                            <li><i class="fa fa-check"></i>Maecenas vitae luctus nibh.
-                                                Curabitur pharetra luctus est, sit amet aliquam ex posuere id.
-                                            </li>
-                                            <li><i class="fa fa-check"></i> Maecenas pharetra ante vel est
-                                                lobortis</li>
-                                            <li><i class="fa fa-check"></i>Lorem ipsum dolor sit amet,
-                                                consectetur.</li>
+                                            <li><i class="fa fa-check"></i>Digestive care.</li>
+                                            <li><i class="fa fa-check"></i>Accurate diagnosis.</li>
+                                            <li><i class="fa fa-check"></i>Digestive health.</li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="department-right">
-                                        <img src="img/department.jpg" alt="#">
+                                        <img src="{{ asset('img/gastroenterology.jpg') }}" alt="#">
                                     </div>
                                 </div>
                             </div>
                         </div>
-
 
                         <div class="tab-pane fade" id="t-tab5" role="tabpanel">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="department-left">
                                         <h3>Orthopedagogy</h3>
-                                        <p class="p1">“Vivamus ut tellus sed tellus finibus egestas. Mauris
-                                            adipiscing aliquet et nisl nec eleifend adipiscing elit.”</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-                                            pharetra ante vel est lobortis, a commodo magna rhoncus. In quis
-                                            nisi non quam pharetra commodo. </p>
+                                        <p class="p1">“Specialized Orthopedic Care for Your Active Lifestyle.”</p>
+                                        <p>At Digital Clinic, we are dedicated to providing specialized orthopedic care.</p>
                                         <ul class="list">
-                                            <li><i class="fa fa-check"></i>Maecenas vitae luctus nibh.
-                                                Curabitur pharetra luctus est, sit amet aliquam ex posuere id.
-                                            </li>
-                                            <li><i class="fa fa-check"></i> Maecenas pharetra ante vel est
-                                                lobortis</li>
-                                            <li><i class="fa fa-check"></i>Lorem ipsum dolor sit amet,
-                                                consectetur.</li>
+                                            <li><i class="fa fa-check"></i>Orthopedic care.</li>
+                                            <li><i class="fa fa-check"></i>Orthopedic specialists.</li>
+                                            <li><i class="fa fa-check"></i>Accurate diagnosis.</li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="department-right">
-                                        <img src="img/department.jpg" alt="#">
+                                        <img src="{{ asset('img/orthopedic.jpg') }}" alt="#">
                                     </div>
                                 </div>
                             </div>
@@ -666,16 +632,16 @@
                         </div>
                         <h4 class="title">Plastic Suggery</h4>
                         <div class="price">
-                            <p class="amount">$199<span>/ Per Visit</span></p>
+                            <p class="amount">Rs. 1,25,000</p>
                         </div>
                     </div>
                     <!-- Table List -->
                     <ul class="table-list">
-                        <li><i class="icofont icofont-ui-check"></i>Lorem ipsum dolor sit</li>
-                        <li><i class="icofont icofont-ui-check"></i>Cubitur sollicitudin fentum</li>
-                        <li class="cross"><i class="icofont icofont-ui-close"></i>Nullam interdum enim</li>
-                        <li class="cross"><i class="icofont icofont-ui-close"></i>Donec ultricies metus</li>
-                        <li class="cross"><i class="icofont icofont-ui-close"></i>Pellentesque eget nibh</li>
+                        <li><i class="icofont icofont-ui-check"></i>Consultation with plastic surgeon</li>
+                        <li><i class="icofont icofont-ui-check"></i>Enhancement procedures</li>
+                        <li class="cross"><i class="icofont icofont-ui-close"></i>No invasive surgical treatments</li>
+                        <li class="cross"><i class="icofont icofont-ui-close"></i>Specialized after-care programs</li>
+                        <li class="cross"><i class="icofont icofont-ui-close"></i>Consultation fees not included</li>
                     </ul>
                     <div class="table-bottom">
                         <a class="btn" href="{{ url('profile/appointment') }}">Book Now</a>
@@ -694,16 +660,16 @@
                         </div>
                         <h4 class="title">Teeth Whitening</h4>
                         <div class="price">
-                            <p class="amount">$299<span>/ Per Visit</span></p>
+                            <p class="amount">Rs. 10,000</p>
                         </div>
                     </div>
                     <!-- Table List -->
                     <ul class="table-list">
-                        <li><i class="icofont icofont-ui-check"></i>Lorem ipsum dolor sit</li>
-                        <li><i class="icofont icofont-ui-check"></i>Cubitur sollicitudin fentum</li>
-                        <li><i class="icofont icofont-ui-check"></i>Nullam interdum enim</li>
-                        <li class="cross"><i class="icofont icofont-ui-close"></i>Donec ultricies metus</li>
-                        <li class="cross"><i class="icofont icofont-ui-close"></i>Pellentesque eget nibh</li>
+                        <li><i class="icofont icofont-ui-check"></i>Professional teeth whitening</li>
+                        <li><i class="icofont icofont-ui-check"></i>Effective whitening solutions</li>
+                        <li><i class="icofont icofont-ui-check"></i>Immediate visible results</li>
+                        <li class="cross"><i class="icofont icofont-ui-close"></i>No invasive treatments</li>
+                        <li class="cross"><i class="icofont icofont-ui-close"></i>Results may vary</li>
                     </ul>
                     <div class="table-bottom">
                         <a class="btn" href="{{ url('profile/appointment') }}">Book Now</a>
@@ -722,16 +688,16 @@
                         </div>
                         <h4 class="title">Heart Suggery</h4>
                         <div class="price">
-                            <p class="amount">$399<span>/ Per Visit</span></p>
+                            <p class="amount">Rs. 80,000</p>
                         </div>
                     </div>
                     <!-- Table List -->
                     <ul class="table-list">
-                        <li><i class="icofont icofont-ui-check"></i>Lorem ipsum dolor sit</li>
-                        <li><i class="icofont icofont-ui-check"></i>Cubitur sollicitudin fentum</li>
-                        <li><i class="icofont icofont-ui-check"></i>Nullam interdum enim</li>
-                        <li><i class="icofont icofont-ui-check"></i>Donec ultricies metus</li>
-                        <li><i class="icofont icofont-ui-check"></i>Pellentesque eget nibh</li>
+                        <li><i class="icofont icofont-ui-check"></i>Expert cardiac surgeons</li>
+                        <li><i class="icofont icofont-ui-check"></i>Advanced surgical procedures</li>
+                        <li><i class="icofont icofont-ui-check"></i>Pre-operative evaluations</li>
+                        <li><i class="icofont icofont-ui-check"></i>Post-operative rehabilitation</li>
+                        <li><i class="icofont icofont-ui-check"></i>Personalized recovery plans</li>
                     </ul>
                     <div class="table-bottom">
                         <a class="btn" href="{{ url('profile/appointment') }}">Book Now</a>
@@ -753,7 +719,7 @@
             <div class="col-lg-12">
                 <div class="section-title">
                     <h2>What Our Patients Say About Our Medical Treatments</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
+                    <p>Read testimonials of our valued patients who have experienced our medical treatments.</p>
                 </div>
             </div>
         </div>
@@ -767,7 +733,7 @@
                             <div class="date">
                                 {{ Carbon\Carbon::parse($feedback->created_at)->format('d M, Y'); }}
                             </div>
-                            <h2> {{ $feedback->patient->name }} </h2>
+                            <h2> {{ isset($feedback->patient->name) ? $feedback->patient->name : 'John Doe' }} </h2>
                             <p class="text">{{ $feedback->comments }}</p>
                         </div>
                     </div>
@@ -827,9 +793,8 @@
             <div class="col-lg-6  col-12">
                 <!-- Start Newsletter Form -->
                 <div class="subscribe-text ">
-                    <h6>Sign up for newsletter</h6>
-                    <p class="">Cu qui soleat partiendo urbanitas. Eum aperiri indoctum eu,<br> homero
-                        alterum.</p>
+                    <h6>Sign up for Newsletter</h6>
+                    <p class="">Stay informed! Subscribe to our newsletter for the latest updates, health tips.</p>
                 </div>
                 <!-- End Newsletter Form -->
             </div>
@@ -837,9 +802,7 @@
                 <!-- Start Newsletter Form -->
                 <div class="subscribe-form ">
                     <form action="mail/mail.php" method="get" target="_blank" class="newsletter-inner">
-                        <input name="EMAIL" placeholder="Your email address" class="common-input"
-                            onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your email address'"
-                            required="" type="email">
+                        <input name="EMAIL" placeholder="Your email address" class="common-input" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your email address'" required="" type="email">
                         <button class="btn">Subscribe</button>
                     </form>
                 </div>

@@ -80,7 +80,7 @@
                             <li><a href="{{ url('about') }}">About</a></li>
                             <li><a href="{{ url('/doctors') }}">Doctors</a></li>
                             <li><a href="{{ url('/contact') }}">Contact</a></li>
-                            <li><a href="{{ url('/faqs') }}">FAQ</a></li>
+                            <li><a href="{{ url('/faqs') }}">FAQs</a></li>
                         </ul>
                         <!-- End Contact -->
                     </div>
