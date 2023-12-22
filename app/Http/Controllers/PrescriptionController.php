@@ -42,9 +42,10 @@ class PrescriptionController extends Controller
             'duration' => $request->input('duration'),
             'additional_instructions' => $request->input('additional_instructions'),
         ]);
-        notify()->success('Prescription created successfully!', 'Success');
 
-        return redirect()->route('prescriptions.index');
+        // notify()->success('Prescription created successfully!', 'Success');
+
+        return redirect()->route('prescriptions.index')->with('success','Prescription created successfully!');
     }
 
     /**
@@ -58,8 +59,9 @@ class PrescriptionController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Prescription $prescription)
+    public function edit($id)
     {
+        $prescription = Prescription::find($id);
         // You can pass additional data to the view if needed
         return view('frontend.doctor.prescriptions.edit', compact('prescription'));
     }
@@ -83,7 +85,7 @@ class PrescriptionController extends Controller
 
         // Update the prescription
         $prescription->update([
-            'patient_id' => $request->input('patient_id'),
+            'user_id' => $request->input('patient_id'),
             'medicine_name' => $request->input('medicine_name'),
             'frequency' => $request->input('frequency'),
             'dosage' => $request->input('dosage'),
@@ -93,9 +95,9 @@ class PrescriptionController extends Controller
             'additional_instructions' => $request->input('additional_instructions'),
         ]);
 
-        notify()->success('Prescription updated successfully!', 'Success');
+        // notify()->success('Prescription updated successfully!', 'Success');
 
-        return redirect()->route('prescriptions.index');
+        return redirect()->route('prescriptions.index')->with('success', 'Prescription updated successfully!');
     }
     /**
      * Remove the specified resource from storage.

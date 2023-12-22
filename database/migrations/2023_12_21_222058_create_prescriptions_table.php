@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('unit');
             $table->string('frequency');
             $table->string('route_of_administration');
-            $table->string('Duration');
+            $table->string('duration');
             $table->text('additional_instructions');
             $table->timestamps();
         });

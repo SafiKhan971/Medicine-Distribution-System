@@ -19,7 +19,7 @@
                     <h6 class="h2 d-inline-block mb-0">Prescriptions</h6>
                 </div>
                 <div class="col-lg-6 col-5 text-right">
-                    <a href="{{route('prescriptions.create')}}" class="btn btn-neutral">Add New</a>
+                    <a href="{{route('prescriptions.create')}}" class="btn btn-neutral btn-sm">Add New</a>
                 </div>
             </div>
         </div>
@@ -29,7 +29,7 @@
 @section('content')
 <!-- Page content -->
 <div class="container-fluid mt--6">
-@if(session('success'))
+    @if(session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <span class="alert-text"><strong>Success!</strong> {{ session('success') }}</span>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -58,7 +58,7 @@
                             @foreach($prescriptions as $key => $prescription)
                             <tr>
                                 <td>{{ $key + 1 }}</td>
-                                <td>{{ $prescription->patient_id }}</td>
+                                <td>{{ $prescription->user_id }}</td>
                                 <td>{{ $prescription->patient->name }}</td>
                                 <td>{{ $prescription->medicine_name }}</td>
                                 <td>{{ $prescription->dosage }}</td>

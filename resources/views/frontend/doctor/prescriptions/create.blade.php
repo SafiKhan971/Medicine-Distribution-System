@@ -41,7 +41,7 @@
                             <label class="form-control-label" for="pid">
                                 Patient ID
                             </label>
-                            <input class="form-control" name="patient_id" type="text" placeholder="Enter Patient ID" id="pid">
+                            <input class="form-control" name="patient_id" type="number" placeholder="Enter Patient ID" id="pid">
                         </div>
                     </div>
 

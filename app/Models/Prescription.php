@@ -2,13 +2,25 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Prescription extends Model
 {
-    protected $guarded = []; 
+    // protected $guarded = [];
     use HasFactory;
+
+    protected $fillable = [
+        'user_id',
+        'medicine_name',
+        'frequency',
+        'dosage',
+        'unit',
+        'route_of_administration',
+        'duration',
+        'additional_instructions',
+    ];
 
     public function patient()
     {
