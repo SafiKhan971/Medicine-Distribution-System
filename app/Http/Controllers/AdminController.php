@@ -64,10 +64,18 @@ class AdminController extends Controller {
 
             // Update the admin's profile picture filename with extension in the database
             $admin->picture = $uniqueFilename;
+
+            // Update the profile picture filename in the session
+            session(['admin_picture' => $uniqueFilename]);
         }
 
         // Save changes to the admin model
         $admin->update();
+
+        // Update other admin details in the session
+        session(['admin_name' => $admin->name]);
+        session(['admin_email' => $admin->email]);
+
         return redirect()->back()->with('success', 'Admin Profile Updated Successfully.');
 
     }

@@ -70,7 +70,7 @@ class DoctorController extends Controller {
     }
 
     /**
-    * Update the user's profile information.
+    * Update the docotr's profile information.
     */
     public function profileUpdate(Request $request)
     {
@@ -103,12 +103,19 @@ class DoctorController extends Controller {
 
             // Update the doctor's profile picture filename with extension in the database
             $doctor->picture = $uniqueFilename;
+
+            // Update the profile picture filename in the session
+            session(['doctor_picture' => $uniqueFilename]);
         }
 
         // Save changes to the doctor model
         $doctor->update();
-        return redirect()->back()->with('success', 'Doctor Profile Updated Successfully.');
 
+        // Update other doctor details in the session
+        session(['doctor_name' => $doctor->name]);
+        session(['doctor_email' => $doctor->email]);
+        
+        return redirect()->back()->with('success', 'Doctor Profile Updated Successfully.');
     }
 
     public function create() {
