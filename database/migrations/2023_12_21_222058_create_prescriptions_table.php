@@ -16,13 +16,11 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('doctor_id');
             $table->string('medicine_name');
-            $table->integer('dosage');
+            $table->string('dosage');
             $table->string('unit');
             $table->string('frequency');
             $table->string('route_of_administration');
             $table->string('Duration');
-            $table->text('tests');
-            $table->text('test_results');
             $table->text('additional_instructions');
             $table->timestamps();
         });

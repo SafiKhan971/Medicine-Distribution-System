@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Prescription;
 use Illuminate\Http\Request;
 
 class PrescriptionController extends Controller
@@ -11,7 +12,9 @@ class PrescriptionController extends Controller
      */
     public function index()
     {
-        return view('frontend.doctor.prescriptions.index');
+        $prescriptions = Prescription::with('patient')->get();
+        // dd($prescriptions);
+        return view('frontend.doctor.prescriptions.index', compact('prescriptions'));
     }
 
     /**
@@ -27,7 +30,21 @@ class PrescriptionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+       Prescription::create([
+            'user_id' => $request->input('patient_id'),
+            'doctor_id' => session('doctor_id'),
+            'medicine_name' => $request->input('medicine_name'),
+            'frequency' => $request->input('frequency'),
+            'dosage' => $request->input('dosage'),
+            'unit' => $request->input('unit'),
+            'route_of_administration' => $request->input('route_of_administration'),
+            'duration' => $request->input('duration'),
+            'additional_instructions' => $request->input('additional_instructions'),
+        ]);
+        notify()->success('Prescription created successfully!', 'Success');
+
+        return redirect()->route('prescriptions.index');
     }
 
     /**
@@ -41,24 +58,55 @@ class PrescriptionController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Prescription $prescription)
     {
-        //
+        // You can pass additional data to the view if needed
+        return view('frontend.doctor.prescriptions.edit', compact('prescription'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Prescription $prescription)
     {
-        //
-    }
+        // Validate the request data
+        $request->validate([
+            'patient_id' => 'required|string',
+            'medicine_name' => 'required|string',
+            'frequency' => 'required|string',
+            'dosage' => 'required|string',
+            'unit' => 'required|string',
+            'route_of_administration' => 'required|string',
+            'duration' => 'required|string',
+            'additional_instructions' => 'nullable|string',
+        ]);
 
+        // Update the prescription
+        $prescription->update([
+            'patient_id' => $request->input('patient_id'),
+            'medicine_name' => $request->input('medicine_name'),
+            'frequency' => $request->input('frequency'),
+            'dosage' => $request->input('dosage'),
+            'unit' => $request->input('unit'),
+            'route_of_administration' => $request->input('route_of_administration'),
+            'duration' => $request->input('duration'),
+            'additional_instructions' => $request->input('additional_instructions'),
+        ]);
+
+        notify()->success('Prescription updated successfully!', 'Success');
+
+        return redirect()->route('prescriptions.index');
+    }
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Prescription $prescription)
     {
-        //
+        // Delete the prescription
+        $prescription->delete();
+        notify()->success('Prescription deleted successfully!', 'Success');
+
+        // Optionally, you can return a response or redirect to another page
+        return redirect()->route('prescriptions.index');
     }
 }

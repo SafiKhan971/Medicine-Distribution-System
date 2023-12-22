@@ -29,7 +29,14 @@
 @section('content')
 <!-- Page content -->
 <div class="container-fluid mt--6">
-    @include('flash::message')
+@if(session('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <span class="alert-text"><strong>Success!</strong> {{ session('success') }}</span>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
     <div class="row">
         <div class="col">
             <div class="card">
@@ -48,7 +55,25 @@
                         </thead>
 
                         <tbody>
-
+                            @foreach($prescriptions as $key => $prescription)
+                            <tr>
+                                <td>{{ $key + 1 }}</td>
+                                <td>{{ $prescription->patient_id }}</td>
+                                <td>{{ $prescription->patient->name }}</td>
+                                <td>{{ $prescription->medicine_name }}</td>
+                                <td>{{ $prescription->dosage }}</td>
+                                <td>{{ $prescription->duration }}</td>
+                                <td>
+                                    <!-- Add your actions here, e.g., edit, delete buttons -->
+                                    <a href="{{ route('prescriptions.edit', $prescription->id) }}" class="btn btn-sm btn-primary">Edit</a>
+                                    <form action="{{ route('prescriptions.destroy', $prescription->id) }}" method="post" style="display: inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
