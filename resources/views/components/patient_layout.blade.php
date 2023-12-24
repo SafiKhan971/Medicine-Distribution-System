@@ -145,6 +145,13 @@
                         </li>
 
                         <li class="nav-item">
+                            <a class="nav-link" href="{{url('profile/prescription')}}">
+                            <i class="ni ni-single-copy-04 text-success" aria-hidden="true"></i>
+                                <span class="nav-link-text">Prescriptions</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
                             <a class="nav-link" href="{{url('profile/feedbacks')}}">
                                 <i class="fa fa-comments text-black" aria-hidden="true"></i>
                                 <span class="nav-link-text">Feedbacks</span>

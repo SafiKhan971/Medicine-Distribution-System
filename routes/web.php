@@ -68,6 +68,9 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+Route::resource('prescriptions', PrescriptionController::class);
+Route::get('profile/prescription', [PrescriptionController::class, 'patient_index']);
+
 
 Route::group(['prefix' => 'profile', 'middleware' => ['checkLogin', 'verified']], function(){
     Route::get('/', [ProfileController::class, 'index']);
@@ -180,7 +183,8 @@ Route::group(['prefix' => 'doctor', 'middleware' => 'checkDoctor'], function(){
 
     // Video Consultation Requests
     Route::get('/video-consultation-requests', [DoctorController::class, 'getVideoConsultationRequests'])->name('doctor.consultations');
-    Route::resource('prescriptions', PrescriptionController::class);
+
+
 });
 
 // Doctor Zoom Meeting

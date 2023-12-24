@@ -176,6 +176,7 @@
                                 </div>
                                 <!-- List group -->
                                 <div class="list-group list-group-flush">
+                                    @if(!empty($doctor_notifications))
                                     @foreach($doctor_notifications as $notification)
                                     <a href="#!" class="list-group-item list-group-item-action">
                                         <div class="row align-items-center">
@@ -192,6 +193,7 @@
                                         </div>
                                     </a>
                                     @endforeach
+                                    @endif
                                 </div>
                                 <!-- View all -->
                                 {{-- <a href="{{ route('doctor.appointments') }}" class="dropdown-item text-center text-primary font-weight-bold py-3">View all</a> --}}
@@ -200,8 +202,7 @@
                     </ul>
                     <ul class="navbar-nav align-items-center ml-auto ml-md-0">
                         <li class="nav-item dropdown">
-                            <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <div class="media align-items-center">
                                     <span class="avatar avatar-sm rounded-circle">
                                         <img alt="Image placeholder" src="{{ session()->get('doctor_picture') ? asset('storage/profile_pictures/' . session()->get('doctor_picture')) : asset('BackEndAssets/assets/img/theme/team-1.jpg') }}">
@@ -220,25 +221,24 @@
                                     <span>Profile</span>
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                    <form method="POST" action="{{ route('doctor.destroy') }}">
-                                        @csrf
-                                            <a href="#!" class="dropdown-item"
-                                                onclick="event.preventDefault();
+                                <form method="POST" action="{{ route('doctor.destroy') }}">
+                                    @csrf
+                                    <a href="#!" class="dropdown-item" onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                        <i class="ni ni-user-run"></i>
-                        <span>Logout</span>
-                    </a>
-                </form>
+                                        <i class="ni ni-user-run"></i>
+                                        <span>Logout</span>
+                                    </a>
+                                </form>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </li>
-    </ul>
-    </div>
-    </div>
-    </nav>
-    <!-- Header -->
-    @yield('header')
-    <!-- Main Contenct -->
-    @yield('content')
+        </nav>
+        <!-- Header -->
+        @yield('header')
+        <!-- Main Contenct -->
+        @yield('content')
     </div>
     <!-- Argon Scripts -->
     <!-- Core -->
