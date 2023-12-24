@@ -19,7 +19,7 @@ class PrescriptionController extends Controller
          return view('frontend.doctor.prescriptions.index', compact('prescriptions'));
      }
 
-     
+
     public function patient_index()
     {
         $prescriptions = Prescription::with('doctor')->get();
@@ -119,9 +119,9 @@ class PrescriptionController extends Controller
     {
         // Delete the prescription
         $prescription->delete();
-        notify()->success('Prescription deleted successfully!', 'Success');
+        // notify()->success('Prescription deleted successfully!', 'Success');
 
         // Optionally, you can return a response or redirect to another page
-        return redirect()->route('prescriptions.index');
+        return redirect()->route('prescriptions.index')->with('success', 'Prescription deleted successfully!');
     }
 }

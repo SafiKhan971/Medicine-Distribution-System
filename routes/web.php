@@ -183,8 +183,6 @@ Route::group(['prefix' => 'doctor', 'middleware' => 'checkDoctor'], function(){
 
     // Video Consultation Requests
     Route::get('/video-consultation-requests', [DoctorController::class, 'getVideoConsultationRequests'])->name('doctor.consultations');
-
-
 });
 
 // Doctor Zoom Meeting
