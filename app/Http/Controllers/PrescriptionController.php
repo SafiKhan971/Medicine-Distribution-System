@@ -4,17 +4,27 @@ namespace App\Http\Controllers;
 
 use App\Models\Prescription;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PrescriptionController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+
+     public function index()
+     {
+         $prescriptions = Prescription::with('patient')->get();
+         // dd($prescriptions);
+         return view('frontend.doctor.prescriptions.index', compact('prescriptions'));
+     }
+
+     
+    public function patient_index()
     {
-        $prescriptions = Prescription::with('patient')->get();
+        $prescriptions = Prescription::with('doctor')->get();
         // dd($prescriptions);
-        return view('frontend.doctor.prescriptions.index', compact('prescriptions'));
+        return view('frontend.patient.prescriptions.index', compact('prescriptions'));
     }
 
     /**
@@ -51,9 +61,12 @@ class PrescriptionController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $prescriptions = Prescription::where('user_id', Auth::id())->with('doctor')->get();
+        // dd($prescription->toArray());
+        return view('frontend.patient.prescriptions.show', compact('prescriptions'));
+
     }
 
     /**
