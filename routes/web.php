@@ -32,7 +32,7 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 Route::get('/', function () {
     $pageTitle = 'Digital Clinic';
-    $feedbacks = Feedback::latest()->take(6)->get();
+    $feedbacks = Feedback::latest()->where('status', 0)->take(6)->get();
     return view('frontend/index', compact('pageTitle', 'feedbacks'));
 });
 Route::get('/contact', function () {
@@ -181,8 +181,6 @@ Route::group(['prefix' => 'doctor', 'middleware' => 'checkDoctor'], function(){
     // Video Consultation Requests
     Route::get('/video-consultation-requests', [DoctorController::class, 'getVideoConsultationRequests'])->name('doctor.consultations');
     Route::resource('prescriptions', PrescriptionController::class);
-
-
 });
 
 // Doctor Zoom Meeting
