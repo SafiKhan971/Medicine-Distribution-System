@@ -1,4 +1,4 @@
-@extends('components/admin_layout')
+@extends('backend/admin/components/admin_layout')
 @section('title', 'Digital Clinic | Past Appointments')
 @section('header')
 <!-- Header -->
