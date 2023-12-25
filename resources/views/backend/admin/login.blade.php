@@ -19,7 +19,7 @@
                     <div class="card bg-secondary border-0 mb-0">
                         <div class="card-body px-lg-5 py-lg-5">
                             <div class="text-center text-muted mb-4">
-                                <legend>Admin Login in</legend>
+                                <legend>Admin Login</legend>
                             </div>
                             @if(session('error'))
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -56,7 +56,7 @@
                                     </div>
                                 </div>
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-primary btn-sm my-4">Login in</button>
+                                    <button type="submit" class="btn btn-primary btn-sm my-4">Login</button>
                                 </div>
                             </form>
                         </div>

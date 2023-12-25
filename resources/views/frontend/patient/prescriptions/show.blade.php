@@ -1,36 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Doctor Prescription</title>
-
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-
-  <div class="container mt-5">
-    <div class="d-flex">
-      <img src="{{asset('img/dhc_logo.png')}}" style="width: 178px; height:50px" alt="">
-      <div style="margin-left:18rem;">
-      <h2 > Prescription </h2>
+@extends('components/patient_layout')
+@section('title', 'Digital Clinic | Doctor Prescription')
+@section('header')
+    <!-- Header -->
+    <div class="header pb-6">
+        <div class="container-fluid">
+            <div class="header-body">
+                <div class="row align-items-center py-4">
+                    <div class="col-lg-6 col-7">
+                        <nav aria-label="breadcrumb" class="d-none d-md-inline-block mb-3">
+                            <ol class="breadcrumb breadcrumb-links">
+                                <li class="breadcrumb-item"><a href="{{ url('/') }}"><i class="fas fa-home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="{{ url('/profile') }}">Dashboard</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">View Doctor Prescription</li>
+                            </ol>
+                        </nav>
+                        <br>
+                        <h6 class="h2 d-inline-block mb-0">View Doctor Prescription</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="row mt-4 text-center">
-    <ul>
-      @foreach($prescriptions as $prescription)
-      <li> Doctor: {{$prescription->doctor->name}} </li>
-      <li> Medicine: {{$prescription->medicine_name}} </li>
-      <li> Dosage: {{$prescription->dosage }} - {{$prescription->unit}} </li>
-      <li> Duration: {{$prescription->Duration }}</li>
-      <!-- <li> Doctor: {{$prescription->doctor->name}} </li> -->
-      @endforeach
-
-    </ul>
+@endsection
+@section('content')
+    <div class="container-fluid mt--6">
+        <div class="card mb-4">
+            <div class="card-body">
+                @foreach ($prescriptions as $prescription)
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="bp" class="form-control-label">Doctor Name</label>
+                            <input class="form-control form-control-sm" value="{{ $prescription->doctor->name }}" readonly />
+                        </div>
+                        <div class="col-md-6">
+                            <label for="bp" class="form-control-label">Medicine</label>
+                            <input class="form-control form-control-sm" value="{{ $prescription->medicine_name }}" readonly />
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="bp" class="form-control-label">Dosage</label>
+                            <input class="form-control form-control-sm" value="{{$prescription->dosage }} - {{$prescription->unit}}" readonly />
+                        </div>
+                        <div class="col-md-6">
+                            <label for="bp" class="form-control-label">Duration</label>
+                            <input class="form-control form-control-sm" value="{{ $prescription->duration }}" readonly />
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
     </div>
-  </div>
-
-  <!-- Bootstrap JS and Popper.js (Optional) -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+@endsection

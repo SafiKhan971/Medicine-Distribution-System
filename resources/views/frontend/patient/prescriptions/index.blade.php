@@ -18,7 +18,7 @@
                     <br>
                     <h6 class="h2 d-inline-block mb-0">Prescriptions</h6>
                 </div>
-                
+
             </div>
         </div>
     </div>
@@ -58,11 +58,10 @@
                                 <td>{{ $prescription->doctor->name }}</td>
                                 <td>{{ $prescription->medicine_name }}</td>
                                 <td>{{ $prescription->dosage }} - {{$prescription->unit}}</td>
-                                <td>{{ $prescription->Duration }}</td>
+                                <td>{{ $prescription->duration }}</td>
                                 <td>
                                     <!-- Add your actions here, e.g., edit, delete buttons -->
                                     <a href="{{ route('prescriptions.show', $prescription->id) }}" class="btn btn-sm btn-primary">View</a>
-                                    
                                 </td>
                             </tr>
                             @endforeach
