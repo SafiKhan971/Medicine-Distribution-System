@@ -157,6 +157,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'checkUser'], function(){
     Route::get('future-appointments', [AdminController::class, 'futureAppointments'])->name('admin.future.appointment');
     Route::get('past-appointments', [AdminController::class, 'pastAppointments'])->name('admin.past.appointment');
 
+    // Health Records
+    Route::get('health-records', [AdminController::class, 'patient_hr_index'])->name('admin.health-records');
+    Route::get('health-record/edit/{id}', [AdminController::class, 'patient_hr_edit'])->name('admin.health-record.edit');
+    Route::post('health-records/update/{user_id}', [AdminController::class, 'patient_hr_update'])->name('admin.health-record.update');
     // Feedbacks
     Route::get('feedbacks', [AdminController::class, 'feedbacks'])->name('admin.feedbacks');
     Route::post('feedbacks/approve', [AdminController::class, 'feedbackApprrove'])->name('admin.approve.feedback');

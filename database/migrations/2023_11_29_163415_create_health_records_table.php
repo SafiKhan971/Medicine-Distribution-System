@@ -15,17 +15,17 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('doctor_id')->nullable();
-            $table->longText('past_medical_condition');
-            $table->longText('present_medical_condition');
-            $table->text('medications');
+            $table->longText('past_medical_condition')->nullable();
+            $table->longText('present_medical_condition')->nullable();
+            $table->text('medications')->nullable();
             $table->integer('blood_pressure')->nullable();
             $table->integer('heart_rate')->nullable();
             $table->integer('respiratory_rate')->nullable();
             $table->integer('temprature')->nullable();
             $table->integer('weight')->nullable();
-            $table->longText('lifestyle_info');
-            $table->longText('healthcare_providers');
-            $table->longText('comments');
+            $table->longText('lifestyle_info')->nullable();
+            $table->longText('healthcare_providers')->nullable();
+            $table->longText('comments')->nullable();
             $table->timestamps();
         });
     }

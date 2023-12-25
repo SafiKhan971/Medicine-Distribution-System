@@ -27,6 +27,9 @@
         href="{{ asset('BackEndAssets/assets/vendor/datatables.net-select-bs4/css/select.bootstrap4.min.css') }}">
 
     <link href="{{ asset('BackEndAssets/zoom.js/css/zoom.css') }}" rel="stylesheet">
+
+    <!-- Tiny MCE  -->
+    <script src="https://cdn.tiny.cloud/1/yikbazui90uh2y8pdilmb6g58m0h17mdn7wpp7opiescxn58/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 </head>
 
 <body>
@@ -88,6 +91,13 @@
                             <a class="nav-link" href="{{ route('admin.past.appointment') }}">
                                 <i class="fa fa-history text-blue" aria-hidden="true"></i>
                                 <span class="nav-link-text">Past Appointments</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.health-records') }}">
+                                <i class="fa fa-medkit text-pink" aria-hidden="true"></i>
+                                <span class="nav-link-text">Health Records</span>
                             </a>
                         </li>
 
@@ -196,6 +206,16 @@
     <script src="{{ asset('BackEndAssets/assets/vendor/js-cookie/js.cookie.js') }}"></script>
     <script src="{{ asset('BackEndAssets/assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js') }}"></script>
     <script src="{{ asset('BackEndAssets/assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js') }}"></script>
+
+    <!-- Tiny MCE -->
+    <script>
+        tinymce.init({
+            selector: '#comments',
+            plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+        });
+    </script>
+
     <!-- Optional JS -->
     <script src="{{ asset('BackEndAssets/assets/vendor/chart.js/dist/Chart.min.js') }}"></script>
     <script src="{{ asset('BackEndAssets/assets/vendor/chart.js/dist/Chart.extension.js') }}"></script>

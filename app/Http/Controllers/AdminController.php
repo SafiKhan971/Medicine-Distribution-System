@@ -6,8 +6,10 @@ use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Admin;
 use App\Models\Doctor;
+use App\Models\Document;
 use App\Models\Feedback;
 use App\Models\Appointment;
+use App\Models\HealthRecord;
 use Illuminate\Http\Request;
 use App\Mail\DoctorApprovalMail;
 use App\Mail\DoctorDisapprovalMail;
@@ -23,7 +25,9 @@ class AdminController extends Controller {
         $total_doctors = Doctor::where('status', 1)->count();
         $future_appointments = Appointment::where('app_dt_start', '>=', now())->count();
         $past_appointments = Appointment::where('app_dt_start', '<', now())->count();
-        return view( 'backend.admin.index', compact('total_patients','total_doctors', 'future_appointments', 'past_appointments') );
+        $patients_health_records = HealthRecord::count();
+        $total_feedbacks = Feedback::count();
+        return view( 'backend.admin.index', compact('total_patients','total_doctors', 'future_appointments', 'past_appointments', 'patients_health_records', 'total_feedbacks') );
     }
 
     public function profile(){
@@ -318,5 +322,65 @@ class AdminController extends Controller {
         {
             return redirect()->to('admin/feedbacks')->with('error', 'something went wrong!');
         }
+    }
+
+    // Health Records
+    public function patient_hr_index()
+    {
+        $health_records = HealthRecord::all();
+        return view('backend.admin.patients_health_records.index', compact('health_records'));
+    }
+
+    public function patient_hr_edit($id)
+    {
+        $health_record = HealthRecord::where('user_id', $id)->first();
+        $documents = Document::where('health_record_id', $id)->get();
+        return view('backend.admin.patients_health_records.edit', compact('health_record', 'documents'));
+    }
+
+    public function patient_hr_update( Request $request ) {
+        $record = HealthRecord::updateOrCreate(
+            [ 'user_id' => $request->user_id ],
+            [
+                'user_id' => $request->user_id,
+                'past_medical_condition' => $request->input( 'past_medical_condition' ),
+                'present_medical_condition' => $request->input( 'present_medical_condition' ),
+                'medications' => $request->input( 'medications' ),
+                'blood_pressure' => $request->input( 'blood_pressure' ),
+                'heart_rate' => $request->input( 'heart_rate' ),
+                'respiratory_rate' => $request->input( 'respiratory_rate' ),
+                'temprature' => $request->input( 'temprature' ),
+                'weight' => $request->input( 'weight' ),
+                'lifestyle_info' => $request->input( 'lifestyle_info' ),
+                'healthcare_providers' => $request->input( 'healthcare_providers' ),
+                'comments' => $request->input( 'comments' ),
+            ]
+        );
+
+        $documentsData = $request->file( 'documents' );
+
+        if ( $documentsData && is_array( $documentsData ) && count( $documentsData ) > 0 ) {
+            foreach ( $documentsData as $documentFile ) {
+                $document = new Document;
+
+                // Generate a new unique filename
+                $documentName = pathinfo( $documentFile->getClientOriginalName(), PATHINFO_FILENAME );
+                $extension = $documentFile->getClientOriginalExtension();
+                $uniqueFilename = $documentName . '.' . $extension;
+
+                // Store the uploaded file
+                $path = $documentFile->storeAs( 'public/documents', $uniqueFilename );
+
+                $documents = Document::updateOrCreate(
+                    ['file_name' => $uniqueFilename],
+                    [
+                        'health_record_id'=> $record->id,
+                        'file_name' => $uniqueFilename
+                    ],
+                );
+            }
+        }
+
+        return redirect()->to( 'admin/health-records' )->with( 'success', 'Health Record Created/Updated Successfully!' );
     }
 }

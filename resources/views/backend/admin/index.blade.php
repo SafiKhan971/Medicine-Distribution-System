@@ -120,8 +120,28 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-2">Health Records</h5>
+                      <a href="{{ route('admin.past.appointment') }}"><span class="h2 font-weight-bold mb-0">{{ $patients_health_records }}</span>
+                    </div>
+                    <div class="col-auto">
+                      <a href="{{ route('admin.health-records') }}">
+                        <div class="icon icon-shape bg-gradient-pink text-white rounded-circle shadow">
+                          <i class="fa fa-medkit" aria-hidden="true"></i>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+              <div class="card card-stats pt-3 pb-2">
+                <!-- Card body -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-2">Total Feedbacks</h5>
-                      <a href="{{ url('admin/feedbacks') }}"><span class="h2 font-weight-bold mb-0">{{ $future_appointments }}</span>
+                      <a href="{{ url('admin/feedbacks') }}"><span class="h2 font-weight-bold mb-0">{{ $total_feedbacks }}</span>
                     </div>
                     <div class="col-auto">
                       <a href="{{ url('admin/feedbacks') }}">
