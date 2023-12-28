@@ -38,8 +38,14 @@
                     <!-- PATIENT ID -->
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label class="form-control-label" for="pid">Patient ID</label>
-                            <input class="form-control form-control-sm" name="patient_id" type="text" placeholder="Enter Patient ID" id="pid" value="{{ $prescription->user_id }}">
+                            <label class="form-control-label" for="pid">Patient</label>
+                            <select name="patient_id" class="form-control form-control-sm" id="pid">
+                                <option value="" disabled>Please Select</option>
+                                @foreach ($patients as $patient)
+                                    <option value="{{ $patient->id }}" {{ $prescription->user_id == $patient->id ? 'selected' : '' }} > {{ $patient->name }}</option>
+                                @endforeach
+                            </select>
+                            {{-- <input class="form-control form-control-sm" name="patient_id" type="text" placeholder="Enter Patient ID" id="pid" value="{{ $prescription->user_id }}"> --}}
                         </div>
                     </div>
 
@@ -54,9 +60,9 @@
                     <!-- FREQUENCY -->
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label class="form-control-label" for="frequency">Select Frequency</label>
+                            <label class="form-control-label" for="frequency">Frequency</label>
                             <select class="form-control form-control-sm" name="frequency" id="frequency">
-                                <option value="" disabled>Select a Frequency</option>
+                                <option value="" disabled>Please Select</option>
                                 <option value="Once Daily" {{ $prescription->frequency == 'Once Daily' ? 'selected' : '' }}>Once Daily</option>
                                 <option value="Twice Daily" {{ $prescription->frequency == 'Twice Daily' ? 'selected' : '' }}>Twice Daily</option>
                                 <option value="TID" {{ $prescription->frequency == 'TID' ? 'selected' : '' }}>TID</option>
@@ -76,9 +82,9 @@
                     <!-- UNIT -->
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label class="form-control-label" for="unit">Select Unit</label>
+                            <label class="form-control-label" for="unit">Unit</label>
                             <select class="form-control form-control-sm" name="unit" id="unit">
-                                <option value="" disabled>Select a unit</option>
+                                <option value="" disabled>Please Select</option>
                                 <option value="mg" {{ $prescription->unit == 'mg' ? 'selected' : '' }}>Milligrams (mg)</option>
                                 <option value="g" {{ $prescription->unit == 'g' ? 'selected' : '' }}>Grams (g)</option>
                                 <option value="mcg" {{ $prescription->unit == 'mcg' ? 'selected' : '' }}>Micrograms (mcg)</option>
@@ -91,9 +97,9 @@
                     <!-- ROUTE OF ADMINISTRATION -->
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label class="form-control-label" for="route_of_administration">Select Route of Administration</label>
+                            <label class="form-control-label" for="route_of_administration">Route of Administration</label>
                             <select class="form-control form-control-sm" name="route_of_administration" id="route_of_administration">
-                                <option value="" disabled>Select a Route of Administration</option>
+                                <option value="" disabled>Please Select</option>
                                 <option value="Oral" {{ $prescription->route_of_administration == 'Oral' ? 'selected' : '' }}>Oral</option>
                                 <option value="Injection" {{ $prescription->route_of_administration == 'Injection' ? 'selected' : '' }}>Injection</option>
                                 <option value="Topical" {{ $prescription->route_of_administration == 'Topical' ? 'selected' : '' }}>Topical</option>
@@ -104,9 +110,9 @@
                     <!-- DURATION -->
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label class="form-control-label" for="duration">Select Duration</label>
+                            <label class="form-control-label" for="duration">Duration</label>
                             <select class="form-control form-control-sm" name="duration" id="duration">
-                                <option value="" disabled>Select a Duration</option>
+                                <option value="" disabled>Please Select</option>
                                 <option value="3 Days" {{ $prescription->duration == '3 Days' ? 'selected' : '' }}>3 Days</option>
                                 <option value="7 Days" {{ $prescription->duration == '7 Days' ? 'selected' : '' }}>7 Days</option>
                                 <option value="2 Weeks" {{ $prescription->duration == '2 Weeks' ? 'selected' : '' }}>2 Weeks</option>

@@ -45,7 +45,7 @@
                         <thead class="thead-light">
                             <tr>
                                 <th>Sr.No</th>
-                                <th>Patient ID</th>
+                                {{-- <th>Patient ID</th> --}}
                                 <th>Patient Name</th>
                                 <th>Medicine Name</th>
                                 <th>Dosage</th>
@@ -58,7 +58,7 @@
                             @foreach($prescriptions as $key => $prescription)
                             <tr>
                                 <td>{{ $key + 1 }}</td>
-                                <td>{{ $prescription->user_id }}</td>
+                                {{-- <td>{{ $prescription->user_id }}</td> --}}
                                 <td>{{ $prescription->patient->name }}</td>
                                 <td>{{ $prescription->medicine_name }}</td>
                                 <td>{{ $prescription->dosage }}</td>

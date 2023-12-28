@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Prescription;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,9 +15,9 @@ class PrescriptionController extends Controller
 
      public function index()
      {
-         $prescriptions = Prescription::with('patient')->get();
-         // dd($prescriptions);
-         return view('frontend.doctor.prescriptions.index', compact('prescriptions'));
+        $prescriptions = Prescription::with('patient')->get();
+        // dd($prescriptions);
+        return view('frontend.doctor.prescriptions.index', compact('prescriptions'));
      }
 
 
@@ -32,7 +33,8 @@ class PrescriptionController extends Controller
      */
     public function create()
     {
-        return view('frontend.doctor.prescriptions.create');
+        $patients = User::all();
+        return view('frontend.doctor.prescriptions.create', compact('patients'));
     }
 
     /**
@@ -75,8 +77,9 @@ class PrescriptionController extends Controller
     public function edit($id)
     {
         $prescription = Prescription::find($id);
+        $patients = User::all();
         // You can pass additional data to the view if needed
-        return view('frontend.doctor.prescriptions.edit', compact('prescription'));
+        return view('frontend.doctor.prescriptions.edit', compact('prescription', 'patients'));
     }
 
     /**
