@@ -63,7 +63,7 @@
                                             @elseif(session('doctor_id'))
                                                 <ul class="dropdown">
                                                     <li><a href="{{ url('doctor/dashboard') }}">Dashboard</a></li>
-                                                    <form method="POST" action="{{ url('doctor/logout') }}">
+                                                    <form method="POST" action="{{ route('doctor.destroy') }}">
                                                         @csrf
                                                         <li>
                                                             <a href="#"
