@@ -84,7 +84,7 @@
                                         <td>{{($doctor->days_week == 4)? "Monday to Thursday" : "Monday to Friday"}}</td>
 
                                         <td>
-                                            <a href="{{route('profile.create.appointment')}}" class="btn btn-primary btn-sm">Get Appointment</a>
+                                            <a href="{{route('profile.appointment')}}" class="btn btn-primary btn-sm">Get Appointment</a>
                                         </td>
                                     </tr>
                                     @endforeach
