@@ -53,6 +53,12 @@
                         </div>
                         <div class="col-lg-12 col-md-12 col-12">
                             <div class="form-group">
+                                <label for="duty_timing">Duty Timing</label>
+                                <input type="text" id="duty_timing" readonly="" placeholder="From - To" value="">
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-12">
+                            <div class="form-group">
                                 <label for="app_date_time">Select Date/Time</label>
                                 <input type="datetime-local" name="app_date_time" required
                                     value=""{{ old('app_date_time') }}>
@@ -79,5 +85,24 @@
     </div>
 </section>
 <!-- End Appointment -->
+
+<script>
+    $(document).ready(function() {
+        function updateDutyTiming() {
+            var selectedDoctorId = $('#doctor').val();
+            $.ajax({
+                type: 'GET',
+                url: '/getDutyTiming/' + selectedDoctorId,
+                success: function(data) {
+                    $('#duty_timing').val(data.duty_timing);
+                },
+                error: function(error) {
+                    console.error('Error fetching duty timing:', error);
+                }
+            });
+        }
+        $('#doctor').change(updateDutyTiming);
+    });
+</script>
 
 @include('components/footer');

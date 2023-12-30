@@ -71,6 +71,7 @@ require __DIR__.'/auth.php';
 Route::resource('prescriptions', PrescriptionController::class);
 Route::get('profile/prescription', [PrescriptionController::class, 'patient_index']);
 
+Route::get('getDutyTiming/{id}', [ProfileController::class, 'getDutyTiming']);
 
 Route::group(['prefix' => 'profile', 'middleware' => ['checkLogin', 'verified']], function(){
     Route::get('/', [ProfileController::class, 'index']);

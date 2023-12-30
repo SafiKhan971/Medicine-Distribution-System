@@ -109,4 +109,16 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+
+    /**
+    * Get Doctor Duty Timings by Doctor Id.
+    */
+    public function getDutyTiming($doctor_id)
+    {
+        $doctor = Doctor::find($doctor_id);
+        $startDateTime = Carbon::parse($doctor->start_time);
+        $endDateTime = Carbon::parse($doctor->end_time);
+        $duty_timing = $startDateTime->format('h:i A') . ' - ' . $endDateTime->format('h:i A');
+        return response()->json(['duty_timing' => $duty_timing]);
+    }
 }
