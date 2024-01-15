@@ -54,6 +54,18 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
+                                <label class="form-control-label" for="email">Duty Start Time</label>
+                                <input type="time" value="{{ session()->get('doctor_start_time') }}" class="form-control form-control-sm" id="start_time" placeholder="Duty Start Time" name="start_time">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="form-control-label" for="email">Duty End Time</label>
+                                <input type="time" value="{{ session()->get('doctor_end_time') }}" class="form-control form-control-sm" id="end_time" placeholder="Duty End Time" name="end_time">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
                                 <label class="form-control-label" for="picture">Profile Picture</label>
                                 <input type="file" class="form-control form-control-sm" id="picture" accept="image/*" name="picture">
                             </div>

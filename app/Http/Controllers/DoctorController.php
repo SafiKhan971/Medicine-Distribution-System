@@ -57,6 +57,8 @@ class DoctorController extends Controller {
             request()->session()->put( 'doctor_name', $doctor->name );
             request()->session()->put( 'doctor_email', $doctor->email );
             request()->session()->put( 'doctor_picture', $doctor->picture );
+            request()->session()->put( 'doctor_start_time', $doctor->start_time );
+            request()->session()->put( 'doctor_end_time', $doctor->end_time );
             // flash( 'Logged In Successfully!' )->success();
             return redirect( 'doctor/dashboard' )->with('success','Logged In Successfully!');
         } else {
@@ -83,6 +85,8 @@ class DoctorController extends Controller {
         // Update Doctor details
         $doctor->name = $request->input('name');
         $doctor->email = $request->input('email');
+        $doctor->start_time = $request->input('start_time');
+        $doctor->end_time = $request->input('end_time');
 
         // Handle Picture Update
         if ($request->hasFile('picture')) {
@@ -114,7 +118,9 @@ class DoctorController extends Controller {
         // Update other doctor details in the session
         session(['doctor_name' => $doctor->name]);
         session(['doctor_email' => $doctor->email]);
-        
+        session(['doctor_start_time' => $doctor->start_time]);
+        session(['doctor_end_time' => $doctor->end_time]);
+
         return redirect()->back()->with('success', 'Doctor Profile Updated Successfully.');
     }
 
