@@ -157,6 +157,13 @@
                                 <span class="nav-link-text">Feedbacks</span>
                             </a>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url('profile/tracker')}}">
+                                <i class="fa fa-comments text-black" aria-hidden="true"></i>
+                                <span class="nav-link-text">Health Tracker</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>

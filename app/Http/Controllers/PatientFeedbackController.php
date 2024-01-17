@@ -6,7 +6,7 @@ use App\Models\Feedback;
 use Illuminate\Http\Request;
 
 class PatientFeedbackController extends Controller {
-    
+
     public function index() {
         $feedbacks = Feedback::where( 'user_id', auth()->user()->id )->get();
         return view( 'frontend.patient.feedbacks.index', compact('feedbacks') );
@@ -40,7 +40,7 @@ class PatientFeedbackController extends Controller {
 
     public function update( Request $request , $id ) {
         $feedback = Feedback::find( $id );
-        
+
         // Validate the request data
         $request->validate( [
             'comments' => 'required|string|max:191',

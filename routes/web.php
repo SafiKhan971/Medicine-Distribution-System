@@ -5,17 +5,18 @@ use App\Models\Feedback;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HealthTracker;
 use App\Http\Controllers\SearchDoctors;
+use App\Http\Controllers\ZoomController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DoctorController;
-use App\Http\Controllers\ZoomController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\HealthRecordController;
+use App\Http\Controllers\PrescriptionController;
 use App\Http\Controllers\DoctorFeedbackController;
 use App\Http\Controllers\Auth\GoogleAuthController;
 use App\Http\Controllers\PatientFeedbackController;
-use App\Http\Controllers\PrescriptionController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 
@@ -90,6 +91,8 @@ Route::group(['prefix' => 'profile', 'middleware' => ['checkLogin', 'verified']]
     Route::post('video-call-request', [AppointmentController::class, 'video_call'])->name('profile.store.call_request');
 
     Route::get('search-for-doctors', [SearchDoctors::class, 'index'])->name('search-doctor.index');
+
+    Route::get('tracker', [HealthTracker::class, 'index'])->name('profile.tracker');
 
     // Patient Feedback
     Route::get('feedbacks', [PatientFeedbackController::class, 'index'])->name('profile.feedbacks');
