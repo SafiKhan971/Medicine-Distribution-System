@@ -21,4 +21,10 @@ class SearchDoctors extends Controller
         // $doctors = Doctor::all();
         return view('frontend.patient.doctors.index', compact('doctors'));
     }
+
+    public function view($doctor_id)
+    {
+        $doctor = Doctor::find($doctor_id);
+        return view('frontend.patient.doctors.view', compact('doctor'));
+    }
 }

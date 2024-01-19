@@ -85,6 +85,7 @@
 
                                         <td>
                                             <a href="{{route('profile.appointment')}}" class="btn btn-primary btn-sm">Get Appointment</a>
+                                            <a href="{{route('profile.doctor.view', ['id' =>$doctor->id ])}}" class="btn btn-dark btn-sm">View Doctor Profile</a>
                                         </td>
                                     </tr>
                                     @endforeach

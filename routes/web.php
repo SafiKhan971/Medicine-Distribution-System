@@ -75,6 +75,10 @@ Route::get('profile/prescription', [PrescriptionController::class, 'patient_inde
 Route::get('getDutyTiming/{id}', [ProfileController::class, 'getDutyTiming']);
 
 Route::group(['prefix' => 'profile', 'middleware' => ['checkLogin', 'verified']], function(){
+    // Health tracker
+    Route::get('google/login', [ProfileController::class, 'redirectToGoogle']);
+    Route::get('google/login/callback', [ProfileController::class, 'handleGoogleCallback']);
+
     Route::get('/', [ProfileController::class, 'index']);
     Route::get('basic-information', [ProfileController::class, 'basic_info']);
     Route::get('future-appointments', [AppointmentController::class, 'futureAppointments'])->middleware('checkLogin');
@@ -91,6 +95,8 @@ Route::group(['prefix' => 'profile', 'middleware' => ['checkLogin', 'verified']]
     Route::post('video-call-request', [AppointmentController::class, 'video_call'])->name('profile.store.call_request');
 
     Route::get('search-for-doctors', [SearchDoctors::class, 'index'])->name('search-doctor.index');
+
+    Route::get('doctor/view/{id}', [SearchDoctors::class, 'view'])->name('profile.doctor.view');
 
     Route::get('tracker', [HealthTracker::class, 'index'])->name('profile.tracker');
 

@@ -126,6 +126,26 @@
                 </div>
             </div>
         </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="card card-stats pt-3 pb-2">
+                <!-- Card body -->
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <h5 class="card-title text-uppercase text-muted mb-2">Total Prescriptions</h5>
+                            <span class="h2 font-weight-bold mb-0">{{ $total_prescriptions }}</span>
+                        </div>
+                        <div class="col-auto">
+                            <a href="{{ route('profile.health-records') }}">
+                                <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
+                                    <i class="ni ni-single-copy-04" aria-hidden="true"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- Footer -->
     <footer class="footer pt-0 mt-5">

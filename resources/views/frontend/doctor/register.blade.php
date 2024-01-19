@@ -191,7 +191,7 @@
                     </legend>
                     <div class="form-group">
                         <label for="days_week" class="form-label required">Days Of week</label>
-                        <input type="text" min="0" name="days_week" id="days_week" placeholder="Days Of week" />
+                        <input type="text" min="0" max="7" name="days_week" id="days_week" placeholder="Days Of week" />
                     </div>
 
                     <div class="form-group">

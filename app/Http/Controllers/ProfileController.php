@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Doctor;
@@ -9,32 +10,33 @@ use App\Models\Feedback;
 use Illuminate\View\View;
 use App\Models\Appointment;
 use App\Models\HealthRecord;
+use App\Models\Prescription;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
+use Laravel\Socialite\Facades\Socialite;
 use App\Http\Requests\ProfileUpdateRequest;
 
-class ProfileController extends Controller
-{
-    public function index()
-    {
+class ProfileController extends Controller {
+    public function index() {
         $total_doctors = Doctor::count();
-        $patient = User::find(auth()->user()->id);
+        $patient = User::find( auth()->user()->id );
         $currentDate = Carbon::now();
-        $future_appointments = Appointment::where('user_id', $patient->id)->where('app_dt_start', '>=', $currentDate)->count();
-        $past_appointments = Appointment::where('user_id', $patient->id)->where('app_dt_start', '<', $currentDate)->count();
-        $total_feedbacks = Feedback::where('user_id', $patient->id)->count();
-        $total_health_records = HealthRecord::where('user_id', $patient->id)->count();
-        return view('frontend.patient.index',  compact('total_doctors', 'future_appointments', 'past_appointments', 'total_feedbacks', 'total_health_records'));
+        $future_appointments = Appointment::where( 'user_id', $patient->id )->where( 'app_dt_start', '>=', $currentDate )->count();
+        $past_appointments = Appointment::where( 'user_id', $patient->id )->where( 'app_dt_start', '<', $currentDate )->count();
+        $total_feedbacks = Feedback::where( 'user_id', $patient->id )->count();
+        $total_health_records = HealthRecord::where( 'user_id', $patient->id )->count();
+        $total_prescriptions = Prescription::where( 'user_id', $patient->id )->count();
+        return view( 'frontend.patient.index',  compact( 'total_doctors', 'future_appointments', 'past_appointments', 'total_feedbacks', 'total_health_records', 'total_prescriptions' ) );
     }
 
-    public function basic_info()
-    {
-        return view('frontend.patient.basic_information.index');
+    public function basic_info() {
+        return view( 'frontend.patient.basic_information.index' );
     }
     /**
-     * Display the user's profile form.
+    * Display the user's profile form.
      */
     public function edit(Request $request): View
     {
@@ -45,39 +47,39 @@ class ProfileController extends Controller
 
     /**
      * Update the user's profile information.
-     */
-    public function update(Request $request)
-    {
-        $request->validate([
-            'picture' => 'image|mimes:jpeg,png,jpg|max:2048', // Adjust file type and size as needed
-        ]);
+    */
 
-        $user = User::find(auth()->user()->id);
+    public function update( Request $request ) {
+        $request->validate( [
+            'picture' => 'image|mimes:jpeg,png,jpg|max:2048', // Adjust file type and size as needed
+        ] );
+
+        $user = User::find( auth()->user()->id );
 
         // Update user details
-        $user->name = $request->input('fullname');
-        $user->email = $request->input('email');
-        $user->phone = $request->input('phone');
-        $user->address = $request->input('address');
-        $user->gender = $request->input('gender');
-        $user->dob = $request->input('dob');
+        $user->name = $request->input( 'fullname' );
+        $user->email = $request->input( 'email' );
+        $user->phone = $request->input( 'phone' );
+        $user->address = $request->input( 'address' );
+        $user->gender = $request->input( 'gender' );
+        $user->dob = $request->input( 'dob' );
 
         // Handle Picture Update
-        if ($request->hasFile('picture')) {
-            $file = $request->file('picture');
+        if ( $request->hasFile( 'picture' ) ) {
+            $file = $request->file( 'picture' );
 
-            // Check if the file size is greater than 2048 kilobytes (2 MB)
-            if ($file->getSize() > 2048 * 1024) {
-                return redirect()->back()->withErrors(['picture' => 'The image size must not exceed 500 KB.']);
+            // Check if the file size is greater than 2048 kilobytes ( 2 MB )
+            if ( $file->getSize() > 2048 * 1024 ) {
+                return redirect()->back()->withErrors( [ 'picture' => 'The image size must not exceed 500 KB.' ] );
             }
 
             // Generate a new unique filename
-            $filename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+            $filename = pathinfo( $file->getClientOriginalName(), PATHINFO_FILENAME );
             $extension = $file->getClientOriginalExtension();
             $uniqueFilename = $filename . '.' . $extension;
 
             // Store the uploaded file in the storage/app/public directory with the new unique filename
-            $path = $file->storeAs('public/profile_pictures', $uniqueFilename);
+            $path = $file->storeAs( 'public/profile_pictures', $uniqueFilename );
 
             // Update the user's profile picture filename with extension in the database
             $user->picture = $uniqueFilename;
@@ -91,34 +93,57 @@ class ProfileController extends Controller
 
     /**
      * Delete the user's account.
-     */
-    public function destroy(Request $request): RedirectResponse
-    {
-        $request->validateWithBag('userDeletion', [
-            'password' => ['required', 'current_password'],
-        ]);
+            */
 
-        $user = $request->user();
+            public function destroy( Request $request ): RedirectResponse {
+                $request->validateWithBag( 'userDeletion', [
+                    'password' => [ 'required', 'current_password' ],
+                ] );
 
-        Auth::logout();
+                $user = $request->user();
 
-        $user->delete();
+                Auth::logout();
 
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
+                $user->delete();
 
-        return Redirect::to('/');
-    }
+                $request->session()->invalidate();
+                $request->session()->regenerateToken();
 
-    /**
-    * Get Doctor Duty Timings by Doctor Id.
-    */
-    public function getDutyTiming($doctor_id)
-    {
-        $doctor = Doctor::find($doctor_id);
-        $startDateTime = Carbon::parse($doctor->start_time);
-        $endDateTime = Carbon::parse($doctor->end_time);
-        $duty_timing = $startDateTime->format('h:i A') . ' - ' . $endDateTime->format('h:i A');
-        return response()->json(['duty_timing' => $duty_timing]);
-    }
-}
+                return Redirect::to( '/' );
+            }
+
+            /**
+            * Get Doctor Duty Timings by Doctor Id.
+            */
+
+            public function getDutyTiming( $doctor_id ) {
+                $doctor = Doctor::find( $doctor_id );
+                $startDateTime = Carbon::parse( $doctor->start_time );
+                $endDateTime = Carbon::parse( $doctor->end_time );
+                $duty_timing = $startDateTime->format( 'h:i A' ) . ' - ' . $endDateTime->format( 'h:i A' );
+                return response()->json( [ 'duty_timing' => $duty_timing ] );
+            }
+
+            // Health Tracker
+
+            public function redirectToGoogle() {
+                return Socialite::driver( 'google' )
+                // ->scopes( [ 'https://www.googleapis.com/auth/fitness.activity.read' ] )
+                ->redirect();
+            }
+
+            public function handleGoogleCallback() {
+                try {
+                    $user = Socialite::driver( 'google' )->user();
+                    // dd( $user );
+                    session()->put( 'user_name', $user->name );
+                    session()->put( 'user_email', $user->email );
+                    session()->put( 'user_access_token', $user->token );
+                    session()->put( 'user_access_token_expiresIn', $user->expiresIn );
+                    return redirect( 'profile/tracker/view' );
+                } catch ( Exception $e ) {
+                    Session::flash( 'error', $e->getMessage() );
+                    return redirect()->to( '/profile/tracker' );
+                }
+            }
+        }

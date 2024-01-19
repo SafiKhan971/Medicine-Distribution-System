@@ -1,63 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('components/patient_layout')
+@section('title', 'Digital Clinic | Patient Dashboard')
+@section('header')
+<!-- Header -->
+<div class="header pb-6">
+    <div class="container-fluid">
+        <div class="header-body">
+            <div class="row align-items-center py-4">
+                <div class="col-lg-6 col-7">
+                    <nav aria-label="breadcrumb" class="d-none d-md-inline-block mb-3">
+                        <ol class="breadcrumb breadcrumb-links">
+                            <li class="breadcrumb-item"><a href="{{ url('/') }}"><i class="fas fa-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="{{ url('/profile') }}">Dashboard</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Patient Google Fit</li>
+                        </ol>
+                    </nav>
+                    <br>
+                    <h6 class="h2 d-inline-block mb-0">Patient Google Fit</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+@section('content')
+    <!-- Page content -->
+    <div class="container-fluid mt--6 h-100">
+        @if (Session::has('error'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{ Session::get('error') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google Fit API Example</title>
-    <!-- Include axios library -->
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-</head>
-
-<body>
-
-    <!-- Your login button -->
-    <button onclick="signIn()">Sign In with Google</button>
-
-    <!-- Include Google Sign-In script -->
-    <script src="https://apis.google.com/js/platform.js" async defer onload="onGoogleApiLoad()"></script>
-
-    <script>
-        function onGoogleApiLoad() {
-            // Load the 'auth2' library and initialize it
-            gapi.load('auth2', function() {
-                gapi.auth2.init({
-                    client_id: '1086426060806-2cogeee3s00e4jopq10l1e7jmo3dhs24.apps.googleusercontent.com',
-                }).then(function() {
-                    console.log('Google API loaded and initialized.');
-                });
-            });
-        }
-
-        function signIn() {
-            gapi.auth2.getAuthInstance().signIn().then(
-                function(googleUser) {
-                    var accessToken = googleUser.getAuthResponse().id_token;
-                    fetchFitData(accessToken);
-                },
-                function(error) {
-                    console.error('Error signing in:', error);
-                }
-            );
-        }
-
-        function fetchFitData(accessToken) {
-            // Make API requests using the access token.
-            axios.get('https://www.googleapis.com/fitness/v1/users/me/dataSources', {
-                    headers: {
-                        'Authorization': 'Bearer ' + accessToken,
-                    },
-                })
-                .then(response => {
-                    // Handle the fetched fitness data.
-                    console.log('Fitness Data:', response.data);
-                })
-                .catch(error => {
-                    console.error('Error fetching fitness data:', error);
-                });
-        }
-    </script>
-
-</body>
-
-</html>
+        <a href="{{ url('profile/google/login') }}" class="btn btn-primary btn-sm">View Google Fit Data</a>
+    </div>
+@endsection
