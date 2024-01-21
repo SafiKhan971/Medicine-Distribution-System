@@ -37,7 +37,9 @@
                             </div>
                             <div class="t-bottom">
                                 <p>{{ $doctor->specialization }}</p>
-                                <h2><a href="#">{{ $doctor->name }}</a></h2>
+                                <a title="Click to View Doctor Profile" href="{{ route('profile.doctor.view', ['id' => $doctor->id ]) }}">
+                                    <h2>{{ $doctor->name }}</h2>
+                                </a>
                             </div>
                         </div>
                     </div>

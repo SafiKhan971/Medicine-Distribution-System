@@ -78,27 +78,25 @@
                             <input type="text" class="form-control form-control-sm" id="name"
                                 value="{{ ucwords($doctor['gender']) }}">
                         </div>
-                        {{-- <div class="col-md-3">
-                            <div class="form-group">
-                                <a href="#" id="nationality" class="btn btn-outline-primary btn-sm"
-                                    value="{{ $doctor['profile_picture'] }}">View Profile Picture</a>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <a href="#" id="nationality" class="btn btn-outline-primary btn-sm"
-                                    value="{{ $doctor['medical_license_picture'] }}">View Medical License Picture</a>
-                            </div>
-                        </div> --}}
                         <div class="col-md-3 mt-lg-3">
                             <label class="form-control-label" for="profile_picture">Profile Picture</label>
-                            <img src="{{ asset('storage/doctorfiles/' . $doctor['profile_picture']) }}" width="50px"
-                                height="50px" alt="" data-action="zoom">
+                            {{-- <img src="{{ asset('storage/doctorfiles/' . $doctor['profile_picture']) }}" width="50px"
+                                height="50px" alt="" data-action="zoom"> --}}
+                            <a href="{{ asset('storage/doctorfiles/' . $doctor['profile_picture']) }}" data-fancybox
+                                target="_blank">
+                                <img src="{{ asset('storage/doctorfiles/' . $doctor['profile_picture']) }}" width="50px"
+                                    height="50px" alt="{{ $doctor['profile_picture'] }}">
+                            </a>
                         </div>
                         <div class="col-md-3 mt-lg-3">
                             <label class="form-control-label" for="medical_license_picture">Medical License</label>
-                            <img src="{{ asset('storage/doctorfiles/' . $doctor['medical_license_picture']) }}"
-                                width="50px" height="50px" alt="" data-action="zoom">
+                            {{-- <img src="{{ asset('storage/doctorfiles/' . $doctor['medical_license_picture']) }}"
+                                width="50px" height="50px" alt="" data-action="zoom"> --}}
+                            <a href="{{ asset('storage/doctorfiles/' . $doctor['medical_license_picture']) }}"
+                                data-fancybox target="_blank">
+                                <img src="{{ asset('storage/doctorfiles/' . $doctor['medical_license_picture']) }}"
+                                    width="50px" height="50px" alt="{{ $doctor['medical_license_picture'] }}">
+                            </a>
                         </div>
                     </div>
                 </div>

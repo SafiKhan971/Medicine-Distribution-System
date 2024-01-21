@@ -273,6 +273,9 @@
     <script src="{{ asset('BackEndAssets/assets/vendor/datatables.net-select/js/dataTables.select.min.js') }}"></script>
     <script src="{{ asset('BackEndAssets/assets/vendor/quill/dist/quill.min.js') }}"></script>
 
+    <!-- Fancy Js -->
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
 
     <!-- Argon JS -->
     <script src="{{ asset('BackEndAssets/assets/js/argon.js?v=1.1.0') }}"></script>
