@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HealthTracker;
 use App\Http\Controllers\SearchDoctors;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ZoomController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DoctorController;
@@ -171,10 +172,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'checkUser'], function(){
     Route::get('health-records', [AdminController::class, 'patient_hr_index'])->name('admin.health-records');
     Route::get('health-record/edit/{id}', [AdminController::class, 'patient_hr_edit'])->name('admin.health-record.edit');
     Route::post('health-records/update/{user_id}', [AdminController::class, 'patient_hr_update'])->name('admin.health-record.update');
+
     // Feedbacks
     Route::get('feedbacks', [AdminController::class, 'feedbacks'])->name('admin.feedbacks');
     Route::post('feedbacks/approve', [AdminController::class, 'feedbackApprrove'])->name('admin.approve.feedback');
     Route::post('feedbacks/disapprove', [AdminController::class, 'feedbackDisapprrove'])->name('admin.disapprove.feedback');
+
+    // Blogs
+    Route::resource('blogs', BlogController::class);
 });
 
 Route::group(['prefix' => 'doctor', 'middleware' => 'checkDoctor'], function(){

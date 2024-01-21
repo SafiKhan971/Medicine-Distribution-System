@@ -9,4 +9,10 @@ class Admin extends Model
 {
     use HasFactory;
     public $timestamps = false;
+
+    // Blog relation
+    public function blogs()
+    {
+        return $this->hasMany(Blog::class, 'admin_id');
+    }
 }
