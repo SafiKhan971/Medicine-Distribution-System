@@ -75,8 +75,9 @@ class BlogController extends Controller {
     * Show the form for editing the specified resource.
     */
 
-    public function edit( Blog $blog ) {
-        //
+    public function edit( $id ) {
+        $blog = Blog::find($id);
+        return view( 'backend.admin.blog.update', compact('blog'));
     }
 
     /**

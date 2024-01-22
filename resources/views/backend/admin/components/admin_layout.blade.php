@@ -107,6 +107,13 @@
                                 <span class="nav-link-text">Feedbacks</span>
                             </a>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('admin/blogs') }}">
+                                <i class="fa fa-desktop text-info" aria-hidden="true"></i>
+                                <span class="nav-link-text">Blogs</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>

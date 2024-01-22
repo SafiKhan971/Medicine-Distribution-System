@@ -27,7 +27,8 @@ class AdminController extends Controller {
         $past_appointments = Appointment::where('app_dt_start', '<', now())->count();
         $patients_health_records = HealthRecord::count();
         $total_feedbacks = Feedback::count();
-        return view( 'backend.admin.index', compact('total_patients','total_doctors', 'future_appointments', 'past_appointments', 'patients_health_records', 'total_feedbacks') );
+        $total_blogs = Feedback::count();
+        return view( 'backend.admin.index', compact('total_patients','total_doctors', 'future_appointments', 'past_appointments', 'patients_health_records', 'total_feedbacks', 'total_blogs' ) );
     }
 
     public function profile(){
