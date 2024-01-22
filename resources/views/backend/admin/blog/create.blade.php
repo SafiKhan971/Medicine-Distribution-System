@@ -56,7 +56,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label class="form-control-label" for="image">Image</label>
-                                <input class="form-control form-control-sm" type="file" name="image" id="image" accept="image/*">
+                                <input class="form-control form-control-file" type="file" name="image" id="image" accept="image/*">
                                 @error('image')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror

@@ -76,8 +76,8 @@ class BlogController extends Controller {
     */
 
     public function edit( $id ) {
-        $blog = Blog::find($id);
-        return view( 'backend.admin.blog.update', compact('blog'));
+        $blog = Blog::find( $id );
+        return view( 'backend.admin.blog.update', compact( 'blog' ) );
     }
 
     /**
@@ -85,7 +85,38 @@ class BlogController extends Controller {
     */
 
     public function update( Request $request, Blog $blog ) {
-        //
+        // Validate the request data
+        $validator = Validator::make( $request->all(), [
+            'title' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg',
+        ] );
+
+        // If validation fails, redirect back with validation errors
+        if ( $validator->fails() ) {
+            return redirect()->back()
+            ->withErrors( $validator )
+            ->withInput();
+        }
+
+        // Validation passed, create the blog post
+
+        $image_name = null;
+
+        if ( $request->hasFile( 'image' ) ) {
+            $image = $request->file( 'image' );
+            $image->storeAs( 'public/blogimages', $image->getClientOriginalName() );
+            $image_name = $image->getClientOriginalName();
+        }
+
+        $blog->update( [
+            'title' => $request->input( 'title' ),
+            'content' => $request->input( 'content' ),
+            'admin_id' => session( 'admin_id' ),
+            'image' => $image_name,
+        ] );
+
+        // Redirect with a success message
+        return redirect()->route( 'blogs.index' )->with( 'success', 'Blog updated successfully!' );
     }
 
     /**
@@ -93,6 +124,10 @@ class BlogController extends Controller {
     */
 
     public function destroy( Blog $blog ) {
-        //
+
+        $blog->delete();
+
+        // Redirect with a success message
+        return redirect()->route( 'blogs.index' )->with( 'success', 'Blog deleted successfully!' );
     }
 }
