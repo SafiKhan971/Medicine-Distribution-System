@@ -23,6 +23,7 @@
                                     <li><a href="{{ url('about') }}">About </a></li>
                                     <li><a href="{{ url('faqs') }}">FAQs </a></li>
                                     <li><a href="{{ url('doctors') }}">Doctors </a></li>
+                                    <li><a href="{{ url('blogs') }}">Blogs </a></li>
                                     <li class="mr-5"><a href="{{ url('/contact') }}">Contact </a></li>
                                     @if (auth()->guard('web')->check() || session('admin_id') || session('doctor_id'))
                                         <li class="ml-5">

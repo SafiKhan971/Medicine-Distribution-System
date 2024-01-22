@@ -100,8 +100,6 @@ class BlogController extends Controller {
 
         // Validation passed, create the blog post
 
-        $image_name = null;
-
         if ( $request->hasFile( 'image' ) ) {
             $image = $request->file( 'image' );
             $image->storeAs( 'public/blogimages', $image->getClientOriginalName() );

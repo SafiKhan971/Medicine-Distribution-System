@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Blog;
 use App\Models\Doctor;
 use App\Models\Feedback;
 use Illuminate\Http\Request;
@@ -45,6 +46,16 @@ Route::get('/doctors', function () {
     $pageTitle = 'Digital Clinic | Doctors';
     $doctors = Doctor::orderBy('name', 'asc')->take(6)->get();
     return view('frontend/doctors', compact('doctors', 'pageTitle'));
+});
+Route::get('/blogs', function () {
+    $pageTitle = 'Digital Clinic | Blogs';
+    $blogs = Blog::orderBy('title', 'asc')->take(6)->get();
+    return view('frontend/blogs', compact('blogs', 'pageTitle'));
+});
+Route::get('/blog/{slug}', function ($blog_slug) {
+    $blog = Blog::where('slug', $blog_slug)->first();
+    $pageTitle = 'Digital Clinic | '. $blog->title;
+    return view('frontend/blog_single', compact('blog', 'pageTitle'));
 });
 Route::get('/timetable', function () {
     $pageTitle = 'Digital Clinic | Timetable';
