@@ -56,7 +56,7 @@ class DoctorController extends Controller {
             // dd($id);
             request()->session()->put( 'doctor_name', $doctor->name );
             request()->session()->put( 'doctor_email', $doctor->email );
-            request()->session()->put( 'doctor_picture', $doctor->picture );
+            request()->session()->put( 'doctor_picture', $doctor->profile_picture );
             request()->session()->put( 'doctor_start_time', $doctor->start_time );
             request()->session()->put( 'doctor_end_time', $doctor->end_time );
             // flash( 'Logged In Successfully!' )->success();
@@ -77,7 +77,7 @@ class DoctorController extends Controller {
     public function profileUpdate(Request $request)
     {
         $request->validate([
-            'picture' => 'image|mimes:jpeg,png,jpg|max:2048', // Adjust file type and size as needed
+            'profile_picture' => 'image|mimes:jpeg,png,jpg|max:2048', // Adjust file type and size as needed
         ]);
 
         $doctor = Doctor::find(session()->get('doctor_id'));
@@ -89,12 +89,12 @@ class DoctorController extends Controller {
         $doctor->end_time = $request->input('end_time');
 
         // Handle Picture Update
-        if ($request->hasFile('picture')) {
-            $file = $request->file('picture');
+        if ($request->hasFile('profile_picture')) {
+            $file = $request->file('profile_picture');
 
             // Check if the file size is greater than 2048 kilobytes (2 MB)
             if ($file->getSize() > 2048 * 1024) {
-                return redirect()->back()->withErrors(['picture' => 'The image size must not exceed 500 KB.']);
+                return redirect()->back()->withErrors(['profile_picture' => 'The image size must not exceed 500 KB.']);
             }
 
             // Generate a new unique filename
@@ -106,7 +106,7 @@ class DoctorController extends Controller {
             $path = $file->storeAs('public/profile_pictures', $uniqueFilename);
 
             // Update the doctor's profile picture filename with extension in the database
-            $doctor->picture = $uniqueFilename;
+            $doctor->profile_picture = $uniqueFilename;
 
             // Update the profile picture filename in the session
             session(['doctor_picture' => $uniqueFilename]);
@@ -120,6 +120,7 @@ class DoctorController extends Controller {
         session(['doctor_email' => $doctor->email]);
         session(['doctor_start_time' => $doctor->start_time]);
         session(['doctor_end_time' => $doctor->end_time]);
+        session(['doctor_picture' => $doctor->profile_picture]);
 
         return redirect()->back()->with('success', 'Doctor Profile Updated Successfully.');
     }

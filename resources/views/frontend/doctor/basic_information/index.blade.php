@@ -66,11 +66,11 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label class="form-control-label" for="picture">Profile Picture</label>
-                                <input type="file" class="form-control form-control-sm" id="picture" accept="image/*" name="picture">
+                                <label class="form-control-label" for="profile_picture">Profile Picture</label>
+                                <input type="file" class="form-control form-control-sm" id="profile_picture" accept="image/*" name="profile_picture">
                             </div>
 
-                            @error('picture')
+                            @error('profile_picture')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
