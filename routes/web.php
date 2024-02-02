@@ -142,7 +142,7 @@ Route::get('auth/google/callback', [GoogleAuthController::class, 'handleGoogleCa
 Route::get('admin/login', [AdminController::class, 'login'])->middleware('checkAdminLogin')->name('admin.login');
 Route::post('admin/login', [AdminController::class, 'store']);
 
-Route::get('doctor/login', [DoctorController::class, 'login'])->name('doctor.login');
+Route::get('doctor/login', [DoctorController::class, 'login'])->middleware('checkDoctorLogin')->name('doctor.login');
 Route::post('doctor/login', [DoctorController::class, 'store']);
 
 Route::get('doctor/register', [DoctorController::class, 'create']);
@@ -152,7 +152,7 @@ Route::post('doctor/registration', [DoctorController::class, 'register']);
 Route::post('admin/logout', [AdminController::class, 'destroy'])->name('admin.logout');
 
 
-Route::group(['prefix' => 'admin', 'middleware' => 'checkUser'], function(){
+Route::group(['prefix' => 'admin', 'middleware' => 'checkAdmin'], function(){
     Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::get('profile', [AdminController::class, 'profile'])->name('admin.profile');
     Route::post('profile/update', [AdminController::class, 'profileUpdate'])->name('admin.profile.update');

@@ -87,16 +87,6 @@
                         </ul>
                         <!-- End Contact -->
                     </div>
-                    <div class="col-lg-6 col-md-7 col-12">
-                        <!-- Top Contact -->
-                        <ul class="top-contact">
-                            <li><i class="fa fa-phone"></i><a
-                                    href="tel:+92 1234 56789">+92 1234 56789</a></li>
-                            <li><i class="fa fa-envelope"></i><a
-                                    href="mailto:info@digitalclinic.com">info@digitalclinic.com</a></li>
-                        </ul>
-                        <!-- End Top Contact -->
-                    </div>
                 </div>
             </div>
         </div>

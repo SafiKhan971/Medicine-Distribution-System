@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 
-class checkUser
+class checkAdmin
 {
     /**
      * Handle an incoming request.

@@ -98,43 +98,6 @@
                 </div>
             </div>
         </div>
-        <div class="contact-info">
-            <div class="row">
-                <!-- single-info -->
-                <div class="col-lg-4 col-12 ">
-                    <div class="single-info">
-                        <i class="icofont icofont-ui-call"></i>
-                        <div class="content">
-                            <h3>+(92) 1234 56789</h3>
-                            <p>info@digitalclinic.com</p>
-                        </div>
-                    </div>
-                </div>
-                <!--/End single-info -->
-                <!-- single-info -->
-                <div class="col-lg-4 col-12 ">
-                    <div class="single-info">
-                        <i class="icofont-google-map"></i>
-                        <div class="content">
-                            <h3>Lahore</h3>
-                            <p>Lahore, Punjab</p>
-                        </div>
-                    </div>
-                </div>
-                <!--/End single-info -->
-                <!-- single-info -->
-                <div class="col-lg-4 col-12 ">
-                    <div class="single-info">
-                        <i class="icofont icofont-wall-clock"></i>
-                        <div class="content">
-                            <h3>Mon - Sat: 8am - 5pm</h3>
-                            <p>Sunday Closed</p>
-                        </div>
-                    </div>
-                </div>
-                <!--/End single-info -->
-            </div>
-        </div>
     </div>
 </section>
 <!--/ End Contact Us -->
