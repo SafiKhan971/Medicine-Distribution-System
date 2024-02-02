@@ -82,7 +82,7 @@
                                 {{-- <span>Lorem Amet</span> --}}
                                 <h4>Rapid Emergency Response</h4>
                                 <p>Our dedicated team is committed to providing immediate and effective emergency assistance.</p>
-                                <a href="#">LEARN MORE<i class="fa fa-long-arrow-right"></i></a>
+                                {{-- <a href="#">LEARN MORE<i class="fa fa-long-arrow-right"></i></a> --}}
                             </div>
                         </div>
                     </div>
@@ -98,7 +98,7 @@
                                 {{-- <span>Fusce Porttitor</span> --}}
                                 <h4>Explore Doctors' Timetable</h4>
                                 <p>Discover the schedule of our dedicated medical professionals. Professionals has a carefully curated schedule.</p>
-                                <a href="{{ url('/timetable') }}">LEARN MORE<i class="fa fa-long-arrow-right"></i></a>
+                                {{-- <a href="#">LEARN MORE<i class="fa fa-long-arrow-right"></i></a> --}}
                             </div>
                         </div>
                     </div>
@@ -112,13 +112,9 @@
                             </div>
                             <div class="single-content">
                                 {{-- <span>Donec luctus</span> --}}
-                                <h4>Opening Hours</h4>
-                                <ul class="time-sidual">
-                                    <li class="day">Monday - Friday <span>8.00-20.00</span></li>
-                                    <li class="day">Saturday <span>9.00-18.30</span></li>
-                                    <li class="day">Monday - Thusday <span>9.00-15.00</span></li>
-                                </ul>
-                                <a href="#">LEARN MORE<i class="fa fa-long-arrow-right"></i></a>
+                                <h4>About Us</h4>
+                                <p>Digital Clinic stands as a healthcare solution, seamlessly blending cutting-edge technology with compassion. </p>
+                                {{-- <a href="#">LEARN MORE<i class="fa fa-long-arrow-right"></i></a> --}}
                             </div>
                         </div>
                     </div>

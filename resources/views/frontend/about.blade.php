@@ -29,10 +29,8 @@
             <div class="col-lg-6 col-md-12 p-0">
                 <div class="about-content">
                     <span>About Us</span>
-                    <h2>Short Story About Fovia Clinic Since 1999</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra
-                        maecenas accumsan lacus vel facilisis.</p>
+                    <h2>Digital Clinic</h2>
+                    <p>DigitalClinic stands as a groundbreaking healthcare solution, seamlessly blending cutting-edge technology with compassion. Patients experience a paradigm shift in healthcare access through an intuitive platform where appointments are effortlessly booked, and video consultations connect them to medical experts. Doctors benefit from streamlined processes, managing appointments and health records with unprecedented ease. Administrators ensure platform integrity, completing a trifecta that transforms traditional healthcare into a digitally-driven, user-centric experience. In this narrative of innovation, DigitalClinic emerges as a beacon, reshaping the landscape of healthcare and fostering a healthier, more connected community.</p>
                     <ul>
                         <li><i class="icofont-tick-mark"></i> Scientific Skills For getting a better result</li>
                         <li><i class="icofont-tick-mark"></i> Communication Skills to getting in touch</li>
@@ -57,8 +55,7 @@
                         <i class="icofont-tick-mark"></i>
                     </div>
                     <h3>Our Mission</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Quis ipsum suspendisse.</p>
+                    <p>Our mission is to revolutionize healthcare accessibility through technology and empathy. We are committed to providing a user-centric platform that simplifies the healthcare journey, breaking down barriers for individuals seeking quality care. Through innovation and compassion, we aim to create a healthier, more connected world.</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 col-12">
@@ -67,8 +64,7 @@
                         <i class="icofont-tick-mark"></i>
                     </div>
                     <h3>Our Planning</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Quis ipsum suspendisse.</p>
+                    <p>Our planning is strategic and forward-thinking, focusing on both short-term objectives and long-term goals. We prioritize adaptability, ensuring our approach remains agile in the dynamic landscape of our industry. This thoughtful strategy guides us toward sustainable growth and success.</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 col-12">
@@ -77,8 +73,7 @@
                         <i class="icofont-tick-mark"></i>
                     </div>
                     <h3>Our Vision</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Quis ipsum suspendisse.</p>
+                    <p>Our vision is to pioneer a future where healthcare is seamlessly accessible to all through cutting-edge technology and compassionate innovation. We envision a world where barriers to quality care are dismantled, fostering a global community that thrives on holistic well-being. The Platform you can trust.</p>
                 </div>
             </div>
         </div>
@@ -93,36 +88,35 @@
                 <div class="our-mission-content">
                     <span class="sub-title">Our Mission &amp; Vision</span>
                     <h2>Better Information, Better Health</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.</p>
+                    <p>Our mission is to redefine healthcare accessibility through technology and compassion. Our vision is a future where seamless, inclusive healthcare empowers individuals worldwide.</p>
                     <ul>
                         <li>
                             <div class="icon">
                                 <i class="icofont-doctor"></i>
                             </div>
                             <span>Professional Staff</span>
-                            Lorem ipsum dolor sit amet sit, consectetur adipiscing elit.
+                            Our professional staff, committed to excellence, ensures the highest standard of service in every aspect of healthcare.
                         </li>
                         <li>
                             <div class="icon">
                                 <i class="icofont-kid"></i>
                             </div>
-                            <span>Newborn Care</span>
-                            Lorem ipsum dolor sit amet sit, consectetur adipiscing elit.
+                            <span>Well Qualified Doctors</span>
+                            Our team of well-qualified doctors brings expertise and dedication, ensuring top-notch healthcare for our patients.
                         </li>
                         <li>
                             <div class="icon">
                                 <i class="icofont-laboratory"></i>
                             </div>
-                            <span>Sufficient Lab Tests</span>
-                            Lorem ipsum dolor sit amet sit, consectetur adipiscing elit.
+                            <span>Commitment to Patient-Centric Care</span>
+                            Emphasizing our unwavering dedication to placing patients at the forefront, ensuring personalized and empathetic healthcare experiences.
                         </li>
                         <li>
                             <div class="icon">
                                 <i class="icofont-tooth"></i>
                             </div>
-                            <span>Tooth Extraction</span>
-                            Lorem ipsum dolor sit amet sit, consectetur adipiscing elit.
+                            <span>Excellence in Medical Services</span>
+                            Striving for excellence in every aspect of medical services, ensuring the highest quality care for our patients.
                         </li>
                     </ul>
                 </div>
@@ -143,8 +137,7 @@
                 <!-- Start Newsletter Form -->
                 <div class="subscribe-text ">
                     <h6>Sign up for newsletter</h6>
-                    <p class="">Cu qui soleat partiendo urbanitas. Eum aperiri indoctum eu,<br> homero
-                        alterum.</p>
+                    <p class="">Sign up for newsletter to get notifications about Discounts.</p>
                 </div>
                 <!-- End Newsletter Form -->
             </div>
